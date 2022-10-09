@@ -1,0 +1,9 @@
+{
+    "name": "DevXP",
+    "repo": "brnkl/BRNKL-functions",
+    "deployment": {
+        "type": "release"
+    },
+    "start": "01/02/2022",
+    "end": "01/08/2022"
+}
