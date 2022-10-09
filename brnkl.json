@@ -6,19 +6,37 @@
     "repos": [
         {
             "id": "brnkl/BRNKL-Black-FW",
-            "deployment": 0
+            "deployment": 0,
+            "failures": {
+                "type": -1
+            }
         },
         {
             "id": "brnkl/BRNKL-functions",
-            "deployment": 0
+            "deployment": 0,
+            "failures": {
+                "type": 0,
+                "url": "barnaclesys.atlassian.net",
+                "project": "BAC"
+            }
         },
         {
             "id": "brnkl/BRNKL-base",
-            "deployment": 0
+            "deployment": 0,
+            "failures": {
+                "type": 0,
+                "url": "barnaclesys.atlassian.net",
+                "project": "BASE"
+            }
         },
         {
             "id": "brnkl/BRNKL-app",
-            "deployment": 0
+            "deployment": 0,
+            "failures": {
+                "type": 0,
+                "url": "barnaclesys.atlassian.net",
+                "project": "APP"
+            }
         }
     ]
 }
