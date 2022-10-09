@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 
-REPO="brnkl/BRNKL-app"
+REPO="brnkl/BRNKL-functions"
 
 # 0 = release
 # 1 = tag
 #TODO: Actions
-DEPLOYMENT=0
+DEPLOYMENT=1
 START="Oct 10 2022"
 END="Jan 01 2019"
 VERBOSE=1
@@ -42,37 +42,31 @@ gh repo clone "$REPO" "$WORKING_DIR" >/dev/null 2>/dev/null || {
 	exit 1
 }
 cd "$WORKING_DIR"
-
-[[ "$deployment" -eq 0 ]] && {
-	deployments=$( gh release list --repo "$REPO" -L 1000 | cut -f3  )
-} || [[ "$deployment" -eq 1 ]] && {
-	deployments=$( git tag | grep 'v[0-9]*.[0-9]*.[0-9]*' )
-} || {
-	echo "Unknown deployment ($deployment)"
-	exit 2
+[[ "$DEPLOYMENT" -eq 0 ]] && {
+	deployments=$( gh release list --repo "$REPO" -L 1000 | cut -f3 | tac )
+}
+[[ "$DEPLOYMENT" -eq 1 ]] && {
+	deployments=$( git for-each-ref --sort=creatordate --format '%(refname)' refs/tags | sed 's/^refs\/tags\///g' )
 }
 n=$( echo "$deployments" | wc -l )
-
 sum=0
 count=0
 for i in $(seq 1 $(( $n - 1 )) )
 do
 	echo -ne "Calculating Lead Time for Changes: $(( $i * 100 / $n ))% Complete\r"
-	tag=$( echo "$deployments" | head -n "$(( $i + 1))" | tail -n1 )
-	time=$( git log -1 --format=%ai "$tag" )
-
 	prev_tag=$( echo "$deployments" | head -n "$i" | tail -n1)
+	tag=$( echo "$deployments" | head -n "$(( $i + 1 ))" | tail -n1 )
+
 	prev_time=$( git log -1 --format=%ai "$prev_tag" )
+	time=$( git log -1 --format=%ai "$tag" )
 
 	[[ $( date -d "$prev_time" +%s ) -lt $( date -d "$END" +%s ) ]] && {
 		continue
 	}
 
-
 	[[ $( date -d "$time" +%s ) -gt $( date -d "$START" +%s ) ]] && {
 		continue
 	}
-
 	commits=$( git log --date=local --pretty=format:"%H %ad" --since "$prev_time" --until "$time" --first-parent | head -n-1 )
 
 	time=$( echo "$time" | cut -d' ' -f1-2 )
