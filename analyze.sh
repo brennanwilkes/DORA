@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
 
-REPO="brnkl/BRNKL-functions"
+REPO="brnkl/BRNKL-app"
 
 # 0 = release
+# 1 = tag
 #TODO: Actions
 DEPLOYMENT=0
 START="Oct 10 2022"
@@ -31,29 +32,42 @@ print_time() {
 
 #####
 
-gh auth status || gh auth login
+echo -ne "Authenticating with GitHub...\r"
+gh auth status >/dev/null 2>/dev/null || gh auth login
 
+echo -ne "Cloning repo ($REPO)...\r"
 [ -d "$WORKING_DIR" ] && rm -rf "$WORKING_DIR"
-gh repo clone "$REPO" "$WORKING_DIR"
+gh repo clone "$REPO" "$WORKING_DIR" >/dev/null 2>/dev/null || {
+	echo "Something went wrong cloning repo ($REPO) into ($WORKING_DIR)"
+	exit 1
+}
 cd "$WORKING_DIR"
 
-releases=$( gh release list --repo "$REPO" -L 100 | cut -f3  )
-n=$( echo "$releases" | wc -l )
+[[ "$deployment" -eq 0 ]] && {
+	deployments=$( gh release list --repo "$REPO" -L 1000 | cut -f3  )
+} || [[ "$deployment" -eq 1 ]] && {
+	deployments=$( git tag | grep 'v[0-9]*.[0-9]*.[0-9]*' )
+} || {
+	echo "Unknown deployment ($deployment)"
+	exit 2
+}
+n=$( echo "$deployments" | wc -l )
 
 sum=0
 count=0
 for i in $(seq 1 $(( $n - 1 )) )
 do
 	echo -ne "Calculating Lead Time for Changes: $(( $i * 100 / $n ))% Complete\r"
-	prev_tag=$( echo "$releases" | head -n "$(( $i + 1))" | tail -n1 )
+	tag=$( echo "$deployments" | head -n "$(( $i + 1))" | tail -n1 )
+	time=$( git log -1 --format=%ai "$tag" )
+
+	prev_tag=$( echo "$deployments" | head -n "$i" | tail -n1)
 	prev_time=$( git log -1 --format=%ai "$prev_tag" )
 
 	[[ $( date -d "$prev_time" +%s ) -lt $( date -d "$END" +%s ) ]] && {
 		continue
 	}
 
-	tag=$( echo "$releases" | head -n "$i" | tail -n1)
-	time=$( git log -1 --format=%ai "$tag" )
 
 	[[ $( date -d "$time" +%s ) -gt $( date -d "$START" +%s ) ]] && {
 		continue
@@ -86,11 +100,11 @@ es=$( date -d "$END" +%s )
 delta=$(( $ss - $es ))
 avg1=$(( $delta / $n ))
 
-
+echo "DORA Report for $REPO                    "
 echo "Deployment Frequency every $( print_time $avg1 ). ($n deployments over $( print_time $delta ))"
 [[ "$count" -gt 0 ]] && {
 	avg2=$(( $sum / $count ))
-	echo "Lead Time for Changes averages $( print_time $avg2 ). ($count commits across $n deployments)"
+	echo "Lead Time for Changes averages $( print_time $avg2 ). ($count commits across $n deployments over $( print_time $delta ))"
 }
 
 # rm -rf "$WORKING_DIR"
