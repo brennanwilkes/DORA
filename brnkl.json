@@ -1,0 +1,24 @@
+{
+    "name": "brnkl",
+    "end": "Oct 10 2022",
+    "start": "Jan 01 2019",
+    "results": "brnkl-results.json",
+    "repos": [
+        {
+            "id": "brnkl/BRNKL-Black-FW",
+            "deployment": 0
+        },
+        {
+            "id": "brnkl/BRNKL-functions",
+            "deployment": 0
+        },
+        {
+            "id": "brnkl/BRNKL-base",
+            "deployment": 0
+        },
+        {
+            "id": "brnkl/BRNKL-app",
+            "deployment": 0
+        }
+    ]
+}
