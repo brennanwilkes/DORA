@@ -150,7 +150,7 @@ Promise.all(config.repos.map(async (repo, i) => {
 		else{
 			console.log(`Mean Time to Recover (Regular): ${performer(result.averageFailureDelta, MeanTimetoRecoverScale)} Performer (Average: ${meanTime})`);
 			console.log(`Mean Time to Recover (Critical): ${performer(result.averageCritialFailureDelta, MeanTimetoRecoverScale)} Performer (Average: ${meanTimeCritical})`);
-			if(result.deployments > 0){
+			if(result.deployments.length > 0){
 				console.log(`Change Failure Rate: ${performer(result.totalCriticalFailures / result.deployments.length, ChangeFailureRateScale)} (${Math.round(result.totalCriticalFailures / result.deployments.length * 100)}%)`);
 			}
 			else{
