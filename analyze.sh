@@ -8,17 +8,33 @@ REPO="brnkl/BRNKL-functions"
 DEPLOYMENT=0
 START="Oct 10 2022"
 END="Jan 01 2019"
+VERBOSE=1
 
 ############
 
 WORKING_DIR="$(pwd)/temp"
 
+print_time() {
+	minute=60
+	hour=$((  $minute * 60 ))
+	day=$(( $hour * 24 ))
+	week=$(( $day * 7 ))
+	month=$(( $day * 365 / 12 ))
+	year=$(( $day * 365 ))
+	[[ "$1" -gt "$year" ]] && echo "$(( $1 / $year )) years" && return
+	[[ "$1" -gt "$month" ]] && echo "$(( $1 / $month )) months" && return
+	[[ "$1" -gt "$week" ]] && echo "$(( $1 / $week )) weeks" && return
+	[[ "$1" -gt "$day" ]] && echo "$(( $1 / $day )) days" && return
+	[[ "$1" -gt "$hour" ]] && echo "$(( $1 / $hour )) hours" && return
+	[[ "$1" -gt "$minute" ]] && echo "$(( $1 / $minute )) minutes" && return || echo "$1 seconds"
+}
+
 #####
 
-# gh auth status || gh auth login
+gh auth status || gh auth login
 
-# [ -d "$WORKING_DIR" ] && rm -rf "$WORKING_DIR"
-# gh repo clone "$REPO" "$WORKING_DIR"
+[ -d "$WORKING_DIR" ] && rm -rf "$WORKING_DIR"
+gh repo clone "$REPO" "$WORKING_DIR"
 cd "$WORKING_DIR"
 
 releases=$( gh release list --repo "$REPO" -L 100 | cut -f3  )
@@ -28,6 +44,7 @@ sum=0
 count=0
 for i in $(seq 1 $(( $n - 1 )) )
 do
+	echo -ne "Calculating Lead Time for Changes: $(( $i * 100 / $n ))% Complete\r"
 	prev_tag=$( echo "$releases" | head -n "$(( $i + 1))" | tail -n1 )
 	prev_time=$( git log -1 --format=%ai "$prev_tag" )
 
@@ -42,7 +59,6 @@ do
 		continue
 	}
 
-	# git log --date=local --pretty=format:"%H %ad %B" --since "$prev_time" --until "$time" --first-parent | head -n-1
 	commits=$( git log --date=local --pretty=format:"%H %ad" --since "$prev_time" --until "$time" --first-parent | head -n-1 )
 
 	time=$( echo "$time" | cut -d' ' -f1-2 )
@@ -65,6 +81,16 @@ do
 	done <<< "$commits"
 done
 
-[[ "$count" -gt 0 ]] && echo "Average $(( $sum / $count / 60 / 60 / 24 )) days"
+ss=$( date -d "$START" +%s )
+es=$( date -d "$END" +%s )
+delta=$(( $ss - $es ))
+avg1=$(( $delta / $n ))
+
+
+echo "Deployment Frequency every $( print_time $avg1 ). ($n deployments over $( print_time $delta ))"
+[[ "$count" -gt 0 ]] && {
+	avg2=$(( $sum / $count ))
+	echo "Lead Time for Changes averages $( print_time $avg2 ). ($count commits across $n deployments)"
+}
 
 # rm -rf "$WORKING_DIR"
