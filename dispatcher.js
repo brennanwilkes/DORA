@@ -7,6 +7,32 @@ const fn = process.argv[2]
 const config = JSON.parse(fs.readFileSync(fn, 'utf8'));
 let completed = 0
 
+const MINUTE = 60;
+const HOUR = MINUTE * 60;
+const DAY = HOUR * 24;
+const WEEK = DAY * 7;
+const YEAR = DAY * 365;
+const MONTH = YEAR / 12;
+const DeploymentFrequencyScale = [DAY, WEEK, MONTH, MONTH * 6];
+const LeadTimeforChangesScale = [DAY, WEEK, MONTH, MONTH * 6];
+const MeanTimetoRecoverScale = [HOUR, DAY, WEEK, MONTH];
+const ChangeFailureRateScale = [0.15, 0.3, 0.45, 0.6];
+const performer = (val, scale) => {
+	if(val < scale[0]){
+		return "Elite";
+	}
+	if(val < scale[1]){
+		return "High";
+	}
+	if(val < scale[2]){
+		return "Medium";
+	}
+	if(val < scale[3]){
+		return "Low";
+	}
+	return "Critically Low";
+}
+
 console.log(`Starting study ${config.name} from ${config.start} to ${config.end}`)
 Promise.all(config.repos.map(async (repo, i) => {
 	console.log(`Analyzing ${repo.id} with deployment=${repo.deployment === 0 ? "releases" : "tags"}`);
@@ -99,8 +125,39 @@ Promise.all(config.repos.map(async (repo, i) => {
 			averageCritialFailureDelta: failures.filter(f => f.critical).reduce((acc, nxt) => acc + nxt.delta, 0) / (failures.filter(f => f.critical).length || 1),
 		});
 	}
-})).then(results => {
+})).then(async results => {
 	const output = {name: config.name, start: config.start, end: config.end, results}
 	const serialized = JSON.stringify(output, null, 4);
 	fs.writeFileSync(config.results, serialized);
+	fs.createWriteStream(null, {fd: 3}).write(`${config.results}`);
+
+	console.log("==========REPORT==========");
+	await Promise.all(results.map(async (result, i) => {
+
+		const freq = (await exec(`./print_time.sh ${Math.round(result.deploymentFrequency)}`)).stdout.trim();
+		const leadTime = (await exec(`./print_time.sh ${Math.round(result.averageDelta)}`)).stdout.trim();
+		const meanTime = (await exec(`./print_time.sh ${Math.round(result.averageFailureDelta)}`)).stdout.trim();
+		const meanTimeCritical = (await exec(`./print_time.sh ${Math.round(result.averageCritialFailureDelta)}`)).stdout.trim();
+
+		console.log(`----|${result.repo}|----`);
+		console.log(`Deployment Frequency: ${performer(result.deploymentFrequency, DeploymentFrequencyScale)} Performer (Average: ${freq})`);
+		console.log(`Lead Time for Changes: ${performer(result.averageDelta, LeadTimeforChangesScale)} Performer (Average: ${leadTime})`);
+		if(result.failures.length == 0){
+			console.log("Mean Time to Recover (Regular): n/a");
+			console.log("Mean Time to Recover (Critical): n/a");
+			console.log(`Change Failure Rate: n/a`);
+		}
+		else{
+			console.log(`Mean Time to Recover (Regular): ${performer(result.averageFailureDelta, MeanTimetoRecoverScale)} Performer (Average: ${meanTime})`);
+			console.log(`Mean Time to Recover (Critical): ${performer(result.averageCritialFailureDelta, MeanTimetoRecoverScale)} Performer (Average: ${meanTimeCritical})`);
+			if(result.deployments > 0){
+				console.log(`Change Failure Rate: ${performer(result.totalCriticalFailures / result.deployments.length, ChangeFailureRateScale)} (${Math.round(result.totalCriticalFailures / result.deployments.length * 100)}%)`);
+			}
+			else{
+				console.log(`Change Failure Rate: n/a`);
+			}
+		}
+	}));
+	console.log("==========================");
+
 });

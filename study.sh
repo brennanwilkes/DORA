@@ -16,4 +16,7 @@ cat "$1" | tr -d '\n' | tr -d ' ' | tr -d '\t' | grep -Eo "failures[^}]*}" | gre
 	}
 }
 
-node dispatcher.js "$1"
+resultsFile=$( mktemp )
+node dispatcher.js "$1" 3>"$resultsFile"
+echo "Report can be read in $( cat $resultsFile )"
+rm "$resultsFile"
