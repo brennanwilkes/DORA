@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+ROOT="$(pwd)"
 
 REPO="$1"
 DEPLOYMENT="$2"
@@ -48,7 +49,15 @@ do
 	for issue in $ISSUES
 	do
 		((i=i%N)); ((i++==0)) && wait
-		gh issue view --repo "$REPO" "$issue" -c | grep -Eoi '(fixed|closed|closes|resolved|included).*(in|with|by|under|after).*(#[0-9]{0,4}|v?[0-9]+.[0-9]+.[0-9]+[a-zA-Z_0-9-]*)' | grep -Eo -e '(#[0-9]{1,4}|[0-9]+\.[0-9]+\.[0-9]+)' | tr -d "'" | xargs -n1 -I {} echo "$issue {}" 2>/dev/null &
+		pull_requests=$( gh api "/repos/$REPO/issues/$issue/timeline" | grep -Eo 'pull/[0-9]{1,4}' | sort | uniq | cut -d '/' -f2 )
+		for pull_request in $pull_requests
+		do
+			sha=$( gh api "/repos/$REPO/pulls/$pull_request/commits" 2>/dev/null | node "$ROOT/parse_pr_commit_json.js" 1 2>/dev/null )
+			date=$( gh api "/repos/$REPO/pulls/$pull_request" 2>/dev/null | node "$ROOT/parse_pr_commit_json.js" 0 2>/dev/null )
+			[[ "$sha" != "undefined" ]] && [[ "$date" != "0" ]] && {
+				echo "$issue,$pull_request,$sha,$date"
+			}
+		done
 	done
 	wait
 done
