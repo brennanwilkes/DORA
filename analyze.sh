@@ -52,7 +52,7 @@ analyzeDeployment() {
 	[[ $( date -d "$time" +%s ) -gt $( date -d "$START" +%s ) ]] && {
 		return
 	}
-	commits=$( git log --date=local --pretty=format:"%H %ad" --since "$prev_time" --until "$time" --first-parent | head -n-1 )
+	commits=$( git log --date=local --pretty=format:"%H %ad" --since "$prev_time" --until "$time" | head -n-1 )
 
 	time=$( echo "$time" | cut -d' ' -f1-2 )
 	while IFS= read -r commit; do
