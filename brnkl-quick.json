@@ -1,0 +1,26 @@
+{
+    "name": "brnkl",
+    "end": "Oct 10 2022",
+    "start": "Jan 01 2019",
+    "results": "brnkl-quick-results.json",
+    "repos": [
+        {
+            "id": "brnkl/BRNKL-functions",
+            "deployment": 0,
+            "failures": {
+                "type": 0,
+                "url": "barnaclesys.atlassian.net",
+                "project": "BAC"
+            }
+        },
+        {
+            "id": "brnkl/BRNKL-app",
+            "deployment": 0,
+            "failures": {
+                "type": 0,
+                "url": "barnaclesys.atlassian.net",
+                "project": "APP"
+            }
+        }
+    ]
+}

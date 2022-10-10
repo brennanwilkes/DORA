@@ -10,7 +10,6 @@ export WORKING_DIR="$(pwd)/$hash"
 
 #####
 
-# echo -ne "Cloning repo ($REPO)...\r"
 [ -d "$WORKING_DIR" ] && rm -rf "$WORKING_DIR"
 tmpOutput="$(mktemp)"
 gh repo clone "$REPO" "$WORKING_DIR" >"$tmpOutput" 2>"$tmpOutput" || {
@@ -90,4 +89,4 @@ do
 	analyzeDeployment "$i" &
 done
 wait
-rm -rf "$WORKING_DIR"
+[ -d "$WORKING_DIR" ] && rm -rf "$WORKING_DIR"
