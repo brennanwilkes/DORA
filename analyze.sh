@@ -29,11 +29,22 @@ cd "$WORKING_DIR"
 }
 n=$( echo "$deployments" | wc -l )
 
+[[ "$n" -gt 2 ]] && {
+	first_tag=$( echo "$deployments" | head -n1 )
+	first_time=$( git log -1 --format=%ai "$first_tag" )
+	last_tag=$( echo "$deployments" | tail -n1 )
+	last_time=$( git log -1 --format=%ai "$last_tag" )
+	ss=$( date -d "$last_time" +%s )
+	es=$( date -d "$first_time" +%s )
+	delta=$(( $ss - $es ))
+	avg1=$(( $delta / $(( $n - 2 )) ))
+} || {
+	ss=$( date -d "$START" +%s )
+	es=$( date -d "$END" +%s )
+	delta=$(( $ss - $es ))
+	avg1=$(( $delta / $n ))
+}
 
-ss=$( date -d "$START" +%s )
-es=$( date -d "$END" +%s )
-delta=$(( $ss - $es ))
-avg1=$(( $delta / $n ))
 echo "$ss,$es,$delta,$n,$avg1"
 
 analyzeDeployment() {

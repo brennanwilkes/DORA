@@ -9,13 +9,14 @@ do
 	for issue in $ISSUES
 	do
 		pull_requests=$( gh api "/repos/$REPO/issues/$issue/timeline" | grep -Eo 'pull/[0-9]{1,4}' | sort | uniq | cut -d '/' -f2 )
+		created_at=$( gh api "/repos/$REPO/issues/$issue" | grep -Eo 'created_at[^,]*,' | head -n1 | cut -d':' -f2- | tr -d '"' | tr -d ',' )
+		created_at=$( date --date="$created_at" +%s )
 		for pull_request in $pull_requests
 		do
-			sha=$( gh api "/repos/$REPO/pulls/$pull_request/commits" 2>/dev/null | node "$ROOT/parse_pr_commit_json.js" 1 2>/dev/null )
+			sha=$( gh api "/repos/$REPO/pulls/$pull_request" 2>/dev/null | node "$ROOT/parse_pr_commit_json.js" 2 2>/dev/null )
 			date=$( gh api "/repos/$REPO/pulls/$pull_request" 2>/dev/null | node "$ROOT/parse_pr_commit_json.js" 0 2>/dev/null )
-			[[ "$sha" != "undefined" ]] && [[ "$date" != "0" ]] && {
-				echo "$issue,$pull_request,$sha,$date"
-				cat "$ROOT/balena-results.json" | grep "$sha" >/dev/null && echo "HIT!!! ($sha)"
+			[[ "$sha" != "undefined" ]] && [[ "$date" != "0" ]] && [[ "$date" -gt "$created_at"  ]] && {
+				echo "$issue,$pull_request,$sha,$created_at,$date"
 			}
 		done
 	done

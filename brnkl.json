@@ -37,6 +37,15 @@
                 "url": "barnaclesys.atlassian.net",
                 "project": "APP"
             }
+        },
+        {
+            "id": "brnkl/BRNKL-black",
+            "deployment": 1,
+            "failures": {
+                "type": 0,
+                "url": "barnaclesys.atlassian.net",
+                "project": "BRNKLB"
+            }
         }
     ]
 }
