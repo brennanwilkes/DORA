@@ -5,12 +5,12 @@
     "results": "brnkl-quick-results.json",
     "repos": [
         {
-            "id": "brnkl/BRNKL-black",
-            "deployment": 1,
+            "id": "brnkl/BRNKL-base",
+            "deployment": 0,
             "failures": {
                 "type": 0,
                 "url": "barnaclesys.atlassian.net",
-                "project": "BRNKLB"
+                "project": "BASE"
             }
         }
     ]

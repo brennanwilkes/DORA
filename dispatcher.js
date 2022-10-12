@@ -89,7 +89,6 @@ Promise.all(config.repos.map(async (repo, i) => {
 					resolved = failure.resolved;
 					const sorted = Object.keys(deployments).filter(k => deployments[k].date > failure.created).sort((a,b) => deployments[a].date - deployments[b].date);
 					if(sorted.length > 0){
-						console.log(sorted[0])
 						failure.version = sorted[0];
 					}
 				}
@@ -109,14 +108,13 @@ Promise.all(config.repos.map(async (repo, i) => {
 					else{
 						const potential = Object.keys(deployments).filter(version => version.match(new RegExp(stripped))).filter(version => deployments[version].date > failure.created);
 						if(potential.length > 0){
-							resolve = potential[0].date;
+							resolved = deployments[potential[0]].date;
 						}
 						else{
 							resolved = failure.resolved;
 						}
 					}
 				}
-
 				return {
 					...failure,
 					resolved,
@@ -163,7 +161,6 @@ Promise.all(config.repos.map(async (repo, i) => {
 				return null;
 			}).filter(i => i !== null);
 		}
-
 		failures.forEach((failure, i) => {
 			const sorted = Object.keys(deployments).filter(k => deployments[k].date < failure.created).sort((a,b) => deployments[b].date - deployments[a].date);
 			if(sorted.length > 0){
@@ -171,7 +168,6 @@ Promise.all(config.repos.map(async (repo, i) => {
 				deployments[sorted[0]].hasCriticalFailure = deployments[sorted[0]].hasCriticalFailure || failure.critical;
 			}
 		});
-
 
 		completed += 1
 		console.log(`Completed ${repo.id} in ${Math.round((Date.now() - startTime) / 1000)}s (${completed}/${config.repos.length})`);
