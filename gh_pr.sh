@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 ROOT="$(pwd)"
 REPO="$1"
-BUG_LABELS=$( gh label list -L 1000 --repo "$REPO" | grep -i bug | cut -d'	' -f1 )
+BUG_LABELS=$( gh label list -L 1000 --repo "$REPO" | cut -d$'\t' -f1 | grep -i bug )
 
-for label in $BUG_LABELS
-do
-	ISSUES=$( gh issue list --repo "$REPO" -l "$label" -L 1000 --search "is:closed" | cut -d'	' -f1 )
+while IFS="\n" read -r label; do
+	ISSUES=$( gh issue list --repo "$REPO" -l "$label" -L 1000 --search "is:closed" | cut -d$'\t' -f1 )
 	for issue in $ISSUES
 	do
 		pull_requests=$( gh api "/repos/$REPO/issues/$issue/timeline" | grep -Eo 'pull/[0-9]{1,4}' | sort | uniq | cut -d '/' -f2 )
@@ -21,4 +20,4 @@ do
 		done
 	done
 	wait
-done
+done <<< "$BUG_LABELS"

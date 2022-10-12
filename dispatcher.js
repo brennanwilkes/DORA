@@ -35,7 +35,8 @@ const performer = (val, scale) => {
 
 console.log(`Starting study ${config.name} from ${config.start} to ${config.end}`)
 Promise.all(config.repos.map(async (repo, i) => {
-	console.log(`Analyzing ${repo.id} with deployment=${repo.deployment === 0 ? "releases" : "tags"}`);
+	const failType = repo.failures?.type;
+	console.log(`Analyzing ${repo.id} with deployment=${repo.deployment === 0 ? "releases" : "tags"}, failures=${failType === 0 ? "jira" : (failType === 1 ? "issues" : "n/a")}`);
 	const startTime = Date.now();
 
 	const analysis = await exec(`./analyze.sh ${repo.id} ${repo.deployment} "${config.end}" "${config.start}"`);
