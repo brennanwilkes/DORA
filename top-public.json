@@ -5,13 +5,6 @@
     "results": "top-public-results.json",
     "repos": [
         {
-            "id": "vuejs/vue",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            }
-        },
-        {
             "id": "facebook/react",
             "deployment": 0,
             "failures": {
@@ -127,6 +120,13 @@
                 "custom": [
                     "confirmed"
                 ]
+            }
+        },
+        {
+            "id": "vuejs/vue",
+            "deployment": 0,
+            "failures": {
+                "type": 1
             }
         }
     ]

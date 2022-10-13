@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-# gh auth status >/dev/null 2>/dev/null || gh auth login
+echo "====================================================================================================================================" >>log
+echo "Launcing study..." >>log
+
+gh auth status >>log 2>>log || gh auth login
 
 eval $( cat .env | grep '^[^#]' |xargs -n1 echo export )
 
@@ -16,4 +19,4 @@ cat "$1" | tr -d '\n' | tr -d ' ' | tr -d '\t' | grep -Eo "failures[^}]*}" | gre
 	}
 }
 
-node dispatcher.js "$1" 
+node dispatcher.js "$1"

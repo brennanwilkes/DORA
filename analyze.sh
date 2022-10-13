@@ -4,31 +4,39 @@ export REPO="$1"
 export DEPLOYMENT="$2"
 export START="$3"
 export END="$4"
+export ROOT="$( pwd )"
 
 export hash=$( echo "$REPO" | shasum | cut -d' ' -f1)
-export WORKING_DIR="$(pwd)/$hash"
+export WORKING_DIR="$ROOT/$hash"
 
 #####
 
+log() {
+	$ROOT/log.sh "$ROOT" "$@"
+}
+
+
+RATE_LIMIT=$( $ROOT/rate_limit.sh "$ROOT" )
+
 [ -d "$WORKING_DIR" ] && rm -rf "$WORKING_DIR"
-tmpOutput="$(mktemp)"
-gh repo clone "$REPO" "$WORKING_DIR" >"$tmpOutput" 2>"$tmpOutput" || {
+gh repo clone "$REPO" "$WORKING_DIR" >>log 2>>log || {
 	echo "Something went wrong cloning repo ($REPO) into ($WORKING_DIR)" >&2
-	cat "$tmpOutput" >&2
-	rm "$tmpOutput"
 	exit 1
 }
 rm -rf "$WORKING_DIR/*"
-rm "$tmpOutput"
 
 cd "$WORKING_DIR"
 [[ "$DEPLOYMENT" -eq 0 ]] && {
+	RATE_LIMIT=$( $ROOT/rate_limit.sh "$ROOT" )
+	log "Using gh releases strategy. Requesting releases from GitHub"
 	export deployments=$( gh release list --repo "$REPO" -L 1000 | cut -f3 | tac )
 }
 [[ "$DEPLOYMENT" -eq 1 ]] && {
+	log "Using git tags strategy. Requesting releases from local repo"
 	export deployments=$( git for-each-ref --sort=creatordate --format '%(refname)' refs/tags | sed 's/^refs\/tags\///g' )
 }
 n=$( echo "$deployments" | wc -l )
+log "Found $n deployments"
 
 [[ "$n" -gt 2 ]] && {
 	first_tag=$( echo "$deployments" | head -n1 )
@@ -46,6 +54,7 @@ n=$( echo "$deployments" | wc -l )
 	avg1=$(( $delta / $n ))
 }
 
+log "Time used: $es -> $ss with delta ($delta) and average ($avg1)"
 echo "$ss,$es,$delta,$n,$avg1"
 
 analyzeDeployment() {
@@ -64,7 +73,13 @@ analyzeDeployment() {
 	[[ $( date -d "$time" +%s ) -gt $( date -d "$START" +%s ) ]] && {
 		return
 	}
+
+	log "Using $prev_tag -> $tag"
+	log "Using $prev_time -> $time"
+
 	commits=$( git log --date=local --pretty=format:"%H %ad" --since "$prev_time" --until "$time" | head -n-1 )
+
+	log Found $( echo "$commits" | wc -l ) commits
 
 	time=$( echo "$time" | cut -d' ' -f1-2 )
 	while IFS= read -r commit; do
@@ -92,12 +107,15 @@ analyzeCommit() {
 
 	diff=$(( $d1 - $d2 ))
 
+	log "Commit $sha: $d1 -> $d2 for diff ($diff)"
+
 	echo "$(echo $prev_tag | tr -d , ),$(echo $tag | tr -d , ),$sha,$d1,$d2,$diff"
 
 }
 
 for i in $(seq 1 $(( $n - 1 )) )
 do
+	log "Checking deployment $i"
 	analyzeDeployment "$i" &
 done
 wait

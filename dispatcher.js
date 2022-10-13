@@ -45,6 +45,7 @@ const main = async () => {
 			const analysis = await exec(`./analyze.sh ${repo.id} ${repo.deployment} "${config.end}" "${config.start}"`);
 			if(analysis.stderr){
 				reject(new Error(analysis.stderr))
+				return;
 			}
 			else{
 				const data = analysis.stdout.split("\n");
@@ -79,6 +80,7 @@ const main = async () => {
 					const jira = await exec(`./jira.sh "${repo.failures.url}" "${repo.failures.project}"`);
 					if(jira.stderr){
 						reject(new Error(jira.stderr));
+						return;
 					}
 					const jiraData = JSON.parse(jira.stdout);
 					failures = jiraData.issues.map((issue, i) => ({
