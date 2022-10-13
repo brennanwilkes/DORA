@@ -194,7 +194,9 @@ const main = async () => {
 				});
 			}
 		}).catch(err => {
+			console.error("ERR")
 			console.error(err);
+			console.error("ERR")
 			process.exit(1);
 		});
 

@@ -9,20 +9,20 @@ log() {
 
 RATE_LIMIT=$( $ROOT/rate_limit.sh "$ROOT" )
 
-BUG_LABELS=$( gh label list -L 1000 --repo "$REPO" | cut -d$'\t' -f1 | grep -i -e "bug" -e "confirm" -e "important" -e "critical" -e "high.*priority" )
+BUG_LABELS=$( gh label list -L 1000 --repo "$REPO" | cut -d$'\t' -f1 | grep -i -e "bug" -e "^confirm" -e "[^n]confirm" -e "important" -e "critical" -e "high.*priority" )
 
 [[ -z "$CUSTOM_LABELS" ]] || {
 	CUSTOM_LABELS=$( echo "$CUSTOM_LABELS" | xargs -n1 )
 	BUG_LABELS+=$'\n'$(printf '%s' "$CUSTOM_LABELS")
 }
 
-log "Using labels $BUG_LABELS"
+log "Using labels $( echo $BUG_LABELS | xargs )"
 
 while IFS="\n" read -r label; do
 	log "Querying for issues with label: $label"
 	RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
 	ISSUES=$( gh issue list --repo "$REPO" -l "$label" -L 1000 --search "is:closed" | cut -d$'\t' -f1 )
-	log Found $( echo "$RATE_LIMIT" | wc -l ) issues
+	log Found $( echo "$ISSUES" | wc -l ) issues
 	for issue in $ISSUES
 	do
 		RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
@@ -31,7 +31,7 @@ while IFS="\n" read -r label; do
 		created_at=$( gh api "/repos/$REPO/issues/$issue" | grep -Eo 'created_at[^,]*,' | head -n1 | cut -d':' -f2- | tr -d '"' | tr -d ',' )
 		created_at=$( date --date="$created_at" +%s )
 
-		log "Issue $issue, created at $created_at. Pull requests: $pull_requests"
+		log "Issue $issue, created at $created_at. Pull requests: $( echo $pull_requests | xargs )"
 
 		for pull_request in $pull_requests
 		do
