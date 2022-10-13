@@ -18,6 +18,7 @@ gh repo clone "$REPO" "$WORKING_DIR" >"$tmpOutput" 2>"$tmpOutput" || {
 	rm "$tmpOutput"
 	exit 1
 }
+rm -rf "$WORKING_DIR/*"
 rm "$tmpOutput"
 
 cd "$WORKING_DIR"

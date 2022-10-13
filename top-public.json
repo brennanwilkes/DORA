@@ -1,0 +1,133 @@
+{
+    "name": "Top Public Repos by GH Star Count",
+    "end": "Oct 10 2022",
+    "start": "Oct 10 2017",
+    "results": "top-public-results.json",
+    "repos": [
+        {
+            "id": "vuejs/vue",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "facebook/react",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "tensorflow/tensorflow",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "twbs/bootstrap",
+            "deployment": 0,
+            "failures": {
+                "type": 1,
+                "custom": [
+                    "confirmed"
+                ]
+            }
+        },
+        {
+            "id": "microsoft/vscode",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "facebook/react-native",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "electron/electron",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "facebook/create-react-app",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "vercel/next.js",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "kubernetes/kubernetes",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "nodejs/node",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "denoland/deno",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "microsoft/TypeScript",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "angular/angular",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "ant-design/ant-design",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "mui/material-ui",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "puppeteer/puppeteer",
+            "deployment": 1,
+            "failures": {
+                "type": 1,
+                "custom": [
+                    "confirmed"
+                ]
+            }
+        }
+    ]
+}

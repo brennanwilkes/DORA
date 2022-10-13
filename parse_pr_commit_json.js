@@ -5,6 +5,9 @@ if(process.argv[2] === "1"){
 else if(process.argv[2] === "2"){
 	console.log(json.merge_commit_sha)
 }
+else if(process.argv[2] === "3"){
+	console.log(json.rate.remaining, json.rate.reset);
+}
 else{
 	console.log(new Date(json.merged_at).getTime() / 1000)
 }

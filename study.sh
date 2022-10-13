@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-gh auth status >/dev/null 2>/dev/null || gh auth login
+# gh auth status >/dev/null 2>/dev/null || gh auth login
 
 eval $( cat .env | grep '^[^#]' |xargs -n1 echo export )
 
@@ -16,7 +16,4 @@ cat "$1" | tr -d '\n' | tr -d ' ' | tr -d '\t' | grep -Eo "failures[^}]*}" | gre
 	}
 }
 
-resultsFile=$( mktemp )
-node dispatcher.js "$1" 3>"$resultsFile"
-echo "Report can be read in $( cat $resultsFile )"
-rm "$resultsFile"
+node dispatcher.js "$1" 
