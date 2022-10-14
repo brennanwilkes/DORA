@@ -29,7 +29,7 @@ cd "$WORKING_DIR"
 [[ "$DEPLOYMENT" -eq 0 ]] && {
 	RATE_LIMIT=$( $ROOT/rate_limit.sh "$ROOT" )
 	log "Using gh releases strategy. Requesting releases from GitHub"
-	export deployments=$( gh release list --repo "$REPO" -L 1000 | cut -f3 | tac )
+	export deployments=$( gh release list --repo "$REPO" -L 1000 2>>"$ROOT/log" | cut -f3 | tac )
 }
 [[ "$DEPLOYMENT" -eq 1 ]] && {
 	log "Using git tags strategy. Requesting releases from local repo"
@@ -83,9 +83,8 @@ analyzeDeployment() {
 
 	time=$( echo "$time" | cut -d' ' -f1-2 )
 	while IFS= read -r commit; do
-		analyzeCommit "$commit" "$time" "$date" "$prev_tag" "$tag" &
+		analyzeCommit "$commit" "$time" "$date" "$prev_tag" "$tag"
 	done <<< "$commits"
-	wait
 }
 
 analyzeCommit() {
@@ -100,14 +99,13 @@ analyzeCommit() {
 	}
 
 	sha=$( echo "$commit" | cut -d' ' -f1 )
-	date=$( echo "$commit" | cut -d' ' -f2- | cut -d' ' -f1-5 | xargs -I {} date -d "{}" )
+	date=$( echo "$commit" | cut -d' ' -f2- | cut -d' ' -f1-5  )
+	date=$( date -d "$date" )
 
 	d1=$(date --date="$time" +%s)
 	d2=$(date --date="$date" +%s)
 
 	diff=$(( $d1 - $d2 ))
-
-	log "Commit $sha: $d1 -> $d2 for diff ($diff)"
 
 	echo "$(echo $prev_tag | tr -d , ),$(echo $tag | tr -d , ),$sha,$d1,$d2,$diff"
 
@@ -116,7 +114,6 @@ analyzeCommit() {
 for i in $(seq 1 $(( $n - 1 )) )
 do
 	log "Checking deployment $i"
-	analyzeDeployment "$i" &
+	analyzeDeployment "$i"
 done
-wait
 [ -d "$WORKING_DIR" ] && rm -rf "$WORKING_DIR"

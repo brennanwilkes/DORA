@@ -26,9 +26,19 @@ while IFS="\n" read -r label; do
 	for issue in $ISSUES
 	do
 		RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
-		pull_requests=$( gh api "/repos/$REPO/issues/$issue/timeline" | grep -Eo 'pull/[0-9]+' | sort | uniq | cut -d '/' -f2 )
+		pull_requests=$( gh api "/repos/$REPO/issues/$issue/timeline" 2>>"$ROOT/log" | grep -Eo '[^/]+/[^/]+/pull/[0-9]+' | grep "$REPO" | sort | uniq | cut -d '/' -f4 )
 		RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
-		created_at=$( gh api "/repos/$REPO/issues/$issue" | grep -Eo 'created_at[^,]*,' | head -n1 | cut -d':' -f2- | tr -d '"' | tr -d ',' )
+		created_at=$( gh api "/repos/$REPO/issues/$issue" 2>>"$ROOT/log" | grep -Eo 'created_at[^,]*,' | head -n1 | cut -d':' -f2- | tr -d '"' | tr -d ',' )
+
+		[[ -z "$created_at" ]] && {
+			log "created_at for issue=$issue returned empty"
+			continue
+		}
+		[[ -z "$pull_requests" ]] && {
+			log "pull_requests for issue=$issue returned empty"
+			continue
+		}
+
 		created_at=$( date --date="$created_at" +%s )
 
 		log "Issue $issue, created at $created_at. Pull requests: $( echo $pull_requests | xargs )"
@@ -36,9 +46,9 @@ while IFS="\n" read -r label; do
 		for pull_request in $pull_requests
 		do
 			RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
-			sha=$( gh api "/repos/$REPO/pulls/$pull_request" 2>/dev/null | node "$ROOT/parse_pr_commit_json.js" 2 2>/dev/null )
+			sha=$( gh api "/repos/$REPO/pulls/$pull_request" 2>>"$ROOT/log" | node "$ROOT/parse_pr_commit_json.js" 2 2>/dev/null )
 			RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
-			date=$( gh api "/repos/$REPO/pulls/$pull_request" 2>/dev/null | node "$ROOT/parse_pr_commit_json.js" 0 2>/dev/null )
+			date=$( gh api "/repos/$REPO/pulls/$pull_request" 2>>"$ROOT/log" | node "$ROOT/parse_pr_commit_json.js" 0 2>/dev/null )
 			log "$pull_request, Commit SHA: $sha, date: $date"
 
 			[[ "$sha" != "undefined" ]] && [[ "$date" != "0" ]] && [[ "$date" -gt "$created_at"  ]] && {

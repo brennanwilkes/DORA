@@ -42,7 +42,7 @@ const main = async () => {
 			console.log(`Analyzing ${repo.id} with deployment=${repo.deployment === 0 ? "releases" : "tags"}, failures=${failType === 0 ? "jira" : (failType === 1 ? "issues" : "n/a")}`);
 			const startTime = Date.now();
 
-			const analysis = await exec(`./analyze.sh ${repo.id} ${repo.deployment} "${config.end}" "${config.start}"`);
+			const analysis = await exec(`./analyze.sh ${repo.id} ${repo.deployment} "${config.end}" "${config.start}"`, {maxBuffer: 1024 * 1024 * 1024});
 			if(analysis.stderr){
 				reject(new Error(analysis.stderr))
 				return;
@@ -130,7 +130,7 @@ const main = async () => {
 				}
 				else if(repo.failures?.type === 1){
 					const custom = (repo.failures?.custom ?? []).join(" ");
-					const gh_pr = await exec(`./gh_pr.sh "${repo.id}"${custom.length > 0 ? ` "${custom}"` : ""}`);
+					const gh_pr = await exec(`./gh_pr.sh "${repo.id}"${custom.length > 0 ? ` "${custom}"` : ""}`, {maxBuffer: 1024 * 1024 * 1024});
 					if(gh_pr.stderr){
 						reject(new Error(gh_pr.stderr));
 					}
