@@ -3,3 +3,6 @@ temp/
 node_modules/
 *results.json
 log
+.terraform
+.terraform.lock.hcl
+*tfstate*
