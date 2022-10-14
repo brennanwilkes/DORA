@@ -8,6 +8,9 @@ else if(process.argv[2] === "2"){
 else if(process.argv[2] === "3"){
 	console.log(`${json.rate.remaining},${json.rate.reset}`);
 }
+else if(process.argv[2] === "4"){
+	console.log(json.commits.map(c => `${c.sha} ${new Date(c.commit.author.date).getTime() / 1000}`).join("\n"))
+}
 else{
 	console.log(new Date(json.merged_at).getTime() / 1000)
 }
