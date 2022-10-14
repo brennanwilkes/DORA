@@ -6,10 +6,48 @@ terraform {
   }
 }
 
+resource "aws_instance" "DORA-worker-c" {
+      ami = data.aws_ami.ubuntu_latest.id
+      instance_type = "t2.micro"
+      tags = {
+        Name = "DORA-worker-c"
+      }
+      lifecycle {
+        ignore_changes = [ami]
+      }
+      subnet_id = aws_subnet.devxp_vpc_subnet_public0.id
+      associate_public_ip_address = true
+      vpc_security_group_ids = [aws_security_group.devxp_security_group.id]
+      iam_instance_profile = aws_iam_instance_profile.DORA-worker-c_iam_role_instance_profile.name
+      key_name = "DORA-worker-c_keyPair"
+}
+
+resource "aws_eip" "DORA-worker-c_eip" {
+      vpc = true
+      instance = aws_instance.DORA-worker-c.id
+}
+
+resource "tls_private_key" "DORA-worker-c_keyPair_tls_key" {
+      algorithm = "RSA"
+      rsa_bits = 4096
+}
+
+resource "aws_key_pair" "DORA-worker-c_keyPair" {
+      public_key = tls_private_key.DORA-worker-c_keyPair_tls_key.public_key_openssh
+      key_name = "DORA-worker-c_keyPair"
+}
+
+resource "local_sensitive_file" "DORA-worker-c_keyPair_pem_file" {
+      filename = pathexpand("~/.ssh/DORA-worker-c_keyPair.pem")
+      file_permission = "600"
+      directory_permission = "700"
+      content = tls_private_key.DORA-worker-c_keyPair_tls_key.private_key_pem
+}
+
 resource "aws_instance" "DORA-worker-a" {
       ami = data.aws_ami.ubuntu_latest.id
       instance_type = "t2.micro"
-      tags {
+      tags = {
         Name = "DORA-worker-a"
       }
       lifecycle {
@@ -47,7 +85,7 @@ resource "local_sensitive_file" "DORA-worker-a_keyPair_pem_file" {
 resource "aws_instance" "DORA-worker-b" {
       ami = data.aws_ami.ubuntu_latest.id
       instance_type = "t2.micro"
-      tags {
+      tags = {
         Name = "DORA-worker-b"
       }
       lifecycle {
@@ -82,48 +120,10 @@ resource "local_sensitive_file" "DORA-worker-b_keyPair_pem_file" {
       content = tls_private_key.DORA-worker-b_keyPair_tls_key.private_key_pem
 }
 
-resource "aws_instance" "DORA-worker-c" {
-      ami = data.aws_ami.ubuntu_latest.id
-      instance_type = "t2.micro"
-      tags {
-        Name = "DORA-worker-c"
-      }
-      lifecycle {
-        ignore_changes = [ami]
-      }
-      subnet_id = aws_subnet.devxp_vpc_subnet_public0.id
-      associate_public_ip_address = true
-      vpc_security_group_ids = [aws_security_group.devxp_security_group.id]
-      iam_instance_profile = aws_iam_instance_profile.DORA-worker-c_iam_role_instance_profile.name
-      key_name = "DORA-worker-c_keyPair"
-}
-
-resource "aws_eip" "DORA-worker-c_eip" {
-      vpc = true
-      instance = aws_instance.DORA-worker-c.id
-}
-
-resource "tls_private_key" "DORA-worker-c_keyPair_tls_key" {
-      algorithm = "RSA"
-      rsa_bits = 4096
-}
-
-resource "aws_key_pair" "DORA-worker-c_keyPair" {
-      public_key = tls_private_key.DORA-worker-c_keyPair_tls_key.public_key_openssh
-      key_name = "DORA-worker-c_keyPair"
-}
-
-resource "local_sensitive_file" "DORA-worker-c_keyPair_pem_file" {
-      filename = pathexpand("~/.ssh/DORA-worker-c_keyPair.pem")
-      file_permission = "600"
-      directory_permission = "700"
-      content = tls_private_key.DORA-worker-c_keyPair_tls_key.private_key_pem
-}
-
 resource "aws_instance" "DORA-worker-d" {
       ami = data.aws_ami.ubuntu_latest.id
       instance_type = "t2.micro"
-      tags {
+      tags = {
         Name = "DORA-worker-d"
       }
       lifecycle {
@@ -161,7 +161,7 @@ resource "local_sensitive_file" "DORA-worker-d_keyPair_pem_file" {
 resource "aws_instance" "DORA-worker-e" {
       ami = data.aws_ami.ubuntu_latest.id
       instance_type = "t2.micro"
-      tags {
+      tags = {
         Name = "DORA-worker-e"
       }
       lifecycle {
@@ -199,7 +199,7 @@ resource "local_sensitive_file" "DORA-worker-e_keyPair_pem_file" {
 resource "aws_instance" "DORA-scheduler" {
       ami = data.aws_ami.ubuntu_latest.id
       instance_type = "t2.small"
-      tags {
+      tags = {
         Name = "DORA-scheduler"
       }
       lifecycle {
@@ -234,6 +234,11 @@ resource "local_sensitive_file" "DORA-scheduler_keyPair_pem_file" {
       content = tls_private_key.DORA-scheduler_keyPair_tls_key.private_key_pem
 }
 
+resource "aws_iam_instance_profile" "DORA-worker-c_iam_role_instance_profile" {
+      name = "DORA-worker-c_iam_role_instance_profile"
+      role = aws_iam_role.DORA-worker-c_iam_role.name
+}
+
 resource "aws_iam_instance_profile" "DORA-worker-a_iam_role_instance_profile" {
       name = "DORA-worker-a_iam_role_instance_profile"
       role = aws_iam_role.DORA-worker-a_iam_role.name
@@ -242,11 +247,6 @@ resource "aws_iam_instance_profile" "DORA-worker-a_iam_role_instance_profile" {
 resource "aws_iam_instance_profile" "DORA-worker-b_iam_role_instance_profile" {
       name = "DORA-worker-b_iam_role_instance_profile"
       role = aws_iam_role.DORA-worker-b_iam_role.name
-}
-
-resource "aws_iam_instance_profile" "DORA-worker-c_iam_role_instance_profile" {
-      name = "DORA-worker-c_iam_role_instance_profile"
-      role = aws_iam_role.DORA-worker-c_iam_role.name
 }
 
 resource "aws_iam_instance_profile" "DORA-worker-d_iam_role_instance_profile" {
@@ -264,6 +264,11 @@ resource "aws_iam_instance_profile" "DORA-scheduler_iam_role_instance_profile" {
       role = aws_iam_role.DORA-scheduler_iam_role.name
 }
 
+resource "aws_iam_role" "DORA-worker-c_iam_role" {
+      name = "DORA-worker-c_iam_role"
+      assume_role_policy = "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"ec2.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\",\n      \"Sid\": \"\"\n    }\n  ]\n}"
+}
+
 resource "aws_iam_role" "DORA-worker-a_iam_role" {
       name = "DORA-worker-a_iam_role"
       assume_role_policy = "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"ec2.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\",\n      \"Sid\": \"\"\n    }\n  ]\n}"
@@ -271,11 +276,6 @@ resource "aws_iam_role" "DORA-worker-a_iam_role" {
 
 resource "aws_iam_role" "DORA-worker-b_iam_role" {
       name = "DORA-worker-b_iam_role"
-      assume_role_policy = "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"ec2.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\",\n      \"Sid\": \"\"\n    }\n  ]\n}"
-}
-
-resource "aws_iam_role" "DORA-worker-c_iam_role" {
-      name = "DORA-worker-c_iam_role"
       assume_role_policy = "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"ec2.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\",\n      \"Sid\": \"\"\n    }\n  ]\n}"
 }
 
@@ -386,6 +386,21 @@ data "aws_ami" "ubuntu_latest" {
 }
 
 
+output "DORA-worker-c_eip-public-ip" {
+    value = aws_eip.DORA-worker-c_eip.public_ip
+    sensitive = false
+}
+
+output "DORA-worker-c_keyPair-private_key" {
+    value = tls_private_key.DORA-worker-c_keyPair_tls_key.private_key_pem
+    sensitive = true
+}
+
+output "DORA-worker-c-ssh_instructions" {
+    value = "To access DORA-worker-c, use: ssh -i ~/.ssh/DORA-worker-c_keyPair.pem ubuntu@<OUTPUTTED_IP)>"
+    sensitive = false
+}
+
 output "DORA-worker-a_eip-public-ip" {
     value = aws_eip.DORA-worker-a_eip.public_ip
     sensitive = false
@@ -413,21 +428,6 @@ output "DORA-worker-b_keyPair-private_key" {
 
 output "DORA-worker-b-ssh_instructions" {
     value = "To access DORA-worker-b, use: ssh -i ~/.ssh/DORA-worker-b_keyPair.pem ubuntu@<OUTPUTTED_IP)>"
-    sensitive = false
-}
-
-output "DORA-worker-c_eip-public-ip" {
-    value = aws_eip.DORA-worker-c_eip.public_ip
-    sensitive = false
-}
-
-output "DORA-worker-c_keyPair-private_key" {
-    value = tls_private_key.DORA-worker-c_keyPair_tls_key.private_key_pem
-    sensitive = true
-}
-
-output "DORA-worker-c-ssh_instructions" {
-    value = "To access DORA-worker-c, use: ssh -i ~/.ssh/DORA-worker-c_keyPair.pem ubuntu@<OUTPUTTED_IP)>"
     sensitive = false
 }
 
