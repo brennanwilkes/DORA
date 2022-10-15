@@ -130,7 +130,7 @@ const main = async () => {
 				}
 				else if(repo.failures?.type === 1){
 					const custom = (repo.failures?.custom ?? []).join(" ");
-					const gh_pr = await exec(`./gh_pr.sh "${repo.id}"${custom.length > 0 ? ` "${custom}"` : ""}`, {maxBuffer: 1024 * 1024 * 1024});
+					const gh_pr = await exec(`./gh_pr.sh "${repo.id}" "${new Date(config.start).getTime() / 1000}"${custom.length > 0 ? ` "${custom}"` : ""}`, {maxBuffer: 1024 * 1024 * 1024});
 					if(gh_pr.stderr){
 						reject(new Error(gh_pr.stderr));
 					}
