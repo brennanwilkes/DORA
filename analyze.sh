@@ -29,11 +29,11 @@ cd "$WORKING_DIR"
 [[ "$DEPLOYMENT" -eq 0 ]] && {
 	RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
 	log "Using gh releases strategy. Requesting releases from GitHub"
-	export deployments=$( gh release list --repo "$REPO" -L 1000 2>>"$ROOT/log" | cut -f3 | tac )
+	export deployments=$( gh release list --repo "$REPO" -L 1000 2>>"$ROOT/log" | cut -f3 | tac | node "$ROOT/custom_tag_sort.js" )
 }
 [[ "$DEPLOYMENT" -eq 1 ]] && {
 	log "Using git tags strategy. Requesting releases from local repo"
-	export deployments=$( git for-each-ref --sort=creatordate --format '%(refname)' refs/tags | sed 's/^refs\/tags\///g' )
+	export deployments=$( git for-each-ref --sort=creatordate --format '%(refname)' refs/tags | sed 's/^refs\/tags\///g' | node "$ROOT/custom_tag_sort.js" )
 }
 n=$( echo "$deployments" | wc -l )
 log "Found $n deployments"

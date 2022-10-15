@@ -9,7 +9,7 @@ log() {
 
 RATE_LIMIT=$( $ROOT/rate_limit.sh "$ROOT" )
 
-BUG_LABELS=$( gh label list -L 1000 --repo "$REPO" | cut -d$'\t' -f1 | grep -i -e "bug" -e "^confirm" -e "[^n]confirm" -e "important" -e "critical" -e "high.*priority" )
+BUG_LABELS=$( gh label list -L 1000 --repo "$REPO" | cut -d$'\t' -f1 | grep -iE -e "bug" -e "^confirm" -e "[^n]confirm" -e "important" -e "critical" -e "(high|top).*priority" -e "has.*(pr|pull)" -e "merge" -e "major" -e '(p|priority) ?([0-9]*|high|medium|low|mid)')
 
 [[ -z "$CUSTOM_LABELS" ]] || {
 	CUSTOM_LABELS=$( echo "$CUSTOM_LABELS" | xargs -n1 )
