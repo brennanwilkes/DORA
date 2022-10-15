@@ -15,7 +15,7 @@ Promise.all([...config.workers, config.scheduler].map(server => exec(
 		{stdio: "inherit"}
 	)));
 }).then(() => {
-	return exec(`scp -o StrictHostKeyChecking=accept-new -i ${config.scheduler.key} ${process.argv[2]} ${config.scheduler.user}@${config.scheduler.ip}:`, {stdio: "inherit"});
+	return exec(`scp -o StrictHostKeyChecking=accept-new -i ${config.scheduler.key} ${process.argv[2]} ${config.scheduler.user}@${config.scheduler.ip}:${REPO_DIR}/`, {stdio: "inherit"});
 }).then(() => {
 	return Promise.all(config.workers.map(server => exec(
 		`scp -o StrictHostKeyChecking=accept-new -i ${config.scheduler.key} ${server.key} ${config.scheduler.user}@${config.scheduler.ip}:.ssh/${server.key.split("/").splice(-1)[0]}`,

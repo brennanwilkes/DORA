@@ -5,23 +5,6 @@
     "results": "top-public-results.json",
     "repos": [
         {
-            "id": "tensorflow/tensorflow",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            }
-        },
-        {
-            "id": "twbs/bootstrap",
-            "deployment": 0,
-            "failures": {
-                "type": 1,
-                "custom": [
-                    "confirmed"
-                ]
-            }
-        },
-        {
             "id": "microsoft/vscode",
             "deployment": 1,
             "failures": {
@@ -127,6 +110,23 @@
             "deployment": 0,
             "failures": {
                 "type": 1
+            }
+        },
+        {
+            "id": "tensorflow/tensorflow",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "twbs/bootstrap",
+            "deployment": 0,
+            "failures": {
+                "type": 1,
+                "custom": [
+                    "confirmed"
+                ]
             }
         }
     ]
