@@ -24,13 +24,13 @@ log "Using Time SINCE=$SINCE"
 RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
 PAGE=1
 ISSUES=""
-NEW_ISSUES=$( gh api "/repos/$REPO/issues" --method GET -f label="$( echo $BUG_LABELS | paste -sd "," - )" -f state=closed -f per_page=100 -f page=$PAGE -f "since=$SINCE" | grep -oE "url.:.[^\"]+$REPO/issues/[0-9]+"| rev | cut -d'/' -f1 | rev | sort -n | uniq )
+NEW_ISSUES=$( gh api "/repos/$REPO/issues" --method GET -f label="$( echo $BUG_LABELS | paste -sd "," - )" -f state=closed -f per_page=100 -f page=$PAGE -f "since=$SINCE" | grep -oE "html_url.:.[^\"]+$REPO/issues/[0-9]+"| rev | cut -d'/' -f1 | rev | sort -n | uniq )
 ISSUES="$NEW_ISSUES"
 while [[ $( echo "$NEW_ISSUES" | wc -l ) -gt 1 ]]; do
 	RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
 	PAGE=$(( "$PAGE" + 1 ))
 	log "Querying page $PAGE of issues"
-	NEW_ISSUES=$( gh api "/repos/$REPO/issues" --method GET -f label="$( echo $BUG_LABELS | paste -sd "," - )" -f state=closed -f per_page=100 -f "page=$PAGE" -f "since=$SINCE" | grep -oE "url.:.[^\"]+$REPO/issues/[0-9]+"| rev | cut -d'/' -f1 | rev | sort -n | uniq )
+	NEW_ISSUES=$( gh api "/repos/$REPO/issues" --method GET -f label="$( echo $BUG_LABELS | paste -sd "," - )" -f state=closed -f per_page=100 -f "page=$PAGE" -f "since=$SINCE" | grep -oE "html_url.:.[^\"]+$REPO/issues/[0-9]+"| rev | cut -d'/' -f1 | rev | sort -n | uniq )
 	ISSUES=$( cat <( echo "$ISSUES" ) <( echo "$NEW_ISSUES" ) )
 done
 

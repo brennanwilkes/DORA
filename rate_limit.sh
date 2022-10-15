@@ -22,7 +22,7 @@ ROLLOVER_TIME=$( echo "$2" | cut -d',' -f2 )
 	log "$ROLLOVER_TIME rollover time ($(( $(( $ROLLOVER_TIME - $( date +%s ) )) / 60 )) minutes away)"
 }
 
-[[ "$REMAINING_QUERIES" -le 2 ]] && {
+[[ "$REMAINING_QUERIES" -le 10 ]] && {
 	waitTime=$(( "$ROLLOVER_TIME" - "$( date +%s )" ))
 	[[ "$waitTime" -gt 0 ]] && {
 		log "Sleeping for $(( $waitTime + 10 )) seconds"
