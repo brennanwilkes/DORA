@@ -29,11 +29,11 @@ cd "$WORKING_DIR"
 [[ "$DEPLOYMENT" -eq 0 ]] && {
 	RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
 	log "Using gh releases strategy. Requesting releases from GitHub"
-	export deployments=$( gh release list --repo "$REPO" -L 1000 2>>"$ROOT/log" | cut -f3 | tac | node "$ROOT/custom_tag_sort.js" )
+	export deployments=$( gh release list --repo "$REPO" -L 1000 2>>"$ROOT/log" | cut -f3 | tac | node "$ROOT/custom_tag_sort.js" "$END" " $START" )
 }
 [[ "$DEPLOYMENT" -eq 1 ]] && {
 	log "Using git tags strategy. Requesting releases from local repo"
-	export deployments=$( git for-each-ref --sort=creatordate --format '%(refname)' refs/tags | sed 's/^refs\/tags\///g' | node "$ROOT/custom_tag_sort.js" )
+	export deployments=$( git for-each-ref --sort=creatordate --format '%(refname)' refs/tags | sed 's/^refs\/tags\///g' | node "$ROOT/custom_tag_sort.js" "$END" " $START")
 }
 n=$( echo "$deployments" | wc -l )
 log "Found $n deployments"
@@ -46,7 +46,7 @@ log "Found $n deployments"
 	ss=$( date -d "$last_time" +%s )
 	es=$( date -d "$first_time" +%s )
 	delta=$(( $ss - $es ))
-	avg1=$(( $delta / $(( $n - 2 )) ))
+	avg1=$(( $delta / $(( $n - 1 )) ))
 } || {
 	ss=$( date -d "$START" +%s )
 	es=$( date -d "$END" +%s )
@@ -59,7 +59,6 @@ echo "$ss,$es,$delta,$n,$avg1"
 
 for i in $(seq 1 $(( $n - 1 )) )
 do
-	log "Checking deployment $i"
 
 	prev_tag=$( echo "$deployments" | head -n "$i" | tail -n1)
 	tag=$( echo "$deployments" | head -n "$(( $i + 1 ))" | tail -n1 )
@@ -93,8 +92,13 @@ do
 		d1=$(date --date="$time" +%s)
 		d2=$( echo "$commit" | cut -d' ' -f2 )
 		diff=$(( $d1 - $d2 ))
-		echo "$(echo $prev_tag | tr -d , ),$(echo $tag | tr -d , ),$sha,$d1,$d2,$diff"
+		# RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
+		# diffSha=$( gh api "/repos/$REPO/commits/$sha" 2>>"$ROOT/log" | node "$ROOT/parse_pr_commit_json.js" 6 2>>"$ROOT/log" | shasum | cut -d' ' -f1 )
+		diffSha=$( git diff $sha~ $sha | grep -Ev -e '^diff --git' -e '^---' -e '^\+\+\+' -e '^index [0-9a-z]+\.\.[0-9a-z]+ [0-9a-z]+$' | shasum | cut -d' ' -f1 )
+
+		echo "$(echo $prev_tag | tr -d , ),$(echo $tag | tr -d , ),$sha,$d1,$d2,$diff,$diffSha"
 
 	done <<< "$commits"
 done
+cd "$ROOT"
 [ -d "$WORKING_DIR" ] && rm -rf "$WORKING_DIR"

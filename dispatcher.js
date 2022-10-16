@@ -61,11 +61,13 @@ const main = async () => {
 					const sha = line[2]
 					const date = parseInt(line[3]);
 					const delta = parseInt(line[5])
+					const diff = line[6]
 					if(!deployments[tag]){
-						deployments[tag] = {commits:[], totalDelta: 0, averageDelta: 0}
+						deployments[tag] = {commits:[], diffs: [], totalDelta: 0, averageDelta: 0}
 					}
 
 					deployments[tag].commits = [...deployments[tag].commits, sha]
+					deployments[tag].diffs = [...deployments[tag].diffs, diff]
 					deployments[tag].totalDelta += delta;
 					deployments[tag].date = date;
 					deployments[tag].averageDelta = deployments[tag].totalDelta / deployments[tag].commits.length
@@ -134,7 +136,7 @@ const main = async () => {
 					if(gh_pr.stderr){
 						reject(new Error(gh_pr.stderr));
 					}
-					const issues = {}
+					let issues = []
 					gh_pr.stdout.split("\n").filter(l => l.length > 1).forEach((line, i) => {
 						line = line.split(",");
 						const issue = line[0];
@@ -142,31 +144,49 @@ const main = async () => {
 						const sha = line[2];
 						const issue_time = parseInt(line[3]);
 						const merge_time = parseInt(line[4]);
-						if(!issues[issue] || issues[issue].merge_time < merge_time){
-							issues[issue] = {
-								issue,
-								pr,
-								sha,
-								issue_time,
-								merge_time
-							}
-						}
+						const diff = line[5];
+						issues = [...issues, {
+							issue,
+							pr,
+							sha,
+							issue_time,
+							merge_time,
+							diff
+						}];
 					});
-					failures = Object.keys(issues).map((issue, i) => {
+					failures = issues.map((issue, i) => {
 						for (const version in deployments){
-							if(deployments[version].commits.indexOf(issues[issue].sha) > -1 && deployments[version].date > issues[issue].issue_time){
+							if(
+								(deployments[version].commits.indexOf(issue.sha) > -1 || deployments[version].diffs.indexOf(issue.diff) > -1)
+								&& deployments[version].date > issue.issue_time){
 								return {
-									id: issue,
+									id: issue.issue,
 									critical: true,
 									version: version,
 									resolved: deployments[version].date,
-									created: issues[issue].issue_time,
-									delta: deployments[version].date - issues[issue].issue_time
+									created: issue.issue_time,
+									delta: deployments[version].date - issue.issue_time
 								}
 							}
 						}
 						return null;
 					}).filter(i => i !== null);
+
+					const uniqueFailures = {}
+					failures.forEach((failure, i) => {
+						if(deployments[failure.version]){
+							deployments[failure.version].hasFailure = true;
+							deployments[failure.version].hasCriticalFailure = deployments[failure.version].hasCriticalFailure || failure.critical;
+						}
+
+						if(!uniqueFailures[failure.id] || uniqueFailures[failure.id].delta < failure.delta){
+							uniqueFailures[failure.id] = failure;
+						}
+					});
+
+					failures = Object.keys(uniqueFailures).map(k => uniqueFailures[k]);
+
+
 				}
 				failures.forEach((failure, i) => {
 					const sorted = Object.keys(deployments).filter(k => deployments[k].date < failure.created).sort((a,b) => deployments[b].date - deployments[a].date);

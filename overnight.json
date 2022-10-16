@@ -1,0 +1,15 @@
+{
+    "name": "Overnight Test",
+    "end": "Oct 15 2022",
+    "start": "Aug 15 2022",
+    "results": "overnight-results.json",
+    "repos": [
+        {
+            "id": "angular/angular",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        }
+    ]
+}
