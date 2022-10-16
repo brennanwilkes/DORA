@@ -70,10 +70,8 @@ do
 			shaP=$( echo "$DATA" | node "$ROOT/parse_pr_commit_json.js" 5 2>>"$ROOT/log" )
 			diffSha=$( echo "$DATA" | node "$ROOT/parse_pr_commit_json.js" 6 2>>"$ROOT/log" | shasum | cut -d' ' -f1 )
 			[[ -z "$shaP" ]] || {
-				[[ "$shaP" != "undefined" ]] && {
-					log "$pull_request - Parent SHA: $shaP - diff: $diffSha - date: $date"
-					echo "$issue,$pull_request,$shaP,$created_at,$date,$diffSha"
-				}
+				log "$pull_request - Parent SHA: $shaP - diff: $diffSha - date: $date"
+				echo "$issue,$pull_request,$shaP,$created_at,$date,$diffSha"
 			}
 		}
 

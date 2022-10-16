@@ -14,7 +14,7 @@ try{
 	}
 	else if(process.argv[2] === "5"){
 		// console.log(json.parents.map(parent => parent.sha).join("\n"));
-		if(json?.parents && json.parents.length > 0){
+		if(json?.parents && json.parents.length > 1 && json.parents[0].sha){
 			console.log(json.parents[0].sha);
 		}
 	}
@@ -41,6 +41,6 @@ try{
 	}
 	else{
 		// This is 0
-		console.log(new Date(json.merged_at).getTime() / 1000)
+		console.log(new Date(json.merged_at ?? json.closed_at).getTime() / 1000)
 	}
 } catch (e) {}
