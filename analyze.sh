@@ -27,9 +27,14 @@ rm -rf "$WORKING_DIR/*"
 
 cd "$WORKING_DIR"
 [[ "$DEPLOYMENT" -eq 0 ]] && {
-	RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
 	log "Using gh releases strategy. Requesting releases from GitHub"
-	export deployments=$( gh release list --repo "$REPO" -L 1000 2>>"$ROOT/log" | cut -f3 | tac | node "$ROOT/custom_tag_sort.js" "$END" " $START" )
+	for i in $( seq 1 10 )
+	do
+		RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
+		DATA=$( gh release list --repo "$REPO" -L 1000 2>>"$ROOT/log" )
+		[[ "$?" -eq 0 ]] && break
+	done
+	export deployments=$( echo "$DATA" | cut -f3 | tac | node "$ROOT/custom_tag_sort.js" "$END" " $START" )
 }
 [[ "$DEPLOYMENT" -eq 1 ]] && {
 	log "Using git tags strategy. Requesting releases from local repo"
@@ -78,8 +83,14 @@ do
 	log "Using $prev_time -> $time"
 
 	# commits=$( git log --date=local --pretty=format:"%H %ad" --since "$prev_time" --until "$time" | head -n-1 )
-	RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
-	commits=$( gh api "/repos/$REPO/compare/$prev_tag...$tag" 2>>"$ROOT/log" | node "$ROOT/parse_pr_commit_json.js" 4 2>/dev/null )
+
+	for i in $( seq 1 10 )
+	do
+		RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
+		DATA=$( gh api "/repos/$REPO/compare/$prev_tag...$tag" 2>>"$ROOT/log" )
+		[[ "$?" -eq 0 ]] && break
+	done
+	commits=$( echo "$DATA" | node "$ROOT/parse_pr_commit_json.js" 4 2>/dev/null )
 
 	log Found $( echo "$commits" | wc -l ) commits
 

@@ -44,8 +44,9 @@ const main = async () => {
 
 			const analysis = await exec(`./analyze.sh ${repo.id} ${repo.deployment} "${config.end}" "${config.start}"`, {maxBuffer: 1024 * 1024 * 1024});
 			if(analysis.stderr){
-				reject(new Error(analysis.stderr))
-				return;
+				console.error("*******************")
+				console.error(analysis.stderr)
+				console.error("*******************")
 			}
 			else{
 				const data = analysis.stdout.split("\n");
@@ -81,8 +82,9 @@ const main = async () => {
 				if(repo.failures?.type === 0){
 					const jira = await exec(`./jira.sh "${repo.failures.url}" "${repo.failures.project}"`);
 					if(jira.stderr){
-						reject(new Error(jira.stderr));
-						return;
+						console.error("*******************")
+						console.error(jira.stderr)
+						console.error("*******************")
 					}
 					const jiraData = JSON.parse(jira.stdout);
 					failures = jiraData.issues.map((issue, i) => ({
@@ -134,7 +136,9 @@ const main = async () => {
 					const custom = (repo.failures?.custom ?? []).join(" ");
 					const gh_pr = await exec(`./gh_pr.sh "${repo.id}" "${new Date(config.start).getTime() / 1000}"${custom.length > 0 ? ` "${custom}"` : ""}`, {maxBuffer: 1024 * 1024 * 1024});
 					if(gh_pr.stderr){
-						reject(new Error(gh_pr.stderr));
+						console.error("*******************")
+						console.error(gh_pr.stderr)
+						console.error("*******************")
 					}
 					let issues = []
 					gh_pr.stdout.split("\n").filter(l => l.length > 1).forEach((line, i) => {
@@ -217,7 +221,6 @@ const main = async () => {
 			console.error("ERR")
 			console.error(err);
 			console.error("ERR")
-			process.exit(1);
 		});
 
 		const freq = (await exec(`./print_time.sh ${Math.round(result.deploymentFrequency)}`)).stdout.trim();
