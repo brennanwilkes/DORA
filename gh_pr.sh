@@ -3,7 +3,7 @@ export ROOT="$(pwd)"
 REPO="$1"
 SINCE="$2"
 CUSTOM_LABELS="$2"
-SINCE="$( date -u -d "@$SINCE" -I'seconds' | cut -d'+' -f1 )"
+SINCE="$( date -u -d "@$SINCE" -I'seconds' 2>>"$ROOT/log" | cut -d'+' -f1 )"
 
 log() {
 	$ROOT/log.sh "$ROOT" "$@"
@@ -74,7 +74,7 @@ do
 		continue
 	}
 
-	log "Issue $issue, created at $( date  -ud @$created_at | cut -d' ' -f1-4 ). Pull requests: $( echo $pull_requests | xargs )"
+	log "Issue $issue, created at $( date  -ud @$created_at 2>>"$ROOT/log" | cut -d' ' -f1-4 ). Pull requests: $( echo $pull_requests | xargs )"
 
 	for pull_request in $pull_requests
 	do
@@ -83,7 +83,7 @@ do
 		sha=$( echo "$DATA" | node "$ROOT/parse_pr_commit_json.js" 2 2>>"$ROOT/log" )
 		diffSha=$( echo "$DATA" | node "$ROOT/parse_pr_commit_json.js" 6 2>>"$ROOT/log" | shasum | cut -d' ' -f1 )
 		date=$( echo "$DATA" | node "$ROOT/parse_pr_commit_json.js" 0 2>>"$ROOT/log" )
-		log "$pull_request - Commit SHA: $sha - diff: $diffSha - date: $( date  -ud @$date | cut -d' ' -f1-4 )"
+		log "$pull_request - Commit SHA: $sha - diff: $diffSha - date: $( date  -ud @$date 2>>"$ROOT/log" | cut -d' ' -f1-4 )"
 
 		[[ "$sha" != "undefined" ]] && [[ "$date" != "0" ]] && [[ "$date" -gt "$created_at"  ]] && {
 			echo "$issue,$pull_request,$sha,$created_at,$date,$diffSha"
@@ -92,7 +92,7 @@ do
 			shaP=$( echo "$DATA" | node "$ROOT/parse_pr_commit_json.js" 5 2>>"$ROOT/log" )
 			diffSha=$( echo "$DATA" | node "$ROOT/parse_pr_commit_json.js" 6 2>>"$ROOT/log" | shasum | cut -d' ' -f1 )
 			[[ -z "$shaP" ]] || {
-				log "$pull_request - Parent SHA: $shaP - diff: $diffSha - date: $( date  -ud @$date | cut -d' ' -f1-4 )"
+				log "$pull_request - Parent SHA: $shaP - diff: $diffSha - date: $( date  -ud @$date 2>>"$ROOT/log" | cut -d' ' -f1-4 )"
 				echo "$issue,$pull_request,$shaP,$created_at,$date,$diffSha"
 			}
 		}
@@ -106,7 +106,7 @@ do
 		do
 			RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
 			diffSha=$( gh api "/repos/$REPO/commits/$sha" 2>>"$ROOT/log" | node "$ROOT/parse_pr_commit_json.js" 6 2>>"$ROOT/log" | shasum | cut -d' ' -f1 )
-			log "$pull_request - Timeline SHA: $sha - diff: $diffSha - date: $( date  -ud @$date | cut -d' ' -f1-4 )"
+			log "$pull_request - Timeline SHA: $sha - diff: $diffSha - date: $( date  -ud @$date 2>>"$ROOT/log" | cut -d' ' -f1-4 )"
 			echo "$issue,$pull_request,$sha,$created_at,$date,$diffSha"
 		done
 	done

@@ -1,32 +1,25 @@
 {
-    "name": "Overnight Test",
+    "name": "Overnight Test 2",
     "end": "Oct 16 2022",
     "start": "Oct 16 2020",
-    "results": "overnight-results.json",
+    "results": "overnight2-results.json",
     "repos": [
         {
-            "id": "vercel/next.js",
+            "id": "kubernetes/kubernetes",
             "deployment": 0,
             "failures": {
                 "type": 1
             }
         },
         {
-            "id": "facebook/react-native",
+            "id": "facebook/react",
             "deployment": 0,
             "failures": {
                 "type": 1
             }
         },
         {
-            "id": "nodejs/node",
-            "deployment": 1,
-            "failures": {
-                "type": 1
-            }
-        },
-        {
-            "id": "angular/angular",
+            "id": "microsoft/TypeScript",
             "deployment": 1,
             "failures": {
                 "type": 1
