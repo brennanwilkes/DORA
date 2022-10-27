@@ -21,6 +21,7 @@ BUG_LABELS=$( echo "$DATA" | cut -d$'\t' -f1 | grep -iE -e "bug" -e "^confirm" -
 
 
 [[ -z "$CUSTOM_LABELS" ]] || {
+	log "Adding custom labels $CUSTOM_LABELS"
 	CUSTOM_LABELS=$( echo "$CUSTOM_LABELS" | xargs -n1 )
 	BUG_LABELS+=$'\n'$(printf '%s' "$CUSTOM_LABELS")
 }
@@ -63,7 +64,16 @@ do
 	RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
 	pull_requests=$( gh api "/repos/$REPO/issues/$issue/timeline" 2>>"$ROOT/log" | grep -Eo '[^/]+/[^/]+/pull/[0-9]+' | grep "$REPO" | sort | uniq | cut -d '/' -f4 )
 	RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
-	created_at=$( gh api "/repos/$REPO/issues/$issue" 2>>"$ROOT/log" | node "$ROOT/parse_pr_commit_json.js" 7 2>>"$ROOT/log" )
+
+	ISSUE_DATA=$( gh api "/repos/$REPO/issues/$issue" 2>>"$ROOT/log" )
+
+	created_at=$( echo "$DATA" | node "$ROOT/parse_pr_commit_json.js" 7 2>>"$ROOT/log" )
+	bad_labels=$( echo "$DATA" | grep -iEo "$REPO/labels/[^\"]*" | grep -oE -e 'stalled' -e 'won.?t.*fix' -e 'blocked' -e 'invalid' -e 'feature' )
+
+	[[ -z "$bad_labels" ]] || {
+		log "found bad labels ($( echo $bad_labels | xargs )) for issue=$issue"
+		continue
+	}
 
 	[[ -z "$created_at" ]] && {
 		log "created_at for issue=$issue returned empty"

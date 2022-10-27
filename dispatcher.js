@@ -65,7 +65,12 @@ const main = async () => {
 					const delta = parseInt(line[5])
 					const diff = line[6]
 					if(!deployments[tag]){
-						deployments[tag] = {commits:[], diffs: [], totalDelta: 0, averageDelta: 0}
+						deployments[tag] = {
+							commits:[],
+							diffs: [],
+							deltas: [],
+							totalDelta: 0,
+							averageDelta: 0}
 					}
 
 					if(Object.keys(deployments).some(tag => (deployments[tag].commits.indexOf(sha) !== -1) || (deployments[tag].diffs.indexOf(diff) !== -1))){
@@ -75,6 +80,7 @@ const main = async () => {
 					else{
 						deployments[tag].commits = [...deployments[tag].commits, sha]
 						deployments[tag].diffs = [...deployments[tag].diffs, diff]
+						deployments[tag].deltas = [...deployments[tag].deltas, delta]
 						deployments[tag].totalDelta += delta;
 						deployments[tag].date = date;
 						deployments[tag].averageDelta = deployments[tag].totalDelta / deployments[tag].commits.length
@@ -177,7 +183,9 @@ const main = async () => {
 									version: version,
 									resolved: deployments[version].date,
 									created: issue.issue_time,
-									delta: deployments[version].date - issue.issue_time
+									delta: deployments[version].date - issue.issue_time,
+									sha: issue.sha,
+									diff: issue.diff
 								}
 							}
 						}
