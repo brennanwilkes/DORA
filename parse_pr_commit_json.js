@@ -19,10 +19,11 @@ try{
 		}
 	}
 	else if(process.argv[2] === "6"){
-		if(json.files && json.files.length > 0){
+		if(json.files && json.files.length > 0 && (json.files ?? []).map(f => f.patch).length > 0){
 			console.log((json.files ?? []).map(f => f.patch).join("\n"));
 		}
 		else{
+			//Ensure no matches
 			console.log(Date.now());
 		}
 	}

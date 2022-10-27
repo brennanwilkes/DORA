@@ -55,6 +55,7 @@ const main = async () => {
 				const deployments = {}
 				let totalCommits = 0;
 				let totalDelta = 0;
+				let duplicates = 0;
 
 				data.slice(1).filter(l => l.length > 1).forEach((line, i) => {
 					line = line.split(",")
@@ -67,16 +68,23 @@ const main = async () => {
 						deployments[tag] = {commits:[], diffs: [], totalDelta: 0, averageDelta: 0}
 					}
 
-					deployments[tag].commits = [...deployments[tag].commits, sha]
-					deployments[tag].diffs = [...deployments[tag].diffs, diff]
-					deployments[tag].totalDelta += delta;
-					deployments[tag].date = date;
-					deployments[tag].averageDelta = deployments[tag].totalDelta / deployments[tag].commits.length
-					deployments[tag].hasFailure = false;
-					deployments[tag].hasCriticalFailure = false;
-					totalCommits += 1;
-					totalDelta += delta;
+					if(Object.keys(deployments).some(tag => (deployments[tag].commits.indexOf(sha) !== -1) || (deployments[tag].diffs.indexOf(diff) !== -1))){
+						// console.log(`Found duplicate SHA (${sha}/${diff}/${tag}) exists already`)
+						duplicates += 1;
+					}
+					else{
+						deployments[tag].commits = [...deployments[tag].commits, sha]
+						deployments[tag].diffs = [...deployments[tag].diffs, diff]
+						deployments[tag].totalDelta += delta;
+						deployments[tag].date = date;
+						deployments[tag].averageDelta = deployments[tag].totalDelta / deployments[tag].commits.length
+						deployments[tag].hasFailure = false;
+						deployments[tag].hasCriticalFailure = false;
+						totalCommits += 1;
+						totalDelta += delta;
+					}
 				});
+				console.log(`Filtered ${duplicates} duplicate commits`);
 
 				let failures = []
 				if(repo.failures?.type === 0){
