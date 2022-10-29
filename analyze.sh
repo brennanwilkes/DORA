@@ -68,8 +68,16 @@ do
 	prev_tag=$( echo "$deployments" | head -n "$i" | tail -n1)
 	tag=$( echo "$deployments" | head -n "$(( $i + 1 ))" | tail -n1 )
 
-	prev_time=$( git log -1 --format=%ai "$prev_tag" )
-	time=$( git log -1 --format=%ai "$tag" )
+	[[ "$DEPLOYMENT" -eq 1 ]] && {
+		prev_time=$( git log -1 --format=%ai "$prev_tag" )
+		time=$( git log -1 --format=%ai "$tag" )
+	}
+	[[ "$DEPLOYMENT" -eq 0 ]] && {
+		RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
+		time=$( gh api "/repos/$REPO/releases/tags/$tag" | node "$ROOT/parse_pr_commit_json.js" 9 2>/dev/null )
+		RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
+		prev_time=$( gh api "/repos/$REPO/releases/tags/$prev_tag" | node "$ROOT/parse_pr_commit_json.js" 9 2>/dev/null )
+	}
 
 	[[ $( date -d "$prev_time" +%s ) -lt $( date -d "$END" +%s ) ]] && {
 		continue
@@ -79,18 +87,27 @@ do
 		continue
 	}
 
+	[[ "$( echo $prev_tag | grep -oE '^v?[0-9]+' | tr -d 'v' )" -ne "$( echo $tag | grep -oE '^v?[0-9]+' | tr -d 'v' )" ]] && {
+		[[ -z "$( echo $tag | grep -oE '^v?[0-9]+\.0\.' )" ]] && {
+			log "SKIPPING $prev_tag -> $tag due to major/minor version mismatch"
+			continue
+		}
+	}
+
 	log "Using $prev_tag -> $tag"
 	log "Using $prev_time -> $time"
 
 	# commits=$( git log --date=local --pretty=format:"%H %ad" --since "$prev_time" --until "$time" | head -n-1 )
 
-	for i in $( seq 1 10 )
-	do
-		RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
-		DATA=$( gh api "/repos/$REPO/compare/$prev_tag...$tag" 2>>"$ROOT/log" )
-		[[ "$?" -eq 0 ]] && break
-	done
-	commits=$( echo "$DATA" | node "$ROOT/parse_pr_commit_json.js" 4 2>/dev/null )
+	# for i in $( seq 1 10 )
+	# do
+	# 	RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
+	# 	DATA=$( gh api "/repos/$REPO/compare/$prev_tag...$tag" 2>>"$ROOT/log" )
+	# 	[[ "$?" -eq 0 ]] && break
+	# done
+	# commits=$( echo "$DATA" | node "$ROOT/parse_pr_commit_json.js" 4 2>/dev/null )
+
+	commits=$( git rev-list --ancestry-path "$prev_tag..$tag" --date=local --format="%at" | paste - -  | cut -d' ' -f2- | tr '\t' ' ' )
 
 	log Found $( echo "$commits" | wc -l ) commits
 

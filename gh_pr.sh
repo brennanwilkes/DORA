@@ -2,7 +2,7 @@
 export ROOT="$(pwd)"
 REPO="$1"
 SINCE="$2"
-CUSTOM_LABELS="$2"
+CUSTOM_LABELS="$3"
 SINCE="$( date -u -d "@$SINCE" -I'seconds' 2>>"$ROOT/log" | cut -d'+' -f1 )"
 
 log() {
@@ -67,8 +67,8 @@ do
 
 	ISSUE_DATA=$( gh api "/repos/$REPO/issues/$issue" 2>>"$ROOT/log" )
 
-	created_at=$( echo "$DATA" | node "$ROOT/parse_pr_commit_json.js" 7 2>>"$ROOT/log" )
-	bad_labels=$( echo "$DATA" | grep -iEo "$REPO/labels/[^\"]*" | grep -oE -e 'stalled' -e 'won.?t.*fix' -e 'blocked' -e 'invalid' -e 'feature' )
+	created_at=$( echo "$ISSUE_DATA" | node "$ROOT/parse_pr_commit_json.js" 7 2>>"$ROOT/log" )
+	bad_labels=$( echo "$ISSUE_DATA" | grep -iEo "$REPO/labels/[^\"]*" | grep -oE -e 'stalled' -e 'won.?t.*fix' -e 'blocked' -e 'invalid' -e 'feature' )
 
 	[[ -z "$bad_labels" ]] || {
 		log "found bad labels ($( echo $bad_labels | xargs )) for issue=$issue"

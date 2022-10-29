@@ -40,6 +40,9 @@ try{
 			console.log(json.map(e => e.commit_id).filter(id => !!id).join("\n"))
 		}
 	}
+	else if(process.argv[2] === "9"){
+		console.log(json.published_at)
+	}
 	else{
 		// This is 0
 		console.log(new Date(json.merged_at ?? json.closed_at).getTime() / 1000)
