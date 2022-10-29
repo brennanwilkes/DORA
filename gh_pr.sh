@@ -17,7 +17,7 @@ do
 	DATA=$( gh label list -L 1000 --repo "$REPO" 2>>"$ROOT/log" )
 	[[ "$?" -eq 0 ]] && break
 done
-BUG_LABELS=$( echo "$DATA" | cut -d$'\t' -f1 | grep -iE -e "bug" -e "^confirm" -e "[^n]confirm" -e "important" -e "critical" -e "(high|top).*priority" -e "has.*(pr|pull)" -e "merge" -e "major" -e '^(p|priority) ?([0-9]+|high|medium|low|mid)')
+BUG_LABELS=$( echo "$DATA" | cut -d$'\t' -f1 | grep -iE -e "^bug" -e ' bug' -e "^confirm" -e "[^n]confirm" -e "important" -e "critical" -e "(high|top).*priority" -e "has.*(pr|pull)" -e "merge" -e '^(p|priority) ?([0-9]+|high|medium|low|mid)')
 
 
 [[ -z "$CUSTOM_LABELS" ]] || {
@@ -33,10 +33,12 @@ RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
 PAGE=1
 ISSUES=""
 
+BUG_LABELS=$( echo "$BUG_LABELS" | paste -sd "," - )
+
 for i in $( seq 1 10 )
 do
 	RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
-	DATA=$( gh api "/repos/$REPO/issues" --method GET -f label="$( echo $BUG_LABELS | paste -sd "," - )" -f state=closed -f per_page=100 -f page=$PAGE -f "since=$SINCE" 2>>"$ROOT/log" )
+	DATA=$( gh api -X GET search/issues -f q="repo:$REPO is:closed label:$BUG_LABELS" -f per_page=100 -f "page=$PAGE" -f "since=$SINCE" 2>>"$ROOT/log" )
 	[[ "$?" -eq 0 ]] && break
 done
 NEW_ISSUES=$( echo "$DATA" | grep -oE "html_url.:.[^\"]+$REPO/issues/[0-9]+"| rev | cut -d'/' -f1 | rev | sort -n | uniq )
@@ -49,7 +51,7 @@ while [[ $( echo "$NEW_ISSUES" | wc -l ) -gt 1 ]]; do
 	for i in $( seq 1 10 )
 	do
 		RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
-		DATA=$( gh api "/repos/$REPO/issues" --method GET -f label="$( echo $BUG_LABELS | paste -sd "," - )" -f state=closed -f per_page=100 -f "page=$PAGE" -f "since=$SINCE" 2>>"$ROOT/log" )
+		DATA=$( gh api -X GET search/issues -f q="repo:$REPO is:closed label:$BUG_LABELS" -f per_page=100 -f "page=$PAGE" -f "since=$SINCE" 2>>"$ROOT/log" )
 		[[ "$?" -eq 0 ]] && break
 	done
 	NEW_ISSUES=$( echo "$DATA" | grep -oE "html_url.:.[^\"]+$REPO/issues/[0-9]+"| rev | cut -d'/' -f1 | rev | sort -n | uniq )
@@ -68,7 +70,7 @@ do
 	ISSUE_DATA=$( gh api "/repos/$REPO/issues/$issue" 2>>"$ROOT/log" )
 
 	created_at=$( echo "$ISSUE_DATA" | node "$ROOT/parse_pr_commit_json.js" 7 2>>"$ROOT/log" )
-	bad_labels=$( echo "$ISSUE_DATA" | grep -iEo "$REPO/labels/[^\"]*" | grep -oE -e 'stalled' -e 'won.?t.*fix' -e 'blocked' -e 'invalid' -e 'feature' )
+	bad_labels=$( echo "$ISSUE_DATA" | grep -iEo "$REPO/labels/[^\"]*" | grep -oE -e 'stalled' -e 'won.?t.*fix' -e 'blocked' -e 'invalid' -e 'feature' -e '^docs?$' -e '^documentation$' )
 
 	[[ -z "$bad_labels" ]] || {
 		log "found bad labels ($( echo $bad_labels | xargs )) for issue=$issue"
