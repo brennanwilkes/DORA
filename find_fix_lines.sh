@@ -35,7 +35,7 @@ isDifferent(){
 
 
 [ -d "$WORKING_DIR" ] || {
-	gh repo clone "$REPO" "$WORKING_DIR" >>log 2>>log || {
+	gh repo clone "$REPO" "$WORKING_DIR" >>"$ROOT/log" 2>>"$ROOT/log" || {
 		echo "Something went wrong cloning repo ($REPO) into ($WORKING_DIR)" >&2
 		exit 1
 	}
@@ -44,10 +44,9 @@ isDifferent(){
 
 cd "$WORKING_DIR"
 
-
 log "Searching for bug-inducing commit candidates for fix $COMMIT (#$ISSUE)"
 
-files=$( git diff --numstat "$COMMIT~" "$COMMIT" | tr '\t' ' ' | cut -d' ' -f3 | grep -vE -e '\.spec' -e '^test/' -e '/test/' | grep -E '\.(js|jsx|ts|tsx|java|c|cc|cpp|py|mjs|sh|bash|cs|html|css|php|swift|h|asm|lsp|dart|rb|go|gradle|groovy|kt|lua|rs)$' )
+files=$( git diff --numstat "$COMMIT~1" "$COMMIT" | tr '\t' ' ' | cut -d' ' -f3 | grep -vE -e '\.spec' -e '^test/' -e '/test/' | grep -E '\.(js|jsx|ts|tsx|java|c|cc|cpp|py|mjs|sh|bash|cs|html|css|php|swift|h|asm|lsp|dart|rb|go|gradle|groovy|kt|lua|rs)$' )
 n=$( echo $files | wc -l )
 log "Found $n files in fix commit"
 
@@ -139,7 +138,12 @@ do
 
 				#TODO: Check for empty diff
 				echo "$blame" >> "$CANDIDATES"
-				diffSha=$( git diff $blame~ $blame | grep -Ev -e '^diff --git' -e '^---' -e '^\+\+\+' -e '^index [0-9a-z]+\.\.[0-9a-z]+ [0-9a-z]+$' | shasum | cut -d' ' -f1 )
+				RAW=$( git diff $blame~1 $blame 2>>"$ROOT/log" )
+				[[ "$?" -ne 128 ]] && {
+					diffSha=$( echo "$RAW" | grep -Ev -e '^diff --git' -e '^---' -e '^\+\+\+' -e '^index [0-9a-z]+\.\.[0-9a-z]+ [0-9a-z]+$' | shasum | cut -d' ' -f1 )
+				} || {
+					diff=$( date +"%T.%N" | shasum | cut -d' ' -f1 )
+				}
 				log "Found candidate commit $blame"
 				echo "$COMMIT,$blame,$diffSha,$ISSUE,$file"
 				i=$(( $i + 1 ))
