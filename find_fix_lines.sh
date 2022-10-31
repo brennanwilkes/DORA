@@ -1,19 +1,57 @@
 #!/usr/bin/env bash
-ROOT="$1"
-COMMIT=$( echo "$2" | cut -d',' -f1 )
-ISSUE=$( echo "$2" | cut -d',' -f2 )
-MAX_DATE=$( echo "$2" | cut -d',' -f3 )
+export ROOT="$( pwd )"
+COMMIT=$( echo "$1" | cut -d',' -f1 )
+ISSUE=$( echo "$1" | cut -d',' -f2 )
+MIN_DATE=$( echo "$1" | cut -d',' -f3 )
+REPO="$2"
+export hash=$( echo "$REPO" | shasum | cut -d' ' -f1)
+export WORKING_DIR="$ROOT/$hash"
 
 log() {
-	echo "$@" >/dev/null
-	#$ROOT/log.sh "$ROOT" "$@"
+	# echo "$@" #>/dev/null
+	$ROOT/log.sh "$ROOT" "$@"
 }
+
+isDifferent(){
+	pat1="$1"
+	pat2="$2"
+	COMMENT_TOKEN="$3"
+	USE_LINES="$4"
+	INPUT=$(cat)
+	CHANGED=$( echo "$INPUT" | awk "f;/$pat1/{f=1}" | sed "/$pat2/q" )
+
+	ADDITIONS=$( echo "$CHANGED" | grep '^+' | cut -c2- | tr -d '[ \t]' | grep -Ev "^$COMMENT_TOKEN" | tr -d '[\r\n]' )
+	DELETIONS=$( echo "$CHANGED" | grep '^-' | cut -c2- | tr -d '[ \t]' | grep -Ev "^$COMMENT_TOKEN" | tr -d '[\r\n]' )
+	[[ "$COMMENT_TOKEN" = "//" ]] && {
+		ADDITIONS=$( echo "$ADDITIONS" | perl -pe 's|/\*((?!\*/).)*\*/||g' )
+		DELETIONS=$( echo "$DELETIONS" | perl -pe 's|/\*((?!\*/).)*\*/||g' )
+	}
+
+	[[ "$ADDITIONS" = "$DELETIONS" ]] && {
+		return 1
+	}
+	return 0
+}
+
+
+[ -d "$WORKING_DIR" ] || {
+	gh repo clone "$REPO" "$WORKING_DIR" >>log 2>>log || {
+		echo "Something went wrong cloning repo ($REPO) into ($WORKING_DIR)" >&2
+		exit 1
+	}
+	rm -rf "$WORKING_DIR/*"
+}
+
+cd "$WORKING_DIR"
+
 
 log "Searching for bug-inducing commit candidates for fix $COMMIT (#$ISSUE)"
 
-files=$( git diff --numstat "$COMMIT~" "$COMMIT" | tr '\t' ' ' | cut -d' ' -f3 | grep -vE -e '\.spec' -e '^test/' -e '/test/' | grep -E '\.(js|jsx|ts|tsx|java|yaml|yml|c|cc|cpp|py|mjs|sh|bash|cs|html|css|php|swift|h|asm|lsp|dart|rb|go|gradle|groovy|kt|lua|rs)$' )
+files=$( git diff --numstat "$COMMIT~" "$COMMIT" | tr '\t' ' ' | cut -d' ' -f3 | grep -vE -e '\.spec' -e '^test/' -e '/test/' | grep -E '\.(js|jsx|ts|tsx|java|c|cc|cpp|py|mjs|sh|bash|cs|html|css|php|swift|h|asm|lsp|dart|rb|go|gradle|groovy|kt|lua|rs)$' )
 n=$( echo $files | wc -l )
 log "Found $n files in fix commit"
+
+CANDIDATES=$( mktemp )
 
 for file in $files
 do
@@ -28,19 +66,10 @@ do
 	do
 		pat1="$( echo $line | tr ':' ' ' | tr '[\+\-]' '.' )"
 		pat2="@@.*@@"
-		CHANGED=$( echo "$DIFF" | awk "f;/$pat1/{f=1}" | sed "/$pat2/q" )
-		ADDITIONS=$( echo "$CHANGED" | grep '^+' | cut -c2- | tr -d '[ \t]' | grep -Ev "^$COMMENT_TOKEN" | tr -d '[\r\n]' )
-		DELETIONS=$( echo "$CHANGED" | grep '^-' | cut -c2- | tr -d '[ \t]' | grep -Ev "^$COMMENT_TOKEN" | tr -d '[\r\n]' )
-		[[ "$COMMENT_TOKEN" = "//" ]] && {
-			ADDITIONS=$( echo "$ADDITIONS" | perl -pe 's|/\*((?!\*/).)*\*/||g' )
-			DELETIONS=$( echo "$DELETIONS" | perl -pe 's|/\*((?!\*/).)*\*/||g' )
-		}
-
-		[[ "$ADDITIONS" = "$DELETIONS" ]] && {
+		echo "$DIFF" | isDifferent "$pat1" "$pat2" "$COMMENT_TOKEN" || {
 			log "Line $line matched when stripped, skipping."
 			continue
 		}
-
 
 		l1=$( echo "$line" | cut -d':' -f1 )
 		l2=$( echo "$line" | cut -d':' -f2 )
@@ -55,39 +84,69 @@ do
 			}
 			to="$n1,+$n2"
 		}
-		RAW=$( git blame -L "$to" "$COMMIT~1" --porcelain  -- "$file" 2>>"$ROOT/log" )
-		[[ "$?" -ne 0 ]] && {
-			log "Git blame exited failure, skipping"
-			continue
-		}
-		BLAME=$( echo "$RAW" | grep -oE '[a-zA-Z0-9]{40}' | head -n1 )
-		DATE=$( echo "$RAW" | grep -oE 'author-time [0-9]{10}' | head -n1 | cut -d' ' -f2 )
-		LINE_START=$( echo "$RAW" | head -n1 | cut -d' ' -f2 )
-		NUM_LINES=$( echo "$RAW" | head -n1 | cut -d' ' -f4 )
 
-		[[ "$DATE" -lt "$MAX_DATE" ]] && {
-			log "Commit $BLAME was created prior to issue report, skipping"
-			continue
-		}
+		IGNORED_REV_FILE="$( mktemp )"
+		IS_DONE=0
+		while [[ "$IS_DONE" -eq 0 ]]
+		do
+			IS_DONE=1
+			# echo git blame -L "$to" "$COMMIT~1" --porcelain --ignore-revs-file "$IGNORED_REV_FILE" -- "$file" 2>>"$ROOT/log"
+			RAW=$( git blame -L "$to" "$COMMIT~1" --porcelain --ignore-revs-file "$IGNORED_REV_FILE" -- "$file" 2>>"$ROOT/log" )
+			BLAME=$( echo "$RAW" | grep -v '^previous' | grep -oE '[a-zA-Z0-9]{40}' | awk '!x[$0]++' )
+			DATE=$( echo "$RAW" | grep -oE 'author-time [0-9]{10}' | cut -d' ' -f2 | awk '!x[$0]++' )
 
-		git diff -w -U0 "$BLAME~1" "$BLAME" -- "$file" | awk "f;/^@@ -$LINE_START/{f=1}" | sed "/$pat2/q" | grep -v '^@@'
+			log Checking $( echo "$BLAME" | wc -l ) possible blame commits
+			i=1
+			for blame in $BLAME
+			do
+				[[ -z "$( cat "$IGNORED_REV_FILE" | grep -o $blame )" ]] || {
+					continue
+				}
+				[[ -z "$( cat "$CANDIDATES" | grep -o $blame )" ]] || {
+					continue
+				}
 
-		# echo "-------------------------------------"
-		# echo "$CHANGED" | grep -v '^@@'
-		# echo "-----------"
-		# echo "$line"
-		# echo "-----------"
-		# git blame -L "$to" "$COMMIT~1"  -- "$file"
-		# echo "-----------"
-		# git blame -L "$to" "$COMMIT~1" --line-porcelain -- "$file"
-		# echo "-----------"
-		# git diff -w -U0 "$BLAME~1" "$BLAME" -- "$file"
-		# echo "-------------------------------------"
+				date=$( echo "$DATE" | head -n"$i" | tail -n1  )
 
-		log "Found candidate commit $BLAME"
-		echo "$COMMIT,$BLAME,$ISSUE,$file"
-		exit
+				[[ "$date" -gt "$MIN_DATE" ]] && {
+					log "Commit $blame was created after the issue report, iterating deeper ($date > $MIN_DATE)"
+					echo "$blame" >> "$IGNORED_REV_FILE"
+					awk -i inplace '!seen[$0]++' "$IGNORED_REV_FILE"
+					IS_DONE=0
+					continue
+				}
+
+# 				PATTERN=$( echo "$RAW" | tail -n1  | tr '\t' ' ' | grep -Eo -e '[^$^ ]+' | head -n1 )
+# 				while read -r diff_line; do
+# 					[[ -z "$( echo $diff_line | grep -o '^@@ ' )" ]] || {
+# 						echo "Checking $PATTERN"
+# 						[[ -z "$( echo $ROLLING_DIFF | grep -o "$PATTERN" )" ]] || {
+# 							echo "-------------"
+# 							echo "$PATTERN"
+# 							echo "FOUND MATCH!!!"
+# 							echo "$CONTEXT"
+# 							echo "$ROLLING_DIFF"
+# 							echo "-------------"
+# 						}
+# 						ROLLING_DIFF=""
+# 						CONTEXT="$diff_line"
+# 						continue
+# 					}
+# 					ROLLING_DIFF="${ROLLING_DIFF}
+# ${diff_line}"
+# 				done <<< "$( git diff -U0 -w $blame~1 $blame )"
+# 				echo git diff -U0 -w $blame~1 $blame
+
+				#TODO: Check for empty diff
+				echo "$blame" >> "$CANDIDATES"
+				diffSha=$( git diff $blame~ $blame | grep -Ev -e '^diff --git' -e '^---' -e '^\+\+\+' -e '^index [0-9a-z]+\.\.[0-9a-z]+ [0-9a-z]+$' | shasum | cut -d' ' -f1 )
+				log "Found candidate commit $blame"
+				echo "$COMMIT,$blame,$diffSha,$ISSUE,$file"
+				i=$(( $i + 1 ))
+			done
+		done
+		rm "$IGNORED_REV_FILE"
 	done
-
 done
-# echo "---------------------------------------------------------------------------"
+rm "$CANDIDATES"
+cd "$ROOT"

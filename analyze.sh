@@ -18,12 +18,13 @@ log() {
 
 RATE_LIMIT=$( $ROOT/rate_limit.sh "$ROOT" )
 
-[ -d "$WORKING_DIR" ] && rm -rf "$WORKING_DIR"
-gh repo clone "$REPO" "$WORKING_DIR" >>log 2>>log || {
-	echo "Something went wrong cloning repo ($REPO) into ($WORKING_DIR)" >&2
-	exit 1
+[ -d "$WORKING_DIR" ] || {
+	gh repo clone "$REPO" "$WORKING_DIR" >>log 2>>log || {
+		echo "Something went wrong cloning repo ($REPO) into ($WORKING_DIR)" >&2
+		exit 1
+	}
+	rm -rf "$WORKING_DIR/*"
 }
-rm -rf "$WORKING_DIR/*"
 
 cd "$WORKING_DIR"
 [[ "$DEPLOYMENT" -eq 0 ]] && {
@@ -129,4 +130,3 @@ do
 	done <<< "$commits"
 done
 cd "$ROOT"
-[ -d "$WORKING_DIR" ] && rm -rf "$WORKING_DIR"

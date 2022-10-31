@@ -84,13 +84,12 @@ const main = async () => {
 						deployments[tag].totalDelta += delta;
 						deployments[tag].date = date;
 						deployments[tag].averageDelta = deployments[tag].totalDelta / deployments[tag].commits.length
-						deployments[tag].hasFailure = false;
-						deployments[tag].hasCriticalFailure = false;
+						deployments[tag].failures = 0;
+						deployments[tag].critialFailures = 0;
 						totalCommits += 1;
 						totalDelta += delta;
 					}
 				});
-				console.log(`Filtered ${duplicates} duplicate commits`);
 
 				let failures = []
 				if(repo.failures?.type === 0){
@@ -104,20 +103,20 @@ const main = async () => {
 					failures = jiraData.issues.map((issue, i) => ({
 						id: issue.key,
 						critical: issue.fields.priority.name === "High" || issue.fields.priority.name === "Highest",
-						version: issue.fields.fixVersions?.[0]?.name,
+						fixed_by: issue.fields.fixVersions?.[0]?.name,
 						resolved: new Date(issue.fields.fixVersions?.[0]?.releaseDate ?? issue.fields.resolutiondate).getTime() / 1000,
 						created: new Date(issue.fields.created).getTime() / 1000
 					})).map(failure => {
 						let resolved;
-						if(!failure.version){
+						if(!failure.fixed_by){
 							resolved = failure.resolved;
 							const sorted = Object.keys(deployments).filter(k => deployments[k].date > failure.created).sort((a,b) => deployments[a].date - deployments[b].date);
 							if(sorted.length > 0){
-								failure.version = sorted[0];
+								failure.fixed_by = sorted[0];
 							}
 						}
 						else{
-							const tag = failure.version
+							const tag = failure.fixed_by
 							const stripped = tag.replace(/.*([0-9]+\.[0-9]+\.[0-9]+).*/,(m, $1) => $1);
 
 							if(deployments[tag]){
@@ -148,7 +147,9 @@ const main = async () => {
 				}
 				else if(repo.failures?.type === 1){
 					const custom = (repo.failures?.custom ?? []).join(" ");
-					const gh_pr = await exec(`./gh_pr.sh "${repo.id}" "${new Date(config.start).getTime() / 1000}"${custom.length > 0 ? ` "${custom}"` : ""}`, {maxBuffer: 1024 * 1024 * 1024});
+					const gh_pr = await exec(
+						`./gh_pr.sh "${repo.id}" "${new Date(config.start).getTime() / 1000}" "${new Date(config.end).getTime() / 1000}"${custom.length > 0 ? ` "${custom}"` : ""}`,
+						{maxBuffer: 1024 * 1024 * 1024});
 					if(gh_pr.stderr){
 						console.error("*******************")
 						console.error(gh_pr.stderr)
@@ -180,7 +181,7 @@ const main = async () => {
 								return {
 									id: issue.issue,
 									critical: true,
-									version: version,
+									fixed_by: version,
 									resolved: deployments[version].date,
 									created: issue.issue_time,
 									delta: deployments[version].date - issue.issue_time,
@@ -194,11 +195,6 @@ const main = async () => {
 
 					const uniqueFailures = {}
 					failures.forEach((failure, i) => {
-						if(deployments[failure.version]){
-							deployments[failure.version].hasFailure = true;
-							deployments[failure.version].hasCriticalFailure = deployments[failure.version].hasCriticalFailure || failure.critical;
-						}
-
 						if(!uniqueFailures[failure.id] || uniqueFailures[failure.id].delta < failure.delta){
 							uniqueFailures[failure.id] = failure;
 						}
@@ -206,15 +202,54 @@ const main = async () => {
 
 					failures = Object.keys(uniqueFailures).map(k => uniqueFailures[k]);
 
+					const mapping = Object.keys(deployments).map(v => deployments[v]).map(d => {
+						let map = [];
+						for(let i=0; i<d.commits.length; i++){
+							map = [...map, {sha: d.commits[i], hash: d.diffs[i]}];
+						}
+						return map;
+					}).flat();
 
-				}
-				failures.forEach((failure, i) => {
-					const sorted = Object.keys(deployments).filter(k => deployments[k].date < failure.created).sort((a,b) => deployments[b].date - deployments[a].date);
-					if(sorted.length > 0){
-						deployments[sorted[0]].hasFailure = true;
-						deployments[sorted[0]].hasCriticalFailure = deployments[sorted[0]].hasCriticalFailure || failure.critical;
+					for (const i in failures){
+						const failure = failures[i];
+						const mappedSha = mapping.filter(m => m.hash === failure.diff)?.[0]?.sha;
+						const find_issues = await exec(`./find_fix_lines.sh ${mappedSha ?? failure.sha},${failure.id},${failure.created} ${repo.id}`);
+						if(find_issues.stderr){
+							console.error("*******************")
+							console.error(find_issues.stderr)
+							console.error("*******************")
+						}
+						find_issues.stdout.split("\n").filter(l => l.length > 1).forEach((line, i) => {
+							const fix_commit = line.split(",")[0];
+							const fix_inducing_commit = line.split(",")[1];
+							const fix_inducing_diff = line.split(",")[2];
+							const issue = line.split(",")[3];
+							const file = line.split(",")[4];
+
+							failure.inducing_commits = [...(failure.inducing_commits ?? []), fix_inducing_commit];
+							failure.inducing_commits_diff = [...(failure.inducing_commits_diff ?? []), fix_inducing_diff];
+
+							Object.keys(deployments).forEach((version, i) => {
+								if(deployments[version].commits.indexOf(fix_inducing_commit) > -1 || deployments[version].diffs.indexOf(fix_inducing_diff) > -1){
+									deployments[version].failures += 1;
+									failure.induced_by = [...(failure.induced_by ?? []), version];
+								}
+							});
+						});
 					}
-				});
+				}
+
+				if(repo.failures?.type === 0){
+					failures.forEach((failure, i) => {
+						const sorted = Object.keys(deployments).filter(k => deployments[k].date < failure.created).sort((a,b) => deployments[b].date - deployments[a].date);
+						if(sorted.length > 0){
+							deployments[sorted[0]].failures += 1;
+							if(failure.critical){
+								deployments[failure.version].critialFailures += 1;
+							}
+						}
+					});
+				}
 
 				completed += 1
 				console.log(`Completed ${repo.id} in ${Math.round((Date.now() - startTime) / 1000)}s (${completed}/${config.repos.length})`);
@@ -227,8 +262,8 @@ const main = async () => {
 					averageDelta: totalDelta / totalCommits,
 					deployments,
 					failures,
-					totalFailures: Object.keys(deployments).filter(k => deployments[k].hasFailure).length,
-					totalCriticalFailures: Object.keys(deployments).filter(k => deployments[k].hasCriticalFailure).length,
+					totalFailures: Object.keys(deployments).filter(k => deployments[k].failures > 0).length,
+					totalCriticalFailures: Object.keys(deployments).filter(k => deployments[k].critialFailures > 0).length,
 					averageFailureDelta: failures.reduce((acc, nxt) => acc + nxt.delta, 0) / (failures.length || 1),
 					averageCritialFailureDelta: failures.filter(f => f.critical).reduce((acc, nxt) => acc + nxt.delta, 0) / (failures.filter(f => f.critical).length || 1),
 				});

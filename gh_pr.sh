@@ -2,8 +2,10 @@
 export ROOT="$(pwd)"
 REPO="$1"
 SINCE="$2"
-CUSTOM_LABELS="$3"
-SINCE="$( date -u -d "@$SINCE" -I'seconds' 2>>"$ROOT/log" | cut -d'+' -f1 )"
+UNTIL="$3"
+CUSTOM_LABELS="$4"
+SINCE="$( date -u -d "@$SINCE" -I'seconds' 2>>"$ROOT/log" | cut -d'T' -f1 )"
+UNTIL="$( date -u -d "@$UNTIL" -I'seconds' 2>>"$ROOT/log" | cut -d'T' -f1 )"
 
 log() {
 	$ROOT/log.sh "$ROOT" "$@"
@@ -17,7 +19,7 @@ do
 	DATA=$( gh label list -L 1000 --repo "$REPO" 2>>"$ROOT/log" )
 	[[ "$?" -eq 0 ]] && break
 done
-BUG_LABELS=$( echo "$DATA" | cut -d$'\t' -f1 | grep -iE -e "^bug" -e ' bug' -e "^confirm" -e "[^n]confirm" -e "important" -e "critical" -e "(high|top).*priority" -e "has.*(pr|pull)" -e "merge" -e '^(p|priority) ?([0-9]+|high|medium|low|mid)')
+BUG_LABELS=$( echo "$DATA" | cut -d$'\t' -f1 | grep -iE -e "^bug" -e '[ :-]bug' -e "^confirm" -e "[^n]confirm" -e "important" -e "critical" -e "(high|top).*priority" -e "has.*(pr|pull)" -e "merge" -e '^(p|priority) ?([0-9]+|high|medium|low|mid)')
 
 
 [[ -z "$CUSTOM_LABELS" ]] || {
@@ -28,6 +30,7 @@ BUG_LABELS=$( echo "$DATA" | cut -d$'\t' -f1 | grep -iE -e "^bug" -e ' bug' -e "
 
 log "Using labels $( echo $BUG_LABELS | paste -sd "," - )"
 log "Using Time SINCE=$SINCE"
+log "Using Time UNTIL=$UNTIL"
 
 RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
 PAGE=1
@@ -38,7 +41,7 @@ BUG_LABELS=$( echo "$BUG_LABELS" | paste -sd "," - )
 for i in $( seq 1 10 )
 do
 	RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
-	DATA=$( gh api -X GET search/issues -f q="repo:$REPO is:closed label:$BUG_LABELS" -f per_page=100 -f "page=$PAGE" -f "since=$SINCE" 2>>"$ROOT/log" )
+	DATA=$( gh api -X GET search/issues -f q="repo:$REPO is:closed label:$BUG_LABELS created:$SINCE..$UNTIL" -f per_page=100 -f "page=$PAGE" 2>>"$ROOT/log" )
 	[[ "$?" -eq 0 ]] && break
 done
 NEW_ISSUES=$( echo "$DATA" | grep -oE "html_url.:.[^\"]+$REPO/issues/[0-9]+"| rev | cut -d'/' -f1 | rev | sort -n | uniq )
@@ -51,7 +54,7 @@ while [[ $( echo "$NEW_ISSUES" | wc -l ) -gt 1 ]]; do
 	for i in $( seq 1 10 )
 	do
 		RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
-		DATA=$( gh api -X GET search/issues -f q="repo:$REPO is:closed label:$BUG_LABELS" -f per_page=100 -f "page=$PAGE" -f "since=$SINCE" 2>>"$ROOT/log" )
+		DATA=$( gh api -X GET search/issues -f q="repo:$REPO is:closed label:$BUG_LABELS created:$SINCE..$UNTIL" -f per_page=100 -f "page=$PAGE" 2>>"$ROOT/log" )
 		[[ "$?" -eq 0 ]] && break
 	done
 	NEW_ISSUES=$( echo "$DATA" | grep -oE "html_url.:.[^\"]+$REPO/issues/[0-9]+"| rev | cut -d'/' -f1 | rev | sort -n | uniq )

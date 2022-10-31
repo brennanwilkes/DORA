@@ -1,30 +1,9 @@
 {
     "name": "brnkl",
-    "end": "Oct 10 2022",
-    "start": "Jan 01 2017",
+    "end": "Oct 31 2022",
+    "start": "Oct 31 2015",
     "results": "balena-results.json",
     "repos": [
-        {
-            "id": "balena-io/etcher",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            }
-        },
-        {
-            "id": "balena-io/open-balena",
-            "deployment": 1,
-            "failures": {
-                "type": 1
-            }
-        },
-        {
-            "id": "balena-io/balena-sdk",
-            "deployment": 1,
-            "failures": {
-                "type": 1
-            }
-        },
         {
             "id": "balena-io/balena-cli",
             "deployment": 0,
@@ -33,29 +12,8 @@
             }
         },
         {
-            "id": "balena-io/docs",
+            "id": "balena-io/etcher",
             "deployment": 0,
-            "failures": {
-                "type": 1
-            }
-        },
-        {
-            "id": "balena-io/balena-sdk-python",
-            "deployment": 1,
-            "failures": {
-                "type": 1
-            }
-        },
-        {
-            "id": "balena-io/open-balena-api",
-            "deployment": 1,
-            "failures": {
-                "type": 1
-            }
-        },
-        {
-            "id": "balena-io/open-balena-vpn",
-            "deployment": 1,
             "failures": {
                 "type": 1
             }
