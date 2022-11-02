@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Bar, Line } from 'react-chartjs-2';
-import {COLOURS, COLOURS_SEMI_TRANS, divideTimes, makeOptions} from "../utils.js";
+import {COLOURS, COLOURS_SEMI_TRANS, divideTimes, makeOptions, removeLeadingZeros} from "../utils.js";
 
 function LeadTimeForChanges(props) {
 	const [dates, labels] = divideTimes(new Date(props.data.start), new Date(props.data.end), props.scale);
@@ -23,8 +23,7 @@ function LeadTimeForChanges(props) {
 					return 0;
 				}
 				return sum / n / 60 / 60 / 24;
-
-			}),
+			}).map(removeLeadingZeros),
 			backgroundColor: props.style === "line" ? COLOURS_SEMI_TRANS[i] : COLOURS[i],
 			borderColor: COLOURS[i]
 		}))

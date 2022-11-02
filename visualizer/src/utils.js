@@ -1,5 +1,5 @@
-export const COLOURS = ["#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#beb9db", "#fdcce5", "#8bd3c7"];
-export const COLOURS_SEMI_TRANS = COLOURS.map(c => `${c}60`);
+export const COLOURS = ["#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#8bd3c7", "#beb9db", "#fdcce5"];
+export const COLOURS_SEMI_TRANS = COLOURS.map(c => `${c}30`);
 export const MINUTE = 60 * 1000;
 export const HOUR = MINUTE * 60;
 export const DAY = HOUR * 24;
@@ -13,12 +13,11 @@ export const divideTimes = (start, end, scale) => {
 	if(scale === -1){
 		return [[-1],["Total"]]
 	}
-
 	let labels = [];
 	let dates = [];
 	let d;
-	for (let i = start.getTime() + scale; i <= end.getTime(); i += scale){
-		dates = [...dates, new Date(i)];
+	for (let i = end.getTime() + 1; i > start.getTime(); i -= scale){
+		dates = [new Date(i), ...dates];
 		if(scale === YEAR){
 			d = new Date(i).getYear() + 1900;
 		}
@@ -28,7 +27,7 @@ export const divideTimes = (start, end, scale) => {
 		else{
 			d = `${["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][new Date(i).getMonth()]} ${new Date(i).getYear() + 1900}`;
 		}
-		labels = [...labels, d];
+		labels = [d, ...labels];
 	}
 	return [dates, labels];
 }
@@ -54,3 +53,26 @@ export const makeOptions = (title, yLabel) => ({
 		}
 	}
 })
+
+
+export const removeLeadingZeros = (d, i, arr) => {
+	if(d === 0){
+		for(let j = i; j >=0; j--){
+			if(arr[j] !== 0){
+				return d;
+			}
+		}
+		return undefined;
+	}
+	return d;
+}
+
+export const getScaleLabel = (val) => {
+	if(val === DAY) return "Day";
+	if(val === WEEK) return "Week";
+	if(val === MONTH) return "Month";
+	if(val === MONTH4) return "Four Months";
+	if(val === MONTH6) return "Six Months";
+	if(val === YEAR) return "Year";
+	return "Total";
+}

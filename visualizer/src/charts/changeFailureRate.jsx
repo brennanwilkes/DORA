@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Bar, Line } from 'react-chartjs-2';
-import {COLOURS, COLOURS_SEMI_TRANS, divideTimes, makeOptions} from "../utils.js";
+import {COLOURS, COLOURS_SEMI_TRANS, divideTimes, makeOptions, removeLeadingZeros} from "../utils.js";
 
 function ChangeFailureRate(props) {
 	const [dates, labels] = divideTimes(new Date(props.data.start), new Date(props.data.end), props.scale);
@@ -13,7 +13,7 @@ function ChangeFailureRate(props) {
 			return {
 				label: result.repo,
 				fill: true,
-				data: groupings.map(g => 100 * g.filter(d => d.failures > 0).length / (g.length || 1)),
+				data: groupings.map(g => 100 * g.filter(d => d.failures > 0 || d.hasFailure).length / (g.length || 1)).map(removeLeadingZeros),
 				backgroundColor: props.style === "line" ? COLOURS_SEMI_TRANS[i] : COLOURS[i],
 				borderColor: COLOURS[i]
 			}

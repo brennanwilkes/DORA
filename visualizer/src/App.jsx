@@ -14,11 +14,15 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import balena from "./data/balena-results.json"
+import node from "./data/node-results.json"
+import brnkl from "./data/brnkl-results.json"
+import combined from "./data/combined-results.json"
+
 import DeploymentFrequency from "./charts/deploymentFrequency";
 import LeadTimeForChanges from "./charts/leadTimeForChanges";
 import MeanTimeToRecover from "./charts/meanTimeToRecover";
 import ChangeFailureRate from "./charts/changeFailureRate";
-import {DAY, WEEK, MONTH, MONTH4, MONTH6, YEAR} from "./utils";
+import {DAY, WEEK, MONTH, MONTH4, MONTH6, YEAR, getScaleLabel} from "./utils";
 import Slider from "@mui/material/Slider";
 import CustomSwitch from "./components/Switch";
 import Tabs from '@mui/material/Tabs';
@@ -35,6 +39,8 @@ ChartJS.register(
 	LineElement,
 	Filler
 );
+
+const dataset = combined;
 
 function App() {
 
@@ -80,13 +86,7 @@ function App() {
 				}}
 				step={null}
 				valueLabelFormat={val => {
-					if(val === 0) return "Day";
-					if(val === 1) return "Week";
-					if(val === 2) return "Month";
-					if(val === 3) return "Four Months";
-					if(val === 4) return "Six Months";
-					if(val === 5) return "Year";
-					return "Total";
+					return getScaleLabel([DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1][val])
 				}}
 				min={1}
 				max={6}
@@ -116,13 +116,13 @@ function App() {
 
 			<div id="chart">{
 				metric === 0 ? (
-					<DeploymentFrequency data={balena} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1][scale]} />
+					<DeploymentFrequency data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1][scale]} />
 				) : (metric === 1 ? (
-					<LeadTimeForChanges data={balena} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1][scale]} />
+					<LeadTimeForChanges data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1][scale]} />
 				) : (metric === 2 ? (
-					<MeanTimeToRecover data={balena} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1][scale]} />
+					<MeanTimeToRecover data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1][scale]} />
 				) : (
-					<ChangeFailureRate data={balena} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1][scale]} />
+					<ChangeFailureRate data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1][scale]} />
 				)))
 			}</div>
 		</div>
