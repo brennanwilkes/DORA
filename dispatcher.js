@@ -306,6 +306,7 @@ const main = async () => {
 		fs.writeFileSync(`${result.repo.replace(/\//, "-")}-${config.results}`, serialized);
 
 		results = [...results, result];
+		await exec(`./cleanup.sh ${result.repo}`);
 	}
 
 	const output = {name: config.name, start: config.start, end: config.end, results}
