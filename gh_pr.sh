@@ -74,10 +74,26 @@ do
 	done
 done
 
-log Found $( echo "$ISSUES" | wc -l ) issues
 
+checkTimelineSha(){
+	sha="$1"
+	pull_request="$2"
+	date="$3"
+	issue="$4"
+	created_at="$5"
+	diffSha=$( gh api "/repos/$REPO/commits/$sha" 2>>"$ROOT/log" | node "$ROOT/parse_pr_commit_json.js" 6 2>>"$ROOT/log" | shasum | cut -d' ' -f1 )
+	log "$pull_request - Timeline SHA: $sha - diff: $diffSha - date: $( date  -ud @$date 2>>"$ROOT/log" | cut -d' ' -f1-4 )"
+	echo "$issue,$pull_request,$sha,$created_at,$date,$diffSha,timeline"
+}
+
+
+totalIssues=$( echo "$ISSUES" | wc -l )
+log "Found $totalIssues issues"
+
+issueIndex=0
 for issue in $ISSUES
 do
+	issueIndex=$(( $issueIndex + 1 ))
 	RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
 	pull_requests=$( gh api "/repos/$REPO/issues/$issue/timeline" 2>>"$ROOT/log" | grep -Eo '[^/]+/[^/]+/pull/[0-9]+' | grep "$REPO" | sort | uniq | cut -d '/' -f4 )
 	RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
@@ -101,7 +117,7 @@ do
 		continue
 	}
 
-	log "Issue $issue, created at $( date  -ud @$created_at 2>>"$ROOT/log" | cut -d' ' -f1-4 ). Pull requests: $( echo $pull_requests | xargs )"
+	log "Issue $issue ($issueIndex/$totalIssues), created at $( date  -ud @$created_at 2>>"$ROOT/log" | cut -d' ' -f1-4 ). Pull requests: $( echo $pull_requests | xargs )"
 
 	for pull_request in $pull_requests
 	do
@@ -113,14 +129,14 @@ do
 		log "$pull_request - Commit SHA: $sha - diff: $diffSha - date: $( date  -ud @$date 2>>"$ROOT/log" | cut -d' ' -f1-4 )"
 
 		[[ "$sha" != "undefined" ]] && [[ "$date" != "0" ]] && [[ "$date" -gt "$created_at"  ]] && {
-			echo "$issue,$pull_request,$sha,$created_at,$date,$diffSha"
+			echo "$issue,$pull_request,$sha,$created_at,$date,$diffSha,merge"
 			RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
 			DATA=$( gh api "/repos/$REPO/commits/$sha" 2>>"$ROOT/log" )
 			shaP=$( echo "$DATA" | node "$ROOT/parse_pr_commit_json.js" 5 2>>"$ROOT/log" )
 			diffSha=$( echo "$DATA" | node "$ROOT/parse_pr_commit_json.js" 6 2>>"$ROOT/log" | shasum | cut -d' ' -f1 )
 			[[ -z "$shaP" ]] || {
 				log "$pull_request - Parent SHA: $shaP - diff: $diffSha - date: $( date  -ud @$date 2>>"$ROOT/log" | cut -d' ' -f1-4 )"
-				echo "$issue,$pull_request,$shaP,$created_at,$date,$diffSha"
+				echo "$issue,$pull_request,$shaP,$created_at,$date,$diffSha,parent"
 			}
 		}
 
@@ -129,13 +145,12 @@ do
 
 		log Found $( echo "$TIMELINE_SHAS" | wc -l ) new shas on /timeline
 
+		RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
 		for sha in $TIMELINE_SHAS
 		do
-			RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
-			diffSha=$( gh api "/repos/$REPO/commits/$sha" 2>>"$ROOT/log" | node "$ROOT/parse_pr_commit_json.js" 6 2>>"$ROOT/log" | shasum | cut -d' ' -f1 )
-			log "$pull_request - Timeline SHA: $sha - diff: $diffSha - date: $( date  -ud @$date 2>>"$ROOT/log" | cut -d' ' -f1-4 )"
-			echo "$issue,$pull_request,$sha,$created_at,$date,$diffSha"
+			checkTimelineSha "$sha" "$pull_request" "$date" "$issue" "$created_at" &
 		done
+		wait
 	done
 done
 

@@ -2,7 +2,7 @@ const fs = require("fs")
 const exec = require("util").promisify(require("child_process").exec);
 
 const fn = process.argv[2];
-const CACHE_FILE = "./SZZ_CACHE"
+const SZZ_CACHE = "./SZZ_CACHE"
 
 const main = async () => {
 	const config = JSON.parse(fs.readFileSync(fn, 'utf8'));
@@ -34,8 +34,8 @@ const main = async () => {
 		return "Critically Low";
 	}
 
-	if(fs.existsSync(CACHE)){
-		await fs.unlink(CACHE);
+	if(fs.existsSync(SZZ_CACHE)){
+		await fs.promises.unlink(SZZ_CACHE);
 	}
 
 	console.log(`Starting study ${config.name} from ${config.start} to ${config.end}`);
@@ -169,13 +169,15 @@ const main = async () => {
 						const issue_time = parseInt(line[3]);
 						const merge_time = parseInt(line[4]);
 						const diff = line[5];
+						const isMerge = line[6] === "merge";
 						issues = [...issues, {
 							issue,
 							pr,
 							sha,
 							issue_time,
 							merge_time,
-							diff
+							diff,
+							isMerge
 						}];
 					});
 					failures = issues.map((issue, i) => {
@@ -191,7 +193,9 @@ const main = async () => {
 									created: issue.issue_time,
 									delta: deployments[version].date - issue.issue_time,
 									sha: issue.sha,
-									diff: issue.diff
+									diff: issue.diff,
+									merge_commit: issue.isMerge ? issue.sha : undefined,
+									merge_diff: issue.isMerge ? issue.diff : undefined
 								}
 							}
 						}
@@ -202,6 +206,10 @@ const main = async () => {
 					failures.forEach((failure, i) => {
 						if(!uniqueFailures[failure.id] || uniqueFailures[failure.id].delta < failure.delta){
 							uniqueFailures[failure.id] = failure;
+						}
+						else{
+							uniqueFailures[failure.id].merge_commit = uniqueFailures[failure.id].merge_commit ?? failure.merge_commit
+							uniqueFailures[failure.id].merge_diff = uniqueFailures[failure.id].merge_diff ?? failure.merge_diff
 						}
 					});
 
@@ -218,7 +226,9 @@ const main = async () => {
 					for (const i in failures){
 						const failure = failures[i];
 						const mappedSha = mapping.filter(m => m.hash === failure.diff)?.[0]?.sha;
-						const find_issues = await exec(`./find_fix_lines.sh ${mappedSha ?? failure.sha},${failure.id},${failure.created} ${repo.id}`);
+						const mappedMergeSha = mapping.filter(m => m.hash === failure.merge_diff)?.[0]?.sha;
+						await exec(`./log.sh . "${i}/${failures.length}"`);
+						const find_issues = await exec(`./find_fix_lines.sh ${(mappedMergeSha ?? failure.merge_commit) ?? (mappedSha ?? failure.sha)},${failure.id},${failure.created} ${repo.id}`);
 						if(find_issues.stderr){
 							console.error("*******************")
 							console.error(find_issues.stderr)

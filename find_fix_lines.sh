@@ -47,7 +47,7 @@ cd "$WORKING_DIR"
 
 log "Searching for bug-inducing commit candidates for fix $COMMIT (#$ISSUE)"
 
-files=$( git diff --numstat "$COMMIT~1" "$COMMIT" | tr '\t' ' ' | cut -d' ' -f3 | grep -vE -e '\.spec' -e '^test/' -e '/test/' -e 'bundle' | grep -E '\.(js|jsx|ts|tsx|java|c|cc|cpp|py|mjs|sh|bash|cs|html|css|php|swift|h|asm|lsp|dart|rb|go|gradle|groovy|kt|lua|rs)$' )
+files=$( git diff --numstat "$COMMIT~1" "$COMMIT" | tr '\t' ' ' | cut -d' ' -f3 | grep -vE -e '\.spec' -e '\.test' -e '^tests?/' -e '/tests?/' -e 'bundle' | grep -E '\.(js|jsx|ts|tsx|java|c|cc|cpp|py|mjs|sh|bash|cs|html|css|php|swift|h|asm|lsp|dart|rb|go|gradle|groovy|kt|lua|rs)$' )
 n=$( echo "$files" | wc -l )
 log "Found $n files in fix commit"
 
@@ -103,10 +103,10 @@ SZZ_LINE(){
 		i=1
 		for blame in $BLAME
 		do
-			[[ -z "$( cat "$IGNORED_REV_FILE" | grep -o $blame )" ]] || {
+			[[ -z "$( cat "$IGNORED_REV_FILE" 2>/dev/null | grep -o $blame )" ]] || {
 				continue
 			}
-			[[ -z "$( cat "$CANDIDATES" | grep -o $blame )" ]] || {
+			[[ -z "$( cat "$CANDIDATES" 2>/dev/null | grep -o $blame )" ]] || {
 				continue
 			}
 
@@ -117,7 +117,7 @@ SZZ_LINE(){
 				diffCount=$( git diff -U0 "$blame~1" "$blame" -- "$file" | wc -l )
 				log "Commit $blame ($diffCount lines) was created after the issue report, iterating deeper ($date > $MIN_DATE)"
 
-				[[ "$diffCount" -lt 1000 ]] && {
+				[[ "$diffCount" -lt 2500 ]] && {
 					echo "$blame" >> "$IGNORED_REV_FILE"
 					awk -i inplace '!seen[$0]++' "$IGNORED_REV_FILE"
 					IS_DONE=0
@@ -167,14 +167,15 @@ SZZ_FILE() {
 		log "Checking line $lineIndex/$numLines"
 		lineIndex=$(( $lineIndex + 1 ))
 		SZZ_LINE "$line" "$file" "$DIFF" "$COMMENT_TOKEN" "$EXT" &
-
 	done
+	wait
 }
 
 for file in $files
 do
 	SZZ_FILE "$file"
 done
+wait
 
 rm "$CANDIDATES"
 cd "$ROOT"

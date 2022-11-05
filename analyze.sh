@@ -63,6 +63,25 @@ log "Found $n deployments"
 log "Time used: $es -> $ss with delta ($delta) and average ($avg1)"
 echo "$ss,$es,$delta,$n,$avg1"
 
+
+processCommit(){
+	commit="$1"
+	time="$2"
+	prev_tag="$3"
+	tag="$4"
+
+	echo "$commit" | grep -E '^[^\s]+ [^\s]+' >/dev/null || {
+		return
+	}
+	sha=$( echo "$commit" | cut -d' ' -f1 )
+	d1=$(date --date="$time" +%s)
+	d2=$( echo "$commit" | cut -d' ' -f2 )
+	diff=$(( $d1 - $d2 ))
+	diffSha=$( git diff $sha~ $sha | grep -Ev -e '^diff --git' -e '^---' -e '^\+\+\+' -e '^index [0-9a-z]+\.\.[0-9a-z]+ [0-9a-z]+$' | shasum | cut -d' ' -f1 )
+
+	echo "$(echo $prev_tag | tr -d , ),$(echo $tag | tr -d , ),$sha,$d1,$d2,$diff,$diffSha"
+}
+
 for i in $(seq 1 $(( $n - 1 )) )
 do
 
@@ -98,35 +117,16 @@ do
 	log "Using $prev_tag -> $tag"
 	log "Using $prev_time -> $time"
 
-	# commits=$( git log --date=local --pretty=format:"%H %ad" --since "$prev_time" --until "$time" | head -n-1 )
-
-	# for i in $( seq 1 10 )
-	# do
-	# 	RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
-	# 	DATA=$( gh api "/repos/$REPO/compare/$prev_tag...$tag" 2>>"$ROOT/log" )
-	# 	[[ "$?" -eq 0 ]] && break
-	# done
-	# commits=$( echo "$DATA" | node "$ROOT/parse_pr_commit_json.js" 4 2>/dev/null )
-
 	commits=$( git rev-list --ancestry-path "$prev_tag..$tag" --date=local --format="%at" | paste - -  | cut -d' ' -f2- | tr '\t' ' ' )
 
 	log Found $( echo "$commits" | wc -l ) commits
 
 	time=$( echo "$time" | cut -d' ' -f1-2 )
+	N=16
 	while IFS= read -r commit; do
-		echo "$commit" | grep -E '^[^\s]+ [^\s]+' >/dev/null || {
-			continue
-		}
-		sha=$( echo "$commit" | cut -d' ' -f1 )
-		d1=$(date --date="$time" +%s)
-		d2=$( echo "$commit" | cut -d' ' -f2 )
-		diff=$(( $d1 - $d2 ))
-		# RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
-		# diffSha=$( gh api "/repos/$REPO/commits/$sha" 2>>"$ROOT/log" | node "$ROOT/parse_pr_commit_json.js" 6 2>>"$ROOT/log" | shasum | cut -d' ' -f1 )
-		diffSha=$( git diff $sha~ $sha | grep -Ev -e '^diff --git' -e '^---' -e '^\+\+\+' -e '^index [0-9a-z]+\.\.[0-9a-z]+ [0-9a-z]+$' | shasum | cut -d' ' -f1 )
-
-		echo "$(echo $prev_tag | tr -d , ),$(echo $tag | tr -d , ),$sha,$d1,$d2,$diff,$diffSha"
-
+		((i=i%N)); ((i++==0)) && wait
+		processCommit "$commit" "$time" "$prev_tag" "$tag" &
 	done <<< "$commits"
+	wait
 done
 cd "$ROOT"

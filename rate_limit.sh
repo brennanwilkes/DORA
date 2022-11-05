@@ -36,11 +36,11 @@ ROLLOVER_TIME=$( echo "$RATE_LIMIT" | cut -d',' -f2 )
 	log "$ROLLOVER_TIME rollover time ($(( $(( $ROLLOVER_TIME - $( date +%s ) )) / 60 )) minutes away)"
 }
 
-[[ "$REMAINING_QUERIES" -le 10 ]] && {
-	waitTime=60
-	[[ "$IS_SEARCH" = 1 ]] || {
-		waitTime=$(( "$ROLLOVER_TIME" - "$( date +%s )" ))
-	}
+BUFFER=25
+[[ "$IS_SEARCH" = 1 ]] && BUFFER=5
+
+[[ "$REMAINING_QUERIES" -le "$BUFFER" ]] && {
+	waitTime=$(( "$ROLLOVER_TIME" - "$( date +%s )" ))
 	[[ "$waitTime" -gt 0 ]] && {
 		log "Sleeping for $(( $waitTime + 10 )) seconds"
 		sleep "$(( $waitTime + 10 ))"
