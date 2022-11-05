@@ -57,10 +57,20 @@ export const makeOptions = (title, yLabel) => ({
 
 export const removeLeadingZeros = (d, i, arr) => {
 	if(d === 0){
+		let hasLeading = false;
+		let hasTrailing = false;
 		for(let j = i; j >=0; j--){
 			if(arr[j] !== 0){
-				return d;
+				hasLeading = true;
 			}
+		}
+		for(let j = i; j < arr.length; j++){
+			if(arr[j] !== 0){
+				hasTrailing = true;
+			}
+		}
+		if(hasLeading && hasTrailing){
+			return d;
 		}
 		return undefined;
 	}
