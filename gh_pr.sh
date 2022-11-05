@@ -19,7 +19,7 @@ do
 	DATA=$( gh label list -L 1000 --repo "$REPO" 2>>"$ROOT/log" )
 	[[ "$?" -eq 0 ]] && break
 done
-BUG_LABELS=$( echo "$DATA" | cut -d$'\t' -f1 | grep -iE -e "^bug" -e '[ :-]bug' -e "^confirm" -e "[^n]confirm" -e "important" -e "critical" -e "(high|top).*priority" -e "has.*(pr|pull)" -e "merge" -e '^(p|priority) ?([0-9]+|high|medium|low|mid)')
+BUG_LABELS=$( echo "$DATA" | cut -d$'\t' -f1 | grep -iE -e "^bug" -e '[ :/-]bug' -e "^confirm" -e "[^n]confirm" -e "important" -e "critical" -e "(high|top).*priority" -e "has.*(pr|pull)" -e "merge" -e '^(p|priority) ?([0-9]+|high|medium|low|mid)')
 
 
 [[ -z "$CUSTOM_LABELS" ]] || {
@@ -28,38 +28,50 @@ BUG_LABELS=$( echo "$DATA" | cut -d$'\t' -f1 | grep -iE -e "^bug" -e '[ :-]bug' 
 	BUG_LABELS+=$'\n'$(printf '%s' "$CUSTOM_LABELS")
 }
 
-log "Using labels $( echo $BUG_LABELS | paste -sd "," - )"
+log "Using labels $( echo $BUG_LABELS | xargs -n1 -I {} echo '"{}"' | paste -sd "," - )"
 log "Using Time SINCE=$SINCE"
 log "Using Time UNTIL=$UNTIL"
 
-RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
-PAGE=1
+t0=$( date +%s -d "$SINCE" )
+tn=$( date +%s -d "$UNTIL" )
+
+INCREMENT=$(( 60 * 60 * 24 * 365 / 12 ))
 ISSUES=""
+BUG_LABELS=$( echo "$BUG_LABELS" | xargs -n1 -I {} echo '"{}"' | paste -sd "," - )
 
-BUG_LABELS=$( echo "$BUG_LABELS" | paste -sd "," - )
-
-for i in $( seq 1 10 )
+for ti in $( seq "$t0" "$INCREMENT" "$tn" )
 do
-	RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
-	DATA=$( gh api -X GET search/issues -f q="repo:$REPO is:closed label:$BUG_LABELS created:$SINCE..$UNTIL" -f per_page=100 -f "page=$PAGE" 2>>"$ROOT/log" )
-	[[ "$?" -eq 0 ]] && break
-done
-NEW_ISSUES=$( echo "$DATA" | grep -oE "html_url.:.[^\"]+$REPO/issues/[0-9]+"| rev | cut -d'/' -f1 | rev | sort -n | uniq )
+	PAGE=1
+	di0=$( date -u -d "@$ti" -I'seconds' 2>>"$ROOT/log" | cut -d'T' -f1 )
+	di1=$( date -u -d "@$(( $ti + $INCREMENT ))" -I'seconds' 2>>"$ROOT/log" | cut -d'T' -f1 )
+
+	log "Querying partial range for $di0 -> $di1"
 
 
-ISSUES="$NEW_ISSUES"
-while [[ $( echo "$NEW_ISSUES" | wc -l ) -gt 1 ]]; do
-	PAGE=$(( "$PAGE" + 1 ))
-	log "Querying page $PAGE of issues"
 	for i in $( seq 1 10 )
 	do
-		RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
-		DATA=$( gh api -X GET search/issues -f q="repo:$REPO is:closed label:$BUG_LABELS created:$SINCE..$UNTIL" -f per_page=100 -f "page=$PAGE" 2>>"$ROOT/log" )
+		RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT 1 )"
+		DATA=$( gh api -X GET search/issues -f q="repo:$REPO is:closed label:$BUG_LABELS created:$di0..$di1" -f per_page=100 -f "page=$PAGE" 2>>"$ROOT/log" )
 		[[ "$?" -eq 0 ]] && break
 	done
 	NEW_ISSUES=$( echo "$DATA" | grep -oE "html_url.:.[^\"]+$REPO/issues/[0-9]+"| rev | cut -d'/' -f1 | rev | sort -n | uniq )
+	log Query returned $( echo "$NEW_ISSUES" | wc -l ) issues
+
 
 	ISSUES=$( cat <( echo "$ISSUES" ) <( echo "$NEW_ISSUES" ) )
+	while [[ $( echo "$NEW_ISSUES" | wc -l ) -gt 1 ]]; do
+		PAGE=$(( "$PAGE" + 1 ))
+		log "Querying page $PAGE of issues"
+		for i in $( seq 1 10 )
+		do
+			RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT 1 )"
+			DATA=$( gh api -X GET search/issues -f q="repo:$REPO is:closed label:$BUG_LABELS created:$di0..$di1" -f per_page=100 -f "page=$PAGE" 2>>"$ROOT/log" )
+			[[ "$?" -eq 0 ]] && break
+		done
+		NEW_ISSUES=$( echo "$DATA" | grep -oE "html_url.:.[^\"]+$REPO/issues/[0-9]+"| rev | cut -d'/' -f1 | rev | sort -n | uniq )
+		log Query returned $( echo "$NEW_ISSUES" | wc -l ) issues
+		ISSUES=$( cat <( echo "$ISSUES" ) <( echo "$NEW_ISSUES" ) )
+	done
 done
 
 log Found $( echo "$ISSUES" | wc -l ) issues
@@ -73,7 +85,7 @@ do
 	ISSUE_DATA=$( gh api "/repos/$REPO/issues/$issue" 2>>"$ROOT/log" )
 
 	created_at=$( echo "$ISSUE_DATA" | node "$ROOT/parse_pr_commit_json.js" 7 2>>"$ROOT/log" )
-	bad_labels=$( echo "$ISSUE_DATA" | grep -iEo "$REPO/labels/[^\"]*" | grep -oE -e 'stalled' -e 'won.?t.*fix' -e 'blocked' -e 'invalid' -e 'feature' -e '^docs?$' -e '^documentation$' )
+	bad_labels=$( echo "$ISSUE_DATA" | grep -iEo "$REPO/labels/[^\"]*" | grep -oE -e 'stalled' -e 'won.?t.*fix' -e 'blocked' -e 'invalid' -e 'feature' -e '^docs?$' -e '^documentation$' -e 'do.not.*merge' )
 
 	[[ -z "$bad_labels" ]] || {
 		log "found bad labels ($( echo $bad_labels | xargs )) for issue=$issue"

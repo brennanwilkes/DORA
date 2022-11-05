@@ -1,7 +1,8 @@
 const fs = require("fs")
 const exec = require("util").promisify(require("child_process").exec);
 
-const fn = process.argv[2]
+const fn = process.argv[2];
+const CACHE_FILE = "./SZZ_CACHE"
 
 const main = async () => {
 	const config = JSON.parse(fs.readFileSync(fn, 'utf8'));
@@ -33,7 +34,11 @@ const main = async () => {
 		return "Critically Low";
 	}
 
-	console.log(`Starting study ${config.name} from ${config.start} to ${config.end}`)
+	if(fs.existsSync(CACHE)){
+		await fs.unlink(CACHE);
+	}
+
+	console.log(`Starting study ${config.name} from ${config.start} to ${config.end}`);
 
 	let results = [];
 	for (const repo of config.repos) {

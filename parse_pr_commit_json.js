@@ -7,7 +7,7 @@ try{
 		console.log(json.merge_commit_sha)
 	}
 	else if(process.argv[2] === "3"){
-		console.log(`${json?.rate?.remaining},${json?.rate?.reset}`);
+		console.log(`${json?.rate?.remaining},${json?.rate?.reset},${json?.resources?.search?.remaining},${json?.resources?.search?.reset}`);
 	}
 	else if(process.argv[2] === "4"){
 		console.log((json.commits ?? []).map(c => `${c.sha} ${new Date(c.commit?.author?.date).getTime() / 1000}`).join("\n"))
