@@ -19,7 +19,7 @@ do
 	DATA=$( gh label list -L 1000 --repo "$REPO" 2>>"$ROOT/log" )
 	[[ "$?" -eq 0 ]] && break
 done
-BUG_LABELS=$( echo "$DATA" | cut -d$'\t' -f1 | grep -iE -e "^bug" -e '[ :/-]bug' -e "^confirm" -e "[^n]confirm" -e "important" -e "critical" -e "(high|top).*priority" -e "has.*(pr|pull)" -e "merge" -e '^(p|priority) ?([0-9]+|high|medium|low|mid)')
+BUG_LABELS=$( echo "$DATA" | cut -d$'\t' -f1 | grep -iE -e "^bug" -e '[ :/-]bug' -e "^confirm" -e "[^n]confirm" -e "important" -e "critical" -e "(high|top).*priority" -e "has.*(pr|pull)" -e '^(p|priority) ?([0-9]+|high|medium|low|mid)')
 
 
 [[ -z "$CUSTOM_LABELS" ]] || {
