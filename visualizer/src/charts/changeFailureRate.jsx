@@ -4,11 +4,10 @@ import {COLOURS, COLOURS_SEMI_TRANS, divideTimes, makeOptions, removeLeadingZero
 
 function ChangeFailureRate(props) {
 	const [dates, labels] = divideTimes(new Date(props.data.start), new Date(props.data.end), props.scale);
-
 	const data = {
 		labels,
 		datasets: props.data.results.map((result, i) => {
-
+			console.log(result.repo,result.failures.length)
 			const groupings = dates.map(d => Object.keys(result.deployments).map(k => result.deployments[k]).filter(dep => (dep.date * 1000 < d && dep.date * 1000 > d - props.scale) || props.scale === -1 ));
 			return {
 				label: result.repo,

@@ -174,6 +174,7 @@ SZZ_FILE() {
 for file in $files
 do
 	SZZ_FILE "$file"
+	wait
 done
 wait
 

@@ -117,7 +117,7 @@ do
 	log "Using $prev_tag -> $tag"
 	log "Using $prev_time -> $time"
 
-	commits=$( git rev-list --ancestry-path "$prev_tag..$tag" --date=local --format="%at" | paste - -  | cut -d' ' -f2- | tr '\t' ' ' )
+	commits=$( git rev-list "$prev_tag..$tag" --date=local --format="%at" | paste - -  | cut -d' ' -f2- | tr '\t' ' ' )
 
 	log Found $( echo "$commits" | wc -l ) commits
 

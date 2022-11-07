@@ -28,7 +28,6 @@ BUG_LABELS=$( echo "$DATA" | cut -d$'\t' -f1 | grep -iE -e "^bug" -e '[ :/-]bug'
 	BUG_LABELS+=$'\n'$(printf '%s' "$CUSTOM_LABELS")
 }
 
-log "Using labels $( echo $BUG_LABELS | xargs -n1 -I {} echo '"{}"' | paste -sd "," - )"
 log "Using Time SINCE=$SINCE"
 log "Using Time UNTIL=$UNTIL"
 
@@ -38,6 +37,7 @@ tn=$( date +%s -d "$UNTIL" )
 INCREMENT=$(( 60 * 60 * 24 * 365 / 12 ))
 ISSUES=""
 BUG_LABELS=$( echo "$BUG_LABELS" | xargs -n1 -I {} echo '"{}"' | paste -sd "," - )
+log "Using labels $( echo $BUG_LABELS | xargs -n1 -I {} echo '"{}"' | paste -sd "," - )"
 
 for ti in $( seq "$t0" "$INCREMENT" "$tn" )
 do
@@ -47,20 +47,8 @@ do
 
 	log "Querying partial range for $di0 -> $di1"
 
-
-	for i in $( seq 1 10 )
-	do
-		RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT 1 )"
-		DATA=$( gh api -X GET search/issues -f q="repo:$REPO is:closed label:$BUG_LABELS created:$di0..$di1" -f per_page=100 -f "page=$PAGE" 2>>"$ROOT/log" )
-		[[ "$?" -eq 0 ]] && break
-	done
-	NEW_ISSUES=$( echo "$DATA" | grep -oE "html_url.:.[^\"]+$REPO/issues/[0-9]+"| rev | cut -d'/' -f1 | rev | sort -n | uniq )
-	log Query returned $( echo "$NEW_ISSUES" | wc -l ) issues
-
-
 	ISSUES=$( cat <( echo "$ISSUES" ) <( echo "$NEW_ISSUES" ) )
-	while [[ $( echo "$NEW_ISSUES" | wc -l ) -gt 1 ]]; do
-		PAGE=$(( "$PAGE" + 1 ))
+	while true; do
 		log "Querying page $PAGE of issues"
 		for i in $( seq 1 10 )
 		do
@@ -71,6 +59,8 @@ do
 		NEW_ISSUES=$( echo "$DATA" | grep -oE "html_url.:.[^\"]+$REPO/issues/[0-9]+"| rev | cut -d'/' -f1 | rev | sort -n | uniq )
 		log Query returned $( echo "$NEW_ISSUES" | wc -l ) issues
 		ISSUES=$( cat <( echo "$ISSUES" ) <( echo "$NEW_ISSUES" ) )
+		PAGE=$(( "$PAGE" + 1 ))
+	[[ $( echo "$NEW_ISSUES" | wc -l ) -le 1 ]] && break
 	done
 done
 
@@ -94,10 +84,16 @@ issueIndex=0
 for issue in $ISSUES
 do
 	issueIndex=$(( $issueIndex + 1 ))
-	RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
-	pull_requests=$( gh api "/repos/$REPO/issues/$issue/timeline" 2>>"$ROOT/log" | grep -Eo '[^/]+/[^/]+/pull/[0-9]+' | grep "$REPO" | sort | uniq | cut -d '/' -f4 )
-	RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
 
+	RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
+	pull_requests=$( gh api "/repos/$REPO/issues/$issue/timeline" 2>>"$ROOT/log" | grep -Eo "url.: ?.https...github.com/$REPO/pull/[0-9]+" | sort | uniq | cut -d '/' -f7 )
+
+	[[ -z "$pull_requests" ]] && {
+		log "pull_requests for issue=$issue returned empty"
+		continue
+	}
+
+	RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
 	ISSUE_DATA=$( gh api "/repos/$REPO/issues/$issue" 2>>"$ROOT/log" )
 
 	created_at=$( echo "$ISSUE_DATA" | node "$ROOT/parse_pr_commit_json.js" 7 2>>"$ROOT/log" )
@@ -110,10 +106,6 @@ do
 
 	[[ -z "$created_at" ]] && {
 		log "created_at for issue=$issue returned empty"
-		continue
-	}
-	[[ -z "$pull_requests" ]] && {
-		log "pull_requests for issue=$issue returned empty"
 		continue
 	}
 
@@ -148,6 +140,7 @@ do
 		RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
 		for sha in $TIMELINE_SHAS
 		do
+			RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
 			checkTimelineSha "$sha" "$pull_request" "$date" "$issue" "$created_at" &
 		done
 		wait
