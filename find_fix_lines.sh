@@ -114,10 +114,10 @@ SZZ_LINE(){
 
 			[[ "$date" -gt "$MIN_DATE" ]] && {
 
-				diffCount=$( git diff -U0 "$blame~1" "$blame" -- "$file" | wc -l )
+				diffCount=$( git diff -U0 "$blame~1" "$blame" -- "$file" 2>/dev/null | wc -l )
 				log "Commit $blame ($diffCount lines) was created after the issue report, iterating deeper ($date > $MIN_DATE)"
 
-				[[ "$diffCount" -lt 2500 ]] && {
+				[[ "$diffCount" -lt 2500 ]] && [[ "$diffCount" -gt 0 ]] && {
 					echo "$blame" >> "$IGNORED_REV_FILE"
 					awk -i inplace '!seen[$0]++' "$IGNORED_REV_FILE"
 					IS_DONE=0
@@ -148,12 +148,12 @@ SZZ_FILE() {
 	COMMENT_TOKEN="//"
 	[[ -z "$( echo $EXT | grep -o '^\.(py|bash|sh|rb)$' )" ]] || COMMENT_TOKEN="#"
 
-	DIFF=$( git diff -w -U0 "$COMMIT~1" "$COMMIT" -- "$file" | tail -n +5 )
+	DIFF=$( git diff -w -U0 "$COMMIT~1" "$COMMIT" -- "$file" 2>/dev/null | tail -n +5 )
 	lines=$( echo "$DIFF" | grep -oE -e '@@.*@@' -e '^[-+].*' | grep -Eo '^@@.*@@' | grep -oE '[-0-9+,]+ [-0-9+,]+' | tr ' ' ':' )
 
 	numLines=$( echo "$lines" | wc -l )
 	log "Found $numLines lines of diff"
-	[[ "$numLines" -gt 1000 ]] && {
+	[[ "$numLines" -gt 1000 ]] && [[ "$numLines" -eq 0 ]] && {
 		log "Too many lines. Skipping file $file"
 		return
 	}

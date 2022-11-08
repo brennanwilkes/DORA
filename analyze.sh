@@ -77,26 +77,31 @@ processCommit(){
 	d1=$(date --date="$time" +%s)
 	d2=$( echo "$commit" | cut -d' ' -f2 )
 	diff=$(( $d1 - $d2 ))
-	diffSha=$( git diff $sha~ $sha | grep -Ev -e '^diff --git' -e '^---' -e '^\+\+\+' -e '^index [0-9a-z]+\.\.[0-9a-z]+ [0-9a-z]+$' | shasum | cut -d' ' -f1 )
+	diffSha=$( git diff $sha~1 $sha 2>/dev/null | grep -Ev -e '^diff --git' -e '^---' -e '^\+\+\+' -e '^index [0-9a-z]+\.\.[0-9a-z]+ [0-9a-z]+$' | shasum | cut -d' ' -f1 )
+	[[ "$diffSha" = "da39a3ee5e6b4b0d3255bfef95601890afd80709" ]] && {
+		diffSha="$( date +"%T.%N" | shasum | cut -d' ' -f1 )"
+	}
 
 	echo "$(echo $prev_tag | tr -d , ),$(echo $tag | tr -d , ),$sha,$d1,$d2,$diff,$diffSha"
 }
 
+totalCommits=0
 for i in $(seq 1 $(( $n - 1 )) )
 do
 
 	prev_tag=$( echo "$deployments" | head -n "$i" | tail -n1)
 	tag=$( echo "$deployments" | head -n "$(( $i + 1 ))" | tail -n1 )
 
-	[[ "$DEPLOYMENT" -eq 1 ]] && {
-		prev_time=$( git log -1 --format=%ai "$prev_tag" )
-		time=$( git log -1 --format=%ai "$tag" )
-	}
+	prev_time=$( git log -1 --format=%ai "$prev_tag" )
+	time=$( git log -1 --format=%ai "$tag" )
+
 	[[ "$DEPLOYMENT" -eq 0 ]] && {
 		RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
-		time=$( gh api "/repos/$REPO/releases/tags/$tag" | node "$ROOT/parse_pr_commit_json.js" 9 2>/dev/null )
+		remote_time=$( gh api "/repos/$REPO/releases/tags/$tag" | node "$ROOT/parse_pr_commit_json.js" 9 2>/dev/null )
+		[[ $( date -d "$remote_time" +%s ) -gt $( date -d "$time" +%s ) ]] && time="$remote_time"
 		RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
-		prev_time=$( gh api "/repos/$REPO/releases/tags/$prev_tag" | node "$ROOT/parse_pr_commit_json.js" 9 2>/dev/null )
+		remote_prev_time=$( gh api "/repos/$REPO/releases/tags/$prev_tag" | node "$ROOT/parse_pr_commit_json.js" 9 2>/dev/null )
+		[[ $( date -d "$remote_prev_time" +%s ) -gt $( date -d "$prev_time" +%s ) ]] && prev_time="$remote_prev_time"
 	}
 
 	[[ $( date -d "$prev_time" +%s ) -lt $( date -d "$END" +%s ) ]] && {
@@ -117,9 +122,18 @@ do
 	log "Using $prev_tag -> $tag"
 	log "Using $prev_time -> $time"
 
-	commits=$( git rev-list "$prev_tag..$tag" --date=local --format="%at" | paste - -  | cut -d' ' -f2- | tr '\t' ' ' )
+	set_diff_tags=$( echo "$deployments" | head -n "$i" | tail -n 1000 | xargs )
+	commits=$( git rev-list "$tag" --not $set_diff_tags --date=local --format="%at" | paste - -  | cut -d' ' -f2- | tr '\t' ' ' )
 
 	log Found $( echo "$commits" | wc -l ) commits
+
+
+	[[ $( echo "$commits" | wc -l ) -gt 1000 ]] && [[ -z "$( echo $tag | grep -Eo '^v?[0-9]+.[0-9]+.0' )" ]] && {
+		log "SKIPPING $prev_tag -> $tag due to exes commits (likely invalid version)"
+		continue
+	}
+
+	totalCommits=$(( $totalCommits + $( echo "$commits" | wc -l ) ))
 
 	time=$( echo "$time" | cut -d' ' -f1-2 )
 	N=16
@@ -129,4 +143,6 @@ do
 	done <<< "$commits"
 	wait
 done
+log "Processed $totalCommits total commits in anaylze step"
+
 cd "$ROOT"

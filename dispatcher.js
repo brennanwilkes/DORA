@@ -90,7 +90,7 @@ const main = async () => {
 						deployments[tag].date = date;
 						deployments[tag].averageDelta = deployments[tag].totalDelta / deployments[tag].commits.length
 						deployments[tag].failures = 0;
-						deployments[tag].critialFailures = 0;
+						deployments[tag].criticalFailures = 0;
 						totalCommits += 1;
 						totalDelta += delta;
 					}
@@ -260,7 +260,10 @@ const main = async () => {
 						if(sorted.length > 0){
 							deployments[sorted[0]].failures += 1;
 							if(failure.critical){
-								deployments[failure.version].critialFailures += 1;
+								if(!deployments[sorted[0]].criticalFailures){
+									deployments[sorted[0]].criticalFailures = 0;
+								}
+								deployments[sorted[0]].criticalFailures += 1;
 							}
 						}
 					});
@@ -278,9 +281,9 @@ const main = async () => {
 					deployments,
 					failures,
 					totalFailures: Object.keys(deployments).filter(k => deployments[k].failures > 0).length,
-					totalCriticalFailures: Object.keys(deployments).filter(k => deployments[k].critialFailures > 0).length,
+					totalCriticalFailures: Object.keys(deployments).filter(k => deployments[k].criticalFailures > 0).length,
 					averageFailureDelta: failures.reduce((acc, nxt) => acc + nxt.delta, 0) / (failures.length || 1),
-					averageCritialFailureDelta: failures.filter(f => f.critical).reduce((acc, nxt) => acc + nxt.delta, 0) / (failures.filter(f => f.critical).length || 1),
+					averageCriticalFailureDelta: failures.filter(f => f.critical).reduce((acc, nxt) => acc + nxt.delta, 0) / (failures.filter(f => f.critical).length || 1),
 				});
 			}
 		}).catch(err => {
@@ -292,7 +295,7 @@ const main = async () => {
 		const freq = (await exec(`./print_time.sh ${Math.round(result.deploymentFrequency)}`)).stdout.trim();
 		const leadTime = (await exec(`./print_time.sh ${Math.round(result.averageDelta)}`)).stdout.trim();
 		const meanTime = (await exec(`./print_time.sh ${Math.round(result.averageFailureDelta)}`)).stdout.trim();
-		const meanTimeCritical = (await exec(`./print_time.sh ${Math.round(result.averageCritialFailureDelta)}`)).stdout.trim();
+		const meanTimeCritical = (await exec(`./print_time.sh ${Math.round(result.averageCriticalFailureDelta)}`)).stdout.trim();
 
 		console.log(`----|${result.repo}|----`);
 		console.log(`Deployment Frequency: ${performer(result.deploymentFrequency, DeploymentFrequencyScale)} Performer (Average: ${freq})`);

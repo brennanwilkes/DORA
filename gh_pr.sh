@@ -80,6 +80,8 @@ checkTimelineSha(){
 totalIssues=$( echo "$ISSUES" | wc -l )
 log "Found $totalIssues issues"
 
+emptyPrs=0
+
 issueIndex=0
 for issue in $ISSUES
 do
@@ -89,7 +91,8 @@ do
 	pull_requests=$( gh api "/repos/$REPO/issues/$issue/timeline" 2>>"$ROOT/log" | grep -Eo "url.: ?.https...github.com/$REPO/pull/[0-9]+" | sort | uniq | cut -d '/' -f7 )
 
 	[[ -z "$pull_requests" ]] && {
-		log "pull_requests for issue=$issue returned empty"
+		emptyPrs=$(( $emptyPrs + 1 ))
+		log "pull_requests for issue=$issue returned empty ($emptyPrs so far)"
 		continue
 	}
 
