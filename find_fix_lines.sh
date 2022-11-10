@@ -153,7 +153,7 @@ SZZ_FILE() {
 
 	numLines=$( echo "$lines" | wc -l )
 	log "Found $numLines lines of diff"
-	[[ "$numLines" -gt 1000 ]] && [[ "$numLines" -eq 0 ]] && {
+	[[ "$numLines" -gt 1000 ]] || [[ "$numLines" -eq 0 ]] && {
 		log "Too many lines. Skipping file $file"
 		return
 	}

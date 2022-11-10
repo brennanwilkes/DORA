@@ -182,9 +182,7 @@ const main = async () => {
 					});
 					failures = issues.map((issue, i) => {
 						for (const version in deployments){
-							if(
-								(deployments[version].commits.indexOf(issue.sha) > -1 || deployments[version].diffs.indexOf(issue.diff) > -1)
-								&& deployments[version].date > issue.issue_time){
+							if(deployments[version].commits.indexOf(issue.sha) > -1 || deployments[version].diffs.indexOf(issue.diff) > -1){
 								return {
 									id: issue.issue,
 									critical: true,

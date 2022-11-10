@@ -67,6 +67,7 @@ echo "$ss,$es,$delta,$n,$avg1"
 processCommit(){
 	commit="$1"
 	time="$2"
+	d1="$time"
 	prev_tag="$3"
 	tag="$4"
 
@@ -74,7 +75,6 @@ processCommit(){
 		return
 	}
 	sha=$( echo "$commit" | cut -d' ' -f1 )
-	d1=$(date --date="$time" +%s)
 	d2=$( echo "$commit" | cut -d' ' -f2 )
 	diff=$(( $d1 - $d2 ))
 	diffSha=$( git diff $sha~1 $sha 2>/dev/null | grep -Ev -e '^diff --git' -e '^---' -e '^\+\+\+' -e '^index [0-9a-z]+\.\.[0-9a-z]+ [0-9a-z]+$' | shasum | cut -d' ' -f1 )
@@ -135,7 +135,11 @@ do
 
 	totalCommits=$(( $totalCommits + $( echo "$commits" | wc -l ) ))
 
+	max_commit_date=$( echo "$commits" | cut -d' ' -f2 | awk 'BEGIN{a=0}{if ($1>0+a) a=$1} END{print a}' )
 	time=$( echo "$time" | cut -d' ' -f1-2 )
+	time=$( date --date="$time" +%s )
+	[[ "$time" -lt "$max_commit_date" ]] && time="$max_commit_date"
+
 	N=16
 	while IFS= read -r commit; do
 		((i=i%N)); ((i++==0)) && wait
