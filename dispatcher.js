@@ -78,8 +78,8 @@ const main = async () => {
 							averageDelta: 0}
 					}
 
-					if(Object.keys(deployments).some(tag => (deployments[tag].commits.indexOf(sha) !== -1) || (deployments[tag].diffs.indexOf(diff) !== -1))){
-						// console.log(`Found duplicate SHA (${sha}/${diff}/${tag}) exists already`)
+					if(Object.keys(deployments).some(tag => deployments[tag].commits.indexOf(sha) !== -1)){
+						console.log(`Found duplicate SHA (${sha}/${diff}/${tag}) exists already`)
 						duplicates += 1;
 					}
 					else{
