@@ -11,15 +11,7 @@ function DeploymentFrequency(props) {
 		datasets: props.data.results.map((result, i) => ({
 			label: result.repo,
 			fill: true,
-			data: dates.map(d => Object.keys(result.deployments).map(k => result.deployments[k]).filter(dep => (dep.date * 1000 < d && dep.date * 1000 > d - props.scale) || props.scale === -1 ).length).map(d => {
-				if(props.scale === -1 && Object.keys(result.deployments).length > 2){
-					const sorted = Object.keys(result.deployments).map(k => result.deployments[k]).sort((a,b) => a.date - b.date);
-					const start = sorted[0].date;
-					const end = sorted[sorted.length - 1].date;
-					return d / (end - start) * YEAR / 1000
-				}
-				return d;
-			}).map(removeLeadingZeros),
+			data: result[`${props.scale}`].deploymentFrequency,
 			backgroundColor: props.style === "line" ? COLOURS_SEMI_TRANS[i] : COLOURS[i],
 			borderColor: COLOURS[i]
 		}))

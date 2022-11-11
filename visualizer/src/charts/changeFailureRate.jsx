@@ -7,12 +7,10 @@ function ChangeFailureRate(props) {
 	const data = {
 		labels,
 		datasets: props.data.results.map((result, i) => {
-			console.log(result.repo,result.failures.length)
-			const groupings = dates.map(d => Object.keys(result.deployments).map(k => result.deployments[k]).filter(dep => (dep.date * 1000 < d && dep.date * 1000 > d - props.scale) || props.scale === -1 ));
 			return {
 				label: result.repo,
 				fill: true,
-				data: groupings.map(g => 100 * g.filter(d => d.failures > 0 || d.hasFailure).length / (g.length || 1)).map(removeLeadingZeros),
+				data: result[`${props.scale}`].changeFailureRate,
 				backgroundColor: props.style === "line" ? COLOURS_SEMI_TRANS[i] : COLOURS[i],
 				borderColor: COLOURS[i]
 			}

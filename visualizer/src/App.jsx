@@ -13,10 +13,8 @@ import {
 	Filler
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import balena from "./data/balena-results.json"
-import node from "./data/node-results.json"
-import brnkl from "./data/brnkl-results.json"
-import combined from "./data/combined-results.json"
+import brnkl from "./data/brnkl-minified.json"
+import combined from "./data/combined-minified.json"
 
 import DeploymentFrequency from "./charts/deploymentFrequency";
 import LeadTimeForChanges from "./charts/leadTimeForChanges";
@@ -40,6 +38,7 @@ ChartJS.register(
 	Filler
 );
 
+combined.results = combined.results.filter(r => r.repo !== "kubernetes/kubernetes")
 const dataset = combined;
 
 function App() {
