@@ -58,6 +58,8 @@ Promise.all([...config.workers, config.scheduler].map(server => exec(
 	console.log(`----------------------------`);
 	console.log("To authenticate workers:")
 	console.log(`ssh -i ${config.scheduler.key} ${config.scheduler.user}@${config.scheduler.ip} "~/${REPO_DIR}/authenticate_compute_instances.sh ${REPO_DIR}"`);
+	// console.log(`ssh -i ${config.scheduler.key} ${config.scheduler.user}@${config.scheduler.ip}`);
+	// console.log(`~/${REPO_DIR}/authenticate_compute_instances.sh ${REPO_DIR}`)
 	console.log(`----------------------------`);
 	console.log("To access scheduler:")
 	console.log(`ssh -i ${config.scheduler.key} ${config.scheduler.user}@${config.scheduler.ip}`);
