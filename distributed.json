@@ -1,0 +1,89 @@
+{
+    "name": "brnkl",
+    "end": "Nov 10 2022",
+    "start": "May 1 2022",
+    "results": "distrubuted-results.json",
+    "scheduler": {
+        "ip": "ec2-18-236-188-11.us-west-2.compute.amazonaws.com",
+        "user": "ubuntu",
+        "key": "~/.ssh/DORA-scheduler_keyPair.pem"
+    },
+    "workers": [
+        {
+            "ip": "54.218.169.140",
+            "user": "ubuntu",
+            "key": "~/.ssh/DORA-worker-a_keyPair.pem"
+        },
+        {
+            "ip": "35.90.8.80",
+            "user": "ubuntu",
+            "key": "~/.ssh/DORA-worker-b_keyPair.pem"
+        },
+        {
+            "ip": "52.27.85.242",
+            "user": "ubuntu",
+            "key": "~/.ssh/DORA-worker-c_keyPair.pem"
+        },
+        {
+            "ip": "52.32.30.32",
+            "user": "ubuntu",
+            "key": "~/.ssh/DORA-worker-d_keyPair.pem"
+        },
+        {
+            "ip": "52.37.29.250",
+            "user": "ubuntu",
+            "key": "~/.ssh/DORA-worker-e_keyPair.pem"
+        }
+    ],
+    "repos": [
+        {
+            "id": "nodejs/node",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "kubernetes/kubernetes",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "facebook/react-native",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "vercel/next.js",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "facebook/react",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "angular/angular",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "microsoft/TypeScript",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        }
+    ]
+}
