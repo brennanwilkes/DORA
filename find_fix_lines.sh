@@ -1,10 +1,20 @@
 #!/usr/bin/env bash
 export ROOT="$( pwd )"
-SZZ_CACHE="$ROOT/SZZ_CACHE"
-COMMIT=$( echo "$1" | cut -d',' -f1 )
-ISSUE=$( echo "$1" | cut -d',' -f2 )
-MIN_DATE=$( echo "$1" | cut -d',' -f3 )
+
+#issue,$pull_request,$shaP,$created_at,$date,$diffSha,parent
+ISSUE=$( echo "$1" | cut -d',' -f1 )
+PULL_REQUEST=$( echo "$1" | cut -d',' -f2 )
+COMMIT=$( echo "$1" | cut -d',' -f3 )
+MIN_DATE=$( echo "$1" | cut -d',' -f4 )
+MERGE_DATE=$( echo "$1" | cut -d',' -f5 )
+COMMIT_DIFF=$( echo "$1" | cut -d',' -f6 )
+COMMIT_TYPE=$( echo "$1" | cut -d',' -f7 )
+ORIGINAL_INPUT="$1"
+
 REPO="$2"
+COMMIT_CACHE="$3"
+SZZ_CACHE="$4"
+
 export hash=$( echo "$REPO" | shasum | cut -d' ' -f1)
 export WORKING_DIR="$ROOT/$hash"
 
@@ -45,6 +55,18 @@ isDifferent(){
 
 cd "$WORKING_DIR"
 
+COMMIT_LOOKUP="$( cat $COMMIT_CACHE | grep -e $COMMIT_DIFF -e $COMMIT | cut -d',' -f1 | head -n1 )"
+
+[[ -z "$COMMIT_LOOKUP" ]] && {
+	log "Commit $COMMIT / $COMMIT_DIFF ($COMMIT_TYPE) does not exist. Skipping SZZ step"
+	echo "$ORIGINAL_INPUT,,,"
+	exit 0
+}
+[[ "$COMMIT" != "$COMMIT_LOOKUP" ]] && {
+	log "Mapping $COMMIT -> $COMMIT_LOOKUP via diff $COMMIT_DIFF"
+	COMMIT="$COMMIT_LOOKUP"
+}
+
 log "Searching for bug-inducing commit candidates for fix $COMMIT (#$ISSUE)"
 
 files=$( git diff --numstat "$COMMIT~1" "$COMMIT" | tr '\t' ' ' | cut -d' ' -f3 | grep -vE -e '\.spec' -e '\.test' -e '^tests?/' -e '/tests?/' -e 'bundle' | grep -E '\.(js|jsx|ts|tsx|java|c|cc|cpp|py|mjs|sh|bash|cs|html|css|php|swift|h|asm|lsp|dart|rb|go|gradle|groovy|kt|lua|rs)$' )
@@ -52,7 +74,7 @@ n=$( echo "$files" | wc -l )
 log "Found $n files in fix commit"
 
 CANDIDATES=$( mktemp )
-
+HAS_PRINTED=$( mktemp )
 
 SZZ_LINE(){
 	line="$1"
@@ -135,7 +157,8 @@ SZZ_LINE(){
 				diff=$( date +"%T.%N" | shasum | cut -d' ' -f1 )
 			}
 			log "Found candidate commit $blame"
-			echo "$COMMIT,$blame,$diffSha,$ISSUE,$file"
+			echo "$ORIGINAL_INPUT,$blame,$diffSha,$file"
+			echo 1 >> "$HAS_PRINTED"
 			i=$(( $i + 1 ))
 		done
 	done
@@ -179,4 +202,8 @@ done
 wait
 
 rm "$CANDIDATES"
+
+[[ -z "$( echo $HAS_PRINTED | grep -o 1 )" ]] && echo "$ORIGINAL_INPUT,,,"
+rm "$HAS_PRINTED"
+
 cd "$ROOT"

@@ -2,7 +2,8 @@ const fs = require("fs")
 const exec = require("util").promisify(require("child_process").exec);
 
 const fn = process.argv[2];
-const SZZ_CACHE = "./SZZ_CACHE"
+const SZZ_CACHE = "/tmp/SZZ_CACHE"
+const COMMIT_CACHE = "/tmp/COMMIT_CACHE"
 
 const main = async () => {
 	const config = JSON.parse(fs.readFileSync(fn, 'utf8'));
@@ -34,14 +35,16 @@ const main = async () => {
 		return "Critically Low";
 	}
 
-	if(fs.existsSync(SZZ_CACHE)){
-		await fs.promises.unlink(SZZ_CACHE);
-	}
-
 	console.log(`Starting study ${config.name} from ${config.start} to ${config.end}`);
 
 	let results = [];
 	for (const repo of config.repos) {
+		if(fs.existsSync(SZZ_CACHE)){
+			await fs.promises.unlink(SZZ_CACHE);
+		}
+		if(fs.existsSync(COMMIT_CACHE)){
+			await fs.promises.unlink(COMMIT_CACHE);
+		}
 		const result = await new Promise(async (resolve, reject) => {
 			const failType = repo.failures?.type;
 			console.log(`Analyzing ${repo.id} with deployment=${repo.deployment === 0 ? "releases" : "tags"}, failures=${failType === 0 ? "jira" : (failType === 1 ? "issues" : "n/a")}`);
@@ -95,6 +98,19 @@ const main = async () => {
 						totalDelta += delta;
 					}
 				});
+
+				const commitCacheData = Object.keys(deployments).map(k => {
+					let pairs = [];
+					for (let i = 0; i < deployments[k].commits.length; i++) {
+						pairs = [...pairs, {
+							commit: deployments[k].commits[i],
+							diff: deployments[k].diffs[i]
+						}];
+					}
+					return pairs;
+				}).flat().map(p => `${p.commit},${p.diff}`).join("\n");
+
+				fs.writeFileSync(COMMIT_CACHE, commitCacheData);
 
 				let failures = []
 				if(repo.failures?.type === 0){
@@ -153,7 +169,7 @@ const main = async () => {
 				else if(repo.failures?.type === 1){
 					const custom = (repo.failures?.custom ?? []).join(" ");
 					const gh_pr = await exec(
-						`./gh_pr.sh "${repo.id}" "${new Date(config.start).getTime() / 1000}" "${new Date(config.end).getTime() / 1000}"${custom.length > 0 ? ` "${custom}"` : ""}`,
+						`./gh_pr.sh "${repo.id}" "${new Date(config.start).getTime() / 1000}" "${new Date(config.end).getTime() / 1000}"${custom.length > 0 ? ` "${custom}"` : ""} | ./join_to_szz.sh "${repo.id}" "${COMMIT_CACHE}" "${SZZ_CACHE}"`,
 						{maxBuffer: 1024 * 1024 * 1024});
 					if(gh_pr.stderr){
 						console.error("*******************")
@@ -170,6 +186,12 @@ const main = async () => {
 						const merge_time = parseInt(line[4]);
 						const diff = line[5];
 						const isMerge = line[6] === "merge";
+
+						//SZZ
+						const inducing_commit = line[7]
+						const inducing_diff = line[8]
+						const inducing_file = line[9]
+
 						issues = [...issues, {
 							issue,
 							pr,
@@ -177,7 +199,10 @@ const main = async () => {
 							issue_time,
 							merge_time,
 							diff,
-							isMerge
+							isMerge,
+							inducing_commit,
+							inducing_diff,
+							inducing_file
 						}];
 					});
 					failures = issues.map((issue, i) => {
@@ -192,8 +217,8 @@ const main = async () => {
 									delta: deployments[version].date - issue.issue_time,
 									sha: issue.sha,
 									diff: issue.diff,
-									merge_commit: issue.isMerge ? issue.sha : undefined,
-									merge_diff: issue.isMerge ? issue.diff : undefined
+									inducing_commits: issue.inducing_commit.length > 0 ? [issue.inducing_commit] : [],
+									inducing_diffs: issue.inducing_diff.length > 0 ? [issue.inducing_diff] : [],
 								}
 							}
 						}
@@ -202,12 +227,22 @@ const main = async () => {
 
 					const uniqueFailures = {}
 					failures.forEach((failure, i) => {
+						if(failure.inducing_commits.length > 0){
+							Object.keys(deployments).forEach((version, i) => {
+								if(deployments[version].commits.indexOf(failure.inducing_commits[0]) > -1 || deployments[version].diffs.indexOf(failure.inducing_diffs[0]) > -1){
+									deployments[version].failures += 1;
+									failure.induced_by = [...(failure.induced_by ?? []), version];
+								}
+							});
+						}
+
+						if(uniqueFailures[failure.id]){
+							uniqueFailures[failure.id].inducing_commits = [...(uniqueFailures[failure.id].inducing_commits), ...(failure.inducing_commits)];
+							uniqueFailures[failure.id].inducing_diffs = [...(uniqueFailures[failure.id].inducing_diffs), ...(failure.inducing_diffs)];
+							uniqueFailures[failure.id].induced_by = [...(uniqueFailures[failure.id].induced_by), ...(failure.induced_by)];
+						}
 						if(!uniqueFailures[failure.id] || uniqueFailures[failure.id].delta < failure.delta){
 							uniqueFailures[failure.id] = failure;
-						}
-						else{
-							uniqueFailures[failure.id].merge_commit = uniqueFailures[failure.id].merge_commit ?? failure.merge_commit
-							uniqueFailures[failure.id].merge_diff = uniqueFailures[failure.id].merge_diff ?? failure.merge_diff
 						}
 					});
 
@@ -220,36 +255,6 @@ const main = async () => {
 						}
 						return map;
 					}).flat();
-
-					for (const i in failures){
-						const failure = failures[i];
-						const mappedSha = mapping.filter(m => m.hash === failure.diff)?.[0]?.sha;
-						const mappedMergeSha = mapping.filter(m => m.hash === failure.merge_diff)?.[0]?.sha;
-						await exec(`./log.sh . "${i}/${failures.length}"`);
-						const find_issues = await exec(`./find_fix_lines.sh ${(mappedMergeSha ?? failure.merge_commit) ?? (mappedSha ?? failure.sha)},${failure.id},${failure.created} ${repo.id}`);
-						if(find_issues.stderr){
-							console.error("*******************")
-							console.error(find_issues.stderr)
-							console.error("*******************")
-						}
-						find_issues.stdout.split("\n").filter(l => l.length > 1).forEach((line, i) => {
-							const fix_commit = line.split(",")[0];
-							const fix_inducing_commit = line.split(",")[1];
-							const fix_inducing_diff = line.split(",")[2];
-							const issue = line.split(",")[3];
-							const file = line.split(",")[4];
-
-							failure.inducing_commits = [...(failure.inducing_commits ?? []), fix_inducing_commit];
-							failure.inducing_commits_diff = [...(failure.inducing_commits_diff ?? []), fix_inducing_diff];
-
-							Object.keys(deployments).forEach((version, i) => {
-								if(deployments[version].commits.indexOf(fix_inducing_commit) > -1 || deployments[version].diffs.indexOf(fix_inducing_diff) > -1){
-									deployments[version].failures += 1;
-									failure.induced_by = [...(failure.induced_by ?? []), version];
-								}
-							});
-						});
-					}
 				}
 
 				if(repo.failures?.type === 0){
