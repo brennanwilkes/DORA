@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-DATA_FILE="./authDataFile.txt"
-REPO="$( pwd | rev | cut -d'/' -f1 | rev )"
+REPO="$1"
+DATA_FILE="~/$REPO/authDataFile.txt"
 
 while IFS= read -r worker; do
 	IP=$( echo "$worker" | cut -d',' -f1 )
