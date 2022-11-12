@@ -239,7 +239,7 @@ const main = async () => {
 						if(uniqueFailures[failure.id]){
 							uniqueFailures[failure.id].inducing_commits = [...(uniqueFailures[failure.id].inducing_commits), ...(failure.inducing_commits)];
 							uniqueFailures[failure.id].inducing_diffs = [...(uniqueFailures[failure.id].inducing_diffs), ...(failure.inducing_diffs)];
-							uniqueFailures[failure.id].induced_by = [...(uniqueFailures[failure.id].induced_by), ...(failure.induced_by)];
+							uniqueFailures[failure.id].induced_by = [...(uniqueFailures[failure.id].induced_by ?? []), ...(failure.induced_by ?? [])];
 						}
 						if(!uniqueFailures[failure.id] || uniqueFailures[failure.id].delta < failure.delta){
 							uniqueFailures[failure.id] = failure;
