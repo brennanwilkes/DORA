@@ -70,7 +70,7 @@ Promise.all([...config.workers, config.scheduler].map(server => exec(
 	});
 	console.log(`----------------------------`);
 	console.log(`To start workers:`);
-	console.log(`ssh -i ${config.scheduler.key} ${config.scheduler.user}@${config.scheduler.ip} "~/${REPO_DIR}/start_compute_instances.sh ${REPO_DIR}" "${config.scheduler.user}" "${config.scheduler.ip}" "${config.scheduler.key}"`)
+	console.log(`ssh -i ${config.scheduler.key} ${config.scheduler.user}@${config.scheduler.ip} "~/${REPO_DIR}/start_compute_instances.sh '${REPO_DIR}' '${config.scheduler.user}' '${config.scheduler.ip}' '${config.scheduler.key}'`)
 	console.log(`----------------------------`);
 	return Promise.resolve();
 }).catch(console.error);
