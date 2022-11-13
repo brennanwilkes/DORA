@@ -5,7 +5,9 @@ echo "Launcing study..." >>log
 
 gh auth status >>log 2>>log || gh auth login
 
-eval $( cat .env | grep '^[^#]' |xargs -n1 echo export )
+[[ -f ".env" ]] && {
+	eval $( cat .env | grep '^[^#]' | xargs -n1 echo export )
+}
 
 cat "$1" | tr -d '\n' | tr -d ' ' | tr -d '\t' | grep -Eo "failures[^}]*}" | grep -o 'type[^,]*0,' >/dev/null && {
 	#Using JIRA failure mode

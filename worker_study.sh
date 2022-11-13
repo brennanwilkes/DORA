@@ -7,7 +7,7 @@ KEY="$4"
 
 touch I_HAVE_STARTED
 
-./study.sh config.json > stdout.txt
+PATH="/home/ubuntu/.nvm/versions/node/v18.3.0/bin:$PATH" ./study.sh config.json > stdout.txt
 scp -i "$KEY" stdout.txt "$USER@$REMOTE:~/$WORKER_ID-stdout.txt"
 scp -i "$KEY" log "$USER@$REMOTE:~/$WORKER_ID-log"
 scp -i "$KEY" results.json "$USER@$REMOTE:~/$WORKER_ID-results.json"
