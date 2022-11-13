@@ -12,6 +12,9 @@ while IFS="\n" read -r worker; do
 	IP=$( echo "$worker" | cut -d',' -f1 )
 	USER=$( echo "$worker" | cut -d',' -f2 )
 	KEY=$( echo "$worker" | cut -d',' -f3 )
+	echo "Starting worker $IP"
 	ssh -o StrictHostKeyChecking=no -i "$KEY" -f "$USER@$IP" "cd ~/$REPO && touch SCHEDULER_REQUESTED_START && nohup ./worker_study.sh '$i' '$REMOTE_USER' '$REMOTE_IP' '$REMOTE_KEY' >worker.out 2>worker.err </dev/null &"
 	i=$(( $i + 1 ))
 done <<< "$DATA"
+
+echo "All workers started"
