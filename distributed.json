@@ -1,7 +1,7 @@
 {
     "name": "brnkl",
     "end": "Nov 10 2022",
-    "start": "May 1 2022",
+    "start": "Sep 1 2022",
     "results": "distrubuted-results.json",
     "scheduler": {
         "ip": "ec2-18-236-188-11.us-west-2.compute.amazonaws.com",

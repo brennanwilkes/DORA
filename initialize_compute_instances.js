@@ -40,7 +40,7 @@ Promise.all([...config.workers, config.scheduler].map(server => exec(
 		const configForWorker = structuredClone(config);
 		delete configForWorker.workers;
 		delete configForWorker.scheduler;
-		configForWorker.results = `worker-${i}-${configForWorker.results}`;
+		configForWorker.results = `results.json`;
 		configForWorker.repos = configForWorker.repos.filter((_, j) => (j % config.workers.length) === i);
 		console.log(`Distributing ${configForWorker.repos.length} repos to worker ${i} (${configForWorker.repos.map(r => r.id).join(", ")})`);
 		fs.writeFileSync(`/tmp/configForWorker${i}.json`, JSON.stringify(configForWorker, null, 4));
@@ -68,6 +68,9 @@ Promise.all([...config.workers, config.scheduler].map(server => exec(
 	config.workers.forEach((server, i) => {
 		console.log(`ssh -i ${server.key} ${server.user}@${server.ip}`);
 	});
+	console.log(`----------------------------`);
+	console.log(`To start workers:`);
+	console.log(`ssh -i ${config.scheduler.key} ${config.scheduler.user}@${config.scheduler.ip} "~/${REPO_DIR}/start_compute_instances.sh ${REPO_DIR}" "${config.scheduler.user}" "${config.scheduler.ip}" "${config.scheduler.key}"`)
 	console.log(`----------------------------`);
 	return Promise.resolve();
 }).catch(console.error);
