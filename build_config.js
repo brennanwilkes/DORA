@@ -10,7 +10,8 @@ const output = {
 		return {
 			id: r[0],
 			deployment: 1,
-			failures: {type: 1}
+			failures: {type: 1},
+			weight: parseInt(r[2])
 		};
 	}),
 	scheduler: {},

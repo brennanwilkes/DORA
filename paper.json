@@ -9,1400 +9,1600 @@
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 102
         },
         {
             "id": "actix/actix-web",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 103
         },
         {
             "id": "vercel/turbo",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 104
         },
         {
             "id": "vuejs/vuepress",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 108
         },
         {
             "id": "insidegui/WWDC",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 109
         },
         {
             "id": "topjohnwu/Magisk",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 110
         },
         {
             "id": "pugjs/pug",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 112
         },
         {
             "id": "tree-sitter/tree-sitter",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 112
         },
         {
             "id": "CosmicMind/Material",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 126
         },
         {
             "id": "utmapp/UTM",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 127
         },
         {
             "id": "redis/redis",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 128
         },
         {
             "id": "jaredpalmer/formik",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 129
         },
         {
             "id": "facebook/rocksdb",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 131
         },
         {
             "id": "koekeishiya/yabai",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 134
         },
         {
             "id": "mozilla/DeepSpeech",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 135
         },
         {
             "id": "date-fns/date-fns",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 136
         },
         {
             "id": "Alamofire/Alamofire",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 137
         },
         {
             "id": "hyperium/hyper",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 138
         },
         {
             "id": "balderdashy/sails",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 143
         },
         {
             "id": "tesseract-ocr/tesseract",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 145
         },
         {
             "id": "Seldaek/monolog",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 147
         },
         {
             "id": "labstack/echo",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 154
         },
         {
             "id": "jashkenas/underscore",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 155
         },
         {
             "id": "Blankj/AndroidUtilCode",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 161
         },
         {
             "id": "louislam/uptime-kuma",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 171
         },
         {
             "id": "junegunn/fzf",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 178
         },
         {
             "id": "BurntSushi/ripgrep",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 178
         },
         {
             "id": "rxhanson/Rectangle",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 186
         },
         {
             "id": "Carthage/Carthage",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 187
         },
         {
             "id": "jquery/jquery",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 206
         },
         {
             "id": "swoole/swoole-src",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 208
         },
         {
             "id": "quilljs/quill",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 218
         },
         {
             "id": "gofiber/fiber",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 223
         },
         {
             "id": "ReactiveCocoa/ReactiveCocoa",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 228
         },
         {
             "id": "socketio/socket.io",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 232
         },
         {
             "id": "hackiftekhar/IQKeyboardManager",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 235
         },
         {
             "id": "neoclide/coc.nvim",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 235
         },
         {
             "id": "RaRe-Technologies/gensim",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 250
         },
         {
             "id": "ianyh/Amethyst",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 256
         },
         {
             "id": "floating-ui/floating-ui",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 257
         },
         {
             "id": "homebridge/homebridge",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 259
         },
         {
             "id": "monicahq/monica",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 261
         },
         {
             "id": "balena-io/etcher",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 262
         },
         {
             "id": "micropython/micropython",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 264
         },
         {
             "id": "ehang-io/nps",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 268
         },
         {
             "id": "python-telegram-bot/python-telegram-bot",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 270
         },
         {
             "id": "github/hub",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 281
         },
         {
             "id": "bytecodealliance/wasmtime",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 283
         },
         {
             "id": "emscripten-core/emscripten",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 286
         },
         {
             "id": "statelyai/xstate",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 286
         },
         {
             "id": "ocornut/imgui",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 288
         },
         {
             "id": "iina/iina",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 288
         },
         {
             "id": "meilisearch/meilisearch",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 292
         },
         {
             "id": "d3/d3",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 299
         },
         {
             "id": "vnpy/vnpy",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 305
         },
         {
             "id": "firecracker-microvm/firecracker",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 310
         },
         {
             "id": "jesseduffield/lazygit",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 316
         },
         {
             "id": "electron-react-boilerplate/electron-react-boilerplate",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 317
         },
         {
             "id": "pmndrs/react-spring",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 324
         },
         {
             "id": "react-native-elements/react-native-elements",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 326
         },
         {
             "id": "cube-js/cube.js",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 331
         },
         {
             "id": "kenwheeler/slick",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 337
         },
         {
             "id": "k3s-io/k3s",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 341
         },
         {
             "id": "Kong/insomnia",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 355
         },
         {
             "id": "SpartnerNL/Laravel-Excel",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 355
         },
         {
             "id": "realm/SwiftLint",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 368
         },
         {
             "id": "getgrav/grav",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 373
         },
         {
             "id": "google/guava",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 376
         },
         {
             "id": "mattermost/mattermost-server",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 407
         },
         {
             "id": "vuejs/vue",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 408
         },
         {
             "id": "locustio/locust",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 445
         },
         {
             "id": "notepad-plus-plus/notepad-plus-plus",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 448
         },
         {
             "id": "JedWatson/react-select",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 470
         },
         {
             "id": "wasmerio/wasmer",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 473
         },
         {
             "id": "sebastianbergmann/phpunit",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 480
         },
         {
             "id": "ytdl-org/youtube-dl",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 486
         },
         {
             "id": "arendst/Tasmota",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 488
         },
         {
             "id": "CachetHQ/Cachet",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 489
         },
         {
             "id": "RedisInsight/RedisDesktopManager",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 496
         },
         {
             "id": "vapor/vapor",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 496
         },
         {
             "id": "appwrite/appwrite",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 519
         },
         {
             "id": "jina-ai/jina",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 534
         },
         {
             "id": "clap-rs/clap",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 535
         },
         {
             "id": "BookStackApp/BookStack",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 550
         },
         {
             "id": "etcd-io/etcd",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 551
         },
         {
             "id": "nushell/nushell",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 555
         },
         {
             "id": "Eugeny/tabby",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 557
         },
         {
             "id": "caddyserver/caddy",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 560
         },
         {
             "id": "prometheus/prometheus",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 563
         },
         {
             "id": "remix-run/react-router",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 574
         },
         {
             "id": "protocolbuffers/protobuf",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 587
         },
         {
             "id": "PaddlePaddle/Paddle",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 600
         },
         {
             "id": "taichi-dev/taichi",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 606
         },
         {
             "id": "vuejs/core",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 614
         },
         {
             "id": "alacritty/alacritty",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 626
         },
         {
             "id": "yarnpkg/yarn",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 627
         },
         {
             "id": "alibaba/nacos",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 648
         },
         {
             "id": "microsoft/playwright",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 677
         },
         {
             "id": "squizlabs/PHP_CodeSniffer",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 685
         },
         {
             "id": "puppeteer/puppeteer",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 705
         },
         {
             "id": "starship/starship",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 737
         },
         {
             "id": "nodejs/node",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 738
         },
         {
             "id": "hashicorp/consul",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 758
         },
         {
             "id": "sveltejs/svelte",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 793
         },
         {
             "id": "hashicorp/vault",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 799
         },
         {
             "id": "Leaflet/Leaflet",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 814
         },
         {
             "id": "Foundry376/Mailspring",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 816
         },
         {
             "id": "timescale/timescaledb",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 818
         },
         {
             "id": "rethinkdb/rethinkdb",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 840
         },
         {
             "id": "swaywm/sway",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 841
         },
         {
             "id": "certbot/certbot",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 841
         },
         {
             "id": "pnpm/pnpm",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 842
         },
         {
             "id": "youzan/vant",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 890
         },
         {
             "id": "hasura/graphql-engine",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 894
         },
         {
             "id": "realm/realm-java",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 895
         },
         {
             "id": "gogs/gogs",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 904
         },
         {
             "id": "marmelab/react-admin",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 942
         },
         {
             "id": "ethereum/go-ethereum",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 946
         },
         {
             "id": "helm/helm",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1028
         },
         {
             "id": "rclone/rclone",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1053
         },
         {
             "id": "octobercms/october",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1053
         },
         {
             "id": "portainer/portainer",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1066
         },
         {
             "id": "Semantic-Org/Semantic-UI",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1068
         },
         {
             "id": "ionic-team/ionic-framework",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1070
         },
         {
             "id": "commaai/openpilot",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1072
         },
         {
             "id": "python-poetry/poetry",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1072
         },
         {
             "id": "cli/cli",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1112
         },
         {
             "id": "ethereum/solidity",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1122
         },
         {
             "id": "gohugoio/hugo",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1134
         },
         {
             "id": "ianstormtaylor/slate",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1143
         },
         {
             "id": "fish-shell/fish-shell",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1190
         },
         {
             "id": "pixijs/pixijs",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1210
         },
         {
             "id": "videojs/video.js",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1246
         },
         {
             "id": "denoland/deno",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1257
         },
         {
             "id": "sqlmapproject/sqlmap",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1266
         },
         {
             "id": "swc-project/swc",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1282
         },
         {
             "id": "osquery/osquery",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1325
         },
         {
             "id": "elastic/logstash",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1387
         },
         {
             "id": "syncthing/syncthing",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1393
         },
         {
             "id": "vectordotdev/vector",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1425
         },
         {
             "id": "telegramdesktop/tdesktop",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1447
         },
         {
             "id": "phalcon/cphalcon",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1462
         },
         {
             "id": "docker/compose",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1473
         },
         {
             "id": "mozilla-mobile/firefox-ios",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1504
         },
         {
             "id": "prettier/prettier",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1525
         },
         {
             "id": "doctrine/dbal",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1539
         },
         {
             "id": "facebook/jest",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1570
         },
         {
             "id": "obsproject/obs-studio",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1575
         },
         {
             "id": "matplotlib/matplotlib",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1578
         },
         {
             "id": "influxdata/influxdb",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1597
         },
         {
             "id": "strapi/strapi",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1600
         },
         {
             "id": "apache/superset",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1612
         },
         {
             "id": "tikv/tikv",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1670
         },
         {
             "id": "ant-design/ant-design",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1721
         },
         {
             "id": "qmk/qmk_firmware",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1735
         },
         {
             "id": "moby/moby",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1950
         },
         {
             "id": "scikit-learn/scikit-learn",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 1951
         },
         {
             "id": "RocketChat/Rocket.Chat",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 2204
         },
         {
             "id": "netdata/netdata",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 2231
         },
         {
             "id": "traefik/traefik",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 2247
         },
         {
             "id": "react-navigation/react-navigation",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 2371
         },
         {
             "id": "zulip/zulip",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 2412
         },
         {
             "id": "chartjs/Chart.js",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 2523
         },
         {
             "id": "kubernetes/minikube",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 2550
         },
         {
             "id": "pytorch/pytorch",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 2609
         },
         {
             "id": "bitcoin/bitcoin",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 2613
         },
         {
             "id": "yiisoft/yii2",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 2664
         },
         {
             "id": "prisma/prisma",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 2669
         },
         {
             "id": "laurent22/joplin",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 2756
         },
         {
             "id": "angular/angular-cli",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 2815
         },
         {
             "id": "microsoft/terminal",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 2933
         },
         {
             "id": "doctrine/orm",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 3060
         },
         {
             "id": "opencv/opencv",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 3073
         },
         {
             "id": "babel/babel",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 3224
         },
         {
             "id": "grpc/grpc",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 3289
         },
         {
             "id": "facebook/react-native",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 3885
         },
         {
             "id": "mui/material-ui",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 4041
         },
         {
             "id": "storybookjs/storybook",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 4174
         },
         {
             "id": "matomo-org/matomo",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 4799
         },
         {
             "id": "electron/electron",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 4896
         },
         {
             "id": "bazelbuild/bazel",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 5155
         },
         {
             "id": "ClickHouse/ClickHouse",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 5212
         },
         {
             "id": "numpy/numpy",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 5394
         },
         {
             "id": "appsmithorg/appsmith",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 6256
         },
         {
             "id": "angular/components",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 6702
         },
         {
             "id": "grafana/grafana",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 6907
         },
         {
             "id": "go-gitea/gitea",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 7722
         },
         {
             "id": "rust-lang/rust",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 8052
         },
         {
             "id": "pandas-dev/pandas",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 8206
         },
         {
             "id": "pingcap/tidb",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 9408
         },
         {
             "id": "tensorflow/tensorflow",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 9628
         },
         {
             "id": "cockroachdb/cockroach",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 9698
         },
         {
             "id": "hashicorp/terraform",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 10449
         },
         {
             "id": "magento/magento2",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 10738
         },
         {
             "id": "microsoft/TypeScript",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 11595
         },
         {
             "id": "symfony/symfony",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 13656
         },
         {
             "id": "python/cpython",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 19887
         },
         {
             "id": "microsoft/vscode",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 25169
         },
         {
             "id": "kubernetes/kubernetes",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 37144
         },
         {
             "id": "ansible/ansible",
             "deployment": 1,
             "failures": {
                 "type": 1
-            }
+            },
+            "weight": 39992
         }
     ],
     "scheduler": {

@@ -36,12 +36,37 @@ Promise.all([...config.workers, config.scheduler].map(server => exec(
 	)))
 }).then(() => {
 	console.log(`Copying custom config files to workers`);
+
+	const buckets = new Array(config.workers.length);
+	for (let i = 0; i < config.workers.length; i++) {
+		buckets[i] = [];
+	}
+
+	structuredClone(config).repos.sort((b,a) => (a.weight ?? 1) - (b.weight ?? 1)).forEach((repo, i) => {
+		let minIndex = 0;
+		let min = buckets[0].reduce((p, n) => p + n.weight ?? 1, 0);
+		for(let i = 0; i < buckets.length; i++){
+			if(min > buckets[i].reduce((p, n) => p + n.weight ?? 1, 0)){
+				minIndex = i;
+				min = buckets[i].reduce((p, n) => p + n.weight ?? 1, 0);
+			}
+		}
+		buckets[minIndex] = [...buckets[minIndex], repo].sort((a,b) => (a.weight ?? 1) - (b.weight ?? 1));
+	});
+
+	buckets.forEach((bucket, i) => {
+		console.log("Bucket",i,"total weight:",bucket.reduce((p, n) => p + n.weight ?? 1, 0))
+	});
+
+
+
 	return Promise.all(config.workers.map((server, i) => {
 		const configForWorker = structuredClone(config);
 		delete configForWorker.workers;
 		delete configForWorker.scheduler;
 		configForWorker.results = `results.json`;
-		configForWorker.repos = configForWorker.repos.filter((_, j) => (j % config.workers.length) === i);
+		// configForWorker.repos = configForWorker.repos.filter((_, j) => (j % config.workers.length) === i);
+		configForWorker.repos = buckets[i];
 		console.log(`Distributing ${configForWorker.repos.length} repos to worker ${i} (${configForWorker.repos.map(r => r.id).join(", ")})`);
 		fs.writeFileSync(`/tmp/configForWorker${i}.json`, JSON.stringify(configForWorker, null, 4));
 		return exec(
