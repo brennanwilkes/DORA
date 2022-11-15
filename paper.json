@@ -1,0 +1,1440 @@
+{
+    "name": "DORA Paper",
+    "start": "Aug 1 1990",
+    "end": "Nov 14 2022",
+    "results": "paper-results.json",
+    "repos": [
+        {
+            "id": "denisidoro/navi",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "actix/actix-web",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "vercel/turbo",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "vuejs/vuepress",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "insidegui/WWDC",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "topjohnwu/Magisk",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "pugjs/pug",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "tree-sitter/tree-sitter",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "CosmicMind/Material",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "utmapp/UTM",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "redis/redis",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "jaredpalmer/formik",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "facebook/rocksdb",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "koekeishiya/yabai",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "mozilla/DeepSpeech",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "date-fns/date-fns",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "Alamofire/Alamofire",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "hyperium/hyper",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "balderdashy/sails",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "tesseract-ocr/tesseract",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "Seldaek/monolog",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "labstack/echo",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "jashkenas/underscore",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "Blankj/AndroidUtilCode",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "louislam/uptime-kuma",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "junegunn/fzf",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "BurntSushi/ripgrep",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "rxhanson/Rectangle",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "Carthage/Carthage",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "jquery/jquery",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "swoole/swoole-src",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "quilljs/quill",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "gofiber/fiber",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "ReactiveCocoa/ReactiveCocoa",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "socketio/socket.io",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "hackiftekhar/IQKeyboardManager",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "neoclide/coc.nvim",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "RaRe-Technologies/gensim",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "ianyh/Amethyst",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "floating-ui/floating-ui",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "homebridge/homebridge",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "monicahq/monica",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "balena-io/etcher",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "micropython/micropython",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "ehang-io/nps",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "python-telegram-bot/python-telegram-bot",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "github/hub",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "bytecodealliance/wasmtime",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "emscripten-core/emscripten",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "statelyai/xstate",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "ocornut/imgui",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "iina/iina",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "meilisearch/meilisearch",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "d3/d3",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "vnpy/vnpy",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "firecracker-microvm/firecracker",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "jesseduffield/lazygit",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "electron-react-boilerplate/electron-react-boilerplate",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "pmndrs/react-spring",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "react-native-elements/react-native-elements",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "cube-js/cube.js",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "kenwheeler/slick",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "k3s-io/k3s",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "Kong/insomnia",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "SpartnerNL/Laravel-Excel",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "realm/SwiftLint",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "getgrav/grav",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "google/guava",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "mattermost/mattermost-server",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "vuejs/vue",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "locustio/locust",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "notepad-plus-plus/notepad-plus-plus",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "JedWatson/react-select",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "wasmerio/wasmer",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "sebastianbergmann/phpunit",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "ytdl-org/youtube-dl",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "arendst/Tasmota",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "CachetHQ/Cachet",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "RedisInsight/RedisDesktopManager",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "vapor/vapor",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "appwrite/appwrite",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "jina-ai/jina",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "clap-rs/clap",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "BookStackApp/BookStack",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "etcd-io/etcd",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "nushell/nushell",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "Eugeny/tabby",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "caddyserver/caddy",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "prometheus/prometheus",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "remix-run/react-router",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "protocolbuffers/protobuf",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "PaddlePaddle/Paddle",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "taichi-dev/taichi",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "vuejs/core",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "alacritty/alacritty",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "yarnpkg/yarn",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "alibaba/nacos",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "microsoft/playwright",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "squizlabs/PHP_CodeSniffer",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "puppeteer/puppeteer",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "starship/starship",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "nodejs/node",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "hashicorp/consul",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "sveltejs/svelte",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "hashicorp/vault",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "Leaflet/Leaflet",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "Foundry376/Mailspring",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "timescale/timescaledb",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "rethinkdb/rethinkdb",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "swaywm/sway",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "certbot/certbot",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "pnpm/pnpm",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "youzan/vant",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "hasura/graphql-engine",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "realm/realm-java",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "gogs/gogs",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "marmelab/react-admin",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "ethereum/go-ethereum",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "helm/helm",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "rclone/rclone",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "octobercms/october",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "portainer/portainer",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "Semantic-Org/Semantic-UI",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "ionic-team/ionic-framework",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "commaai/openpilot",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "python-poetry/poetry",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "cli/cli",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "ethereum/solidity",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "gohugoio/hugo",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "ianstormtaylor/slate",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "fish-shell/fish-shell",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "pixijs/pixijs",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "videojs/video.js",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "denoland/deno",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "sqlmapproject/sqlmap",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "swc-project/swc",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "osquery/osquery",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "elastic/logstash",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "syncthing/syncthing",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "vectordotdev/vector",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "telegramdesktop/tdesktop",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "phalcon/cphalcon",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "docker/compose",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "mozilla-mobile/firefox-ios",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "prettier/prettier",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "doctrine/dbal",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "facebook/jest",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "obsproject/obs-studio",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "matplotlib/matplotlib",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "influxdata/influxdb",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "strapi/strapi",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "apache/superset",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "tikv/tikv",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "ant-design/ant-design",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "qmk/qmk_firmware",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "moby/moby",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "scikit-learn/scikit-learn",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "RocketChat/Rocket.Chat",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "netdata/netdata",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "traefik/traefik",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "react-navigation/react-navigation",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "zulip/zulip",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "chartjs/Chart.js",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "kubernetes/minikube",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "pytorch/pytorch",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "bitcoin/bitcoin",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "yiisoft/yii2",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "prisma/prisma",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "laurent22/joplin",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "angular/angular-cli",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "microsoft/terminal",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "doctrine/orm",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "opencv/opencv",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "babel/babel",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "grpc/grpc",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "facebook/react-native",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "mui/material-ui",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "storybookjs/storybook",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "matomo-org/matomo",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "electron/electron",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "bazelbuild/bazel",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "ClickHouse/ClickHouse",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "numpy/numpy",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "appsmithorg/appsmith",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "angular/components",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "grafana/grafana",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "go-gitea/gitea",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "rust-lang/rust",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "pandas-dev/pandas",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "pingcap/tidb",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "tensorflow/tensorflow",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "cockroachdb/cockroach",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "hashicorp/terraform",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "magento/magento2",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "microsoft/TypeScript",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "symfony/symfony",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "python/cpython",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "microsoft/vscode",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "kubernetes/kubernetes",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        },
+        {
+            "id": "ansible/ansible",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        }
+    ],
+    "scheduler": {
+        "ip": "ec2-18-236-188-11.us-west-2.compute.amazonaws.com",
+        "user": "ubuntu",
+        "key": "~/.ssh/DORA-scheduler_keyPair.pem"
+    },
+    "workers": [
+        {
+            "ip": "54.218.169.140",
+            "user": "ubuntu",
+            "key": "~/.ssh/DORA-worker-a_keyPair.pem"
+        },
+        {
+            "ip": "35.90.8.80",
+            "user": "ubuntu",
+            "key": "~/.ssh/DORA-worker-b_keyPair.pem"
+        },
+        {
+            "ip": "52.27.85.242",
+            "user": "ubuntu",
+            "key": "~/.ssh/DORA-worker-c_keyPair.pem"
+        },
+        {
+            "ip": "52.32.30.32",
+            "user": "ubuntu",
+            "key": "~/.ssh/DORA-worker-d_keyPair.pem"
+        },
+        {
+            "ip": "52.37.29.250",
+            "user": "ubuntu",
+            "key": "~/.ssh/DORA-worker-e_keyPair.pem"
+        }
+    ]
+}
