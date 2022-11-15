@@ -1406,18 +1406,18 @@
         }
     ],
     "scheduler": {
-        "ip": "ec2-18-236-188-11.us-west-2.compute.amazonaws.com",
+        "ip": "54.213.21.111",
         "user": "ubuntu",
         "key": "~/.ssh/DORA-scheduler_keyPair.pem"
     },
     "workers": [
         {
-            "ip": "54.218.169.140",
+            "ip": "35.91.87.143",
             "user": "ubuntu",
             "key": "~/.ssh/DORA-worker-a_keyPair.pem"
         },
         {
-            "ip": "35.90.8.80",
+            "ip": "34.215.40.116",
             "user": "ubuntu",
             "key": "~/.ssh/DORA-worker-b_keyPair.pem"
         },
@@ -1427,12 +1427,12 @@
             "key": "~/.ssh/DORA-worker-c_keyPair.pem"
         },
         {
-            "ip": "52.32.30.32",
+            "ip": "34.220.143.63",
             "user": "ubuntu",
             "key": "~/.ssh/DORA-worker-d_keyPair.pem"
         },
         {
-            "ip": "52.37.29.250",
+            "ip": "34.213.24.246",
             "user": "ubuntu",
             "key": "~/.ssh/DORA-worker-e_keyPair.pem"
         }
