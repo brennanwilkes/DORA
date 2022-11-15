@@ -43,6 +43,12 @@ try{
 	else if(process.argv[2] === "9"){
 		console.log(json.published_at)
 	}
+	else if(process.argv[2] === "10"){
+		console.log(json.repository?.url);
+	}
+	else if(process.argv[2] === "11"){
+		console.log(new Date(json[0]?.commit?.author?.date) / 1000);
+	}
 	else{
 		// This is 0
 		console.log(new Date(json.merged_at ?? json.closed_at).getTime() / 1000)
