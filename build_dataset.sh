@@ -17,7 +17,7 @@ processRepo(){
 
 			[[ "$( gh api -H 'Accept: application/vnd.github+json' '/rate_limit' | grep -o 'search....limit..[0-9]*,.used..[0-9]*..remaining..[0-9]*' | grep -o '[0-9]*$' )" -lt 10 ]] && sleep 60
 
-			DATA=$( gh api -X GET search/issues -f per_page=1 -f "page=1" -f q="repo:$REPO is:closed label:$BUG_LABELS" )
+			DATA=$( gh api -X GET search/issues -f per_page=1 -f "page=1" -f q="repo:$REPO is:closed linked:pr label:$BUG_LABELS" )
 			[[ "$?" != 0 ]] && echo "Bad repo for issues: $REPO" >&2
 			NUM_ISSUES=$( echo "$DATA" | grep -oE "total_count..[0-9]+" | grep -Eo '[0-9]+' | head -n1 )
 
@@ -34,12 +34,15 @@ processRepo(){
 			sleep 2
 		}
 	}
-
 }
 
+TOTAL=7500
+j=1
 N=16
 while read REPO
 do
 	((i=i%N)); ((i++==0)) && wait
+	echo "Processing $j/$TOTAL" >&2
+	j=$(( $j + 1 ))
 	processRepo "$REPO" &
 done < "${1:-/dev/stdin}"

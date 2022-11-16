@@ -1,0 +1,37 @@
+brennan@haleiwa:~/dora (main *%=)$ node initialize_compute_instances.js paper.json
+Initializing 5 workers
+Downloading and running install script
+Cloning brennanwilkes/dora repo
+Copying config file to scheduler
+Copying worker keys to scheduler
+Copying scheduler key to workers
+Copying custom config files to workers
+Bucket 0 total weight: 85648
+Bucket 1 total weight: 85641
+Bucket 2 total weight: 85637
+Bucket 3 total weight: 85640
+Bucket 4 total weight: 85647
+Distributing 39 repos to worker 0 (actix/actix-web, CosmicMind/Material, facebook/rocksdb, tesseract-ocr/tesseract, jashkenas/underscore, BurntSushi/ripgrep, quilljs/quill, floating-ui/floating-ui, balena-io/etcher, emscripten-core/emscripten, ocornut/imgui, jesseduffield/lazygit, kenwheeler/slick, vuejs/vue, locustio/locust, arendst/Tasmota, BookStackApp/BookStack, prometheus/prometheus, PaddlePaddle/Paddle, alibaba/nacos, nodejs/node, Foundry376/Mailspring, pnpm/pnpm, gogs/gogs, rclone/rclone, cli/cli, fish-shell/fish-shell, swc-project/swc, telegramdesktop/tdesktop, doctrine/dbal, strapi/strapi, moby/moby, react-navigation/react-navigation, bitcoin/bitcoin, microsoft/terminal, facebook/react-native, bazelbuild/bazel, go-gitea/gitea, ansible/ansible)
+Distributing 39 repos to worker 1 (insidegui/WWDC, topjohnwu/Magisk, redis/redis, date-fns/date-fns, louislam/uptime-kuma, Carthage/Carthage, swoole/swoole-src, ianyh/Amethyst, ehang-io/nps, python-telegram-bot/python-telegram-bot, vnpy/vnpy, firecracker-microvm/firecracker, SpartnerNL/Laravel-Excel, getgrav/grav, wasmerio/wasmer, CachetHQ/Cachet, jina-ai/jina, remix-run/react-router, protocolbuffers/protobuf, puppeteer/puppeteer, sveltejs/svelte, rethinkdb/rethinkdb, hasura/graphql-engine, ethereum/go-ethereum, ionic-team/ionic-framework, ethereum/solidity, denoland/deno, syncthing/syncthing, docker/compose, obsproject/obs-studio, ant-design/ant-design, RocketChat/Rocket.Chat, chartjs/Chart.js, prisma/prisma, babel/babel, matomo-org/matomo, numpy/numpy, rust-lang/rust, kubernetes/kubernetes)
+Distributing 40 repos to worker 2 (vercel/turbo, tree-sitter/tree-sitter, mozilla/DeepSpeech, hyperium/hyper, Blankj/AndroidUtilCode, junegunn/fzf, gofiber/fiber, RaRe-Technologies/gensim, homebridge/homebridge, github/hub, d3/d3, electron-react-boilerplate/electron-react-boilerplate, Kong/insomnia, realm/SwiftLint, JedWatson/react-select, vapor/vapor, clap-rs/clap, caddyserver/caddy, taichi-dev/taichi, microsoft/playwright, hashicorp/consul, timescale/timescaledb, youzan/vant, helm/helm, Semantic-Org/Semantic-UI, gohugoio/hugo, videojs/video.js, elastic/logstash, mozilla-mobile/firefox-ios, matplotlib/matplotlib, tikv/tikv, netdata/netdata, kubernetes/minikube, laurent22/joplin, opencv/opencv, electron/electron, angular/components, pandas-dev/pandas, hashicorp/terraform, microsoft/vscode)
+Distributing 41 repos to worker 3 (vuejs/vuepress, pugjs/pug, koekeishiya/yabai, balderdashy/sails, labstack/echo, rxhanson/Rectangle, socketio/socket.io, hackiftekhar/IQKeyboardManager, monicahq/monica, statelyai/xstate, meilisearch/meilisearch, react-native-elements/react-native-elements, k3s-io/k3s, google/guava, sebastianbergmann/phpunit, RedisInsight/RedisDesktopManager, appwrite/appwrite, nushell/nushell, alacritty/alacritty, yarnpkg/yarn, starship/starship, Leaflet/Leaflet, swaywm/sway, marmelab/react-admin, portainer/portainer, commaai/openpilot, pixijs/pixijs, osquery/osquery, phalcon/cphalcon, facebook/jest, apache/superset, scikit-learn/scikit-learn, zulip/zulip, yiisoft/yii2, doctrine/orm, mui/material-ui, ClickHouse/ClickHouse, grafana/grafana, tensorflow/tensorflow, magento/magento2, python/cpython)
+Distributing 41 repos to worker 4 (denisidoro/navi, utmapp/UTM, jaredpalmer/formik, Alamofire/Alamofire, Seldaek/monolog, jquery/jquery, ReactiveCocoa/ReactiveCocoa, neoclide/coc.nvim, micropython/micropython, bytecodealliance/wasmtime, iina/iina, pmndrs/react-spring, cube-js/cube.js, mattermost/mattermost-server, notepad-plus-plus/notepad-plus-plus, ytdl-org/youtube-dl, etcd-io/etcd, Eugeny/tabby, vuejs/core, squizlabs/PHP_CodeSniffer, hashicorp/vault, certbot/certbot, realm/realm-java, octobercms/october, python-poetry/poetry, ianstormtaylor/slate, sqlmapproject/sqlmap, vectordotdev/vector, prettier/prettier, influxdata/influxdb, qmk/qmk_firmware, traefik/traefik, pytorch/pytorch, angular/angular-cli, grpc/grpc, storybookjs/storybook, appsmithorg/appsmith, pingcap/tidb, cockroachdb/cockroach, microsoft/TypeScript, symfony/symfony)
+Copying data auth file to scheduler
+Compute instances initialized
+----------------------------
+To authenticate workers:
+ssh -i ~/.ssh/DORA-scheduler_keyPair.pem ubuntu@54.213.21.111 "~/dora/authenticate_compute_instances.sh dora"
+----------------------------
+To access scheduler:
+ssh -i ~/.ssh/DORA-scheduler_keyPair.pem ubuntu@54.213.21.111
+----------------------------
+To access workers:
+ssh -i ~/.ssh/DORA-worker-a_keyPair.pem ubuntu@35.91.87.143
+ssh -i ~/.ssh/DORA-worker-b_keyPair.pem ubuntu@34.215.40.116
+ssh -i ~/.ssh/DORA-worker-c_keyPair.pem ubuntu@52.27.85.242
+ssh -i ~/.ssh/DORA-worker-d_keyPair.pem ubuntu@34.220.143.63
+ssh -i ~/.ssh/DORA-worker-e_keyPair.pem ubuntu@34.213.24.246
+----------------------------
+To start workers:
+ssh -i ~/.ssh/DORA-scheduler_keyPair.pem ubuntu@54.213.21.111 "~/dora/start_compute_instances.sh 'dora' 'ubuntu' '54.213.21.111' '~/.ssh/DORA-scheduler_keyPair.pem'"
+----------------------------

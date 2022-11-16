@@ -39,7 +39,7 @@ cd "$WORKING_DIR"
 }
 [[ "$DEPLOYMENT" -eq 1 ]] && {
 	log "Using git tags strategy. Requesting releases from local repo"
-	export deployments=$( git for-each-ref --sort=creatordate --format '%(refname)' refs/tags | sed 's/^refs\/tags\///g' | node "$ROOT/custom_tag_sort.js" "$END" " $START")
+	export deployments=$( git for-each-ref --sort=creatordate --format '%(refname)' refs/tags | sed 's/^refs\/tags\///g' | grep -E '^v?[0-9]+\.[0-9]+' | node "$ROOT/custom_tag_sort.js" "$END" " $START")
 }
 n=$( echo "$deployments" | wc -l )
 log "Found $n deployments"
@@ -122,7 +122,7 @@ do
 	log "Using $prev_tag -> $tag"
 	log "Using $prev_time -> $time"
 
-	set_diff_tags=$( echo "$deployments" | head -n "$i" | tail -n 1000 | xargs )
+	set_diff_tags=$( echo "$deployments" | head -n "$i" | tail -n 25 | xargs )
 	commits=$( git rev-list "$tag" --not $set_diff_tags --date=local --format="%at" | paste - -  | cut -d' ' -f2- | tr '\t' ' ' )
 
 	log Found $( echo "$commits" | wc -l ) commits

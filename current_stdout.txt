@@ -1,0 +1,484 @@
+Starting study DORA Paper from Aug 1 1990 to Nov 14 2022
+Analyzing actix/actix-web with deployment=tags, failures=issues
+Completed actix/actix-web in 1649s (1/39)
+----|actix/actix-web|----
+Deployment Frequency: High Performer (Average: 3 days)
+Lead Time for Changes: Low Performer (Average: 5 months)
+Mean Time to Recover: Critically Low Performer (Average: 7 months)
+Change Failure Rate: Elite Performer (4%)
+Analyzing CosmicMind/Material with deployment=tags, failures=issues
+Completed CosmicMind/Material in 1382s (2/39)
+----|CosmicMind/Material|----
+Deployment Frequency: High Performer (Average: 5 days)
+Lead Time for Changes: Medium Performer (Average: 1 week)
+Mean Time to Recover: Low Performer (Average: 3 weeks)
+Change Failure Rate: Elite Performer (4%)
+Analyzing facebook/rocksdb with deployment=tags, failures=issues
+Completed facebook/rocksdb in 1865s (3/39)
+----|facebook/rocksdb|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 5 months)
+Change Failure Rate: High Performer (21%)
+Analyzing tesseract-ocr/tesseract with deployment=tags, failures=issues
+Completed tesseract-ocr/tesseract in 1618s (4/39)
+----|tesseract-ocr/tesseract|----
+Deployment Frequency: Low Performer (Average: 3 months)
+Lead Time for Changes: Low Performer (Average: 5 months)
+Mean Time to Recover: Critically Low Performer (Average: 1 year)
+Change Failure Rate: Medium Performer (38%)
+Analyzing jashkenas/underscore with deployment=tags, failures=issues
+Completed jashkenas/underscore in 1766s (5/39)
+----|jashkenas/underscore|----
+Deployment Frequency: Low Performer (Average: 1 month)
+Lead Time for Changes: Low Performer (Average: 5 months)
+Mean Time to Recover: Critically Low Performer (Average: 1 year)
+Change Failure Rate: Critically Low Performer (62%)
+Analyzing BurntSushi/ripgrep with deployment=tags, failures=issues
+Completed BurntSushi/ripgrep in 1613s (6/39)
+----|BurntSushi/ripgrep|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Low Performer (Average: 4 months)
+Mean Time to Recover: Critically Low Performer (Average: 8 months)
+Change Failure Rate: Elite Performer (8%)
+Analyzing quilljs/quill with deployment=tags, failures=issues
+Completed quilljs/quill in 2264s (7/39)
+----|quilljs/quill|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Low Performer (Average: 2 months)
+Mean Time to Recover: Critically Low Performer (Average: 6 months)
+Change Failure Rate: Elite Performer (6%)
+Analyzing floating-ui/floating-ui with deployment=tags, failures=issues
+Completed floating-ui/floating-ui in 3830s (8/39)
+----|floating-ui/floating-ui|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Low Performer (Average: 2 months)
+Mean Time to Recover: Critically Low Performer (Average: 4 months)
+Change Failure Rate: Elite Performer (11%)
+Analyzing balena-io/etcher with deployment=tags, failures=issues
+Completed balena-io/etcher in 5881s (9/39)
+----|balena-io/etcher|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 3 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: Elite Performer (14%)
+Analyzing emscripten-core/emscripten with deployment=tags, failures=issues
+Completed emscripten-core/emscripten in 21961s (10/39)
+----|emscripten-core/emscripten|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 5 months)
+Change Failure Rate: Low Performer (47%)
+Analyzing ocornut/imgui with deployment=tags, failures=issues
+Completed ocornut/imgui in 7569s (11/39)
+----|ocornut/imgui|----
+Deployment Frequency: Low Performer (Average: 1 month)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 5 months)
+Change Failure Rate: Low Performer (51%)
+Analyzing jesseduffield/lazygit with deployment=tags, failures=issues
+Completed jesseduffield/lazygit in 7289s (12/39)
+----|jesseduffield/lazygit|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 3 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 3 months)
+Change Failure Rate: Medium Performer (32%)
+Analyzing kenwheeler/slick with deployment=tags, failures=issues
+Completed kenwheeler/slick in 2049s (13/39)
+----|kenwheeler/slick|----
+Deployment Frequency: Medium Performer (Average: 3 weeks)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 4 months)
+Change Failure Rate: Low Performer (55%)
+Analyzing vuejs/vue with deployment=tags, failures=issues
+Completed vuejs/vue in 7795s (14/39)
+----|vuejs/vue|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 4 months)
+Change Failure Rate: High Performer (30%)
+Analyzing locustio/locust with deployment=tags, failures=issues
+Completed locustio/locust in 5251s (15/39)
+----|locustio/locust|----
+Deployment Frequency: Low Performer (Average: 1 month)
+Lead Time for Changes: Low Performer (Average: 2 months)
+Mean Time to Recover: Critically Low Performer (Average: 5 months)
+Change Failure Rate: Low Performer (52%)
+Analyzing arendst/Tasmota with deployment=tags, failures=issues
+Completed arendst/Tasmota in 12161s (16/39)
+----|arendst/Tasmota|----
+Deployment Frequency: Medium Performer (Average: 3 weeks)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: High Performer (18%)
+Analyzing BookStackApp/BookStack with deployment=tags, failures=issues
+Completed BookStackApp/BookStack in 5428s (17/39)
+----|BookStackApp/BookStack|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Medium Performer (Average: 3 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: Medium Performer (35%)
+Analyzing prometheus/prometheus with deployment=tags, failures=issues
+
+Starting study DORA Paper from Aug 1 1990 to Nov 14 2022
+Analyzing insidegui/WWDC with deployment=tags, failures=issues
+Completed insidegui/WWDC in 1440s (1/39)
+----|insidegui/WWDC|----
+Deployment Frequency: Medium Performer (Average: 3 weeks)
+Lead Time for Changes: Medium Performer (Average: 3 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: High Performer (28%)
+Analyzing topjohnwu/Magisk with deployment=tags, failures=issues
+Completed topjohnwu/Magisk in 1454s (2/39)
+----|topjohnwu/Magisk|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Low Performer (Average: 3 months)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: Elite Performer (3%)
+Analyzing redis/redis with deployment=tags, failures=issues
+Completed redis/redis in 1789s (3/39)
+----|redis/redis|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Low Performer (Average: 3 months)
+Mean Time to Recover: Critically Low Performer (Average: 2 years)
+Change Failure Rate: Elite Performer (8%)
+Analyzing date-fns/date-fns with deployment=tags, failures=issues
+Completed date-fns/date-fns in 1543s (4/39)
+----|date-fns/date-fns|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Medium Performer (Average: 3 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: High Performer (21%)
+Analyzing louislam/uptime-kuma with deployment=tags, failures=issues
+Completed louislam/uptime-kuma in 1497s (5/39)
+----|louislam/uptime-kuma|----
+Deployment Frequency: High Performer (Average: 6 days)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: Medium Performer (42%)
+Analyzing Carthage/Carthage with deployment=tags, failures=issues
+Completed Carthage/Carthage in 1921s (6/39)
+----|Carthage/Carthage|----
+Deployment Frequency: Low Performer (Average: 1 month)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: Critically Low Performer (60%)
+Analyzing swoole/swoole-src with deployment=tags, failures=issues
+Completed swoole/swoole-src in 1919s (7/39)
+----|swoole/swoole-src|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: High Performer (16%)
+Analyzing ianyh/Amethyst with deployment=tags, failures=issues
+Completed ianyh/Amethyst in 3109s (8/39)
+----|ianyh/Amethyst|----
+Deployment Frequency: Low Performer (Average: 1 month)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 9 months)
+Change Failure Rate: High Performer (25%)
+Analyzing ehang-io/nps with deployment=tags, failures=issues
+Completed ehang-io/nps in 1631s (9/39)
+----|ehang-io/nps|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Medium Performer (Average: 1 week)
+Mean Time to Recover: Elite Performer (Average: -564520 second)
+Change Failure Rate: High Performer (30%)
+Analyzing python-telegram-bot/python-telegram-bot with deployment=tags, failures=issues
+Completed python-telegram-bot/python-telegram-bot in 6543s (10/39)
+----|python-telegram-bot/python-telegram-bot|----
+Deployment Frequency: Medium Performer (Average: 3 weeks)
+Lead Time for Changes: Medium Performer (Average: 3 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: Low Performer (59%)
+Analyzing vnpy/vnpy with deployment=tags, failures=issues
+Completed vnpy/vnpy in 6189s (11/39)
+----|vnpy/vnpy|----
+Deployment Frequency: Low Performer (Average: 1 month)
+Lead Time for Changes: Medium Performer (Average: 3 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: Low Performer (58%)
+Analyzing firecracker-microvm/firecracker with deployment=tags, failures=issues
+Completed firecracker-microvm/firecracker in 8242s (12/39)
+----|firecracker-microvm/firecracker|----
+Deployment Frequency: Medium Performer (Average: 4 weeks)
+Lead Time for Changes: Low Performer (Average: 2 months)
+Mean Time to Recover: Critically Low Performer (Average: 3 months)
+Change Failure Rate: Low Performer (45%)
+Analyzing SpartnerNL/Laravel-Excel with deployment=tags, failures=issues
+Completed SpartnerNL/Laravel-Excel in 2446s (13/39)
+----|SpartnerNL/Laravel-Excel|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 3 months)
+Change Failure Rate: High Performer (15%)
+Analyzing getgrav/grav with deployment=tags, failures=issues
+Completed getgrav/grav in 4796s (14/39)
+----|getgrav/grav|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 1 week)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: Elite Performer (13%)
+Analyzing wasmerio/wasmer with deployment=tags, failures=issues
+
+Starting study DORA Paper from Aug 1 1990 to Nov 14 2022
+Analyzing vercel/turbo with deployment=tags, failures=issues
+Completed vercel/turbo in 1376s (1/40)
+----|vercel/turbo|----
+Deployment Frequency: Elite Performer (Average: 11 hours)
+Lead Time for Changes: High Performer (Average: 6 days)
+Mean Time to Recover: Critically Low Performer (Average: 6 months)
+Change Failure Rate: Elite Performer (2%)
+Analyzing tree-sitter/tree-sitter with deployment=tags, failures=issues
+Completed tree-sitter/tree-sitter in 1487s (2/40)
+----|tree-sitter/tree-sitter|----
+Deployment Frequency: Medium Performer (Average: 3 weeks)
+Lead Time for Changes: Medium Performer (Average: 4 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 6 months)
+Change Failure Rate: Low Performer (56%)
+Analyzing mozilla/DeepSpeech with deployment=tags, failures=issues
+Completed mozilla/DeepSpeech in 1546s (3/40)
+----|mozilla/DeepSpeech|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: Medium Performer (32%)
+Analyzing hyperium/hyper with deployment=tags, failures=issues
+Completed hyperium/hyper in 1657s (4/40)
+----|hyperium/hyper|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: Low Performer (47%)
+Analyzing Blankj/AndroidUtilCode with deployment=tags, failures=issues
+Completed Blankj/AndroidUtilCode in 1326s (5/40)
+----|Blankj/AndroidUtilCode|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Low Performer (Average: 2 months)
+Mean Time to Recover: Critically Low Performer (Average: 1 year)
+Change Failure Rate: Elite Performer (6%)
+Analyzing junegunn/fzf with deployment=tags, failures=issues
+Completed junegunn/fzf in 1423s (6/40)
+----|junegunn/fzf|----
+Deployment Frequency: Medium Performer (Average: 4 weeks)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 3 months)
+Change Failure Rate: Elite Performer (11%)
+Analyzing gofiber/fiber with deployment=tags, failures=issues
+Completed gofiber/fiber in 2244s (7/40)
+----|gofiber/fiber|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: High Performer (Average: 4 days)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: Critically Low Performer (67%)
+Analyzing RaRe-Technologies/gensim with deployment=tags, failures=issues
+Completed RaRe-Technologies/gensim in 30974s (8/40)
+----|RaRe-Technologies/gensim|----
+Deployment Frequency: Low Performer (Average: 1 month)
+Lead Time for Changes: Low Performer (Average: 2 months)
+Mean Time to Recover: Critically Low Performer (Average: 5 months)
+Change Failure Rate: Critically Low Performer (81%)
+Analyzing homebridge/homebridge with deployment=tags, failures=issues
+Completed homebridge/homebridge in 1775s (9/40)
+----|homebridge/homebridge|----
+Deployment Frequency: Low Performer (Average: 1 month)
+Lead Time for Changes: Low Performer (Average: 2 months)
+Mean Time to Recover: Low Performer (Average: 3 weeks)
+Change Failure Rate: High Performer (17%)
+Analyzing github/hub with deployment=tags, failures=issues
+Completed github/hub in 4418s (10/40)
+----|github/hub|----
+Deployment Frequency: Low Performer (Average: 1 month)
+Lead Time for Changes: Low Performer (Average: 2 months)
+Mean Time to Recover: Critically Low Performer (Average: 5 months)
+Change Failure Rate: Medium Performer (37%)
+Analyzing d3/d3 with deployment=tags, failures=issues
+Completed d3/d3 in 19907s (11/40)
+----|d3/d3|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 3 months)
+Change Failure Rate: Medium Performer (39%)
+Analyzing electron-react-boilerplate/electron-react-boilerplate with deployment=tags, failures=issues
+Completed electron-react-boilerplate/electron-react-boilerplate in 2280s (12/40)
+----|electron-react-boilerplate/electron-react-boilerplate|----
+Deployment Frequency: Low Performer (Average: 1 month)
+Lead Time for Changes: Low Performer (Average: 4 months)
+Mean Time to Recover: Critically Low Performer (Average: 7 months)
+Change Failure Rate: High Performer (30%)
+Analyzing Kong/insomnia with deployment=tags, failures=issues
+Completed Kong/insomnia in 10418s (13/40)
+----|Kong/insomnia|----
+Deployment Frequency: High Performer (Average: 1 day)
+Lead Time for Changes: Medium Performer (Average: 3 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 3 months)
+Change Failure Rate: Elite Performer (7%)
+Analyzing realm/SwiftLint with deployment=tags, failures=issues
+Completed realm/SwiftLint in 14831s (14/40)
+----|realm/SwiftLint|----
+Deployment Frequency: Medium Performer (Average: 3 weeks)
+Lead Time for Changes: Medium Performer (Average: 3 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 4 months)
+Change Failure Rate: Critically Low Performer (72%)
+Analyzing JedWatson/react-select with deployment=tags, failures=issues
+Completed JedWatson/react-select in 6878s (15/40)
+----|JedWatson/react-select|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Medium Performer (Average: 3 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 9 months)
+Change Failure Rate: Medium Performer (44%)
+Analyzing vapor/vapor with deployment=tags, failures=issues
+Completed vapor/vapor in 9025s (16/40)
+----|vapor/vapor|----
+Deployment Frequency: High Performer (Average: 4 days)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: High Performer (21%)
+Analyzing clap-rs/clap with deployment=tags, failures=issues
+Completed clap-rs/clap in 17740s (17/40)
+----|clap-rs/clap|----
+Deployment Frequency: Elite Performer (Average: 20 hours)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: Elite Performer (4%)
+Analyzing caddyserver/caddy with deployment=tags, failures=issues
+
+Starting study DORA Paper from Aug 1 1990 to Nov 14 2022
+Analyzing vuejs/vuepress with deployment=tags, failures=issues
+Completed vuejs/vuepress in 1514s (1/41)
+----|vuejs/vuepress|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 1 week)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: High Performer (24%)
+Analyzing pugjs/pug with deployment=tags, failures=issues
+Completed pugjs/pug in 1434s (2/41)
+----|pugjs/pug|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Medium Performer (Average: 3 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 8 months)
+Change Failure Rate: Elite Performer (15%)
+Analyzing koekeishiya/yabai with deployment=tags, failures=issues
+Completed koekeishiya/yabai in 1318s (3/41)
+----|koekeishiya/yabai|----
+Deployment Frequency: Medium Performer (Average: 3 weeks)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Low Performer (Average: 2 weeks)
+Change Failure Rate: Elite Performer (8%)
+Analyzing balderdashy/sails with deployment=tags, failures=issues
+Completed balderdashy/sails in 1587s (4/41)
+----|balderdashy/sails|----
+Deployment Frequency: Elite Performer (Average: -8912 second)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 4 months)
+Change Failure Rate: Elite Performer (6%)
+Analyzing labstack/echo with deployment=tags, failures=issues
+Completed labstack/echo in 1471s (5/41)
+----|labstack/echo|----
+Deployment Frequency: Medium Performer (Average: 3 weeks)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 5 months)
+Change Failure Rate: Medium Performer (45%)
+Analyzing rxhanson/Rectangle with deployment=tags, failures=issues
+Completed rxhanson/Rectangle in 1336s (6/41)
+----|rxhanson/Rectangle|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Medium Performer (Average: 1 week)
+Mean Time to Recover: Low Performer (Average: 3 weeks)
+Change Failure Rate: Medium Performer (36%)
+Analyzing socketio/socket.io with deployment=tags, failures=issues
+Completed socketio/socket.io in 1532s (7/41)
+----|socketio/socket.io|----
+Deployment Frequency: Medium Performer (Average: 4 weeks)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 3 months)
+Change Failure Rate: Elite Performer (12%)
+Analyzing hackiftekhar/IQKeyboardManager with deployment=tags, failures=issues
+Completed hackiftekhar/IQKeyboardManager in 1415s (8/41)
+----|hackiftekhar/IQKeyboardManager|----
+Deployment Frequency: Low Performer (Average: 1 month)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 3 months)
+Change Failure Rate: Elite Performer (8%)
+Analyzing monicahq/monica with deployment=tags, failures=issues
+Completed monicahq/monica in 26278s (9/41)
+----|monicahq/monica|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Medium Performer (Average: 3 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 3 months)
+Change Failure Rate: Critically Low Performer (64%)
+Analyzing statelyai/xstate with deployment=tags, failures=issues
+Completed statelyai/xstate in 6241s (10/41)
+----|statelyai/xstate|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Critically Low Performer (Average: 6 months)
+Mean Time to Recover: Critically Low Performer (Average: 6 months)
+Change Failure Rate: Elite Performer (5%)
+Analyzing meilisearch/meilisearch with deployment=tags, failures=issues
+Completed meilisearch/meilisearch in 12985s (11/41)
+----|meilisearch/meilisearch|----
+Deployment Frequency: High Performer (Average: 3 days)
+Lead Time for Changes: Critically Low Performer (Average: 11 months)
+Mean Time to Recover: Critically Low Performer (Average: 6 months)
+Change Failure Rate: Elite Performer (11%)
+Analyzing react-native-elements/react-native-elements with deployment=tags, failures=issues
+Completed react-native-elements/react-native-elements in 8528s (12/41)
+----|react-native-elements/react-native-elements|----
+Deployment Frequency: Medium Performer (Average: 3 weeks)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 4 months)
+Change Failure Rate: Low Performer (60%)
+Analyzing k3s-io/k3s with deployment=tags, failures=issues
+
+Starting study DORA Paper from Aug 1 1990 to Nov 14 2022
+Analyzing denisidoro/navi with deployment=tags, failures=issues
+Completed denisidoro/navi in 1443s (1/41)
+----|denisidoro/navi|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 1 week)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: Low Performer (49%)
+Analyzing utmapp/UTM with deployment=tags, failures=issues
+Completed utmapp/UTM in 1374s (2/41)
+----|utmapp/UTM|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 1 week)
+Mean Time to Recover: Low Performer (Average: 2 weeks)
+Change Failure Rate: High Performer (15%)
+Analyzing jaredpalmer/formik with deployment=tags, failures=issues
+Completed jaredpalmer/formik in 1493s (3/41)
+----|jaredpalmer/formik|----
+Deployment Frequency: High Performer (Average: 5 days)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 3 months)
+Change Failure Rate: High Performer (28%)
+Analyzing Alamofire/Alamofire with deployment=tags, failures=issues
+Completed Alamofire/Alamofire in 2531s (4/41)
+----|Alamofire/Alamofire|----
+Deployment Frequency: Low Performer (Average: 1 month)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: Low Performer (48%)
+Analyzing Seldaek/monolog with deployment=tags, failures=issues
+Completed Seldaek/monolog in 1448s (5/41)
+----|Seldaek/monolog|----
+Deployment Frequency: Low Performer (Average: 1 month)
+Lead Time for Changes: Low Performer (Average: 4 months)
+Mean Time to Recover: Critically Low Performer (Average: 6 months)
+Change Failure Rate: Medium Performer (42%)
+Analyzing jquery/jquery with deployment=tags, failures=issues
+Completed jquery/jquery in 2249s (6/41)
+----|jquery/jquery|----
+Deployment Frequency: Low Performer (Average: 1 month)
+Lead Time for Changes: Low Performer (Average: 4 months)
+Mean Time to Recover: Critically Low Performer (Average: 9 months)
+Change Failure Rate: Medium Performer (34%)
+Analyzing ReactiveCocoa/ReactiveCocoa with deployment=tags, failures=issues
+Completed ReactiveCocoa/ReactiveCocoa in 2078s (7/41)
+----|ReactiveCocoa/ReactiveCocoa|----
+Deployment Frequency: Medium Performer (Average: 3 weeks)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 4 months)
+Change Failure Rate: High Performer (19%)
+Analyzing neoclide/coc.nvim with deployment=tags, failures=issues
+

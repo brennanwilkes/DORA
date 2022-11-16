@@ -15,6 +15,7 @@ import {
 import { Bar } from 'react-chartjs-2';
 import brnkl from "./data/brnkl-minified.json"
 import combined from "./data/combined-minified.json"
+import paper from "./data/paper-minified.json"
 
 import DeploymentFrequency from "./charts/deploymentFrequency";
 import LeadTimeForChanges from "./charts/leadTimeForChanges";
@@ -39,7 +40,7 @@ ChartJS.register(
 );
 
 combined.results = combined.results.filter(r => r.repo !== "kubernetes/kubernetes")
-const dataset = combined;
+const dataset = paper;
 
 function App() {
 

@@ -1,0 +1,2944 @@
+{
+    "name": "DORA Paper",
+    "start": "Aug 16 1990",
+    "end": "Nov 16 2022",
+    "results": "paper2-results.json",
+    "repos": [
+        {
+            "id": "prestodb/presto",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 101
+        },
+        {
+            "id": "avajs/ava",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 102
+        },
+        {
+            "id": "ether/etherpad-lite",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 102
+        },
+        {
+            "id": "tqdm/tqdm",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 102
+        },
+        {
+            "id": "golangci/golangci-lint",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 103
+        },
+        {
+            "id": "aquasecurity/tfsec",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 103
+        },
+        {
+            "id": "osquery/osquery",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 103
+        },
+        {
+            "id": "composer/composer",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 103
+        },
+        {
+            "id": "storybookjs/storybook",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 103
+        },
+        {
+            "id": "horovod/horovod",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 104
+        },
+        {
+            "id": "python-pillow/Pillow",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 104
+        },
+        {
+            "id": "pyinstaller/pyinstaller",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 104
+        },
+        {
+            "id": "puppeteer/puppeteer",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 104
+        },
+        {
+            "id": "vuejs/vue",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 104
+        },
+        {
+            "id": "alibaba/nacos",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 105
+        },
+        {
+            "id": "falcosecurity/falco",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 106
+        },
+        {
+            "id": "scrapy/scrapy",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 107
+        },
+        {
+            "id": "material-components/material-components-android",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 107
+        },
+        {
+            "id": "grpc/grpc-java",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 107
+        },
+        {
+            "id": "jquery/jquery",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 108
+        },
+        {
+            "id": "refinedev/refine",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 109
+        },
+        {
+            "id": "mochajs/mocha",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 110
+        },
+        {
+            "id": "nats-io/nats-server",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 110
+        },
+        {
+            "id": "JanDeDobbeleer/oh-my-posh",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 110
+        },
+        {
+            "id": "crossplane/crossplane",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 112
+        },
+        {
+            "id": "apollographql/apollo-client",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 112
+        },
+        {
+            "id": "thanos-io/thanos",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 113
+        },
+        {
+            "id": "yarnpkg/yarn",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 114
+        },
+        {
+            "id": "prometheus-operator/prometheus-operator",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 114
+        },
+        {
+            "id": "tendermint/tendermint",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 114
+        },
+        {
+            "id": "flynn/flynn",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 116
+        },
+        {
+            "id": "chaos-mesh/chaos-mesh",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 117
+        },
+        {
+            "id": "pypa/pipenv",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 118
+        },
+        {
+            "id": "stellar/stellar-core",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 118
+        },
+        {
+            "id": "questdb/questdb",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 118
+        },
+        {
+            "id": "teambit/bit",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 118
+        },
+        {
+            "id": "vuejs/vue-cli",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 119
+        },
+        {
+            "id": "caddyserver/caddy",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 119
+        },
+        {
+            "id": "tusen-ai/naive-ui",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 119
+        },
+        {
+            "id": "webiny/webiny-js",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 119
+        },
+        {
+            "id": "huggingface/transformers",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 120
+        },
+        {
+            "id": "wp-graphql/wp-graphql",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 121
+        },
+        {
+            "id": "obsproject/obs-studio",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 122
+        },
+        {
+            "id": "microsoft/onefuzz",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 123
+        },
+        {
+            "id": "vitest-dev/vitest",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 123
+        },
+        {
+            "id": "Kong/insomnia",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 124
+        },
+        {
+            "id": "Semantic-Org/Semantic-UI-React",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 124
+        },
+        {
+            "id": "betaflight/betaflight",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 125
+        },
+        {
+            "id": "youzan/vant-weapp",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 126
+        },
+        {
+            "id": "secdev/scapy",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 126
+        },
+        {
+            "id": "Leaflet/Leaflet",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 127
+        },
+        {
+            "id": "halo-dev/halo",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 127
+        },
+        {
+            "id": "commaai/openpilot",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 128
+        },
+        {
+            "id": "aws/aws-cli",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 128
+        },
+        {
+            "id": "pytorch/vision",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 128
+        },
+        {
+            "id": "wasmerio/wasmer",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 128
+        },
+        {
+            "id": "tailscale/tailscale",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 129
+        },
+        {
+            "id": "python/cpython",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 130
+        },
+        {
+            "id": "spring-projects/spring-security",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 131
+        },
+        {
+            "id": "coder/code-server",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 131
+        },
+        {
+            "id": "uber/baseweb",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 131
+        },
+        {
+            "id": "akveo/nebular",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 131
+        },
+        {
+            "id": "vmware-tanzu/velero",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 132
+        },
+        {
+            "id": "monicahq/monica",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 132
+        },
+        {
+            "id": "pixijs/pixijs",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 132
+        },
+        {
+            "id": "freqtrade/freqtrade",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 133
+        },
+        {
+            "id": "gnuradio/gnuradio",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 133
+        },
+        {
+            "id": "reactioncommerce/reaction",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 134
+        },
+        {
+            "id": "grafana/k6",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 134
+        },
+        {
+            "id": "matrix-org/synapse",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 134
+        },
+        {
+            "id": "angular-ui/bootstrap",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 135
+        },
+        {
+            "id": "Budibase/budibase",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 136
+        },
+        {
+            "id": "transmission/transmission",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 136
+        },
+        {
+            "id": "the1812/Bilibili-Evolved",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 136
+        },
+        {
+            "id": "tuist/tuist",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 137
+        },
+        {
+            "id": "kubernetes/dashboard",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 138
+        },
+        {
+            "id": "bytecodealliance/wasmtime",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 138
+        },
+        {
+            "id": "LMMS/lmms",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 138
+        },
+        {
+            "id": "kubernetes/kops",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 141
+        },
+        {
+            "id": "yiisoft/yii2",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 141
+        },
+        {
+            "id": "Dolibarr/dolibarr",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 141
+        },
+        {
+            "id": "framer/motion",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 142
+        },
+        {
+            "id": "adobe/react-spectrum",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 142
+        },
+        {
+            "id": "handsontable/handsontable",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 143
+        },
+        {
+            "id": "twpayne/chezmoi",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 143
+        },
+        {
+            "id": "lucas-clemente/quic-go",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 144
+        },
+        {
+            "id": "nlohmann/json",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 144
+        },
+        {
+            "id": "meilisearch/meilisearch",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 145
+        },
+        {
+            "id": "etcd-io/etcd",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 146
+        },
+        {
+            "id": "ethereum/go-ethereum",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 146
+        },
+        {
+            "id": "hashicorp/vault",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 147
+        },
+        {
+            "id": "dgraph-io/dgraph",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 147
+        },
+        {
+            "id": "wangeditor-team/wangEditor",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 147
+        },
+        {
+            "id": "prometheus/prometheus",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 148
+        },
+        {
+            "id": "MinecraftForge/MinecraftForge",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 148
+        },
+        {
+            "id": "MaaAssistantArknights/MaaAssistantArknights",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 149
+        },
+        {
+            "id": "wesnoth/wesnoth",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 149
+        },
+        {
+            "id": "google/filament",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 150
+        },
+        {
+            "id": "PHP-CS-Fixer/PHP-CS-Fixer",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 150
+        },
+        {
+            "id": "glpi-project/glpi",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 150
+        },
+        {
+            "id": "microsoft/playwright",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 150
+        },
+        {
+            "id": "mswjs/msw",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 150
+        },
+        {
+            "id": "quasarframework/quasar",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 152
+        },
+        {
+            "id": "operator-framework/operator-sdk",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 153
+        },
+        {
+            "id": "botpress/botpress",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 153
+        },
+        {
+            "id": "containerd/containerd",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 154
+        },
+        {
+            "id": "swagger-api/swagger-ui",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 155
+        },
+        {
+            "id": "goharbor/harbor",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 156
+        },
+        {
+            "id": "material-components/material-components-web",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 157
+        },
+        {
+            "id": "phalcon/cphalcon",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 161
+        },
+        {
+            "id": "celery/celery",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 162
+        },
+        {
+            "id": "zeek/zeek",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 162
+        },
+        {
+            "id": "angular/flex-layout",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 162
+        },
+        {
+            "id": "facebook/react-native",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 163
+        },
+        {
+            "id": "react-hook-form/react-hook-form",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 164
+        },
+        {
+            "id": "ng-bootstrap/ng-bootstrap",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 166
+        },
+        {
+            "id": "ansible/awx",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 167
+        },
+        {
+            "id": "hyperf/hyperf",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 167
+        },
+        {
+            "id": "PrefectHQ/prefect",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 168
+        },
+        {
+            "id": "facebook/create-react-app",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 169
+        },
+        {
+            "id": "pytest-dev/pytest",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 172
+        },
+        {
+            "id": "mermaid-js/mermaid",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 177
+        },
+        {
+            "id": "appium/appium",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 179
+        },
+        {
+            "id": "VSCodeVim/Vim",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 179
+        },
+        {
+            "id": "electron-userland/electron-builder",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 180
+        },
+        {
+            "id": "netlify/netlify-cms",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 181
+        },
+        {
+            "id": "darkreader/darkreader",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 181
+        },
+        {
+            "id": "laravel/framework",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 185
+        },
+        {
+            "id": "mozilla-mobile/firefox-ios",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 185
+        },
+        {
+            "id": "sequelize/sequelize",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 186
+        },
+        {
+            "id": "goreleaser/goreleaser",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 187
+        },
+        {
+            "id": "go-swagger/go-swagger",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 187
+        },
+        {
+            "id": "webdriverio/webdriverio",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 190
+        },
+        {
+            "id": "docker/compose",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 193
+        },
+        {
+            "id": "NativeScript/NativeScript",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 193
+        },
+        {
+            "id": "xbmc/xbmc",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 196
+        },
+        {
+            "id": "software-mansion/react-native-reanimated",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 197
+        },
+        {
+            "id": "getsentry/sentry-javascript",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 197
+        },
+        {
+            "id": "palantir/tslint",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 198
+        },
+        {
+            "id": "swaywm/sway",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 200
+        },
+        {
+            "id": "alacritty/alacritty",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 201
+        },
+        {
+            "id": "explosion/spaCy",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 202
+        },
+        {
+            "id": "TykTechnologies/tyk",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 204
+        },
+        {
+            "id": "mlflow/mlflow",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 206
+        },
+        {
+            "id": "hashicorp/consul",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 207
+        },
+        {
+            "id": "clap-rs/clap",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 207
+        },
+        {
+            "id": "localstack/localstack",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 211
+        },
+        {
+            "id": "canonical/multipass",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 213
+        },
+        {
+            "id": "transloadit/uppy",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 217
+        },
+        {
+            "id": "elastic/logstash",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 217
+        },
+        {
+            "id": "RPCS3/rpcs3",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 219
+        },
+        {
+            "id": "kubeedge/kubeedge",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 220
+        },
+        {
+            "id": "tensorflow/tfjs",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 222
+        },
+        {
+            "id": "rust-lang/rustfmt",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 223
+        },
+        {
+            "id": "Alluxio/alluxio",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 223
+        },
+        {
+            "id": "bootstrap-vue/bootstrap-vue",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 224
+        },
+        {
+            "id": "vmware/clarity",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 225
+        },
+        {
+            "id": "aquasecurity/trivy",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 227
+        },
+        {
+            "id": "NixOS/nix",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 227
+        },
+        {
+            "id": "python-poetry/poetry",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 228
+        },
+        {
+            "id": "micronaut-projects/micronaut-core",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 228
+        },
+        {
+            "id": "facebook/react",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 229
+        },
+        {
+            "id": "tilt-dev/tilt",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 232
+        },
+        {
+            "id": "pypa/pip",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 232
+        },
+        {
+            "id": "openethereum/parity-ethereum",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 234
+        },
+        {
+            "id": "ianstormtaylor/slate",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 234
+        },
+        {
+            "id": "pnpm/pnpm",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 239
+        },
+        {
+            "id": "outline/outline",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 240
+        },
+        {
+            "id": "redwoodjs/redwood",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 241
+        },
+        {
+            "id": "taichi-dev/taichi",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 242
+        },
+        {
+            "id": "apache/skywalking",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 244
+        },
+        {
+            "id": "projectdiscovery/nuclei",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 245
+        },
+        {
+            "id": "starship/starship",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 248
+        },
+        {
+            "id": "NG-ZORRO/ng-zorro-antd",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 248
+        },
+        {
+            "id": "helm/helm",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 249
+        },
+        {
+            "id": "sass/libsass",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 249
+        },
+        {
+            "id": "filamentphp/filament",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 249
+        },
+        {
+            "id": "saleor/saleor",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 253
+        },
+        {
+            "id": "openshift/origin",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 255
+        },
+        {
+            "id": "laurent22/joplin",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 255
+        },
+        {
+            "id": "rollup/rollup",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 257
+        },
+        {
+            "id": "nushell/nushell",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 259
+        },
+        {
+            "id": "yt-dlp/yt-dlp",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 264
+        },
+        {
+            "id": "ipfs/kubo",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 265
+        },
+        {
+            "id": "streamlit/streamlit",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 265
+        },
+        {
+            "id": "Sylius/Sylius",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 265
+        },
+        {
+            "id": "lightningnetwork/lnd",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 267
+        },
+        {
+            "id": "PCSX2/pcsx2",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 269
+        },
+        {
+            "id": "EasyCorp/EasyAdminBundle",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 269
+        },
+        {
+            "id": "dbeaver/dbeaver",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 276
+        },
+        {
+            "id": "jina-ai/jina",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 279
+        },
+        {
+            "id": "huggingface/datasets",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 279
+        },
+        {
+            "id": "tektoncd/pipeline",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 281
+        },
+        {
+            "id": "certbot/certbot",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 282
+        },
+        {
+            "id": "pydantic/pydantic",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 284
+        },
+        {
+            "id": "timescale/timescaledb",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 284
+        },
+        {
+            "id": "apache/echarts",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 287
+        },
+        {
+            "id": "webpack/webpack",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 288
+        },
+        {
+            "id": "grpc/grpc-go",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 299
+        },
+        {
+            "id": "portainer/portainer",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 300
+        },
+        {
+            "id": "netbox-community/netbox",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 304
+        },
+        {
+            "id": "keepassxreboot/keepassxc",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 304
+        },
+        {
+            "id": "concourse/concourse",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 305
+        },
+        {
+            "id": "open-policy-agent/opa",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 310
+        },
+        {
+            "id": "apache/beam",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 310
+        },
+        {
+            "id": "matplotlib/matplotlib",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 313
+        },
+        {
+            "id": "PX4/PX4-Autopilot",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 313
+        },
+        {
+            "id": "atom/atom",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 316
+        },
+        {
+            "id": "vitessio/vitess",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 316
+        },
+        {
+            "id": "typeorm/typeorm",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 316
+        },
+        {
+            "id": "datafuselabs/databend",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 317
+        },
+        {
+            "id": "OpenRefine/OpenRefine",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 318
+        },
+        {
+            "id": "vuejs/core",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 319
+        },
+        {
+            "id": "hasura/graphql-engine",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 319
+        },
+        {
+            "id": "frappe/erpnext",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 331
+        },
+        {
+            "id": "wazuh/wazuh",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 334
+        },
+        {
+            "id": "mautic/mautic",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 339
+        },
+        {
+            "id": "elastic/eui",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 342
+        },
+        {
+            "id": "vimeo/psalm",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 347
+        },
+        {
+            "id": "amplication/amplication",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 351
+        },
+        {
+            "id": "apache/superset",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 357
+        },
+        {
+            "id": "facebook/jest",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 367
+        },
+        {
+            "id": "TeamNewPipe/NewPipe",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 370
+        },
+        {
+            "id": "GoogleChrome/lighthouse",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 374
+        },
+        {
+            "id": "citusdata/citus",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 375
+        },
+        {
+            "id": "RasaHQ/rasa",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 376
+        },
+        {
+            "id": "wenzhixin/bootstrap-table",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 380
+        },
+        {
+            "id": "cert-manager/cert-manager",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 383
+        },
+        {
+            "id": "ipython/ipython",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 385
+        },
+        {
+            "id": "cli/cli",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 390
+        },
+        {
+            "id": "twbs/bootstrap",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 393
+        },
+        {
+            "id": "serverless/serverless",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 407
+        },
+        {
+            "id": "bitcoin/bitcoin",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 407
+        },
+        {
+            "id": "nodejs/node",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 409
+        },
+        {
+            "id": "wagtail/wagtail",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 410
+        },
+        {
+            "id": "RIOT-OS/RIOT",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 410
+        },
+        {
+            "id": "spyder-ide/spyder",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 412
+        },
+        {
+            "id": "rust-lang/cargo",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 415
+        },
+        {
+            "id": "GoogleContainerTools/skaffold",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 422
+        },
+        {
+            "id": "symfony/symfony",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 423
+        },
+        {
+            "id": "facebook/docusaurus",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 425
+        },
+        {
+            "id": "grpc/grpc",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 426
+        },
+        {
+            "id": "numba/numba",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 429
+        },
+        {
+            "id": "vitejs/vite",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 432
+        },
+        {
+            "id": "marmelab/react-admin",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 451
+        },
+        {
+            "id": "tikv/tikv",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 454
+        },
+        {
+            "id": "gohugoio/hugo",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 459
+        },
+        {
+            "id": "sveltejs/svelte",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 462
+        },
+        {
+            "id": "backstage/backstage",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 471
+        },
+        {
+            "id": "pimcore/pimcore",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 479
+        },
+        {
+            "id": "dapr/dapr",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 483
+        },
+        {
+            "id": "keycloak/keycloak",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 490
+        },
+        {
+            "id": "minetest/minetest",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 495
+        },
+        {
+            "id": "ionic-team/ionic-framework",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 498
+        },
+        {
+            "id": "parcel-bundler/parcel",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 501
+        },
+        {
+            "id": "trinodb/trino",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 501
+        },
+        {
+            "id": "envoyproxy/envoy",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 504
+        },
+        {
+            "id": "numpy/numpy",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 511
+        },
+        {
+            "id": "matomo-org/matomo",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 513
+        },
+        {
+            "id": "strapi/strapi",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 517
+        },
+        {
+            "id": "milvus-io/milvus",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 520
+        },
+        {
+            "id": "angular/material",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 524
+        },
+        {
+            "id": "influxdata/influxdb",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 525
+        },
+        {
+            "id": "ethereum/solidity",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 527
+        },
+        {
+            "id": "PostHog/posthog",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 530
+        },
+        {
+            "id": "gravitational/teleport",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 541
+        },
+        {
+            "id": "moby/moby",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 548
+        },
+        {
+            "id": "python/mypy",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 556
+        },
+        {
+            "id": "zulip/zulip",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 562
+        },
+        {
+            "id": "eclipse/che",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 564
+        },
+        {
+            "id": "bazelbuild/bazel",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 568
+        },
+        {
+            "id": "gitpod-io/gitpod",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 579
+        },
+        {
+            "id": "hashicorp/nomad",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 581
+        },
+        {
+            "id": "tensorflow/tensorflow",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 583
+        },
+        {
+            "id": "redpanda-data/redpanda",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 589
+        },
+        {
+            "id": "eclipse-theia/theia",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 589
+        },
+        {
+            "id": "typescript-eslint/typescript-eslint",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 590
+        },
+        {
+            "id": "mattermost/focalboard",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 594
+        },
+        {
+            "id": "systemd/systemd",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 599
+        },
+        {
+            "id": "prettier/prettier",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 604
+        },
+        {
+            "id": "pulumi/pulumi",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 606
+        },
+        {
+            "id": "prisma/prisma",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 630
+        },
+        {
+            "id": "jhipster/generator-jhipster",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 631
+        },
+        {
+            "id": "cypress-io/cypress",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 647
+        },
+        {
+            "id": "refined-github/refined-github",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 657
+        },
+        {
+            "id": "vectordotdev/vector",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 658
+        },
+        {
+            "id": "modin-project/modin",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 663
+        },
+        {
+            "id": "MaterializeInc/materialize",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 667
+        },
+        {
+            "id": "lensapp/lens",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 667
+        },
+        {
+            "id": "scikit-learn/scikit-learn",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 668
+        },
+        {
+            "id": "elastic/beats",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 677
+        },
+        {
+            "id": "eslint/eslint",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 696
+        },
+        {
+            "id": "ToolJet/ToolJet",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 702
+        },
+        {
+            "id": "rook/rook",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 702
+        },
+        {
+            "id": "Graylog2/graylog2-server",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 704
+        },
+        {
+            "id": "argoproj/argo-cd",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 705
+        },
+        {
+            "id": "opencv/opencv",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 716
+        },
+        {
+            "id": "opencv/opencv",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 716
+        },
+        {
+            "id": "cilium/cilium",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 724
+        },
+        {
+            "id": "highcharts/highcharts",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 728
+        },
+        {
+            "id": "electron/electron",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 739
+        },
+        {
+            "id": "rectorphp/rector",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 743
+        },
+        {
+            "id": "wordpress-mobile/WordPress-iOS",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 744
+        },
+        {
+            "id": "Lightning-AI/lightning",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 759
+        },
+        {
+            "id": "woocommerce/woocommerce",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 769
+        },
+        {
+            "id": "vuetifyjs/vuetify",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 791
+        },
+        {
+            "id": "pytorch/pytorch",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 803
+        },
+        {
+            "id": "iterative/dvc",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 816
+        },
+        {
+            "id": "hashicorp/packer",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 828
+        },
+        {
+            "id": "denoland/deno",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 830
+        },
+        {
+            "id": "rust-lang/rust-clippy",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 830
+        },
+        {
+            "id": "influxdata/telegraf",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 847
+        },
+        {
+            "id": "OpenAPITools/openapi-generator",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 853
+        },
+        {
+            "id": "argoproj/argo-workflows",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 858
+        },
+        {
+            "id": "mui/material-ui",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 874
+        },
+        {
+            "id": "mishoo/UglifyJS",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 890
+        },
+        {
+            "id": "TryGhost/Ghost",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 917
+        },
+        {
+            "id": "ant-design/ant-design",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 919
+        },
+        {
+            "id": "airbytehq/airbyte",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 936
+        },
+        {
+            "id": "babel/babel",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 940
+        },
+        {
+            "id": "microsoft/terminal",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 944
+        },
+        {
+            "id": "apache/pulsar",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 960
+        },
+        {
+            "id": "swc-project/swc",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 966
+        },
+        {
+            "id": "nrwl/nx",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 998
+        },
+        {
+            "id": "nextcloud/server",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1008
+        },
+        {
+            "id": "kubernetes/minikube",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1009
+        },
+        {
+            "id": "directus/directus",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1010
+        },
+        {
+            "id": "rapidsai/cudf",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1032
+        },
+        {
+            "id": "apache/airflow",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1064
+        },
+        {
+            "id": "vector-im/element-web",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1071
+        },
+        {
+            "id": "magento/magento2",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1103
+        },
+        {
+            "id": "ClickHouse/ClickHouse",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1112
+        },
+        {
+            "id": "netdata/netdata",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1134
+        },
+        {
+            "id": "StarRocks/starrocks",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1164
+        },
+        {
+            "id": "bokeh/bokeh",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1192
+        },
+        {
+            "id": "musescore/MuseScore",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1215
+        },
+        {
+            "id": "angular/angular-cli",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1223
+        },
+        {
+            "id": "sourcegraph/sourcegraph",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1235
+        },
+        {
+            "id": "containers/podman",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1260
+        },
+        {
+            "id": "saltstack/salt",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1569
+        },
+        {
+            "id": "hashicorp/terraform-provider-aws",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1670
+        },
+        {
+            "id": "go-gitea/gitea",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1687
+        },
+        {
+            "id": "microsoft/azuredatastudio",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1699
+        },
+        {
+            "id": "angular/angular",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1805
+        },
+        {
+            "id": "angular/angular",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1805
+        },
+        {
+            "id": "hashicorp/terraform",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1825
+        },
+        {
+            "id": "PrestaShop/PrestaShop",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1831
+        },
+        {
+            "id": "owncloud/core",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 2005
+        },
+        {
+            "id": "angular/components",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 2386
+        },
+        {
+            "id": "aws/aws-cdk",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 2399
+        },
+        {
+            "id": "appsmithorg/appsmith",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 2480
+        },
+        {
+            "id": "grafana/grafana",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 2535
+        },
+        {
+            "id": "cockroachdb/cockroach",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 2840
+        },
+        {
+            "id": "microsoft/TypeScript",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 2959
+        },
+        {
+            "id": "pandas-dev/pandas",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 3033
+        },
+        {
+            "id": "quarkusio/quarkus",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 3092
+        },
+        {
+            "id": "pingcap/tidb",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 3206
+        },
+        {
+            "id": "microsoft/vscode",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 3334
+        },
+        {
+            "id": "rust-lang/rust",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 3649
+        },
+        {
+            "id": "zephyrproject-rtos/zephyr",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 4076
+        },
+        {
+            "id": "kubernetes/kubernetes",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 5098
+        },
+        {
+            "id": "ansible/ansible",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 5649
+        },
+        {
+            "id": "elastic/kibana",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            },
+            "weight": 6407
+        }
+    ],
+    "scheduler": {
+        "ip": "35.86.246.218",
+        "user": "ubuntu",
+        "key": "~/.ssh/DORA-scheduler_keyPair.pem"
+    },
+    "workers": [
+        {
+            "ip": "34.221.232.223",
+            "user": "ubuntu",
+            "key": "~/.ssh/DORA-worker-a_keyPair.pem"
+        },
+        {
+            "ip": "54.213.11.123",
+            "user": "ubuntu",
+            "key": "~/.ssh/DORA-worker-b_keyPair.pem"
+        },
+        {
+            "ip": "54.71.165.23",
+            "user": "ubuntu",
+            "key": "~/.ssh/DORA-worker-c_keyPair.pem"
+        },
+        {
+            "ip": "34.215.66.173",
+            "user": "ubuntu",
+            "key": "~/.ssh/DORA-worker-d_keyPair.pem"
+        },
+        {
+            "ip": "34.220.147.66",
+            "user": "ubuntu",
+            "key": "~/.ssh/DORA-worker-e_keyPair.pem"
+        }
+    ]
+}

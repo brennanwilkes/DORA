@@ -1,4 +1,10 @@
-export const COLOURS = ["#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#8bd3c7", "#beb9db", "#fdcce5"];
+export const BASE_COLOURS = ["#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#8bd3c7", "#beb9db", "#fdcce5"];
+export const COLOURS = BASE_COLOURS;
+const HEX = "0123456789ABCDEF";
+for (let i = 0; i < 200; i++) {
+	COLOURS.push(`#${HEX[Math.floor(Math.random() * 16)]}${HEX[Math.floor(Math.random() * 16)]}${HEX[Math.floor(Math.random() * 16)]}${HEX[Math.floor(Math.random() * 16)]}${HEX[Math.floor(Math.random() * 16)]}${HEX[Math.floor(Math.random() * 16)]}`);
+}
+
 export const COLOURS_SEMI_TRANS = COLOURS.map(c => `${c}30`);
 export const MINUTE = 60 * 1000;
 export const HOUR = MINUTE * 60;
