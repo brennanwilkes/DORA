@@ -5,6 +5,11 @@ processRepo(){
 	DATA=$( gh api "/repos/$REPO/git/refs/tags" 2>/dev/null )
 	[[ "$?" != 0 ]] && return
 	RELEASES=$( echo "$DATA" | grep -Eo '.ref.: ?.refs/tags/v?[0-9]+\.[0-9]+\.?[0-9]*[^"]*",' | sort | uniq | wc -l )
+	TOTAL_TAGS=$( echo "$DATA" | grep -Eo '.ref.: ?.refs/tags/[^"]*",' | sort | uniq | wc -l )
+	HAS_1_0=$( echo "$DATA" | grep -Eo '.ref.: ?.refs/tags/v?[0-9]+\.[0-9]+\.?[0-9]*[^"]*",' | sort | uniq | grep -oE '/v?[1-9][0-9]*\.[0-9]+' )
+	[[ -z "$HAS_1_0" ]] && return
+	[[ $(( $TOTAL_TAGS - $RELEASES )) -gt $RELEASES ]] && return
+
 	[[ "$RELEASES" -gt 50 ]] && {
 		BUG_LABELS=$( gh label list -L 1000 --repo "$REPO" )
 		[[ "$?" != 0 ]] && echo "Bad repo for labels: $REPO" >&2
@@ -13,14 +18,13 @@ processRepo(){
 		NUM_LABELS=$( echo "$BUG_LABELS" | wc -l )
 
 		[[ "$NUM_LABELS" -ge 1 ]] && {
-			BUG_LABELS=$( echo "$BUG_LABELS" | xargs -n1 -I {} echo '"{}"' | paste -sd "," - )
+			BUG_LABELS=$( echo "$BUG_LABELS" | sed -E 's/(.*)/"\1"/g' | paste -sd "," - )
 
 			[[ "$( gh api -H 'Accept: application/vnd.github+json' '/rate_limit' | grep -o 'search....limit..[0-9]*,.used..[0-9]*..remaining..[0-9]*' | grep -o '[0-9]*$' )" -lt 10 ]] && sleep 60
 
 			DATA=$( gh api -X GET search/issues -f per_page=1 -f "page=1" -f q="repo:$REPO is:closed linked:pr label:$BUG_LABELS" )
 			[[ "$?" != 0 ]] && echo "Bad repo for issues: $REPO" >&2
 			NUM_ISSUES=$( echo "$DATA" | grep -oE "total_count..[0-9]+" | grep -Eo '[0-9]+' | head -n1 )
-
 
 			[[ "$NUM_ISSUES" -gt 100 ]] && {
 				TOTAL_COMMITS=$( gh api -i "/repos/$REPO/commits?per_page=1" | sed -n '/^[Ll]ink:/ s/.*"next".*page=\([0-9]*\).*"last".*/\1/p' )
@@ -30,19 +34,16 @@ processRepo(){
 
 				echo "$REPO,$RELEASES,$NUM_ISSUES,$TOTAL_COMMITS,$FIRST_COMMIT,$LAST_COMMIT"
 			}
-
-			sleep 2
 		}
 	}
 }
 
-TOTAL=7500
 j=1
-N=16
+N=25
 while read REPO
 do
 	((i=i%N)); ((i++==0)) && wait
-	echo "Processing $j/$TOTAL" >&2
+	echo "Processing $j" >&2
 	j=$(( $j + 1 ))
 	processRepo "$REPO" &
 done < "${1:-/dev/stdin}"

@@ -34,10 +34,19 @@ log "Using Time UNTIL=$UNTIL"
 t0=$( date +%s -d "$SINCE" )
 tn=$( date +%s -d "$UNTIL" )
 
+RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT 1 )"
+TOTAL_COMMITS=$( gh api -i "/repos/$REPO/commits?per_page=1" | sed -n '/^[Ll]ink:/ s/.*"next".*page=\([0-9]*\).*"last".*/\1/p' )
+RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT 1 )"
+FIRST_COMMIT=$( gh api "/repos/$REPO/commits?per_page=1&page=$TOTAL_COMMITS" | node parse_pr_commit_json.js 11 )
+[[ -z "$FIRST_COMMIT" ]] || {
+	[[ "$FIRST_COMMIT" -gt "$t0" ]] && t0="$FIRST_COMMIT"
+}
+
+
 INCREMENT=$(( 60 * 60 * 24 * 365 / 12 ))
 ISSUES=""
-BUG_LABELS=$( echo "$BUG_LABELS" | xargs -n1 -I {} echo '"{}"' | paste -sd "," - )
-log "Using labels $( echo $BUG_LABELS | xargs -n1 -I {} echo '"{}"' | paste -sd "," - )"
+BUG_LABELS=$( echo "$BUG_LABELS" | sed -E 's/(.*)/"\1"/g'  | paste -sd "," - )
+log "Using labels $BUG_LABELS"
 
 for ti in $( seq "$t0" "$INCREMENT" "$tn" )
 do

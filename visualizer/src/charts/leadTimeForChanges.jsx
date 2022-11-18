@@ -20,6 +20,9 @@ function LeadTimeForChanges(props) {
 	if(props.scale === -1){
 		data.datasets = data.datasets.sort((a,b) => a.data[0] - b.data[0]);
 	}
+	if(props.debug){
+		data.datasets = data.datasets.filter((_, i) => i < 5 || i > data.datasets.length - 5);
+	}
 
 	const options = makeOptions("Lead Time For Changes", "Average Days Between Commit and Deployment");
 	if(props.style === "line"){

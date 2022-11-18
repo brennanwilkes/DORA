@@ -113,7 +113,7 @@ do
 	}
 
 	[[ "$( echo $prev_tag | grep -oE '^v?[0-9]+' | tr -d 'v' )" -ne "$( echo $tag | grep -oE '^v?[0-9]+' | tr -d 'v' )" ]] && {
-		[[ -z "$( echo $tag | grep -oE '^v?[0-9]+\.0\.' )" ]] && {
+		[[ -z "$( echo $tag | grep -oE '^v?[0-9]+\.0' )" ]] && {
 			log "SKIPPING $prev_tag -> $tag due to major/minor version mismatch"
 			continue
 		}
@@ -129,8 +129,20 @@ do
 
 
 	[[ $( echo "$commits" | wc -l ) -gt 1000 ]] && [[ -z "$( echo $tag | grep -Eo '^v?[0-9]+.[0-9]+.0' )" ]] && {
-		log "SKIPPING $prev_tag -> $tag due to exes commits (likely invalid version)"
-		continue
+
+		prev_major=$( echo $prev_tag | grep -oE '^v?[0-9]+' | tr -d 'v' )
+		major=$( echo $tag | grep -oE '^v?[0-9]+' | tr -d 'v' )
+
+		prev_minor=$( echo $prev_tag | grep -oE '^v?[0-9]+\.[0-9]+' | grep -Eo '[0-9]+$' )
+		minor=$( echo $tag | grep -oE '^v?[0-9]+\.[0-9]+' | grep -Eo '[0-9]+$' )
+
+		prev_patch=$( echo $prev_tag | grep -oE '^v?[0-9]+\.[0-9]+\.[0-9]+' | grep -Eo '[0-9]+$' )
+		patch=$( echo $tag | grep -oE '^v?[0-9]+\.[0-9]+\.[0-9]+' | grep -Eo '[0-9]+$' )
+
+		[[ "$patch" -ne "$(( $prev_patch + 1 ))" ]] && [[ "$minor" -ne "$(( $prev_minor + 1 ))" ]] && {
+			log "SKIPPING $prev_tag -> $tag due to exes commits (likely invalid version)"
+			continue
+		}
 	}
 
 	totalCommits=$(( $totalCommits + $( echo "$commits" | wc -l ) ))

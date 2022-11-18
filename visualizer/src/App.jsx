@@ -15,7 +15,8 @@ import {
 import { Bar } from 'react-chartjs-2';
 import brnkl from "./data/brnkl-minified.json"
 import combined from "./data/combined-minified.json"
-import paper from "./data/paper-minified.json"
+import paper from "./data/paper2-minified.json"
+import python from "./data/python-minified.json"
 
 import DeploymentFrequency from "./charts/deploymentFrequency";
 import LeadTimeForChanges from "./charts/leadTimeForChanges";
@@ -40,13 +41,15 @@ ChartJS.register(
 );
 
 combined.results = combined.results.filter(r => r.repo !== "kubernetes/kubernetes")
+// paper.results = paper.results.filter(r => r.repo === "tendermint/tendermint")
 const dataset = paper;
 
 function App() {
 
-	const [scale, setScale] = useState(2);
+	const [scale, setScale] = useState(6);
 	const [metric, setMetric] = useState(0);
 	const [barChart, setBarChart] = useState(true);
+	const debug = true;
 
 	return (
 		<div>
@@ -116,13 +119,13 @@ function App() {
 
 			<div id="chart">{
 				metric === 0 ? (
-					<DeploymentFrequency data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1][scale]} />
+					<DeploymentFrequency debug={debug} data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1][scale]} />
 				) : (metric === 1 ? (
-					<LeadTimeForChanges data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1][scale]} />
+					<LeadTimeForChanges debug={debug} data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1][scale]} />
 				) : (metric === 2 ? (
-					<MeanTimeToRecover data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1][scale]} />
+					<MeanTimeToRecover debug={debug} data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1][scale]} />
 				) : (
-					<ChangeFailureRate data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1][scale]} />
+					<ChangeFailureRate debug={debug} data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1][scale]} />
 				)))
 			}</div>
 		</div>

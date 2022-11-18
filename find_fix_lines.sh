@@ -150,7 +150,11 @@ SZZ_LINE(){
 			}
 
 			echo "$blame" >> "$CANDIDATES"
-			RAW=$( git diff $blame~1 $blame 2>>"$ROOT/log" )
+			[[ -z "$blame" ]] && {
+				log "Blame was empty"
+				continue
+			}
+			RAW=$( git diff "$blame~1" "$blame" 2>>"$ROOT/log" )
 			[[ "$?" -ne 128 ]] && {
 				diffSha=$( echo "$RAW" | grep -Ev -e '^diff --git' -e '^---' -e '^\+\+\+' -e '^index [0-9a-z]+\.\.[0-9a-z]+ [0-9a-z]+$' | shasum | cut -d' ' -f1 )
 			} || {

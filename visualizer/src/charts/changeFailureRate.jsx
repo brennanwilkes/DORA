@@ -22,6 +22,9 @@ function ChangeFailureRate(props) {
 	if(props.scale === -1){
 		data.datasets = data.datasets.sort((a,b) => a.data[0] - b.data[0]);
 	}
+	if(props.debug){
+		data.datasets = data.datasets.filter((_, i) => i < 5 || i > data.datasets.length - 5);
+	}
 
 	const options = makeOptions("Change Failure Rate", "Percentage Of Deployments With A Failure");
 	if(props.style === "line"){

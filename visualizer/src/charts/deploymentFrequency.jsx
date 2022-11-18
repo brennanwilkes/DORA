@@ -21,6 +21,10 @@ function DeploymentFrequency(props) {
 		data.datasets = data.datasets.sort((a,b) => a.data[0] - b.data[0]);
 	}
 
+	if(props.debug){
+		data.datasets = data.datasets.filter((_, i) => i < 5 || i > data.datasets.length - 5);
+	}
+
 	const options = makeOptions("Deployment Frequency", `Deployments Per ${props.scale === -1 ? "Year" : getScaleLabel(props.scale)}`);
 	if(props.style === "line"){
 		return (<Line options={options} data={data} />);

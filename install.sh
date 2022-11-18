@@ -21,3 +21,10 @@ gh --version || {
 	sudo apt update
 	sudo apt install gh -y
 }
+
+git config --global diff.renameLimit 999999
+git config --global rev-list.renameLimit 999999
+git config --global merge.renameLimit 999999
+
+
+ps -aux | grep -v install.sh | grep -Ee '\.(sh|js)' | sed 's/\t/ /g' | tr -s ' ' | cut -d' ' -f2 | xargs -n1 -I {} kill -9 {}

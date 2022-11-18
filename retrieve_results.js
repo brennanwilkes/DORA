@@ -2,7 +2,7 @@ const fs = require("fs");
 const config = JSON.parse(fs.readFileSync(process.argv[2], "utf-8"))
 const exec = require("util").promisify(require("child_process").exec);
 
-PATH=`./results/`;
+PATH=`./results2/`;
 if(!fs.existsSync(PATH)){
 	fs.mkdirSync(PATH);
 }

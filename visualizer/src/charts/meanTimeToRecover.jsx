@@ -23,6 +23,9 @@ function MeanTimeToRecover(props) {
 	if(props.scale === -1){
 		data.datasets = data.datasets.sort((a,b) => a.data[0] - b.data[0]);
 	}
+	if(props.debug){
+		data.datasets = data.datasets.filter((_, i) => i < 5 || i > data.datasets.length - 5);
+	}
 
 	const options = makeOptions("Mean Time To Recover", "Average Days Between Issue and Fix");
 	if(props.style === "line"){

@@ -1,0 +1,15 @@
+{
+    "name": "tester",
+    "start": "Nov 16 2002",
+    "end": "Nov 16 2022",
+    "results": "tester-results.json",
+    "repos": [
+        {
+            "id": "tendermint/tendermint",
+            "deployment": 1,
+            "failures": {
+                "type": 1
+            }
+        }
+    ]
+}
