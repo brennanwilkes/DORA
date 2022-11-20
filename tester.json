@@ -5,7 +5,7 @@
     "results": "tester-results.json",
     "repos": [
         {
-            "id": "framer/motion",
+            "id": "aquasecurity/tfsec",
             "deployment": 0,
             "failures": {
                 "type": 1

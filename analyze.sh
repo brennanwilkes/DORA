@@ -36,7 +36,7 @@ cd "$WORKING_DIR"
 		DATA=$( gh api "/repos/$REPO/git/refs/tags"  2>>"$ROOT/log" )
 		[[ "$?" -eq 0 ]] && break
 	done
-	export deployments=$( echo "$DATA" | grep -o 'git/refs/tags/[^"]*' | grep -o '/[^/]*$' | tr -d '/' | grep -E '^v?[0-9]+\.[0-9]+' | node "$ROOT/custom_tag_sort.js" "$END" " $START" )
+	export deployments=$( echo "$DATA" | grep -o 'git/refs/tags/[^"]*' | grep -o 'tags/[^/]*$' | grep -o '/[^/]*$' | tr -d '/' | grep -E '^v?[0-9]+\.[0-9]+' | node "$ROOT/custom_tag_sort.js" "$END" " $START" )
 }
 [[ "$DEPLOYMENT" -eq 1 ]] && {
 	log "Using git tags strategy. Requesting releases from local repo"

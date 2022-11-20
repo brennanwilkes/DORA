@@ -12,5 +12,5 @@ ssh -i ~/.ssh/DORA-scheduler_keyPair.pem ubuntu@35.86.246.218 "~/dora/start_comp
 
 #Retrieve results
 node print_worker_status.js paper4.json > stdout4.txt
-node retrieve_results.js paper4.json ; rm -rf results3/paper4-results.json ; node result_combiner.js results3/* results3/paper4-results.json ; node minimize.js results3/paper4-results.json visualizer/src/data/paper4-minified.json
+node retrieve_results.js paper4.json ; rm -rf results4/paper4-results.json ; node result_combiner.js results4/* results4/paper4-results.json ; node minimize.js results4/paper4-results.json visualizer/src/data/paper4-minified.json
 ```
