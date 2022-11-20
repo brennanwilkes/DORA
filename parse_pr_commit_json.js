@@ -41,7 +41,9 @@ try{
 		}
 	}
 	else if(process.argv[2] === "9"){
-		console.log(json.published_at)
+		if(json?.published_at){
+			console.log(json?.published_at)
+		}
 	}
 	else if(process.argv[2] === "10"){
 		console.log(json.repository?.url);

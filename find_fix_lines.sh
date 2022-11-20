@@ -92,12 +92,18 @@ SZZ_LINE(){
 
 	l1=$( echo "$line" | cut -d':' -f1 )
 	l2=$( echo "$line" | cut -d':' -f2 )
+	l1Stripped=$( echo "$l1" | tr -d '[+\-]' )
 	to=$( echo "$l2" | tr -d '[+\-]' )
+	n1=$( echo "$to" | cut -d',' -f1 )
+	n2=$( echo "$to" | cut -d',' -f2 )
+	offset=$(( $l1Stripped - $n1 ))
+	[[ "$offset" -lt 0 ]] && offset=0
+	n2=$(( $n2 + $offset ))
+	n1=$(( $n1 - $offset ))
+
 	[[ -z "$( echo $to | grep -o ',' )" ]] && {
 		to="$to,$to"
 	} || {
-		n1=$( echo "$to" | cut -d',' -f1 )
-		n2=$( echo "$to" | cut -d',' -f2 )
 		[[ "$n2" -eq 0 ]] && {
 			return
 		}
@@ -117,18 +123,25 @@ SZZ_LINE(){
 	while [[ "$IS_DONE" -eq 0 ]]
 	do
 		IS_DONE=1
+		echo git blame -L "$to" "$COMMIT~1" --porcelain --ignore-revs-file "$IGNORED_REV_FILE" -- "$file"
 		RAW=$( git blame -L "$to" "$COMMIT~1" --porcelain --ignore-revs-file "$IGNORED_REV_FILE" -- "$file" 2>>"$ROOT/log" )
 		BLAME=$( echo "$RAW" | grep -v '^previous' | grep -oE '^[a-zA-Z0-9]{40}' | awk '!x[$0]++' )
 		DATE=$( echo "$RAW" | grep -oE 'author-time [0-9]{10}' | cut -d' ' -f2 | awk '!x[$0]++' )
-
+		echo "======"
+		echo "$BLAME"
+		echo "======"
 		log Checking $( echo "$BLAME" | wc -l ) possible blame commits
 		i=1
 		for blame in $BLAME
 		do
+			echo "$blame"
 			[[ -z "$( cat "$IGNORED_REV_FILE" 2>/dev/null | grep -o $blame )" ]] || {
+				echo "IGNORED"
+				echo "$blame"
 				continue
 			}
 			[[ -z "$( cat "$CANDIDATES" 2>/dev/null | grep -o $blame )" ]] || {
+				echo "IN CANDIDATES"
 				continue
 			}
 
@@ -166,7 +179,7 @@ SZZ_LINE(){
 			i=$(( $i + 1 ))
 		done
 	done
-	rm "$IGNORED_REV_FILE"
+	# rm "$IGNORED_REV_FILE"
 }
 
 SZZ_FILE() {

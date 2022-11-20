@@ -6,7 +6,7 @@
     "repos": [
         {
             "id": "avajs/ava",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -14,7 +14,7 @@
         },
         {
             "id": "ether/etherpad-lite",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -22,7 +22,7 @@
         },
         {
             "id": "tqdm/tqdm",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -30,7 +30,7 @@
         },
         {
             "id": "golangci/golangci-lint",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -38,7 +38,7 @@
         },
         {
             "id": "aquasecurity/tfsec",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -46,7 +46,7 @@
         },
         {
             "id": "osquery/osquery",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -54,7 +54,7 @@
         },
         {
             "id": "composer/composer",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -62,7 +62,7 @@
         },
         {
             "id": "storybookjs/storybook",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -70,7 +70,7 @@
         },
         {
             "id": "python-pillow/Pillow",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -78,7 +78,7 @@
         },
         {
             "id": "vuejs/vue",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -86,7 +86,7 @@
         },
         {
             "id": "puppeteer/puppeteer",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -94,7 +94,7 @@
         },
         {
             "id": "pyinstaller/pyinstaller",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -102,7 +102,7 @@
         },
         {
             "id": "alibaba/nacos",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -110,7 +110,7 @@
         },
         {
             "id": "scrapy/scrapy",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -118,7 +118,7 @@
         },
         {
             "id": "material-components/material-components-android",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -126,7 +126,7 @@
         },
         {
             "id": "grpc/grpc-java",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -134,7 +134,7 @@
         },
         {
             "id": "jquery/jquery",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -142,7 +142,7 @@
         },
         {
             "id": "mochajs/mocha",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -150,7 +150,7 @@
         },
         {
             "id": "nats-io/nats-server",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -158,7 +158,7 @@
         },
         {
             "id": "JanDeDobbeleer/oh-my-posh",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -166,7 +166,7 @@
         },
         {
             "id": "crossplane/crossplane",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -174,7 +174,7 @@
         },
         {
             "id": "yarnpkg/yarn",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -182,7 +182,7 @@
         },
         {
             "id": "chaos-mesh/chaos-mesh",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -190,7 +190,7 @@
         },
         {
             "id": "pypa/pipenv",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -198,7 +198,7 @@
         },
         {
             "id": "stellar/stellar-core",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -206,7 +206,7 @@
         },
         {
             "id": "teambit/bit",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -214,7 +214,7 @@
         },
         {
             "id": "vuejs/vue-cli",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -222,7 +222,7 @@
         },
         {
             "id": "caddyserver/caddy",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -230,7 +230,7 @@
         },
         {
             "id": "tusen-ai/naive-ui",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -238,7 +238,7 @@
         },
         {
             "id": "huggingface/transformers",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -246,7 +246,7 @@
         },
         {
             "id": "wp-graphql/wp-graphql",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -254,7 +254,7 @@
         },
         {
             "id": "obsproject/obs-studio",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -262,7 +262,7 @@
         },
         {
             "id": "microsoft/onefuzz",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -270,7 +270,7 @@
         },
         {
             "id": "Semantic-Org/Semantic-UI-React",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -278,7 +278,7 @@
         },
         {
             "id": "betaflight/betaflight",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -286,7 +286,7 @@
         },
         {
             "id": "youzan/vant-weapp",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -294,7 +294,7 @@
         },
         {
             "id": "secdev/scapy",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -302,7 +302,7 @@
         },
         {
             "id": "Leaflet/Leaflet",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -310,7 +310,7 @@
         },
         {
             "id": "halo-dev/halo",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -318,7 +318,7 @@
         },
         {
             "id": "aws/aws-cli",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -326,7 +326,7 @@
         },
         {
             "id": "wasmerio/wasmer",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -334,7 +334,7 @@
         },
         {
             "id": "python/cpython",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -342,7 +342,7 @@
         },
         {
             "id": "spring-projects/spring-security",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -350,7 +350,7 @@
         },
         {
             "id": "coder/code-server",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -358,7 +358,7 @@
         },
         {
             "id": "uber/baseweb",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -366,7 +366,7 @@
         },
         {
             "id": "akveo/nebular",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -374,7 +374,7 @@
         },
         {
             "id": "vmware-tanzu/velero",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -382,7 +382,7 @@
         },
         {
             "id": "monicahq/monica",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -390,7 +390,7 @@
         },
         {
             "id": "pixijs/pixijs",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -398,7 +398,7 @@
         },
         {
             "id": "freqtrade/freqtrade",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -406,7 +406,7 @@
         },
         {
             "id": "reactioncommerce/reaction",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -414,7 +414,7 @@
         },
         {
             "id": "matrix-org/synapse",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -422,7 +422,7 @@
         },
         {
             "id": "questdb/questdb",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -430,7 +430,7 @@
         },
         {
             "id": "gnuradio/gnuradio",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -438,7 +438,7 @@
         },
         {
             "id": "Budibase/budibase",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -446,7 +446,7 @@
         },
         {
             "id": "the1812/Bilibili-Evolved",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -454,7 +454,7 @@
         },
         {
             "id": "tuist/tuist",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -462,7 +462,7 @@
         },
         {
             "id": "kubernetes/dashboard",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -470,7 +470,7 @@
         },
         {
             "id": "bytecodealliance/wasmtime",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -478,7 +478,7 @@
         },
         {
             "id": "transmission/transmission",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -486,7 +486,7 @@
         },
         {
             "id": "LMMS/lmms",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -494,7 +494,7 @@
         },
         {
             "id": "yiisoft/yii2",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -502,7 +502,7 @@
         },
         {
             "id": "Dolibarr/dolibarr",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -510,7 +510,7 @@
         },
         {
             "id": "framer/motion",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -518,7 +518,7 @@
         },
         {
             "id": "handsontable/handsontable",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -526,7 +526,7 @@
         },
         {
             "id": "kubernetes/kops",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -534,7 +534,7 @@
         },
         {
             "id": "twpayne/chezmoi",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -542,7 +542,7 @@
         },
         {
             "id": "nlohmann/json",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -550,7 +550,7 @@
         },
         {
             "id": "etcd-io/etcd",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -558,7 +558,7 @@
         },
         {
             "id": "ethereum/go-ethereum",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -566,7 +566,7 @@
         },
         {
             "id": "hashicorp/vault",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -574,7 +574,7 @@
         },
         {
             "id": "dgraph-io/dgraph",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -582,7 +582,7 @@
         },
         {
             "id": "prometheus/prometheus",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -590,7 +590,7 @@
         },
         {
             "id": "MinecraftForge/MinecraftForge",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -598,7 +598,7 @@
         },
         {
             "id": "meilisearch/meilisearch",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -606,7 +606,7 @@
         },
         {
             "id": "MaaAssistantArknights/MaaAssistantArknights",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -614,7 +614,7 @@
         },
         {
             "id": "wesnoth/wesnoth",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -622,7 +622,7 @@
         },
         {
             "id": "google/filament",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -630,7 +630,7 @@
         },
         {
             "id": "PHP-CS-Fixer/PHP-CS-Fixer",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -638,7 +638,7 @@
         },
         {
             "id": "glpi-project/glpi",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -646,7 +646,7 @@
         },
         {
             "id": "microsoft/playwright",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -654,7 +654,7 @@
         },
         {
             "id": "operator-framework/operator-sdk",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -662,7 +662,7 @@
         },
         {
             "id": "botpress/botpress",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -670,7 +670,7 @@
         },
         {
             "id": "containerd/containerd",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -678,7 +678,7 @@
         },
         {
             "id": "swagger-api/swagger-ui",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -686,7 +686,7 @@
         },
         {
             "id": "goharbor/harbor",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -694,7 +694,7 @@
         },
         {
             "id": "phalcon/cphalcon",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -702,7 +702,7 @@
         },
         {
             "id": "zeek/zeek",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -710,7 +710,7 @@
         },
         {
             "id": "angular/flex-layout",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -718,7 +718,7 @@
         },
         {
             "id": "celery/celery",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -726,7 +726,7 @@
         },
         {
             "id": "react-hook-form/react-hook-form",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -734,7 +734,7 @@
         },
         {
             "id": "ng-bootstrap/ng-bootstrap",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -742,7 +742,7 @@
         },
         {
             "id": "ansible/awx",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -750,7 +750,7 @@
         },
         {
             "id": "hyperf/hyperf",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -758,7 +758,7 @@
         },
         {
             "id": "PrefectHQ/prefect",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -766,7 +766,7 @@
         },
         {
             "id": "pytest-dev/pytest",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -774,7 +774,7 @@
         },
         {
             "id": "mermaid-js/mermaid",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -782,7 +782,7 @@
         },
         {
             "id": "appium/appium",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -790,7 +790,7 @@
         },
         {
             "id": "VSCodeVim/Vim",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -798,7 +798,7 @@
         },
         {
             "id": "electron-userland/electron-builder",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -806,7 +806,7 @@
         },
         {
             "id": "darkreader/darkreader",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -814,7 +814,7 @@
         },
         {
             "id": "laravel/framework",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -822,7 +822,7 @@
         },
         {
             "id": "mozilla-mobile/firefox-ios",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -830,7 +830,7 @@
         },
         {
             "id": "sequelize/sequelize",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -838,7 +838,7 @@
         },
         {
             "id": "goreleaser/goreleaser",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -846,7 +846,7 @@
         },
         {
             "id": "webdriverio/webdriverio",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -854,7 +854,7 @@
         },
         {
             "id": "NativeScript/NativeScript",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -862,7 +862,7 @@
         },
         {
             "id": "docker/compose",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -870,7 +870,7 @@
         },
         {
             "id": "xbmc/xbmc",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -878,7 +878,7 @@
         },
         {
             "id": "software-mansion/react-native-reanimated",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -886,7 +886,7 @@
         },
         {
             "id": "getsentry/sentry-javascript",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -894,7 +894,7 @@
         },
         {
             "id": "swaywm/sway",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -902,7 +902,7 @@
         },
         {
             "id": "explosion/spaCy",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -910,7 +910,7 @@
         },
         {
             "id": "TykTechnologies/tyk",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -918,7 +918,7 @@
         },
         {
             "id": "hashicorp/consul",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -926,7 +926,7 @@
         },
         {
             "id": "mlflow/mlflow",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -934,7 +934,7 @@
         },
         {
             "id": "clap-rs/clap",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -942,7 +942,7 @@
         },
         {
             "id": "localstack/localstack",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -950,7 +950,7 @@
         },
         {
             "id": "canonical/multipass",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -958,7 +958,7 @@
         },
         {
             "id": "elastic/logstash",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -966,7 +966,7 @@
         },
         {
             "id": "kubeedge/kubeedge",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -974,7 +974,7 @@
         },
         {
             "id": "rust-lang/rustfmt",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -982,7 +982,7 @@
         },
         {
             "id": "Alluxio/alluxio",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -990,7 +990,7 @@
         },
         {
             "id": "bootstrap-vue/bootstrap-vue",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -998,7 +998,7 @@
         },
         {
             "id": "NixOS/nix",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1006,7 +1006,7 @@
         },
         {
             "id": "python-poetry/poetry",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1014,7 +1014,7 @@
         },
         {
             "id": "micronaut-projects/micronaut-core",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1022,7 +1022,7 @@
         },
         {
             "id": "facebook/react",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1030,7 +1030,7 @@
         },
         {
             "id": "pypa/pip",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1038,7 +1038,7 @@
         },
         {
             "id": "pnpm/pnpm",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1046,7 +1046,7 @@
         },
         {
             "id": "redwoodjs/redwood",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1054,7 +1054,7 @@
         },
         {
             "id": "Shopify/polaris",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1062,7 +1062,7 @@
         },
         {
             "id": "taichi-dev/taichi",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1070,7 +1070,7 @@
         },
         {
             "id": "projectdiscovery/nuclei",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1078,7 +1078,7 @@
         },
         {
             "id": "apache/skywalking",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1086,7 +1086,7 @@
         },
         {
             "id": "starship/starship",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1094,7 +1094,7 @@
         },
         {
             "id": "NG-ZORRO/ng-zorro-antd",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1102,7 +1102,7 @@
         },
         {
             "id": "helm/helm",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1110,7 +1110,7 @@
         },
         {
             "id": "sass/libsass",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1118,7 +1118,7 @@
         },
         {
             "id": "filamentphp/filament",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1126,7 +1126,7 @@
         },
         {
             "id": "saleor/saleor",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1134,7 +1134,7 @@
         },
         {
             "id": "openshift/origin",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1142,7 +1142,7 @@
         },
         {
             "id": "rollup/rollup",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1150,7 +1150,7 @@
         },
         {
             "id": "tailscale/tailscale",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1158,7 +1158,7 @@
         },
         {
             "id": "streamlit/streamlit",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1166,7 +1166,7 @@
         },
         {
             "id": "Sylius/Sylius",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1174,7 +1174,7 @@
         },
         {
             "id": "yt-dlp/yt-dlp",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1182,7 +1182,7 @@
         },
         {
             "id": "PCSX2/pcsx2",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1190,7 +1190,7 @@
         },
         {
             "id": "EasyCorp/EasyAdminBundle",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1198,7 +1198,7 @@
         },
         {
             "id": "dbeaver/dbeaver",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1206,7 +1206,7 @@
         },
         {
             "id": "jina-ai/jina",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1214,7 +1214,7 @@
         },
         {
             "id": "huggingface/datasets",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1222,7 +1222,7 @@
         },
         {
             "id": "certbot/certbot",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1230,7 +1230,7 @@
         },
         {
             "id": "pydantic/pydantic",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1238,7 +1238,7 @@
         },
         {
             "id": "timescale/timescaledb",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1246,7 +1246,7 @@
         },
         {
             "id": "apache/echarts",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1254,7 +1254,7 @@
         },
         {
             "id": "webpack/webpack",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1262,7 +1262,7 @@
         },
         {
             "id": "grpc/grpc-go",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1270,7 +1270,7 @@
         },
         {
             "id": "portainer/portainer",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1278,7 +1278,7 @@
         },
         {
             "id": "netbox-community/netbox",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1286,7 +1286,7 @@
         },
         {
             "id": "keepassxreboot/keepassxc",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1294,7 +1294,7 @@
         },
         {
             "id": "concourse/concourse",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1302,7 +1302,7 @@
         },
         {
             "id": "matplotlib/matplotlib",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1310,7 +1310,7 @@
         },
         {
             "id": "PX4/PX4-Autopilot",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1318,7 +1318,7 @@
         },
         {
             "id": "apache/beam",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1326,7 +1326,7 @@
         },
         {
             "id": "atom/atom",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1334,7 +1334,7 @@
         },
         {
             "id": "vitessio/vitess",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1342,7 +1342,7 @@
         },
         {
             "id": "OpenRefine/OpenRefine",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1350,7 +1350,7 @@
         },
         {
             "id": "vuejs/core",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1358,7 +1358,7 @@
         },
         {
             "id": "hasura/graphql-engine",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1366,7 +1366,7 @@
         },
         {
             "id": "frappe/erpnext",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1374,7 +1374,7 @@
         },
         {
             "id": "wazuh/wazuh",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1382,7 +1382,7 @@
         },
         {
             "id": "mautic/mautic",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1390,7 +1390,7 @@
         },
         {
             "id": "elastic/eui",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1398,7 +1398,7 @@
         },
         {
             "id": "vimeo/psalm",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1406,7 +1406,7 @@
         },
         {
             "id": "amplication/amplication",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1414,7 +1414,7 @@
         },
         {
             "id": "apache/superset",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1422,7 +1422,7 @@
         },
         {
             "id": "facebook/jest",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1430,7 +1430,7 @@
         },
         {
             "id": "GoogleChrome/lighthouse",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1438,7 +1438,7 @@
         },
         {
             "id": "citusdata/citus",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1446,7 +1446,7 @@
         },
         {
             "id": "RasaHQ/rasa",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1454,7 +1454,7 @@
         },
         {
             "id": "wenzhixin/bootstrap-table",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1462,7 +1462,7 @@
         },
         {
             "id": "cert-manager/cert-manager",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1470,7 +1470,7 @@
         },
         {
             "id": "ipython/ipython",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1478,7 +1478,7 @@
         },
         {
             "id": "cli/cli",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1486,7 +1486,7 @@
         },
         {
             "id": "twbs/bootstrap",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1494,7 +1494,7 @@
         },
         {
             "id": "serverless/serverless",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1502,7 +1502,7 @@
         },
         {
             "id": "bitcoin/bitcoin",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1510,7 +1510,7 @@
         },
         {
             "id": "nodejs/node",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1518,7 +1518,7 @@
         },
         {
             "id": "RIOT-OS/RIOT",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1526,7 +1526,7 @@
         },
         {
             "id": "wagtail/wagtail",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1534,7 +1534,7 @@
         },
         {
             "id": "spyder-ide/spyder",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1542,7 +1542,7 @@
         },
         {
             "id": "GoogleContainerTools/skaffold",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1550,7 +1550,7 @@
         },
         {
             "id": "symfony/symfony",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1558,7 +1558,7 @@
         },
         {
             "id": "grpc/grpc",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1566,7 +1566,7 @@
         },
         {
             "id": "facebook/docusaurus",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1574,7 +1574,7 @@
         },
         {
             "id": "vitejs/vite",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1582,7 +1582,7 @@
         },
         {
             "id": "marmelab/react-admin",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1590,7 +1590,7 @@
         },
         {
             "id": "tikv/tikv",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1598,7 +1598,7 @@
         },
         {
             "id": "sveltejs/svelte",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1606,7 +1606,7 @@
         },
         {
             "id": "backstage/backstage",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1614,7 +1614,7 @@
         },
         {
             "id": "pimcore/pimcore",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1622,7 +1622,7 @@
         },
         {
             "id": "dapr/dapr",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1630,7 +1630,7 @@
         },
         {
             "id": "keycloak/keycloak",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1638,7 +1638,7 @@
         },
         {
             "id": "minetest/minetest",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1646,7 +1646,7 @@
         },
         {
             "id": "ionic-team/ionic-framework",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1654,7 +1654,7 @@
         },
         {
             "id": "envoyproxy/envoy",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1662,7 +1662,7 @@
         },
         {
             "id": "numpy/numpy",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1670,7 +1670,7 @@
         },
         {
             "id": "matomo-org/matomo",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1678,7 +1678,7 @@
         },
         {
             "id": "strapi/strapi",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1686,7 +1686,7 @@
         },
         {
             "id": "milvus-io/milvus",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1694,7 +1694,7 @@
         },
         {
             "id": "influxdata/influxdb",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1702,7 +1702,7 @@
         },
         {
             "id": "PostHog/posthog",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1710,7 +1710,7 @@
         },
         {
             "id": "gravitational/teleport",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1718,7 +1718,7 @@
         },
         {
             "id": "moby/moby",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1726,7 +1726,7 @@
         },
         {
             "id": "zulip/zulip",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1734,7 +1734,7 @@
         },
         {
             "id": "eclipse/che",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1742,7 +1742,7 @@
         },
         {
             "id": "bazelbuild/bazel",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1750,7 +1750,7 @@
         },
         {
             "id": "gitpod-io/gitpod",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1758,7 +1758,7 @@
         },
         {
             "id": "hashicorp/nomad",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1766,7 +1766,7 @@
         },
         {
             "id": "tensorflow/tensorflow",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1774,7 +1774,7 @@
         },
         {
             "id": "redpanda-data/redpanda",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1782,7 +1782,7 @@
         },
         {
             "id": "eclipse-theia/theia",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1790,7 +1790,7 @@
         },
         {
             "id": "typescript-eslint/typescript-eslint",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1798,7 +1798,7 @@
         },
         {
             "id": "mattermost/focalboard",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1806,7 +1806,7 @@
         },
         {
             "id": "prettier/prettier",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1814,7 +1814,7 @@
         },
         {
             "id": "pulumi/pulumi",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1822,7 +1822,7 @@
         },
         {
             "id": "prisma/prisma",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1830,7 +1830,7 @@
         },
         {
             "id": "jhipster/generator-jhipster",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1838,7 +1838,7 @@
         },
         {
             "id": "refined-github/refined-github",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1846,7 +1846,7 @@
         },
         {
             "id": "lensapp/lens",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1854,7 +1854,7 @@
         },
         {
             "id": "scikit-learn/scikit-learn",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1862,7 +1862,7 @@
         },
         {
             "id": "elastic/beats",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1870,7 +1870,7 @@
         },
         {
             "id": "kata-containers/kata-containers",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1878,7 +1878,7 @@
         },
         {
             "id": "eslint/eslint",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1886,7 +1886,7 @@
         },
         {
             "id": "rook/rook",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1894,7 +1894,7 @@
         },
         {
             "id": "Graylog2/graylog2-server",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1902,7 +1902,7 @@
         },
         {
             "id": "argoproj/argo-cd",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1910,7 +1910,7 @@
         },
         {
             "id": "ToolJet/ToolJet",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1918,7 +1918,7 @@
         },
         {
             "id": "opencv/opencv",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1926,7 +1926,7 @@
         },
         {
             "id": "opencv/opencv",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1934,7 +1934,7 @@
         },
         {
             "id": "cilium/cilium",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1942,7 +1942,7 @@
         },
         {
             "id": "highcharts/highcharts",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1950,7 +1950,7 @@
         },
         {
             "id": "electron/electron",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1958,7 +1958,7 @@
         },
         {
             "id": "wordpress-mobile/WordPress-iOS",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1966,7 +1966,7 @@
         },
         {
             "id": "Lightning-AI/lightning",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1974,7 +1974,7 @@
         },
         {
             "id": "woocommerce/woocommerce",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1982,7 +1982,7 @@
         },
         {
             "id": "vuetifyjs/vuetify",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1990,7 +1990,7 @@
         },
         {
             "id": "iterative/dvc",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -1998,7 +1998,7 @@
         },
         {
             "id": "hashicorp/packer",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2006,7 +2006,7 @@
         },
         {
             "id": "denoland/deno",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2014,7 +2014,7 @@
         },
         {
             "id": "influxdata/telegraf",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2022,7 +2022,7 @@
         },
         {
             "id": "OpenAPITools/openapi-generator",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2030,7 +2030,7 @@
         },
         {
             "id": "argoproj/argo-workflows",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2038,7 +2038,7 @@
         },
         {
             "id": "mui/material-ui",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2046,7 +2046,7 @@
         },
         {
             "id": "mishoo/UglifyJS",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2054,7 +2054,7 @@
         },
         {
             "id": "TryGhost/Ghost",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2062,7 +2062,7 @@
         },
         {
             "id": "ant-design/ant-design",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2070,7 +2070,7 @@
         },
         {
             "id": "babel/babel",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2078,7 +2078,7 @@
         },
         {
             "id": "microsoft/terminal",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2086,7 +2086,7 @@
         },
         {
             "id": "apache/pulsar",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2094,7 +2094,7 @@
         },
         {
             "id": "swc-project/swc",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2102,7 +2102,7 @@
         },
         {
             "id": "nrwl/nx",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2110,7 +2110,7 @@
         },
         {
             "id": "kubernetes/minikube",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2118,7 +2118,7 @@
         },
         {
             "id": "nextcloud/server",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2126,7 +2126,7 @@
         },
         {
             "id": "directus/directus",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2134,7 +2134,7 @@
         },
         {
             "id": "rapidsai/cudf",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2142,7 +2142,7 @@
         },
         {
             "id": "vector-im/element-web",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2150,7 +2150,7 @@
         },
         {
             "id": "magento/magento2",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2158,7 +2158,7 @@
         },
         {
             "id": "ClickHouse/ClickHouse",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2166,7 +2166,7 @@
         },
         {
             "id": "netdata/netdata",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2174,7 +2174,7 @@
         },
         {
             "id": "StarRocks/starrocks",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2182,7 +2182,7 @@
         },
         {
             "id": "bokeh/bokeh",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2190,7 +2190,7 @@
         },
         {
             "id": "musescore/MuseScore",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2198,7 +2198,7 @@
         },
         {
             "id": "angular/angular-cli",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2206,7 +2206,7 @@
         },
         {
             "id": "sourcegraph/sourcegraph",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2214,7 +2214,7 @@
         },
         {
             "id": "containers/podman",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2222,7 +2222,7 @@
         },
         {
             "id": "saltstack/salt",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2230,7 +2230,7 @@
         },
         {
             "id": "hashicorp/terraform-provider-aws",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2238,7 +2238,7 @@
         },
         {
             "id": "go-gitea/gitea",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2246,7 +2246,7 @@
         },
         {
             "id": "microsoft/azuredatastudio",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2254,7 +2254,7 @@
         },
         {
             "id": "angular/angular",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2262,7 +2262,7 @@
         },
         {
             "id": "hashicorp/terraform",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2270,7 +2270,7 @@
         },
         {
             "id": "PrestaShop/PrestaShop",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2278,7 +2278,7 @@
         },
         {
             "id": "owncloud/core",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2286,7 +2286,7 @@
         },
         {
             "id": "angular/components",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2294,7 +2294,7 @@
         },
         {
             "id": "aws/aws-cdk",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2302,7 +2302,7 @@
         },
         {
             "id": "appsmithorg/appsmith",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2310,7 +2310,7 @@
         },
         {
             "id": "grafana/grafana",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2318,7 +2318,7 @@
         },
         {
             "id": "cockroachdb/cockroach",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2326,7 +2326,7 @@
         },
         {
             "id": "microsoft/TypeScript",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2334,7 +2334,7 @@
         },
         {
             "id": "pandas-dev/pandas",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2342,7 +2342,7 @@
         },
         {
             "id": "quarkusio/quarkus",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2350,7 +2350,7 @@
         },
         {
             "id": "pingcap/tidb",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2358,7 +2358,7 @@
         },
         {
             "id": "microsoft/vscode",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2366,7 +2366,7 @@
         },
         {
             "id": "rust-lang/rust",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2374,7 +2374,7 @@
         },
         {
             "id": "zephyrproject-rtos/zephyr",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2382,7 +2382,7 @@
         },
         {
             "id": "kubernetes/kubernetes",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2390,7 +2390,7 @@
         },
         {
             "id": "ansible/ansible",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2398,7 +2398,7 @@
         },
         {
             "id": "elastic/kibana",
-            "deployment": 1,
+            "deployment": 0,
             "failures": {
                 "type": 1
             },
@@ -2412,12 +2412,12 @@
     },
     "workers": [
         {
-            "ip": "34.221.232.223",
+            "ip": "34.222.146.31",
             "user": "ubuntu",
             "key": "~/.ssh/DORA-worker-a_keyPair.pem"
         },
         {
-            "ip": "54.213.11.123",
+            "ip": "35.89.74.88",
             "user": "ubuntu",
             "key": "~/.ssh/DORA-worker-b_keyPair.pem"
         },
@@ -2427,12 +2427,12 @@
             "key": "~/.ssh/DORA-worker-c_keyPair.pem"
         },
         {
-            "ip": "34.215.66.173",
+            "ip": "54.185.57.161",
             "user": "ubuntu",
             "key": "~/.ssh/DORA-worker-d_keyPair.pem"
         },
         {
-            "ip": "34.220.147.66",
+            "ip": "54.191.171.49",
             "user": "ubuntu",
             "key": "~/.ssh/DORA-worker-e_keyPair.pem"
         }

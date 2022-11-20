@@ -19,10 +19,11 @@ log() {
 RATE_LIMIT=$( $ROOT/rate_limit.sh "$ROOT" )
 
 [ -d "$WORKING_DIR" ] || {
-	gh repo clone "$REPO" "$WORKING_DIR" >>log 2>>log || {
-		echo "Something went wrong cloning repo ($REPO) into ($WORKING_DIR)" >&2
-		exit 1
-	}
+	for i in $( seq 1 10 )
+	do
+		gh repo clone "$REPO" "$WORKING_DIR" >>log 2>>log
+		[[ "$?" -eq 0 ]] && break
+	done
 	rm -rf "$WORKING_DIR/*"
 }
 
@@ -32,10 +33,10 @@ cd "$WORKING_DIR"
 	for i in $( seq 1 10 )
 	do
 		RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
-		DATA=$( gh release list --repo "$REPO" -L 1000 2>>"$ROOT/log" )
+		DATA=$( gh api "/repos/$REPO/git/refs/tags"  2>>"$ROOT/log" )
 		[[ "$?" -eq 0 ]] && break
 	done
-	export deployments=$( echo "$DATA" | cut -f3 | tac | node "$ROOT/custom_tag_sort.js" "$END" " $START" )
+	export deployments=$( echo "$DATA" | grep -o 'git/refs/tags/[^"]*' | grep -o '/[^/]*$' | tr -d '/' | grep -E '^v?[0-9]+\.[0-9]+' | node "$ROOT/custom_tag_sort.js" "$END" " $START" )
 }
 [[ "$DEPLOYMENT" -eq 1 ]] && {
 	log "Using git tags strategy. Requesting releases from local repo"
@@ -97,11 +98,11 @@ do
 
 	[[ "$DEPLOYMENT" -eq 0 ]] && {
 		RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
-		remote_time=$( gh api "/repos/$REPO/releases/tags/$tag" | node "$ROOT/parse_pr_commit_json.js" 9 2>/dev/null )
-		[[ $( date -d "$remote_time" +%s ) -gt $( date -d "$time" +%s ) ]] && time="$remote_time"
+		remote_time=$( gh api "/repos/$REPO/releases/tags/$tag" 2>/dev/null | node "$ROOT/parse_pr_commit_json.js" 9 2>/dev/null )
+		[[ "$( echo $remote_time | wc -c )" -gt 1 ]] && [[ $( date -d "$remote_time" +%s ) -gt $( date -d "$time" +%s ) ]] && time="$remote_time"
 		RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
-		remote_prev_time=$( gh api "/repos/$REPO/releases/tags/$prev_tag" | node "$ROOT/parse_pr_commit_json.js" 9 2>/dev/null )
-		[[ $( date -d "$remote_prev_time" +%s ) -gt $( date -d "$prev_time" +%s ) ]] && prev_time="$remote_prev_time"
+		remote_prev_time=$( gh api "/repos/$REPO/releases/tags/$prev_tag" 2>/dev/null | node "$ROOT/parse_pr_commit_json.js" 9 2>/dev/null )
+		[[ "$( echo $remote_prev_time | wc -c )" -gt 1 ]] && [[ $( date -d "$remote_prev_time" +%s ) -gt $( date -d "$prev_time" +%s ) ]] && prev_time="$remote_prev_time"
 	}
 
 	[[ $( date -d "$prev_time" +%s ) -lt $( date -d "$END" +%s ) ]] && {

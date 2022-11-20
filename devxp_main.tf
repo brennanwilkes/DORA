@@ -8,7 +8,7 @@ terraform {
 
 resource "aws_instance" "DORA-worker-c" {
   ami           = data.aws_ami.ubuntu_latest.id
-  instance_type = "t2.medium"
+  instance_type = "t2.large"
   tags = {
     Name = "DORA-worker-c"
   }
@@ -46,7 +46,7 @@ resource "local_sensitive_file" "DORA-worker-c_keyPair_pem_file" {
 
 resource "aws_instance" "DORA-worker-a" {
   ami           = data.aws_ami.ubuntu_latest.id
-  instance_type = "t2.medium"
+  instance_type = "t2.large"
   tags = {
     Name = "DORA-worker-a"
   }
@@ -79,7 +79,7 @@ resource "local_sensitive_file" "DORA-worker-a_keyPair_pem_file" {
 
 resource "aws_instance" "DORA-worker-b" {
   ami           = data.aws_ami.ubuntu_latest.id
-  instance_type = "t2.medium"
+  instance_type = "t2.large"
   tags = {
     Name = "DORA-worker-b"
   }
@@ -113,7 +113,7 @@ resource "local_sensitive_file" "DORA-worker-b_keyPair_pem_file" {
 
 resource "aws_instance" "DORA-worker-d" {
   ami           = data.aws_ami.ubuntu_latest.id
-  instance_type = "t2.medium"
+  instance_type = "t2.large"
   tags = {
     Name = "DORA-worker-d"
   }
@@ -146,7 +146,7 @@ resource "local_sensitive_file" "DORA-worker-d_keyPair_pem_file" {
 
 resource "aws_instance" "DORA-worker-e" {
   ami           = data.aws_ami.ubuntu_latest.id
-  instance_type = "t2.medium"
+  instance_type = "t2.large"
   tags = {
     Name = "DORA-worker-e"
   }

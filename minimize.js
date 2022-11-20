@@ -57,8 +57,8 @@ const MONTH4 = YEAR / 3;
 const MONTH6 = YEAR / 2;
 
 let data = JSON.parse(fs.readFileSync(process.argv[process.argv.length - 2]));
-const time = "created"
-// const time = "resolved";
+// const time = "created"
+const time = "resolved";
 
 const output = {
 	name: data.name,

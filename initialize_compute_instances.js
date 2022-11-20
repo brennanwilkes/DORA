@@ -10,10 +10,13 @@ const CLONE_URL=`https://github.com/${REPO}.git`;
 console.log(`Initializing ${config.workers.length} workers`);
 console.log("Downloading and running install script");
 
-Promise.all([...config.workers, config.scheduler].map(server => exec(
+Promise.all([...config.workers, config.scheduler].map((server, i) => exec(
 	`ssh -o StrictHostKeyChecking=accept-new -i ${server.key} ${server.user}@${server.ip} "curl -Ls ${INSTALL_SCRIPT} | bash"`,
 	{stdio: "inherit"}
-))).then((resp) => {
+).then(s => {
+	console.log(`Completed install ${i}`)
+	return Promise.resolve(s);
+}))).then((resp) => {
 	console.log(`Cloning ${REPO} repo`);
 	return Promise.all([...config.workers, config.scheduler].map(server => exec(
 		`ssh -o StrictHostKeyChecking=accept-new -i ${server.key} ${server.user}@${server.ip} "rm -rf [0-9]* ; [[ -d ${REPO_DIR} ]] && rm -rf "${REPO_DIR}" ; git clone ${CLONE_URL} && rm -rf ${REPO_DIR}/*.json ${REPO_DIR}/*.tf ${REPO_DIR}/README.md ${REPO_DIR}/initialize_compute_instances.js${server.ip === config.scheduler.ip ? "" : ` ${REPO_DIR}/add_to_result.js ${REPO_DIR}/minimize.js ${REPO_DIR}/result_combiner.js` }"`,

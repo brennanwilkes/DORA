@@ -4,6 +4,7 @@ REPO="$1"
 SINCE="$2"
 UNTIL="$3"
 CUSTOM_LABELS="$4"
+
 SINCE="$( date -u -d "@$SINCE" -I'seconds' 2>>"$ROOT/log" | cut -d'T' -f1 )"
 UNTIL="$( date -u -d "@$UNTIL" -I'seconds' 2>>"$ROOT/log" | cut -d'T' -f1 )"
 
@@ -65,7 +66,7 @@ do
 			DATA=$( gh api -X GET search/issues -f q="repo:$REPO is:closed label:$BUG_LABELS created:$di0..$di1" -f per_page=100 -f "page=$PAGE" 2>>"$ROOT/log" )
 			[[ "$?" -eq 0 ]] && break
 		done
-		NEW_ISSUES=$( echo "$DATA" | grep -oE "html_url.:.[^\"]+$REPO/issues/[0-9]+"| rev | cut -d'/' -f1 | rev | sort -n | uniq )
+		NEW_ISSUES=$( echo "$DATA" | grep -oE "html_url.:.[^\"]+$REPO/(issues|pulls)/[0-9]+"| rev | cut -d'/' -f1 | rev | sort -n | uniq )
 		log Query returned $( echo "$NEW_ISSUES" | wc -l ) issues
 		ISSUES=$( cat <( echo "$ISSUES" ) <( echo "$NEW_ISSUES" ) )
 		PAGE=$(( "$PAGE" + 1 ))
@@ -145,7 +146,7 @@ do
 		}
 
 		RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
-		TIMELINE_SHAS=$( gh api "/repos/$REPO/issues/$pull_request/timeline" 2>>"$ROOT/log" | node "$ROOT/parse_pr_commit_json.js" 8 2>>"$ROOT/log" | sort | uniq )
+		TIMELINE_SHAS=$( gh api "/repos/$REPO/issues/$pull_request/timeline" 2>>/dev/null | node "$ROOT/parse_pr_commit_json.js" 8 2>>/dev/null | sort | uniq )
 
 		log Found $( echo "$TIMELINE_SHAS" | wc -l ) new shas on /timeline
 

@@ -15,7 +15,7 @@ import {
 import { Bar } from 'react-chartjs-2';
 import brnkl from "./data/brnkl-minified.json"
 import combined from "./data/combined-minified.json"
-import paper from "./data/paper2-minified.json"
+import paper from "./data/paper3-minified.json"
 import python from "./data/python-minified.json"
 
 import DeploymentFrequency from "./charts/deploymentFrequency";
@@ -41,7 +41,7 @@ ChartJS.register(
 );
 
 combined.results = combined.results.filter(r => r.repo !== "kubernetes/kubernetes")
-// paper.results = paper.results.filter(r => r.repo === "tendermint/tendermint")
+// paper.results = paper.results.filter(r => r.repo === "ethereum/go-ethereum")
 const dataset = paper;
 
 function App() {
