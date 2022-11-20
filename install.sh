@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+sudo locale-gen en_US.UTF-8
+
 #Install Node
 node -v || {
 	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
