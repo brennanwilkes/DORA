@@ -51,6 +51,10 @@ try{
 	else if(process.argv[2] === "11"){
 		console.log(new Date(json[0]?.commit?.author?.date) / 1000);
 	}
+	else if(process.argv[2] === "12"){
+		const arr = (json ?? []);
+		console.log((Array.isArray(arr) ? arr : []).filter(o => o?.event === "closed").map(o => o?.commit_id ?? "").join("\n"));
+	}
 	else{
 		// This is 0
 		console.log(new Date(json.merged_at ?? json.closed_at).getTime() / 1000)

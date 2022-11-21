@@ -49,7 +49,7 @@ function App() {
 	const [scale, setScale] = useState(6);
 	const [metric, setMetric] = useState(0);
 	const [barChart, setBarChart] = useState(true);
-	const debug = false;
+	const debug = true;
 
 	return (
 		<div>

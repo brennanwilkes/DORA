@@ -98,9 +98,11 @@ do
 	issueIndex=$(( $issueIndex + 1 ))
 
 	RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
-	pull_requests=$( gh api "/repos/$REPO/issues/$issue/timeline" 2>>"$ROOT/log" | grep -Eo "url.: ?.https...github.com/$REPO/pull/[0-9]+" | sort | uniq | cut -d '/' -f7 )
+	DATA=$( gh api "/repos/$REPO/issues/$issue/timeline" 2>>"$ROOT/log" )
+	pull_requests=$( echo "$DATA" | grep -Eo "url.: ?.https...github.com/$REPO/pull/[0-9]+" | sort | uniq | cut -d '/' -f7 )
+	direct_merge_commits=$( echo "$DATA" | node "$ROOT/parse_pr_commit_json" 12 2>/dev/null )
 
-	[[ -z "$pull_requests" ]] && {
+	[[ -z "$pull_requests" ]] && [[ $( echo "$direct_merge_commits" | wc -c ) -le 10 ]] && {
 		emptyPrs=$(( $emptyPrs + 1 ))
 		log "pull_requests for issue=$issue returned empty ($emptyPrs so far)"
 		continue
@@ -123,6 +125,16 @@ do
 	}
 
 	log "Issue $issue ($issueIndex/$totalIssues), created at $( date  -ud @$created_at 2>>"$ROOT/log" | cut -d' ' -f1-4 ). Pull requests: $( echo $pull_requests | xargs )"
+
+	[[ $( echo "$direct_merge_commits" | wc -c ) -gt 5 ]] && {
+		log "Found direct_merge_commits $( echo $direct_merge_commits | xargs )"
+		for sha in $direct_merge_commits
+		do
+			RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
+			checkTimelineSha "$sha" "DIRECT" "-1" "$issue" "$created_at" &
+		done
+		wait
+	}
 
 	for pull_request in $pull_requests
 	do

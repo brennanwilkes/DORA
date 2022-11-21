@@ -5,7 +5,7 @@
     "results": "tester-results.json",
     "repos": [
         {
-            "id": "aquasecurity/tfsec",
+            "id": "turbot/steampipe",
             "deployment": 0,
             "failures": {
                 "type": 1
