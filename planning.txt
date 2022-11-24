@@ -1,0 +1,31 @@
+Title
+
+Author name
+University
+City/Country
+email
+
+Abstract
+ 6-7 sentences, 150-250 words
+ gist of paper
+ prepares for full paper
+ remember key points
+
+Key Points:
+	DORA metrics of Open Source Repos are not representative of the greater software industry
+	Most open source projects have significant room for improvement in devops
+	Major version releases are brutal
+	High performing projects are appreciated by the community
+	Change failure rate is not a useful metric
+
+
+CSS Concepts?
+Keywords?
+
+Introduction
+
+Background?
+
+Related Work
+
+Study Design

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import {
 	Chart as ChartJS,
@@ -24,7 +24,7 @@ import MeanTimeToRecover from "./charts/meanTimeToRecover";
 import ChangeFailureRate from "./charts/changeFailureRate";
 import {DAY, WEEK, MONTH, MONTH4, MONTH6, YEAR, getScaleLabel} from "./utils";
 import Slider from "@mui/material/Slider";
-import CustomSwitch from "./components/Switch";
+import {GraphStyleSwitch, AverageSwitch} from "./components/Switch";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 
@@ -46,14 +46,68 @@ paper.results = paper.results.filter(r => (
 ))
 // paper.results = paper.results.filter(r => r.repo === "ethereum/go-ethereum")
 // paper.results = paper.results.filter(r => r.repo === "python/cpython")
-const dataset = paper;
+const staticDataset = paper;
 
 function App() {
 
 	const [scale, setScale] = useState(6);
 	const [metric, setMetric] = useState(0);
 	const [barChart, setBarChart] = useState(true);
-	const debug = true;
+	const [average, setAverage] = useState(false);
+	const [dataset, setDataset] = useState(staticDataset);
+	const debug = false;
+
+	useEffect(() => {
+		if(average){
+			const avg = {};
+			staticDataset.results.forEach((result, i) => {
+				Object.keys(result).forEach((key, i) => {
+					if(key === "repo"){
+						return;
+					}
+					if(!avg[key]){
+						avg[key] = {
+							changeFailureRate: [],
+							deploymentFrequency: [],
+							leadTimeForChanges: [],
+							meanTimeToRecover: []
+						}
+					}
+					Object.keys(result[key]).forEach((met, i) => {
+						result[key][met].forEach((datapoint, i) => {
+							if(!avg[key][met][i]){
+								avg[key][met][i] = {
+									total: 0,
+									count: 0
+								}
+							}
+							if(datapoint !== null){
+								avg[key][met][i] = {
+									total: avg[key][met][i].total + datapoint,
+									count: avg[key][met][i].count + 1
+								}
+							}
+						});
+					});
+
+				});
+			});
+			Object.keys(avg).forEach((key, i) => {
+				Object.keys(avg[key]).forEach((met, i) => {
+					avg[key][met] = avg[key][met].map(d => (d.total / (d.count || 1)))
+				});
+			});
+			setDataset({
+				...staticDataset,
+				results: [{...avg, repo: "Averge"}]
+			});
+		}
+		else{
+			setDataset(staticDataset);
+		}
+	}, [average]);
+
+
 
 	return (
 		<div>
@@ -93,10 +147,10 @@ function App() {
 				}}
 				step={null}
 				valueLabelFormat={val => {
-					return getScaleLabel([DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1][val])
+					return getScaleLabel([DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1, -2][val])
 				}}
 				min={3}
-				max={6}
+				max={7}
 				valueLabelDisplay="auto"
 				marks={[
 					{value: 0, label: "Day"},
@@ -105,7 +159,8 @@ function App() {
 					{value: 3, label: "Four Months"},
 					{value: 4, label: "Six Months"},
 					{value: 5, label: "Year"},
-					{value: 6, label: "Total"}
+					{value: 6, label: "Total"},
+					{value: 7, label: "Project Lifecycle"}
 				]}
 			/>
 			<div style={{
@@ -118,18 +173,19 @@ function App() {
 				alignItems: "center",
 				justifyContent: "center"
 			}}>
-				<CustomSwitch value={barChart} onChange={(e) => setBarChart(e.target.checked)} />
+				<GraphStyleSwitch value={barChart} onChange={(e) => setBarChart(e.target.checked)} />
+				<AverageSwitch value={average} onChange={(e) => setAverage(e.target.checked)} />
 			</div>
 
 			<div id="chart">{
 				metric === 0 ? (
-					<DeploymentFrequency debug={debug} data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1][scale]} />
+					<DeploymentFrequency debug={debug} data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1, -2][scale]} />
 				) : (metric === 1 ? (
-					<LeadTimeForChanges debug={debug} data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1][scale]} />
+					<LeadTimeForChanges debug={debug} data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1, -2][scale]} />
 				) : (metric === 2 ? (
-					<MeanTimeToRecover debug={debug} data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1][scale]} />
+					<MeanTimeToRecover debug={debug} data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1, -2][scale]} />
 				) : (
-					<ChangeFailureRate debug={debug} data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1][scale]} />
+					<ChangeFailureRate debug={debug} data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1, -2][scale]} />
 				)))
 			}</div>
 		</div>

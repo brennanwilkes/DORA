@@ -5,6 +5,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import Checkbox from '@mui/material/Checkbox';
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 	width: 62,
@@ -50,7 +51,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 }));
 
 
-export default function CustomSwitch(props) {
+export function GraphStyleSwitch(props) {
 	return (
 		<FormGroup>
 			<FormControlLabel
@@ -60,6 +61,17 @@ export default function CustomSwitch(props) {
 				control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked value={props.value} onChange={props.onChange} />}
 				label="Graph Style"
 			/>
+		</FormGroup>
+	);
+}
+
+export function AverageSwitch(props) {
+	return (
+		<FormGroup>
+			<FormControlLabel sx={{
+				color: "slategrey"
+			}} control={<Checkbox value={props.value} onChange={props.onChange} />} label="Use Average" />
+
 		</FormGroup>
 	);
 }

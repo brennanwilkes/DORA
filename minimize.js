@@ -75,16 +75,27 @@ const output = {
 			repo: result.repo,
 		};
 
-		[MONTH4, MONTH6, YEAR, -1].forEach((scale, i) => {
-			const [dates, labels] = divideTimes(new Date(data.start), new Date(data.end), scale);
+		[MONTH4, MONTH6, YEAR, -1, -2].forEach((scale, i) => {
+			const sorted = Object.keys(result.deployments).map(k => result.deployments[k]).sort((a,b) => a.date - b.date);
+			const start = sorted[0].date;
+			const end = sorted[sorted.length - 1].date;
+
+
+			let scaleIndex = scale;
+			let dates, labels;
+			if(scale === -2){
+				scale = (end - start) / 11 * 1000;
+				scaleIndex = -2;
+				[dates, labels] = divideTimes(new Date(start * 1000), new Date(end * 1000), scale);
+			}
+			else{
+				[dates, labels] = divideTimes(new Date(data.start), new Date(data.end), scale);
+			}
 
 			const changeFailureRate = dates.map(d => Object.keys(result.deployments).map(k => result.deployments[k]).filter(dep => (dep.date * 1000 < d && dep.date * 1000 > d - scale) || scale === -1 )).map(g => 100 * g.filter(d => d.failures > 0 || d.hasFailure).length / (g.length || 1)).map(removeLeadingZeros);
 
 			const deploymentFrequency = dates.map(d => Object.keys(result.deployments).map(k => result.deployments[k]).filter(dep => (dep.date * 1000 < d && dep.date * 1000 > d - scale) || scale === -1 ).length).map(d => {
 				if(scale === -1 && Object.keys(result.deployments).length > 2){
-					const sorted = Object.keys(result.deployments).map(k => result.deployments[k]).sort((a,b) => a.date - b.date);
-					const start = sorted[0].date;
-					const end = sorted[sorted.length - 1].date;
 					return d / (end - start) * YEAR / 1000
 				}
 				return d;
@@ -120,8 +131,8 @@ const output = {
 
 			}).map(removeLeadingZeros);
 
-			derivedResults[scale] = {
-				...(derivedResults[scale] ?? {}),
+			derivedResults[scaleIndex] = {
+				...(derivedResults[scaleIndex] ?? {}),
 				changeFailureRate,
 				deploymentFrequency,
 				leadTimeForChanges,

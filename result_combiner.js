@@ -13,7 +13,7 @@ const banned = [
 	"ethereum/go-ethereum",
 	"getsentry/sentry",
 	"matrix-org/synapse",
-
+	"vitessio/vitess"
 ]
 
 for (let i = 2; i < process.argv.length - 1; i++){

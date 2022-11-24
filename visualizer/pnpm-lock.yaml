@@ -9,6 +9,7 @@ specifiers:
   '@types/react-dom': ^18.0.7
   '@vitejs/plugin-react': ^2.2.0
   chart.js: ^3.9.1
+  chartjs-plugin-trendline: 0.1.1
   react: ^18.2.0
   react-chartjs-2: ^4.3.1
   react-dom: ^18.2.0
@@ -20,6 +21,7 @@ dependencies:
   '@mui/icons-material': 5.10.9_5n7l3nqogz2ltkpvtlyqobxizm
   '@mui/material': 5.10.12_gs4twfomdgooimayvnfrqgiwam
   chart.js: 3.9.1
+  chartjs-plugin-trendline: 0.1.1
   react: 18.2.0
   react-chartjs-2: 4.3.1_2unjvz6v6rskedwoxtmbfw2rje
   react-dom: 18.2.0_react@18.2.0
@@ -766,6 +768,10 @@ packages:
 
   /chart.js/3.9.1:
     resolution: {integrity: sha512-Ro2JbLmvg83gXF5F4sniaQ+lTbSv18E+TIf2cOeiH1Iqd2PGFOtem+DUufMZsCJwFE7ywPOpfXFBwRTGq7dh6w==}
+    dev: false
+
+  /chartjs-plugin-trendline/0.1.1:
+    resolution: {integrity: sha512-CR9YGf0RM7w4Gl5i2ywmpPaBKBOYJp0hSv+CsotRU9iVlHaRU0SsUU06mAAZbk+KfkR5Cktzco977jGWgRdQoQ==}
     dev: false
 
   /clsx/1.2.1:

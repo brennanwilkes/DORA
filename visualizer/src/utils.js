@@ -19,6 +19,14 @@ export const divideTimes = (start, end, scale) => {
 	if(scale === -1){
 		return [[-1],["Total"]]
 	}
+	if(scale === -2){
+		return [[-2], Array.from("%".repeat(11)).map((s,i) => {
+			if(i === 0) return "Project Inception";
+			if(i === 10) return "Current Day";
+			return `${i}0${s}`;
+		})];
+	}
+
 	let labels = [];
 	let dates = [];
 	let d;
@@ -91,5 +99,6 @@ export const getScaleLabel = (val) => {
 	if(val === MONTH4) return "Four Months";
 	if(val === MONTH6) return "Six Months";
 	if(val === YEAR) return "Year";
+	if(val === -2) return "Project Lifecycle";
 	return "Total";
 }

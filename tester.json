@@ -5,10 +5,10 @@
     "results": "tester-results.json",
     "repos": [
         {
-            "id": "turbot/steampipe",
+            "id": "ethereum/go-ethereum",
             "deployment": 0,
             "failures": {
-                "type": 1
+                "type": -1
             }
         }
     ]
