@@ -4,9 +4,9 @@ processRepo(){
 	REPO="$1"
 	DATA=$( gh api "/repos/$REPO/git/refs/tags" 2>/dev/null )
 	[[ "$?" != 0 ]] && return
-	RELEASES=$( echo "$DATA" | grep -Eo '.ref.: ?.refs/tags/v?[0-9]+\.[0-9]+\.?[0-9]*[^"]*",' | sort | uniq | wc -l )
+	RELEASES=$( echo "$DATA" | grep -Eo '.ref.: ?.refs/tags/v?[0-9]{1,2}\.[0-9]+\.[0-9]+[^"]*",' | sort | uniq | wc -l )
 	TOTAL_TAGS=$( echo "$DATA" | grep -Eo '.ref.: ?.refs/tags/[^"]*",' | sort | uniq | wc -l )
-	HAS_1_0=$( echo "$DATA" | grep -Eo '.ref.: ?.refs/tags/v?[0-9]+\.[0-9]+\.?[0-9]*[^"]*",' | sort | uniq | grep -oE '/v?[1-9][0-9]*\.[0-9]+' )
+	HAS_1_0=$( echo "$DATA" | grep -Eo '.ref.: ?.refs/tags/v?[0-9]{1,2}\.[0-9]+\.[0-9]+[^"]*",' | sort | uniq | grep -oE '/v?[1-9][0-9]*\.[0-9]+' )
 	[[ -z "$HAS_1_0" ]] && return
 	[[ $(( $TOTAL_TAGS - $RELEASES )) -gt $RELEASES ]] && return
 

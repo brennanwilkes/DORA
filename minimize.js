@@ -60,6 +60,10 @@ let data = JSON.parse(fs.readFileSync(process.argv[process.argv.length - 2]));
 // const time = "created"
 const time = "resolved";
 
+if(!data.results){
+	data.results = [data.result];
+}
+
 const output = {
 	name: data.name,
 	start: data.start,
@@ -71,7 +75,7 @@ const output = {
 			repo: result.repo,
 		};
 
-		[WEEK, MONTH, MONTH4, MONTH6, YEAR, -1].forEach((scale, i) => {
+		[MONTH4, MONTH6, YEAR, -1].forEach((scale, i) => {
 			const [dates, labels] = divideTimes(new Date(data.start), new Date(data.end), scale);
 
 			const changeFailureRate = dates.map(d => Object.keys(result.deployments).map(k => result.deployments[k]).filter(dep => (dep.date * 1000 < d && dep.date * 1000 > d - scale) || scale === -1 )).map(g => 100 * g.filter(d => d.failures > 0 || d.hasFailure).length / (g.length || 1)).map(removeLeadingZeros);

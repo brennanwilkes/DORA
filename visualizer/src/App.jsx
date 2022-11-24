@@ -13,10 +13,10 @@ import {
 	Filler
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import brnkl from "./data/brnkl-minified.json"
-import combined from "./data/combined-minified.json"
-import paper from "./data/paper4-minified.json"
-import python from "./data/python-minified.json"
+// import brnkl from "./data/brnkl-minified.json"
+// import combined from "./data/combined-minified.json"
+import paper from "./data/paper4b-minified.json"
+// import python from "./data/python-minified.json"
 
 import DeploymentFrequency from "./charts/deploymentFrequency";
 import LeadTimeForChanges from "./charts/leadTimeForChanges";
@@ -40,8 +40,12 @@ ChartJS.register(
 	Filler
 );
 
-combined.results = combined.results.filter(r => r.repo !== "kubernetes/kubernetes")
+// combined.results = combined.results.filter(r => r.repo !== "kubernetes/kubernetes")
+paper.results = paper.results.filter(r => (
+	r.repo !== "ethereum/go-ethereum"
+))
 // paper.results = paper.results.filter(r => r.repo === "ethereum/go-ethereum")
+// paper.results = paper.results.filter(r => r.repo === "python/cpython")
 const dataset = paper;
 
 function App() {
@@ -91,7 +95,7 @@ function App() {
 				valueLabelFormat={val => {
 					return getScaleLabel([DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1][val])
 				}}
-				min={1}
+				min={3}
 				max={6}
 				valueLabelDisplay="auto"
 				marks={[

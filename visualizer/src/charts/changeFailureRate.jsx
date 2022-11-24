@@ -26,7 +26,7 @@ function ChangeFailureRate(props) {
 		data.datasets = data.datasets.filter((_, i) => i < 5 || i > data.datasets.length - 5);
 	}
 
-	const options = makeOptions("Change Failure Rate", "Percentage Of Deployments With A Failure");
+	const options = makeOptions("Change Failure Rate", "Percentage Of Deployments With A Failure", props.debug);
 	if(props.style === "line"){
 		return (<Line options={options} data={data} />);
 	}

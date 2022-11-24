@@ -38,11 +38,12 @@ export const divideTimes = (start, end, scale) => {
 	return [dates, labels];
 }
 
-export const makeOptions = (title, yLabel) => ({
+export const makeOptions = (title, yLabel, debug) => ({
 	responsive:true,
 	maintainAspectRatio: false,
 	plugins: {
 		legend: {
+			display: debug,
 			position: 'top',
 		},
 		title: {
@@ -57,7 +58,7 @@ export const makeOptions = (title, yLabel) => ({
 				text: yLabel
 			}
 		}
-	}
+	},
 })
 
 

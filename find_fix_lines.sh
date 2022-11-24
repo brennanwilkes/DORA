@@ -123,25 +123,17 @@ SZZ_LINE(){
 	while [[ "$IS_DONE" -eq 0 ]]
 	do
 		IS_DONE=1
-		echo git blame -L "$to" "$COMMIT~1" --porcelain --ignore-revs-file "$IGNORED_REV_FILE" -- "$file"
 		RAW=$( git blame -L "$to" "$COMMIT~1" --porcelain --ignore-revs-file "$IGNORED_REV_FILE" -- "$file" 2>>"$ROOT/log" )
 		BLAME=$( echo "$RAW" | grep -v '^previous' | grep -oE '^[a-zA-Z0-9]{40}' | awk '!x[$0]++' )
 		DATE=$( echo "$RAW" | grep -oE 'author-time [0-9]{10}' | cut -d' ' -f2 | awk '!x[$0]++' )
-		echo "======"
-		echo "$BLAME"
-		echo "======"
 		log Checking $( echo "$BLAME" | wc -l ) possible blame commits
 		i=1
 		for blame in $BLAME
 		do
-			echo "$blame"
 			[[ -z "$( cat "$IGNORED_REV_FILE" 2>/dev/null | grep -o $blame )" ]] || {
-				echo "IGNORED"
-				echo "$blame"
 				continue
 			}
 			[[ -z "$( cat "$CANDIDATES" 2>/dev/null | grep -o $blame )" ]] || {
-				echo "IN CANDIDATES"
 				continue
 			}
 
