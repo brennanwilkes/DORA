@@ -20,10 +20,11 @@ export const divideTimes = (start, end, scale) => {
 		return [[-1],["Total"]]
 	}
 	if(scale === -2){
-		return [[-2], Array.from("%".repeat(11)).map((s,i) => {
+		const N = 20;
+		return [[-2], Array.from("%".repeat(N)).map((s,i) => {
 			if(i === 0) return "Project Inception";
-			if(i === 10) return "Current Day";
-			return `${i}0${s}`;
+			if(i === N - 1) return "Current Day";
+			return "";
 		})];
 	}
 

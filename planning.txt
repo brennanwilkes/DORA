@@ -18,6 +18,18 @@ Key Points:
 	High performing projects are appreciated by the community
 	Change failure rate is not a useful metric
 
+	Lifecycle:
+		Deployment frequency stays constant
+		Lead Time slightly increases
+		Mean time to recover linearly increases
+		Change Failure Rate slightly decreases
+
+	Averages over Time:
+		Deployment frequency is increasing linearly since 2012
+		Lead Time for changes stayed constant
+		Mean Time to Recover increasing linearly since 2009
+		Change Failure Rate increased slightly since 2008, decreased slightly since 2017
+
 
 CSS Concepts?
 Keywords?

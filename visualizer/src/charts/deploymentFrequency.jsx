@@ -10,10 +10,11 @@ function DeploymentFrequency(props) {
 		labels: labels.slice(firstNonNull),
 		datasets: props.data.results.map((result, i) => ({
 			label: result.repo,
-			fill: true,
+			fill: result.repo !== "Trendline",
 			data: result[`${props.scale}`].deploymentFrequency.slice(firstNonNull),
 			backgroundColor: props.style === "line" ? COLOURS_SEMI_TRANS[i] : COLOURS[i],
-			borderColor: COLOURS[i]
+			borderColor: COLOURS[result.repo === "Trendline" ? i - 1 : i],
+			borderDash: result.repo === "Trendline" ? [25, 25] : undefined
 		}))
 	};
 
@@ -25,7 +26,7 @@ function DeploymentFrequency(props) {
 		data.datasets = data.datasets.filter((_, i) => i < 5 || i > data.datasets.length - 5);
 	}
 
-	const options = makeOptions("Deployment Frequency", `Deployments Per ${props.scale === -1 ? "Year" : getScaleLabel(props.scale)}`, props.debug);
+	const options = makeOptions("Deployment Frequency", `Deployments Per ${props.scale === -1 ? "Year" : getScaleLabel(props.scale)}`, props.debug || props.data.results[0].repo === "Average");
 	if(props.style === "line"){
 		return (<Line options={options} data={data} />);
 	}

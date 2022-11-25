@@ -60,6 +60,7 @@ function App() {
 	useEffect(() => {
 		if(average){
 			const avg = {};
+			const moving = {}
 			staticDataset.results.forEach((result, i) => {
 				Object.keys(result).forEach((key, i) => {
 					if(key === "repo"){
@@ -67,6 +68,12 @@ function App() {
 					}
 					if(!avg[key]){
 						avg[key] = {
+							changeFailureRate: [],
+							deploymentFrequency: [],
+							leadTimeForChanges: [],
+							meanTimeToRecover: []
+						}
+						moving[key] = {
 							changeFailureRate: [],
 							deploymentFrequency: [],
 							leadTimeForChanges: [],
@@ -95,17 +102,31 @@ function App() {
 			Object.keys(avg).forEach((key, i) => {
 				Object.keys(avg[key]).forEach((met, i) => {
 					avg[key][met] = avg[key][met].map(d => (d.total / (d.count || 1)))
+					moving[key][met] = avg[key][met].map((d,i,arr) => {
+						const M = 7;
+						let total = 0;
+						let count = 0;
+						for (let j = Math.max(0, i - M); j < Math.min(i + M, arr.length); j++){
+							total += arr[j];
+							count += 1;
+						}
+						return (total / (count || 1));
+					});
 				});
 			});
+			let avgResults = [{...avg, repo: "Average"}];
+			if(!barChart){
+				avgResults = [...avgResults, {...moving, repo: "Trendline"}];
+			}
 			setDataset({
 				...staticDataset,
-				results: [{...avg, repo: "Averge"}]
+				results: avgResults
 			});
 		}
 		else{
 			setDataset(staticDataset);
 		}
-	}, [average]);
+	}, [average, barChart]);
 
 
 

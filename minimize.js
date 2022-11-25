@@ -84,7 +84,7 @@ const output = {
 			let scaleIndex = scale;
 			let dates, labels;
 			if(scale === -2){
-				scale = (end - start) / 11 * 1000;
+				scale = (end - start) / 20 * 1000;
 				scaleIndex = -2;
 				[dates, labels] = divideTimes(new Date(start * 1000), new Date(end * 1000), scale);
 			}

@@ -11,10 +11,11 @@ function ChangeFailureRate(props) {
 		datasets: props.data.results.map((result, i) => {
 			return {
 				label: result.repo,
-				fill: true,
+				fill: result.repo !== "Trendline",
 				data: result[`${props.scale}`].changeFailureRate.slice(firstNonNull),
 				backgroundColor: props.style === "line" ? COLOURS_SEMI_TRANS[i] : COLOURS[i],
-				borderColor: COLOURS[i]
+				borderColor: COLOURS[result.repo === "Trendline" ? i - 1 : i],
+				borderDash: result.repo === "Trendline" ? [25, 25] : undefined
 			}
 		})
 	};
@@ -25,8 +26,7 @@ function ChangeFailureRate(props) {
 	if(props.debug){
 		data.datasets = data.datasets.filter((_, i) => i < 5 || i > data.datasets.length - 5);
 	}
-
-	const options = makeOptions("Change Failure Rate", "Percentage Of Deployments With A Failure", props.debug);
+	const options = makeOptions("Change Failure Rate", "Percentage Of Deployments With A Failure", props.debug || props.data.results[0].repo === "Average");
 	if(props.style === "line"){
 		return (<Line options={options} data={data} />);
 	}

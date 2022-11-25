@@ -13,10 +13,11 @@ function MeanTimeToRecover(props) {
 		labels: labels.slice(firstNonNull),
 		datasets: props.data.results.map((result, i) => ({
 			label: result.repo,
-			fill: true,
+			fill: result.repo !== "Trendline",
 			data: result[`${props.scale}`].meanTimeToRecover.map(d => d === null ? null : Math.max(0, d)).slice(firstNonNull),
 			backgroundColor: props.style === "line" ? COLOURS_SEMI_TRANS[i] : COLOURS[i],
-			borderColor: COLOURS[i]
+			borderColor: COLOURS[result.repo === "Trendline" ? i - 1 : i],
+			borderDash: result.repo === "Trendline" ? [25, 25] : undefined
 		}))
 	};
 
@@ -27,7 +28,7 @@ function MeanTimeToRecover(props) {
 		data.datasets = data.datasets.filter((_, i) => i < 5 || i > data.datasets.length - 5);
 	}
 
-	const options = makeOptions("Mean Time To Recover", "Average Days Between Issue and Fix", props.debug);
+	const options = makeOptions("Mean Time To Recover", "Average Days Between Issue and Fix", props.debug || props.data.results[0].repo === "Average");
 	if(props.style === "line"){
 		return (<Line options={options} data={data} />);
 	}
