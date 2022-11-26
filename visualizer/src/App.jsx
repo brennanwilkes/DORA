@@ -22,9 +22,9 @@ import DeploymentFrequency from "./charts/deploymentFrequency";
 import LeadTimeForChanges from "./charts/leadTimeForChanges";
 import MeanTimeToRecover from "./charts/meanTimeToRecover";
 import ChangeFailureRate from "./charts/changeFailureRate";
-import {DAY, WEEK, MONTH, MONTH4, MONTH6, YEAR, getScaleLabel} from "./utils";
+import {DAY, WEEK, MONTH, MONTH4, MONTH6, YEAR, getScaleLabel, removeLeadingZeros} from "./utils";
 import Slider from "@mui/material/Slider";
-import {GraphStyleSwitch, AverageSwitch} from "./components/Switch";
+import {GraphStyleSwitch, AverageSwitch, ColourSwitch} from "./components/Switch";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 
@@ -41,9 +41,9 @@ ChartJS.register(
 );
 
 // combined.results = combined.results.filter(r => r.repo !== "kubernetes/kubernetes")
-paper.results = paper.results.filter(r => (
-	r.repo !== "ethereum/go-ethereum"
-))
+// paper.results = paper.results.filter(r => (
+// 	r.repo !== "ethereum/go-ethereum"
+// ))
 // paper.results = paper.results.filter(r => r.repo === "ethereum/go-ethereum")
 // paper.results = paper.results.filter(r => r.repo === "python/cpython")
 const staticDataset = paper;
@@ -54,44 +54,75 @@ function App() {
 	const [metric, setMetric] = useState(0);
 	const [barChart, setBarChart] = useState(true);
 	const [average, setAverage] = useState(false);
+	const [colour, setColour] = useState(true);
 	const [dataset, setDataset] = useState(staticDataset);
-	const debug = false;
+	const debug = 0;
 
 	useEffect(() => {
 		if(average){
-			const avg = {};
-			const moving = {}
+			setColour(true);
+		}
+	}, [average]);
+
+	useEffect(() => {
+		if(average){
+			const avg = {
+				avg: {},
+				Ultra: {},
+				High: {},
+				Medium: {},
+				Low: {},
+				Terrible: {}
+			};
+			const moving = {
+				avg: {},
+				Ultra: {},
+				High: {},
+				Medium: {},
+				Low: {},
+				Terrible: {}
+			}
 			staticDataset.results.forEach((result, i) => {
 				Object.keys(result).forEach((key, i) => {
-					if(key === "repo"){
+					if(key === "repo" || key ==="performer"){
 						return;
 					}
-					if(!avg[key]){
-						avg[key] = {
-							changeFailureRate: [],
-							deploymentFrequency: [],
-							leadTimeForChanges: [],
-							meanTimeToRecover: []
+					Object.keys(avg).forEach((performer) => {
+						if(!avg[performer][key]){
+							avg[performer][key] = {
+								changeFailureRate: [],
+								deploymentFrequency: [],
+								leadTimeForChanges: [],
+								meanTimeToRecover: []
+							}
+							moving[performer][key] = {
+								changeFailureRate: [],
+								deploymentFrequency: [],
+								leadTimeForChanges: [],
+								meanTimeToRecover: []
+							}
 						}
-						moving[key] = {
-							changeFailureRate: [],
-							deploymentFrequency: [],
-							leadTimeForChanges: [],
-							meanTimeToRecover: []
-						}
-					}
+					});
+
 					Object.keys(result[key]).forEach((met, i) => {
 						result[key][met].forEach((datapoint, i) => {
-							if(!avg[key][met][i]){
-								avg[key][met][i] = {
-									total: 0,
-									count: 0
+							Object.keys(avg).forEach((performer) => {
+								if(!avg[performer][key][met][i]){
+									avg[performer][key][met][i] = {
+										total: 0,
+										count: 0
+									}
 								}
-							}
+							});
 							if(datapoint !== null){
-								avg[key][met][i] = {
-									total: avg[key][met][i].total + datapoint,
-									count: avg[key][met][i].count + 1
+								const performer = result["performer"][met];
+								avg[performer][key][met][i] = {
+									total: avg[performer][key][met][i].total + datapoint,
+									count: avg[performer][key][met][i].count + 1
+								}
+								avg.avg[key][met][i] = {
+									total: avg.avg[key][met][i].total + datapoint,
+									count: avg.avg[key][met][i].count + 1
 								}
 							}
 						});
@@ -99,25 +130,47 @@ function App() {
 
 				});
 			});
-			Object.keys(avg).forEach((key, i) => {
-				Object.keys(avg[key]).forEach((met, i) => {
-					avg[key][met] = avg[key][met].map(d => (d.total / (d.count || 1)))
-					moving[key][met] = avg[key][met].map((d,i,arr) => {
-						const M = 7;
-						let total = 0;
-						let count = 0;
-						for (let j = Math.max(0, i - M); j < Math.min(i + M, arr.length); j++){
-							total += arr[j];
-							count += 1;
-						}
-						return (total / (count || 1));
+			Object.keys(avg).forEach((performer, i) => {
+				Object.keys(avg[performer]).forEach((key, i) => {
+					Object.keys(avg[performer][key]).forEach((met, i) => {
+						avg[performer][key][met] = avg[performer][key][met].map(d => (d.total / (d.count || 1)))
+						moving[performer][key][met] = avg[performer][key][met].map((d,i,arr) => {
+							const M = 7;
+							let total = 0;
+							let count = 0;
+							for (let j = Math.max(0, i - M); j < Math.min(i + M, arr.length); j++){
+								total += arr[j];
+								count += 1;
+							}
+							return (total / (count || 1));
+						});
 					});
 				});
 			});
-			let avgResults = [{...avg, repo: "Average"}];
+
+			let avgResults = Object.keys(avg).map(performer => ({
+				...(avg[performer]),
+				repo: performer === "avg" ? "Average" : performer,
+				performer: {
+					deploymentFrequency: performer,
+					leadTimeForChanges: performer,
+					meanTimeToRecover: performer,
+					changeFailureRate: performer
+				}
+			}));
 			if(!barChart){
-				avgResults = [...avgResults, {...moving, repo: "Trendline"}];
+				avgResults = [...avgResults, {...(moving.avg), repo: "Average Trendline"}];
 			}
+			avgResults.forEach((r, i) => {
+				Object.keys(r).forEach((k, i) => {
+					if(k !== "repo" && k!== "performer"){
+						Object.keys(r[k]).forEach((m, i) => {
+							r[k][m] = r[k][m].map(removeLeadingZeros);
+						});
+					}
+				});
+			});
+
 			setDataset({
 				...staticDataset,
 				results: avgResults
@@ -200,13 +253,13 @@ function App() {
 
 			<div id="chart">{
 				metric === 0 ? (
-					<DeploymentFrequency debug={debug} data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1, -2][scale]} />
+					<DeploymentFrequency colour={colour} debug={debug} data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1, -2][scale]} />
 				) : (metric === 1 ? (
-					<LeadTimeForChanges debug={debug} data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1, -2][scale]} />
+					<LeadTimeForChanges colour={colour} debug={debug} data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1, -2][scale]} />
 				) : (metric === 2 ? (
-					<MeanTimeToRecover debug={debug} data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1, -2][scale]} />
+					<MeanTimeToRecover colour={colour} debug={debug} data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1, -2][scale]} />
 				) : (
-					<ChangeFailureRate debug={debug} data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1, -2][scale]} />
+					<ChangeFailureRate colour={colour} debug={debug} data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1, -2][scale]} />
 				)))
 			}</div>
 		</div>

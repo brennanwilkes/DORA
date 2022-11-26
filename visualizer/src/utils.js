@@ -1,4 +1,6 @@
 export const BASE_COLOURS = ["#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#8bd3c7", "#beb9db", "#fdcce5"];
+BASE_COLOURS[-1] = "#555";
+BASE_COLOURS[-2] = "#BBB";
 export const COLOURS = BASE_COLOURS;
 const HEX = "0123456789ABCDEF";
 for (let i = 0; i < 200; i++) {
@@ -6,6 +8,8 @@ for (let i = 0; i < 200; i++) {
 }
 
 export const COLOURS_SEMI_TRANS = COLOURS.map(c => `${c}30`);
+COLOURS_SEMI_TRANS[-1] = "#55555530";
+COLOURS_SEMI_TRANS[-2] = "#BBBBBB30";
 export const MINUTE = 60 * 1000;
 export const HOUR = MINUTE * 60;
 export const DAY = HOUR * 24;
@@ -102,4 +106,13 @@ export const getScaleLabel = (val) => {
 	if(val === YEAR) return "Year";
 	if(val === -2) return "Project Lifecycle";
 	return "Total";
+}
+
+export const getColourIndex = (data) => {
+	if(data === undefined || data === "avg" || data === "Trendline" || data === "Average") return -2;
+	if(data === "Ultra") return 3;
+	if(data === "High") return 2;
+	if(data === "Medium") return 1;
+	if(data === "Low") return 0;
+	return -1;
 }

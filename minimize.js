@@ -73,6 +73,12 @@ const output = {
 
 		const derivedResults = {
 			repo: result.repo,
+			performer: {
+				deploymentFrequency: "Terrible",
+				leadTimeForChanges: "Terrible",
+				meanTimeToRecover: "Terrible",
+				changeFailureRate: "Terrible"
+			}
 		};
 
 		[MONTH4, MONTH6, YEAR, -1, -2].forEach((scale, i) => {
@@ -139,6 +145,30 @@ const output = {
 				meanTimeToRecover,
 			}
 		});
+
+		const d = derivedResults[-1].deploymentFrequency;
+		const l = derivedResults[-1].leadTimeForChanges;
+		const m = derivedResults[-1].meanTimeToRecover;
+		const c = derivedResults[-1].changeFailureRate;
+		if(d >= 12) derivedResults.performer.deploymentFrequency = "Low";
+		if(d >= 365 / 7) derivedResults.performer.deploymentFrequency = "Medium";
+		if(d >= 365 / 7 * 2) derivedResults.performer.deploymentFrequency = "High";
+		if(d >= 365) derivedResults.performer.deploymentFrequency = "Ultra";
+
+		if(l <= 365) derivedResults.performer.leadTimeForChanges = "Low";
+		if(l <= 30) derivedResults.performer.leadTimeForChanges = "Medium";
+		if(l <= 7) derivedResults.performer.leadTimeForChanges = "High";
+		if(l <= 1) derivedResults.performer.leadTimeForChanges = "Ultra";
+
+		if(m <= 365) derivedResults.performer.meanTimeToRecover = "Low";
+		if(m <= 90) derivedResults.performer.meanTimeToRecover = "Medium";
+		if(m <= 30) derivedResults.performer.meanTimeToRecover = "High";
+		if(m <= 7) derivedResults.performer.meanTimeToRecover = "Ultra";
+
+		if(c <= 90) derivedResults.performer.changeFailureRate = "Low";
+		if(c <= 50) derivedResults.performer.changeFailureRate = "Medium";
+		if(c <= 30) derivedResults.performer.changeFailureRate = "High";
+		if(c <= 10) derivedResults.performer.changeFailureRate = "Ultra";
 
 		return derivedResults;
 	})

@@ -14,21 +14,52 @@ Abstract
 Key Points:
 	DORA metrics of Open Source Repos are not representative of the greater software industry
 	Most open source projects have significant room for improvement in devops
-	Major version releases are brutal
+	Major version releases are brutal ??
 	High performing projects are appreciated by the community
 	Change failure rate is not a useful metric
 
 	Lifecycle:
-		Deployment frequency stays constant
-		Lead Time slightly increases
+		Deployment frequency slightly increases (Ultra and High start level with medium, then increase)
+		Lead Time slightly increases (Ultra and High are consistent, Others vary wildly)
 		Mean time to recover linearly increases
-		Change Failure Rate slightly decreases
+		Change Failure Rate slightly decreases (Everyone starts with bugs)
+
 
 	Averages over Time:
 		Deployment frequency is increasing linearly since 2012
-		Lead Time for changes stayed constant
-		Mean Time to Recover increasing linearly since 2009
+		Lead Time for changes stayed constant (Terrible and Low vary wildly)
+		Mean Time to Recover increasing linearly since 2009 (Terrible vary wildly)
 		Change Failure Rate increased slightly since 2008, decreased slightly since 2017
+
+
+
+deploymentFrequency
+Elite		>= 1 time per day
+High		>= 2 times per week
+Medium		>= 1 time per week
+Low			>= 1 time per month
+Ultra Low	The rest
+
+leadTimeForChanges
+Elite		>= 1 day
+High		>= 1 week
+Medium		>= 1 month
+Low			>= 1 year
+Ultra Low	The rest
+
+meanTimeToRecover
+Elite		>= 1 week
+High		>= 1 month
+Medium		>= 3 months
+Low			>= 1 year
+Ultra Low	The rest
+
+changeFailureRate
+Elite		>= 10%
+High		>= 30%
+Medium		>= 50%
+Low			>= 90%
+Ultra Low	The rest
 
 
 CSS Concepts?

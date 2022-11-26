@@ -1,6 +1,6 @@
 const fs = require("fs")
 let output = {
-	results: []
+
 }
 
 const banned = [
@@ -13,9 +13,12 @@ const banned = [
 	"ethereum/go-ethereum",
 	"getsentry/sentry",
 	"matrix-org/synapse",
-	"vitessio/vitess"
+	"vitessio/vitess",
+	"gravitational/teleport",
+	"RIOT-OS/RIOT",
+	"pypa/pipenv"
 ]
-
+let results = [];
 for (let i = 2; i < process.argv.length - 1; i++){
 	const json = JSON.parse(fs.readFileSync(process.argv[i]));
 	const res = (json.results ?? json.result);
@@ -24,17 +27,13 @@ for (let i = 2; i < process.argv.length - 1; i++){
 		continue;
 	}
 
-	// if(Object.keys(res.deployments).some(k => res.deployments[k].commits.length === 0)){
-	// 	console.log("----------")
-	// 	console.log(res.repo)
-	// 	const biggest = Object.keys(res.deployments).sort((b,a) => res.deployments[a].commits.length - res.deployments[b].commits.length)[0]
-	// 	console.log(biggest)
-	// 	console.log(res.deployments[biggest].commits.length)
-	// 	console.log("----------")
-	// }
 	output.start = json.start;
 	output.end = json.end;
-	output.results = [...(output.results), ...(json.result ? [json.result] : json.results)];
+	results = [...(results), ...(json.result ? [json.result] : json.results)];
 }
 
-fs.writeFileSync(process.argv[process.argv.length - 1], JSON.stringify(output, null, 4));
+fs.writeFileSync(process.argv[process.argv.length - 1], JSON.stringify({...output, results}));
+
+// let resultsString = `[${results.map(result => JSON.stringify(result)).join(",")}]`;
+//
+// fs.writeFileSync(process.argv[process.argv.length - 1], `{"start": "${output.start}", "end": "${output.end}", results: ${resultsString}}`);

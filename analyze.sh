@@ -83,13 +83,18 @@ processCommit(){
 	}
 	sha=$( echo "$commit" | cut -d' ' -f1 )
 	d2=$( echo "$commit" | cut -d' ' -f2 )
-	diff=$(( $d1 - $d2 ))
+	d3=$( echo "$commit" | cut -d' ' -f3 )
+
+	dU="$d2"
+	[[ "$d3" -lt "$d2" ]] && dU="$d3"
+
+	diff=$(( $d1 - $dU ))
 	diffSha=$( git diff $sha~1 $sha 2>/dev/null | grep -Ev -e '^diff --git' -e '^---' -e '^\+\+\+' -e '^index [0-9a-z]+\.\.[0-9a-z]+ [0-9a-z]+$' | shasum | cut -d' ' -f1 )
 	[[ "$diffSha" = "da39a3ee5e6b4b0d3255bfef95601890afd80709" ]] && {
 		diffSha="$( date +"%T.%N" | shasum | cut -d' ' -f1 )"
 	}
 
-	echo "$(echo $prev_tag | tr -d , ),$(echo $tag | tr -d , ),$sha,$d1,$d2,$diff,$diffSha"
+	echo "$(echo $prev_tag | tr -d , ),$(echo $tag | tr -d , ),$sha,$d1,$dU,$diff,$diffSha"
 }
 
 totalCommits=0
@@ -130,7 +135,7 @@ do
 	log "Using $prev_time -> $time"
 
 	set_diff_tags=$( echo "$deployments" | head -n "$i" | tail -n 25 | xargs )
-	commits=$( git rev-list "$tag" --not $set_diff_tags --date=local --format="%at" | paste - -  | cut -d' ' -f2- | tr '\t' ' ' )
+	commits=$( git rev-list "$tag" --not $set_diff_tags --date=local --format="%at %ct" | paste - -  | cut -d' ' -f2- | tr '\t' ' ' )
 
 	log Found $( echo "$commits" | wc -l ) commits
 
@@ -154,10 +159,15 @@ do
 
 	totalCommits=$(( $totalCommits + $( echo "$commits" | wc -l ) ))
 
-	max_commit_date=$( echo "$commits" | cut -d' ' -f2 | awk 'BEGIN{a=0}{if ($1>0+a) a=$1} END{print a}' )
+	max_author_date=$( echo "$commits" | cut -d' ' -f2 | awk 'BEGIN{a=0}{if ($1>0+a) a=$1} END{print a}' )
+	max_commit_date=$( echo "$commits" | cut -d' ' -f3 | awk 'BEGIN{a=0}{if ($1>0+a) a=$1} END{print a}' )
+	max_used_date="$max_author_date"
+	[[ "$max_commit_date" -lt "$max_author_date" ]] && max_used_date="$max_commit_date"
+
+
 	time=$( echo "$time" | cut -d' ' -f1-2 )
 	time=$( date --date="$time" +%s )
-	[[ "$time" -lt "$max_commit_date" ]] && time="$max_commit_date"
+	[[ "$time" -lt "$max_used_date" ]] && time="$max_used_date"
 
 	N=16
 	while IFS= read -r commit; do
