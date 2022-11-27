@@ -55,16 +55,19 @@ isDifferent(){
 
 cd "$WORKING_DIR"
 
-COMMIT_LOOKUP="$( cat $COMMIT_CACHE | grep -e $COMMIT_DIFF -e $COMMIT | cut -d',' -f1 | head -n1 )"
-
-[[ -z "$COMMIT_LOOKUP" ]] && {
-	log "Commit $COMMIT / $COMMIT_DIFF ($COMMIT_TYPE) does not exist. Skipping SZZ step"
-	echo "$ORIGINAL_INPUT,,,"
-	exit 0
-}
-[[ "$COMMIT" != "$COMMIT_LOOKUP" ]] && {
-	log "Mapping $COMMIT -> $COMMIT_LOOKUP via diff $COMMIT_DIFF"
-	COMMIT="$COMMIT_LOOKUP"
+[[ -f "$COMMIT_CACHE" ]] && {
+	COMMIT_LOOKUP="$( cat $COMMIT_CACHE | grep -e $COMMIT_DIFF -e $COMMIT | cut -d',' -f1 | head -n1 )"
+	[[ -z "$COMMIT_LOOKUP" ]] && {
+		log "Commit $COMMIT / $COMMIT_DIFF ($COMMIT_TYPE) does not exist. Skipping SZZ step"
+		echo "$ORIGINAL_INPUT,,,"
+		exit 0
+	}
+	[[ "$COMMIT" != "$COMMIT_LOOKUP" ]] && {
+		log "Mapping $COMMIT -> $COMMIT_LOOKUP via diff $COMMIT_DIFF"
+		COMMIT="$COMMIT_LOOKUP"
+	}
+} || {
+	log "COMMIT_CACHE ($COMMIT_CACHE) DOES NOT EXIST"
 }
 
 log "Searching for bug-inducing commit candidates for fix $COMMIT (#$ISSUE)"
@@ -171,7 +174,7 @@ SZZ_LINE(){
 			i=$(( $i + 1 ))
 		done
 	done
-	# rm "$IGNORED_REV_FILE"
+	rm "$IGNORED_REV_FILE"
 }
 
 SZZ_FILE() {

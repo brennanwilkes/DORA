@@ -26,9 +26,11 @@ Promise.all(config.workers.map(server => {
 	})
 })).then(results => {
 	results.forEach((output, i) => {
+		console.error(`========================= ${i} ===========================`);
 		console.error(output.stdout);
 		if(output.stderr && output.stderr.length > 2){
 			console.error(output.stderr);
 		}
+		console.error(`=======================================================`);
 	});
 });

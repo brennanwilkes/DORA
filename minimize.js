@@ -68,8 +68,11 @@ const output = {
 	name: data.name,
 	start: data.start,
 	end: data.end,
+	repos: data.results.length,
+	deployments: data.results.map(r => Object.keys(r.deployments).length).reduce((acc, nxt) => acc+nxt, 0),
+	commits: data.results.map(r => Object.keys(r.deployments).map(t => r.deployments[t].commits.length)).flat().reduce((acc, nxt) => acc+nxt, 0),
+	failures: data.results.map(r => r.failures.length).reduce((acc, nxt) => acc+nxt, 0),
 	results: data.results.map(result => {
-
 
 		const derivedResults = {
 			repo: result.repo,

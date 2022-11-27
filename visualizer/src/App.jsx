@@ -27,6 +27,7 @@ import Slider from "@mui/material/Slider";
 import {GraphStyleSwitch, AverageSwitch, ColourSwitch} from "./components/Switch";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import Typography from '@mui/material/Typography';
 
 ChartJS.register(
 	CategoryScale,
@@ -187,6 +188,21 @@ function App() {
 		<div>
 			<div style={{
 				position: "absolute",
+				top: "2.5vh",
+				left: "90vw",
+				width: "10vw",
+				display: "flex",
+				flexDirection: "column",
+				alignItems: "start",
+				justifyContent: "start",
+			}}>
+				<Typography>Repos: {staticDataset.repos}</Typography>
+				<Typography>Deployments: {Math.round(staticDataset.deployments / 100) / 10}k</Typography>
+				<Typography>Commits: {Math.round(staticDataset.commits / 100000) / 10}m</Typography>
+				<Typography>Failures: {Math.round(staticDataset.failures / 100) / 10}k</Typography>
+			</div>
+			<div style={{
+				position: "absolute",
 				width: "90vw",
 				left: "5vw",
 				top: "2.5vh",
@@ -203,7 +219,6 @@ function App() {
 					<Tab label="Mean Time To Recover" value={2} />
 					<Tab label="Change Failure Rate" value={3} />
 				</Tabs>
-
 			</div>
 
 			<Slider
