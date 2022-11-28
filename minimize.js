@@ -1,5 +1,26 @@
 const fs = require("fs")
 
+const filterChangeFailureRate = true;
+const score = repo => {
+	let s = 0;
+	Object.keys(repo).filter(k => k !== "changeFailureRate" || (!filterChangeFailureRate)).forEach((k, i) => {
+		if(repo[k] === "Elite"){
+			s += 8;
+		}
+		else if(repo[k] === "High"){
+			s += 5;
+		}
+		else if(repo[k] === "Medium"){
+			s += 3;
+		}
+		else if(repo[k] === "Low"){
+			s += 2;
+		}
+	});
+	return s;
+}
+
+
 const removeLeadingZeros = (d, i, arr) => {
 	if(d === 0){
 		let hasLeading = false;
@@ -81,6 +102,12 @@ const output = {
 				leadTimeForChanges: "Terrible",
 				meanTimeToRecover: "Terrible",
 				changeFailureRate: "Terrible"
+			},
+			accelerate: {
+				deploymentFrequency: "Terrible",
+				leadTimeForChanges: "Terrible",
+				meanTimeToRecover: "Terrible",
+				changeFailureRate: "Terrible"
 			}
 		};
 
@@ -106,6 +133,9 @@ const output = {
 			const deploymentFrequency = dates.map(d => Object.keys(result.deployments).map(k => result.deployments[k]).filter(dep => (dep.date * 1000 < d && dep.date * 1000 > d - scale) || scale === -1 ).length).map(d => {
 				if(scale === -1 && Object.keys(result.deployments).length > 2){
 					return d / (end - start) * YEAR / 1000
+				}
+				if(scaleIndex === -2){
+					return d * (YEAR / scale)
 				}
 				return d;
 			}).map(removeLeadingZeros);
@@ -153,25 +183,51 @@ const output = {
 		const l = derivedResults[-1].leadTimeForChanges;
 		const m = derivedResults[-1].meanTimeToRecover;
 		const c = derivedResults[-1].changeFailureRate;
+
+
 		if(d >= 12) derivedResults.performer.deploymentFrequency = "Low";
 		if(d >= 365 / 7) derivedResults.performer.deploymentFrequency = "Medium";
 		if(d >= 365 / 7 * 2) derivedResults.performer.deploymentFrequency = "High";
-		if(d >= 365) derivedResults.performer.deploymentFrequency = "Ultra";
+		if(d >= 14/24*365) derivedResults.performer.deploymentFrequency = "Elite";
 
 		if(l <= 365) derivedResults.performer.leadTimeForChanges = "Low";
 		if(l <= 30) derivedResults.performer.leadTimeForChanges = "Medium";
 		if(l <= 7) derivedResults.performer.leadTimeForChanges = "High";
-		if(l <= 1) derivedResults.performer.leadTimeForChanges = "Ultra";
+		if(l <= 3) derivedResults.performer.leadTimeForChanges = "Elite";
 
 		if(m <= 365) derivedResults.performer.meanTimeToRecover = "Low";
 		if(m <= 90) derivedResults.performer.meanTimeToRecover = "Medium";
 		if(m <= 30) derivedResults.performer.meanTimeToRecover = "High";
-		if(m <= 7) derivedResults.performer.meanTimeToRecover = "Ultra";
+		if(m <= 10) derivedResults.performer.meanTimeToRecover = "Elite";
 
-		if(c <= 90) derivedResults.performer.changeFailureRate = "Low";
+ 		if(c <= 90) derivedResults.performer.changeFailureRate = "Low";
 		if(c <= 50) derivedResults.performer.changeFailureRate = "Medium";
 		if(c <= 30) derivedResults.performer.changeFailureRate = "High";
-		if(c <= 10) derivedResults.performer.changeFailureRate = "Ultra";
+		if(c <= 10) derivedResults.performer.changeFailureRate = "Elite";
+
+
+		if(c <= 30) derivedResults.accelerate.changeFailureRate = "Low";
+		if(c <= 30) derivedResults.accelerate.changeFailureRate = "Medium";
+		if(c <= 30) derivedResults.accelerate.changeFailureRate = "High";
+		if(c <= 15) derivedResults.accelerate.changeFailureRate = "Elite";
+
+		if(d >= 0) derivedResults.accelerate.deploymentFrequency = "Low";
+		if(d >= 2) derivedResults.accelerate.deploymentFrequency = "Medium";
+		if(d >= 12) derivedResults.accelerate.deploymentFrequency = "High";
+		if(d >= 365) derivedResults.accelerate.deploymentFrequency = "Elite";
+
+		if(l > 365/2) derivedResults.accelerate.leadTimeForChanges = "Low";
+		if(l <= 365/2) derivedResults.accelerate.leadTimeForChanges = "Medium";
+		if(l <= 7) derivedResults.accelerate.leadTimeForChanges = "High";
+		if(l <= 1/12) derivedResults.accelerate.leadTimeForChanges = "Elite";
+
+		if(m > 365/2) derivedResults.accelerate.meanTimeToRecover = "Low";
+		if(m <= 365/2) derivedResults.accelerate.meanTimeToRecover = "Medium";
+		if(m <= 1) derivedResults.accelerate.meanTimeToRecover = "High";
+		if(m <= 1/2) derivedResults.accelerate.meanTimeToRecover = "Elite";
+
+		derivedResults.accelerate.score = score(derivedResults.accelerate);
+		derivedResults.performer.score = score(derivedResults.performer);
 
 		return derivedResults;
 	})

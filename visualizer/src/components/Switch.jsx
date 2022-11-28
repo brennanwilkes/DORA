@@ -76,12 +76,12 @@ export function AverageSwitch(props) {
 	);
 }
 
-export function ColourSwitch(props) {
+export function CheckSwitch(props) {
 	return (
 		<FormGroup>
 			<FormControlLabel sx={{
 				color: "slategrey"
-			}} control={<Checkbox value={props.value} onChange={props.onChange} />} label="Group By Performance" />
+			}} control={<Checkbox value={props.value} onChange={props.onChange} />} label={props.label} />
 
 		</FormGroup>
 	);

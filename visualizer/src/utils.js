@@ -1,7 +1,10 @@
+import {jsgradient} from "./grad";
+
 export const BASE_COLOURS = ["#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#8bd3c7", "#beb9db", "#fdcce5"];
 BASE_COLOURS[-1] = "#555";
 BASE_COLOURS[-2] = "#BBB";
 export const COLOURS = BASE_COLOURS;
+
 const HEX = "0123456789ABCDEF";
 for (let i = 0; i < 200; i++) {
 	COLOURS.push(`#${HEX[Math.floor(Math.random() * 16)]}${HEX[Math.floor(Math.random() * 16)]}${HEX[Math.floor(Math.random() * 16)]}${HEX[Math.floor(Math.random() * 16)]}${HEX[Math.floor(Math.random() * 16)]}${HEX[Math.floor(Math.random() * 16)]}`);
@@ -10,6 +13,22 @@ for (let i = 0; i < 200; i++) {
 export const COLOURS_SEMI_TRANS = COLOURS.map(c => `${c}30`);
 COLOURS_SEMI_TRANS[-1] = "#55555530";
 COLOURS_SEMI_TRANS[-2] = "#BBBBBB30";
+
+const C = 8*3;
+jsgradient.generateGradient("#fd7f6f", "#b2e061", C / 2).forEach((colour, i) => {
+	COLOURS[`g${i}`] = colour;
+	COLOURS_SEMI_TRANS[`g${i}`] = `${colour}30`;
+});
+jsgradient.generateGradient("#b2e061", "#bd7ebe", C / 3).forEach((colour, i) => {
+	COLOURS[`g${C/2 + i}`] = colour;
+	COLOURS_SEMI_TRANS[`g${C/2 + i}`] = `${colour}30`;
+});
+for (let i = C * 5 / 6; i <= C; i++) {
+	COLOURS[`g${i}`] = "#bd7ebe";
+	COLOURS_SEMI_TRANS[`g${i}`] = `#bd7ebe30`;
+}
+
+
 export const MINUTE = 60 * 1000;
 export const HOUR = MINUTE * 60;
 export const DAY = HOUR * 24;
@@ -63,6 +82,17 @@ export const makeOptions = (title, yLabel, debug) => ({
 			display: true,
 			text: title,
 		},
+		zoom: {
+			zoom: {
+				wheel: {
+					enabled: true,
+				},
+				pinch: {
+					enabled: true
+				},
+				mode: 'xy'
+			}
+		}
 	},
 	scales: {
 		y: {
@@ -110,7 +140,7 @@ export const getScaleLabel = (val) => {
 
 export const getColourIndex = (data) => {
 	if(data === undefined || data === "avg" || data === "Trendline" || data === "Average") return -2;
-	if(data === "Ultra") return 3;
+	if(data === "Elite") return 3;
 	if(data === "High") return 2;
 	if(data === "Medium") return 1;
 	if(data === "Low") return 0;

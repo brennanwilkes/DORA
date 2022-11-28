@@ -5,7 +5,7 @@
     "results": "tester-results.json",
     "repos": [
         {
-            "id": "ethereum/go-ethereum",
+            "id": "jenkins-x/jx",
             "deployment": 0,
             "failures": {
                 "type": -1

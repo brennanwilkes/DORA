@@ -24,7 +24,7 @@ import MeanTimeToRecover from "./charts/meanTimeToRecover";
 import ChangeFailureRate from "./charts/changeFailureRate";
 import {DAY, WEEK, MONTH, MONTH4, MONTH6, YEAR, getScaleLabel, removeLeadingZeros} from "./utils";
 import Slider from "@mui/material/Slider";
-import {GraphStyleSwitch, AverageSwitch, ColourSwitch} from "./components/Switch";
+import {GraphStyleSwitch, AverageSwitch, CheckSwitch} from "./components/Switch";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
@@ -56,20 +56,16 @@ function App() {
 	const [barChart, setBarChart] = useState(true);
 	const [average, setAverage] = useState(false);
 	const [colour, setColour] = useState(true);
+	const [accelerate, setAccelerate] = useState(true);
 	const [dataset, setDataset] = useState(staticDataset);
+	const [gradient, setGradient] = useState(false);
 	const debug = 0;
-
-	useEffect(() => {
-		if(average){
-			setColour(true);
-		}
-	}, [average]);
 
 	useEffect(() => {
 		if(average){
 			const avg = {
 				avg: {},
-				Ultra: {},
+				Elite: {},
 				High: {},
 				Medium: {},
 				Low: {},
@@ -77,7 +73,7 @@ function App() {
 			};
 			const moving = {
 				avg: {},
-				Ultra: {},
+				Elite: {},
 				High: {},
 				Medium: {},
 				Low: {},
@@ -85,7 +81,7 @@ function App() {
 			}
 			staticDataset.results.forEach((result, i) => {
 				Object.keys(result).forEach((key, i) => {
-					if(key === "repo" || key ==="performer"){
+					if(key === "repo" || key ==="performer" || key === "accelerate"){
 						return;
 					}
 					Object.keys(avg).forEach((performer) => {
@@ -116,7 +112,7 @@ function App() {
 								}
 							});
 							if(datapoint !== null){
-								const performer = result["performer"][met];
+								const performer = result[accelerate ? "accelerate" : "performer"][met];
 								avg[performer][key][met][i] = {
 									total: avg[performer][key][met][i].total + datapoint,
 									count: avg[performer][key][met][i].count + 1
@@ -157,6 +153,12 @@ function App() {
 					leadTimeForChanges: performer,
 					meanTimeToRecover: performer,
 					changeFailureRate: performer
+				},
+				accelerate: {
+					deploymentFrequency: performer,
+					leadTimeForChanges: performer,
+					meanTimeToRecover: performer,
+					changeFailureRate: performer
 				}
 			}));
 			if(!barChart){
@@ -164,7 +166,7 @@ function App() {
 			}
 			avgResults.forEach((r, i) => {
 				Object.keys(r).forEach((k, i) => {
-					if(k !== "repo" && k!== "performer"){
+					if(k !== "repo" && k!== "performer" && k!=="accelerate"){
 						Object.keys(r[k]).forEach((m, i) => {
 							r[k][m] = r[k][m].map(removeLeadingZeros);
 						});
@@ -180,26 +182,29 @@ function App() {
 		else{
 			setDataset(staticDataset);
 		}
-	}, [average, barChart]);
-
-
+	}, [average, barChart, accelerate]);
 
 	return (
 		<div>
-			<div style={{
+			<div id="stats" style={{
 				position: "absolute",
-				top: "2.5vh",
-				left: "90vw",
-				width: "10vw",
+				top: "2vh",
+				left: "80vw",
+				width: "25vw",
 				display: "flex",
-				flexDirection: "column",
+				flexDirection: "row",
 				alignItems: "start",
 				justifyContent: "start",
+				textAlign: "left"
 			}}>
-				<Typography>Repos: {staticDataset.repos}</Typography>
-				<Typography>Deployments: {Math.round(staticDataset.deployments / 100) / 10}k</Typography>
-				<Typography>Commits: {Math.round(staticDataset.commits / 100000) / 10}m</Typography>
-				<Typography>Failures: {Math.round(staticDataset.failures / 100) / 10}k</Typography>
+				<div>
+					<Typography>Repos: {staticDataset.repos}</Typography>
+					<Typography>Deployments: {Math.round(staticDataset.deployments / 100) / 10}k</Typography>
+				</div>
+				<div>
+					<Typography>Commits: {Math.round(staticDataset.commits / 100000) / 10}m</Typography>
+					<Typography>Failures: {Math.round(staticDataset.failures / 100) / 10}k</Typography>
+				</div>
 			</div>
 			<div style={{
 				position: "absolute",
@@ -224,7 +229,7 @@ function App() {
 			<Slider
 				sx={{
 					position: "absolute",
-					width: "40vw",
+					width: "35vw",
 					left: "5vw",
 					top: "10vh",
 					overflow: "visible"
@@ -254,7 +259,7 @@ function App() {
 			/>
 			<div style={{
 				position: "absolute",
-				width: "40vw",
+				width: "45vw",
 				right: "5vw",
 				top: "10vh",
 				overflow: "visible",
@@ -263,18 +268,20 @@ function App() {
 				justifyContent: "center"
 			}}>
 				<GraphStyleSwitch value={barChart} onChange={(e) => setBarChart(e.target.checked)} />
-				<AverageSwitch value={average} onChange={(e) => setAverage(e.target.checked)} />
+				<CheckSwitch value={average} label="Group By Performance" onChange={(e) => setAverage(e.target.checked)} />
+				<CheckSwitch value={!average} label="Custom Goalposts" onChange={(e) => setAccelerate(!e.target.checked)} />
+				<CheckSwitch value={gradient} label="Performance Gradient" onChange={(e) => setGradient(e.target.checked)} />
 			</div>
 
 			<div id="chart">{
 				metric === 0 ? (
-					<DeploymentFrequency colour={colour} debug={debug} data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1, -2][scale]} />
+					<DeploymentFrequency gradient={gradient} accelerate={accelerate} colour={colour} debug={debug} data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1, -2][scale]} />
 				) : (metric === 1 ? (
-					<LeadTimeForChanges colour={colour} debug={debug} data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1, -2][scale]} />
+					<LeadTimeForChanges gradient={gradient} accelerate={accelerate} colour={colour} debug={debug} data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1, -2][scale]} />
 				) : (metric === 2 ? (
-					<MeanTimeToRecover colour={colour} debug={debug} data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1, -2][scale]} />
+					<MeanTimeToRecover gradient={gradient} accelerate={accelerate} colour={colour} debug={debug} data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1, -2][scale]} />
 				) : (
-					<ChangeFailureRate colour={colour} debug={debug} data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1, -2][scale]} />
+					<ChangeFailureRate gradient={gradient} accelerate={accelerate} colour={colour} debug={debug} data={dataset} style={barChart ? "bar" : "line"} scale={[DAY,WEEK,MONTH,MONTH4,MONTH6,YEAR, -1, -2][scale]} />
 				)))
 			}</div>
 		</div>

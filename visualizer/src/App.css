@@ -8,3 +8,13 @@
 	width: 95vw;
 	height: 80vh;
 }
+
+#stats > div{
+	display: flex;
+	flex-direction: column;
+	margin: 1rem;
+}
+
+body{
+	overflow-x: hidden;
+}

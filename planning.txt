@@ -32,7 +32,7 @@ Key Points:
 		Change Failure Rate increased slightly since 2008, decreased slightly since 2017
 
 
-
+Mine:
 deploymentFrequency
 Elite		>= 1 time per day
 High		>= 2 times per week
@@ -60,6 +60,7 @@ High		>= 30%
 Medium		>= 50%
 Low			>= 90%
 Ultra Low	The rest
+
 
 
 CSS Concepts?

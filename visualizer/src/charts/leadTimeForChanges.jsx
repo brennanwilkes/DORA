@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Bar, Line } from 'react-chartjs-2';
+import zoomPlugin from 'chartjs-plugin-zoom';
 import {COLOURS, COLOURS_SEMI_TRANS, divideTimes, makeOptions, removeLeadingZeros, getColourIndex} from "../utils.js";
 
 function LeadTimeForChanges(props) {
@@ -9,7 +10,10 @@ function LeadTimeForChanges(props) {
 	const data = {
 		labels: labels.slice(firstNonNull),
 		datasets: props.data.results.map((result, i) => {
-			const colourIndex = props.colour ? getColourIndex(result.performer?.leadTimeForChanges) : i;
+			let colourIndex = props.colour ? getColourIndex(result[props.accelerate ? "accelerate" : "performer"]?.leadTimeForChanges) : i;
+			if(props.gradient && props.data.results[0].repo !== "Average"){
+				colourIndex = `g${result[props.accelerate ? "accelerate" : "performer"].score}`
+			}
 			return {
 				label: result.repo,
 				fill: result.repo !== "Average Trendline",
@@ -30,9 +34,9 @@ function LeadTimeForChanges(props) {
 
 	const options = makeOptions("Lead Time For Changes", "Average Days Between Commit and Deployment", props.debug || props.data.results[0].repo === "Average");
 	if(props.style === "line"){
-		return (<Line options={options} data={data} />);
+		return (<Line plugins={[zoomPlugin]} options={options} data={data} />);
 	}
-	return (<Bar options={options} data={data} />);
+	return (<Bar plugins={[zoomPlugin]} options={options} data={data} />);
 }
 
 export default LeadTimeForChanges;

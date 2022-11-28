@@ -29,9 +29,9 @@ RATE_LIMIT=$( $ROOT/rate_limit.sh "$ROOT" )
 
 cd "$WORKING_DIR"
 [[ "$DEPLOYMENT" -eq 0 ]] && {
-	log "Using gh releases strategy. Requesting releases from GitHub"
 	for i in $( seq 1 10 )
 	do
+		log "Using gh releases strategy. Requesting releases from GitHub"
 		RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
 		DATA=$( gh api "/repos/$REPO/git/refs/tags"  2>>"$ROOT/log" )
 		[[ "$?" -eq 0 ]] && break
@@ -97,12 +97,18 @@ processCommit(){
 	echo "$(echo $prev_tag | tr -d , ),$(echo $tag | tr -d , ),$sha,$d1,$dU,$diff,$diffSha"
 }
 
+BANNED="$( mktemp )"
+
 totalCommits=0
 for i in $(seq 1 $(( $n - 1 )) )
 do
 
 	prev_tag=$( echo "$deployments" | head -n "$i" | tail -n1)
 	tag=$( echo "$deployments" | head -n "$(( $i + 1 ))" | tail -n1 )
+
+	[[ -z "$tag" ]] || [[ -z "$prev_tag" ]] && {
+		continue
+	}
 
 	prev_time=$( git log -1 --format=%ai "$prev_tag" )
 	time=$( git log -1 --format=%ai "$tag" )
@@ -127,18 +133,26 @@ do
 	[[ "$( echo $prev_tag | grep -oE '^v?[0-9]+' | tr -d 'v' )" -ne "$( echo $tag | grep -oE '^v?[0-9]+' | tr -d 'v' )" ]] && {
 		[[ -z "$( echo $tag | grep -oE '^v?[0-9]+\.0' )" ]] && {
 			log "SKIPPING $prev_tag -> $tag due to major/minor version mismatch"
+			echo "$tag" >> "$BANNED"
 			continue
 		}
 	}
 
 	log "Using $prev_tag -> $tag"
 	log "Using $prev_time -> $time"
+	[[ $( date -d "$prev_time" +%s ) -gt $( date -d "$time" +%s ) ]] && {
+		log "prev_tag -> tag has inverted time order!"
+		[[ $( echo $tag | grep -oE '^v?[0-9]+' | tr -d 'v' ) -eq "0" ]] && {
+			echo "$tag" >> "$BANNED"
+			log "0.x.x with inverted tags. SKIPPING"
+			continue
+		}
+	}
 
-	set_diff_tags=$( echo "$deployments" | head -n "$i" | tail -n 25 | xargs )
+	set_diff_tags=$( echo "$deployments" | head -n "$i" | tail -n 25 | grep -v -x -F -f "$BANNED" | xargs )
 	commits=$( git rev-list "$tag" --not $set_diff_tags --date=local --format="%at %ct" | paste - -  | cut -d' ' -f2- | tr '\t' ' ' )
 
 	log Found $( echo "$commits" | wc -l ) commits
-
 
 	[[ $( echo "$commits" | wc -l ) -gt 1000 ]] && [[ -z "$( echo $tag | grep -Eo '^v?[0-9]+.[0-9]+.0' )" ]] && {
 
@@ -151,8 +165,8 @@ do
 		prev_patch=$( echo $prev_tag | grep -oE '^v?[0-9]+\.[0-9]+\.[0-9]+' | grep -Eo '[0-9]+$' )
 		patch=$( echo $tag | grep -oE '^v?[0-9]+\.[0-9]+\.[0-9]+' | grep -Eo '[0-9]+$' )
 
-		[[ "$patch" -ne "$(( $prev_patch + 1 ))" ]] && [[ "$minor" -ne "$(( $prev_minor + 1 ))" ]] && {
-			log "SKIPPING $prev_tag -> $tag due to exes commits (likely invalid version)"
+		[[ "$minor" -ne "$(( $prev_minor + 1 ))" ]] && {
+			log "SKIPPING $prev_tag -> $tag due to exes commits (likely invalid version or rebase)"
 			continue
 		}
 	}
@@ -179,3 +193,4 @@ done
 log "Processed $totalCommits total commits in anaylze step"
 
 cd "$ROOT"
+rm "$BANNED"
