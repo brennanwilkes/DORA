@@ -27,8 +27,8 @@ Key Points:
 
 	Averages over Time:
 		Deployment frequency is increasing linearly since 2012
-		Lead Time for changes stayed constant (Terrible and Low vary wildly)
-		Mean Time to Recover increasing linearly since 2009 (Terrible vary wildly)
+		Lead Time for changes stayed constant / Slightly decreased (Terrible and Low vary wildly)
+		Mean Time to Recover increasing linearly since 2012 (Terrible vary wildly)
 		Change Failure Rate increased slightly since 2008, decreased slightly since 2017
 
 

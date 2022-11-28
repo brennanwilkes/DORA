@@ -22,11 +22,15 @@ processRepo(){
 
 			[[ "$( gh api -H 'Accept: application/vnd.github+json' '/rate_limit' | grep -o 'search....limit..[0-9]*,.used..[0-9]*..remaining..[0-9]*' | grep -o '[0-9]*$' )" -lt 10 ]] && sleep 60
 
-			DATA=$( gh api -X GET search/issues -f per_page=1 -f "page=1" -f q="repo:$REPO is:closed linked:pr label:$BUG_LABELS" )
+			DATA=$( gh api -X GET search/issues -f per_page=1 -f "page=1" -f q="repo:$REPO is:closed label:$BUG_LABELS" )
 			[[ "$?" != 0 ]] && echo "Bad repo for issues: $REPO" >&2
 			NUM_ISSUES=$( echo "$DATA" | grep -oE "total_count..[0-9]+" | grep -Eo '[0-9]+' | head -n1 )
 
-			[[ "$NUM_ISSUES" -gt 50 ]] && {
+			DATA=$( gh api -X GET search/issues -f per_page=1 -f "page=1" -f q="repo:$REPO is:closed" )
+			[[ "$?" != 0 ]] && echo "Bad repo for issues: $REPO" >&2
+			TOTAL_ISSUES=$( echo "$DATA" | grep -oE "total_count..[0-9]+" | grep -Eo '[0-9]+' | head -n1 )
+
+			[[ "$NUM_ISSUES" -gt 50 ]] && [[ $(( "$TOTAL_ISSUES" / 100 )) -lt "$NUM_ISSUES" ]] && {
 				TOTAL_COMMITS=$( gh api -i "/repos/$REPO/commits?per_page=1" | sed -n '/^[Ll]ink:/ s/.*"next".*page=\([0-9]*\).*"last".*/\1/p' )
 
 				FIRST_COMMIT=$( gh api "/repos/$REPO/commits?per_page=1&page=$TOTAL_COMMITS" | node parse_pr_commit_json.js 11 )
@@ -39,7 +43,7 @@ processRepo(){
 }
 
 j=1
-N=25
+N=10
 while read REPO
 do
 	((i=i%N)); ((i++==0)) && wait
