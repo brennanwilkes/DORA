@@ -149,7 +149,7 @@ do
 		}
 	}
 
-	set_diff_tags=$( echo "$deployments" | head -n "$i" | tail -n 25 | grep -v -x -F -f "$BANNED" | xargs )
+	set_diff_tags=$( echo "$deployments" | head -n "$i" | tail -n 25 | grep -v -x -F -f "$BANNED" | tr -d "'" | xargs )
 	commits=$( git rev-list "$tag" --not $set_diff_tags --date=local --format="%at %ct" | paste - -  | cut -d' ' -f2- | tr '\t' ' ' )
 
 	log Found $( echo "$commits" | wc -l ) commits

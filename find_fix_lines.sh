@@ -55,7 +55,18 @@ isDifferent(){
 
 cd "$WORKING_DIR"
 
+[[ -z "$COMMIT" ]] && {
+	log "COMMIT WAS EMPTY!!!"
+	echo "$ORIGINAL_INPUT,,,"
+	exit 0
+}
+
 [[ -f "$COMMIT_CACHE" ]] && {
+	[[ -z "$COMMIT_DIFF" ]] && {
+		log "COMMIT DIFF was empty for COMMIT=$COMMIT"
+		COMMIT_DIFF=$( date +"%T.%N" | shasum | cut -d' ' -f1 )
+	}
+
 	COMMIT_LOOKUP="$( cat $COMMIT_CACHE | grep -e $COMMIT_DIFF -e $COMMIT | cut -d',' -f1 | head -n1 )"
 	[[ -z "$COMMIT_LOOKUP" ]] && {
 		log "Commit $COMMIT / $COMMIT_DIFF ($COMMIT_TYPE) does not exist. Skipping SZZ step"
@@ -156,6 +167,8 @@ SZZ_LINE(){
 				log "Line count for $blame was too high! ($diffCount), stopping recursion"
 				continue
 			}
+
+			blame=$( echo "$blame" | tr -d '\0' )
 
 			echo "$blame" >> "$CANDIDATES"
 			[[ -z "$blame" ]] && {

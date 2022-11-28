@@ -25,7 +25,7 @@ BUG_LABELS=$( echo "$DATA" | cut -d$'\t' -f1 | grep -iE -e "^bug" -e '[ :/-]bug'
 
 [[ -z "$CUSTOM_LABELS" ]] || {
 	log "Adding custom labels $CUSTOM_LABELS"
-	CUSTOM_LABELS=$( echo "$CUSTOM_LABELS" | xargs -n1 )
+	CUSTOM_LABELS=$( echo "$CUSTOM_LABELS" | tr -d "'" | xargs -n1 )
 	BUG_LABELS+=$'\n'$(printf '%s' "$CUSTOM_LABELS")
 }
 
@@ -115,7 +115,7 @@ do
 	bad_labels=$( echo "$ISSUE_DATA" | grep -iEo "$REPO/labels/[^\"]*" | grep -oE -e 'stalled' -e 'won.?t.*fix' -e 'blocked' -e 'invalid' -e 'feature' -e '^docs?$' -e '^documentation$' -e 'do.not.*merge' )
 
 	[[ -z "$bad_labels" ]] || {
-		log "found bad labels ($( echo $bad_labels | xargs )) for issue=$issue"
+		log "found bad labels ($( echo $bad_labels | tr -d "'" | xargs )) for issue=$issue"
 		continue
 	}
 
@@ -124,10 +124,10 @@ do
 		continue
 	}
 
-	log "Issue $issue ($issueIndex/$totalIssues), created at $( date  -ud @$created_at 2>>"$ROOT/log" | cut -d' ' -f1-4 ). Pull requests: $( echo $pull_requests | xargs )"
+	log "Issue $issue ($issueIndex/$totalIssues), created at $( date  -ud @$created_at 2>>"$ROOT/log" | cut -d' ' -f1-4 ). Pull requests: $( echo $pull_requests | tr -d "'" | xargs )"
 
 	[[ $( echo "$direct_merge_commits" | wc -c ) -gt 5 ]] && {
-		log "Found direct_merge_commits $( echo $direct_merge_commits | xargs )"
+		log "Found direct_merge_commits $( echo $direct_merge_commits | tr -d "'" | xargs )"
 		for sha in $direct_merge_commits
 		do
 			RATE_LIMIT="$( $ROOT/rate_limit.sh "$ROOT" $RATE_LIMIT )"
