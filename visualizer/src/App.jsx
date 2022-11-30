@@ -15,7 +15,7 @@ import {
 import { Bar } from 'react-chartjs-2';
 // import brnkl from "./data/brnkl-minified.json"
 // import combined from "./data/combined-minified.json"
-import paper from "./data/paper4b-minified.json"
+import paper from "./data/paper5-minified.json"
 // import python from "./data/python-minified.json"
 
 import DeploymentFrequency from "./charts/deploymentFrequency";
@@ -59,7 +59,7 @@ function App() {
 	const [accelerate, setAccelerate] = useState(true);
 	const [dataset, setDataset] = useState(staticDataset);
 	const [gradient, setGradient] = useState(false);
-	const debug = 0;
+	const debug = 10;
 
 	useEffect(() => {
 		if(average){

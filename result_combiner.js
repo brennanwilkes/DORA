@@ -14,7 +14,23 @@ const banned = [
 	"vitessio/vitess",
 	"gravitational/teleport",
 	"RIOT-OS/RIOT",
-	"pypa/pipenv"
+	"pypa/pipenv",
+	"haiwen/seafile",
+	"cyrus-and/gdb-dashboard",
+	"DirectoryLister/DirectoryLister",
+	"JohnCoates/Aerial",
+	"littlecodersh/ItChat",
+	"skypjack/entt",
+	"WizTeam/WizQTClient",
+	"AaronFeng753/Waifu2x-Extension-GUI",
+	"open-wa/wa-automate-nodejs",
+	"benweet/stackedit",
+	"alda-lang/alda",
+	"harness/drone",
+	"DylanVann/react-native-fast-image",
+	"real-logic/aeron",
+	"alibaba/lowcode-engine",
+	"pattern-lab/patternlab-php",
 ]
 
 const lock = {}
@@ -24,15 +40,23 @@ for (let i = 2; i < process.argv.length - 1; i++){
 	const json = JSON.parse(fs.readFileSync(process.argv[i]));
 	const res = (json.results ?? [json.result]);
 
-	if(banned.indexOf(res[0].repo) > -1 || !res[0].repo){
-		continue;
-	}
+	// if(banned.indexOf(res[0].repo) > -1 || !res[0].repo){
+	// 	continue;
+	// }
 
 	output.start = json.start;
 	output.end = json.end;
 	results = [...(results), ...(res.filter(r => {
 		if(lock[r.repo]){
-			console.log(process.argv[i])
+			console.log(`Duplicate: ${process.argv[i]}`)
+			return false;
+		}
+		if(Object.keys(r.deployments).length < (r.stats.deployments / 2)){
+			console.log(`Not enough deployments: ${r.repo}`)
+			return false;
+		}
+		if(r.failures.length < (r.stats.issues / 6)){
+			console.log(`Not enough failures: ${r.repo}`)
 			return false;
 		}
 		lock[r.repo] = true;
@@ -40,8 +64,8 @@ for (let i = 2; i < process.argv.length - 1; i++){
 	}).map(r => {
 		if(process.argv.length > 100){
 			Object.keys(r.deployments).forEach((k, i) => {
-				r.deployments[k].commits = r.deployments[k].commits.map((c, j) => j);
-				r.deployments[k].diffs = r.deployments[k].diffs.map((c, j) => j);
+				r.deployments[k].commits = r.deployments[k].commits.map((c, j) => 0);
+				r.deployments[k].diffs = r.deployments[k].diffs.map((c, j) => 0);
 			});
 		}
 		return r;

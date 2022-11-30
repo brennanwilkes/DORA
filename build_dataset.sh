@@ -8,9 +8,9 @@ processRepo(){
 	TOTAL_TAGS=$( echo "$DATA" | grep -Eo '.ref.: ?.refs/tags/[^"]*",' | sort | uniq | wc -l )
 	#HAS_1_0=$( echo "$DATA" | grep -Eo '.ref.: ?.refs/tags/v?[0-9]{1,2}\.[0-9]+\.[0-9]+[^"]*",' | sort | uniq | grep -oE '/v?[1-9][0-9]*\.[0-9]+' )
 	#[[ -z "$HAS_1_0" ]] && return
-	[[ $(( $TOTAL_TAGS - $RELEASES )) -gt $RELEASES ]] && return
+	[[ $(( $TOTAL_TAGS - $RELEASES )) -gt $(( $RELEASES / 2 )) ]] && return
 
-	[[ "$RELEASES" -gt 25 ]] && {
+	[[ "$RELEASES" -gt 20 ]] && {
 		BUG_LABELS=$( gh label list -L 1000 --repo "$REPO" )
 		[[ "$?" != 0 ]] && echo "Bad repo for labels: $REPO" >&2
 		BUG_LABELS=$( echo "$BUG_LABELS" | cut -d$'\t' -f1 | grep -iE -e "^bug" -e '[ :/-]bug' -e "^confirm" -e "[^n]confirm" -e "important" -e "critical" -e "(high|top).*priority" -e "has.*(pr|pull)" -e '^(p|priority) ?([0-9]+|high|medium|low|mid)')
@@ -30,7 +30,7 @@ processRepo(){
 			[[ "$?" != 0 ]] && echo "Bad repo for issues: $REPO" >&2
 			TOTAL_ISSUES=$( echo "$DATA" | grep -oE "total_count..[0-9]+" | grep -Eo '[0-9]+' | head -n1 )
 
-			[[ "$NUM_ISSUES" -gt 50 ]] && [[ $(( "$TOTAL_ISSUES" / 100 )) -lt "$NUM_ISSUES" ]] && {
+			[[ "$NUM_ISSUES" -gt 75 ]] && [[ $(( "$TOTAL_ISSUES" / 25 )) -lt "$NUM_ISSUES" ]] && {
 				TOTAL_COMMITS=$( gh api -i "/repos/$REPO/commits?per_page=1" | sed -n '/^[Ll]ink:/ s/.*"next".*page=\([0-9]*\).*"last".*/\1/p' )
 
 				FIRST_COMMIT=$( gh api "/repos/$REPO/commits?per_page=1&page=$TOTAL_COMMITS" | node parse_pr_commit_json.js 11 )

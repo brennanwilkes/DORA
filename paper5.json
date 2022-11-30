@@ -1,11 +1,19 @@
 {
-    "name": "",
+    "name": "DORA Paper",
     "start": "Aug 08 1990",
     "end": "Nov 28 2022",
-    "results": "",
+    "results": "paper4-results.json",
     "repos": [
         {
             "id": "Hacker0x01/react-datepicker",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 51
+        },
+        {
+            "id": "trufflesecurity/trufflehog",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -165,7 +173,7 @@
             "weight": 52
         },
         {
-            "id": "seed-rs/seed",
+            "id": "watchexec/watchexec",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -173,7 +181,7 @@
             "weight": 52
         },
         {
-            "id": "watchexec/watchexec",
+            "id": "seed-rs/seed",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -318,14 +326,6 @@
         },
         {
             "id": "hannobraun/Fornjot",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 53
-        },
-        {
-            "id": "espressif/arduino-esp32",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -613,14 +613,6 @@
             "weight": 56
         },
         {
-            "id": "midwayjs/midway",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 56
-        },
-        {
             "id": "SergioBenitez/Rocket",
             "deployment": 0,
             "failures": {
@@ -693,6 +685,14 @@
             "weight": 57
         },
         {
+            "id": "midwayjs/midway",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 57
+        },
+        {
             "id": "jitsucom/jitsu",
             "deployment": 0,
             "failures": {
@@ -726,6 +726,14 @@
         },
         {
             "id": "skypjack/entt",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 57
+        },
+        {
+            "id": "citizenfx/fivem",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -869,14 +877,6 @@
             "weight": 59
         },
         {
-            "id": "voila-dashboards/voila",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 59
-        },
-        {
             "id": "fkhadra/react-toastify",
             "deployment": 0,
             "failures": {
@@ -926,6 +926,14 @@
         },
         {
             "id": "bytebase/bytebase",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 60
+        },
+        {
+            "id": "voila-dashboards/voila",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -1022,14 +1030,6 @@
         },
         {
             "id": "Canop/broot",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 61
-        },
-        {
-            "id": "elastic/elasticsearch",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -1349,14 +1349,6 @@
             "weight": 64
         },
         {
-            "id": "XRPLF/rippled",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 64
-        },
-        {
             "id": "php-amqplib/php-amqplib",
             "deployment": 0,
             "failures": {
@@ -1461,7 +1453,7 @@
             "weight": 65
         },
         {
-            "id": "wildfly/wildfly",
+            "id": "XRPLF/rippled",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -1573,22 +1565,6 @@
             "weight": 66
         },
         {
-            "id": "mamba-org/mamba",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 66
-        },
-        {
-            "id": "charmbracelet/bubbletea",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 67
-        },
-        {
             "id": "wix/react-native-calendars",
             "deployment": 0,
             "failures": {
@@ -1670,14 +1646,6 @@
         },
         {
             "id": "Snaipe/Criterion",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 68
-        },
-        {
-            "id": "joomla/joomla-cms",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -1789,14 +1757,6 @@
             "weight": 70
         },
         {
-            "id": "testing-library/react-hooks-testing-library",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 70
-        },
-        {
             "id": "epi052/feroxbuster",
             "deployment": 0,
             "failures": {
@@ -1838,6 +1798,14 @@
         },
         {
             "id": "cyrus-and/gdb-dashboard",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 71
+        },
+        {
+            "id": "testing-library/react-hooks-testing-library",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -2157,14 +2125,6 @@
             "weight": 74
         },
         {
-            "id": "microsoft/msphpsql",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 74
-        },
-        {
             "id": "grpc/grpc-swift",
             "deployment": 0,
             "failures": {
@@ -2317,14 +2277,6 @@
             "weight": 77
         },
         {
-            "id": "yjs/yjs",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 77
-        },
-        {
             "id": "kubernetes-sigs/aws-load-balancer-controller",
             "deployment": 0,
             "failures": {
@@ -2357,6 +2309,14 @@
             "weight": 77
         },
         {
+            "id": "yjs/yjs",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 78
+        },
+        {
             "id": "digitalocean/doctl",
             "deployment": 0,
             "failures": {
@@ -2381,14 +2341,6 @@
             "weight": 78
         },
         {
-            "id": "charliermarsh/ruff",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 78
-        },
-        {
             "id": "awslabs/aws-sdk-rust",
             "deployment": 0,
             "failures": {
@@ -2406,14 +2358,6 @@
         },
         {
             "id": "thephpleague/commonmark",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 78
-        },
-        {
-            "id": "phpbench/phpbench",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -2446,6 +2390,14 @@
         },
         {
             "id": "jxxghp/nas-tools",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 79
+        },
+        {
+            "id": "charliermarsh/ruff",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -2653,14 +2605,6 @@
             "weight": 82
         },
         {
-            "id": "blynkkk/blynk-library",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 82
-        },
-        {
             "id": "Behat/Behat",
             "deployment": 0,
             "failures": {
@@ -2726,6 +2670,14 @@
         },
         {
             "id": "VirusTotal/yara",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 83
+        },
+        {
+            "id": "blynkkk/blynk-library",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -2861,14 +2813,6 @@
             "weight": 85
         },
         {
-            "id": "radareorg/radare2",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 85
-        },
-        {
             "id": "mockito/mockito",
             "deployment": 0,
             "failures": {
@@ -2934,14 +2878,6 @@
         },
         {
             "id": "leeoniya/uPlot",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 87
-        },
-        {
-            "id": "ConsenSys/quorum",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -3325,14 +3261,6 @@
             "weight": 93
         },
         {
-            "id": "binwiederhier/ntfy",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 93
-        },
-        {
             "id": "dani-garcia/vaultwarden",
             "deployment": 0,
             "failures": {
@@ -3421,6 +3349,14 @@
             "weight": 95
         },
         {
+            "id": "binwiederhier/ntfy",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 95
+        },
+        {
             "id": "vscode-icons/vscode-icons",
             "deployment": 0,
             "failures": {
@@ -3446,14 +3382,6 @@
         },
         {
             "id": "messense/aliyundrive-webdav",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 95
-        },
-        {
-            "id": "sycamore-rs/sycamore",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -3605,6 +3533,14 @@
             "weight": 98
         },
         {
+            "id": "sycamore-rs/sycamore",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 98
+        },
+        {
             "id": "google/autocxx",
             "deployment": 0,
             "failures": {
@@ -3718,14 +3654,6 @@
         },
         {
             "id": "prometheus/alertmanager",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 100
-        },
-        {
-            "id": "NervJS/taro",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -3901,14 +3829,6 @@
             "weight": 103
         },
         {
-            "id": "heartexlabs/label-studio",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 103
-        },
-        {
             "id": "archlinux/archinstall",
             "deployment": 0,
             "failures": {
@@ -3955,6 +3875,14 @@
                 "type": 1
             },
             "weight": 104
+        },
+        {
+            "id": "heartexlabs/label-studio",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 105
         },
         {
             "id": "hhyo/Archery",
@@ -4125,7 +4053,7 @@
             "weight": 110
         },
         {
-            "id": "docker/cli",
+            "id": "caronc/apprise",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -4237,14 +4165,6 @@
             "weight": 111
         },
         {
-            "id": "caronc/apprise",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 111
-        },
-        {
             "id": "googleapis/google-api-python-client",
             "deployment": 0,
             "failures": {
@@ -4317,6 +4237,14 @@
             "weight": 112
         },
         {
+            "id": "docker/cli",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 112
+        },
+        {
             "id": "TypeStrong/ts-node",
             "deployment": 0,
             "failures": {
@@ -4334,14 +4262,6 @@
         },
         {
             "id": "tree-sitter/tree-sitter",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 112
-        },
-        {
-            "id": "flipperdevices/flipperzero-firmware",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -4437,22 +4357,6 @@
             "weight": 115
         },
         {
-            "id": "containerd/nerdctl",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 115
-        },
-        {
-            "id": "hankcs/HanLP",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 115
-        },
-        {
             "id": "recharts/recharts",
             "deployment": 0,
             "failures": {
@@ -4469,7 +4373,15 @@
             "weight": 115
         },
         {
-            "id": "chrismaltby/gb-studio",
+            "id": "flipperdevices/flipperzero-firmware",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 115
+        },
+        {
+            "id": "containerd/nerdctl",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -4477,7 +4389,15 @@
             "weight": 116
         },
         {
-            "id": "predis/predis",
+            "id": "hankcs/HanLP",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 116
+        },
+        {
+            "id": "chrismaltby/gb-studio",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -4502,6 +4422,14 @@
         },
         {
             "id": "RT-Thread/rt-thread",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 117
+        },
+        {
+            "id": "predis/predis",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -4645,14 +4573,6 @@
             "weight": 122
         },
         {
-            "id": "necolas/react-native-web",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 122
-        },
-        {
             "id": "vuejs/devtools",
             "deployment": 0,
             "failures": {
@@ -4691,6 +4611,14 @@
                 "type": 1
             },
             "weight": 122
+        },
+        {
+            "id": "necolas/react-native-web",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 123
         },
         {
             "id": "FormidableLabs/victory",
@@ -4813,6 +4741,14 @@
             "weight": 125
         },
         {
+            "id": "RevenueCat/purchases-ios",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 125
+        },
+        {
             "id": "kataras/iris",
             "deployment": 0,
             "failures": {
@@ -4846,14 +4782,6 @@
         },
         {
             "id": "CosmicMind/Material",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 126
-        },
-        {
-            "id": "RevenueCat/purchases-ios",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -5061,14 +4989,6 @@
             "weight": 131
         },
         {
-            "id": "LSPosed/LSPosed",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 131
-        },
-        {
             "id": "shopware/platform",
             "deployment": 0,
             "failures": {
@@ -5133,6 +5053,14 @@
             "weight": 132
         },
         {
+            "id": "LSPosed/LSPosed",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 132
+        },
+        {
             "id": "phpro/grumphp",
             "deployment": 0,
             "failures": {
@@ -5157,7 +5085,7 @@
             "weight": 133
         },
         {
-            "id": "dmlc/xgboost",
+            "id": "sandboxie-plus/Sandboxie",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -5165,7 +5093,7 @@
             "weight": 133
         },
         {
-            "id": "Xaymar/obs-StreamFX",
+            "id": "dmlc/xgboost",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -5197,7 +5125,7 @@
             "weight": 134
         },
         {
-            "id": "sandboxie-plus/Sandboxie",
+            "id": "google/mediapipe",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -5205,7 +5133,7 @@
             "weight": 134
         },
         {
-            "id": "google/mediapipe",
+            "id": "Xaymar/obs-StreamFX",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -5301,14 +5229,6 @@
             "weight": 138
         },
         {
-            "id": "microsoft/windows-rs",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 138
-        },
-        {
             "id": "cytopia/devilbox",
             "deployment": 0,
             "failures": {
@@ -5334,6 +5254,14 @@
         },
         {
             "id": "hyperium/hyper",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 139
+        },
+        {
+            "id": "microsoft/windows-rs",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -5453,14 +5381,6 @@
             "weight": 143
         },
         {
-            "id": "dagger/dagger",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 143
-        },
-        {
             "id": "cortexproject/cortex",
             "deployment": 0,
             "failures": {
@@ -5493,7 +5413,7 @@
             "weight": 144
         },
         {
-            "id": "triton-inference-server/server",
+            "id": "dagger/dagger",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -5509,12 +5429,28 @@
             "weight": 145
         },
         {
+            "id": "triton-inference-server/server",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 145
+        },
+        {
             "id": "tesseract-ocr/tesseract",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
             "weight": 145
+        },
+        {
+            "id": "infracost/infracost",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 146
         },
         {
             "id": "k4yt3x/video2x",
@@ -5565,14 +5501,6 @@
             "weight": 147
         },
         {
-            "id": "infracost/infracost",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 147
-        },
-        {
             "id": "faker-js/faker",
             "deployment": 0,
             "failures": {
@@ -5606,14 +5534,6 @@
         },
         {
             "id": "stitchesjs/stitches",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 148
-        },
-        {
-            "id": "earthly/earthly",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -5670,6 +5590,14 @@
         },
         {
             "id": "spencermountain/compromise",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 150
+        },
+        {
+            "id": "earthly/earthly",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -5757,14 +5685,6 @@
             "weight": 152
         },
         {
-            "id": "callstack/react-native-paper",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 152
-        },
-        {
             "id": "meliorence/react-native-render-html",
             "deployment": 0,
             "failures": {
@@ -5822,6 +5742,14 @@
         },
         {
             "id": "openkruise/kruise",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 155
+        },
+        {
+            "id": "callstack/react-native-paper",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -5909,14 +5837,6 @@
             "weight": 156
         },
         {
-            "id": "spring-cloud/spring-cloud-gateway",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 156
-        },
-        {
             "id": "sofastack/sofa-rpc",
             "deployment": 0,
             "failures": {
@@ -5934,6 +5854,14 @@
         },
         {
             "id": "diesel-rs/diesel",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 157
+        },
+        {
+            "id": "spring-cloud/spring-cloud-gateway",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -5974,14 +5902,6 @@
         },
         {
             "id": "yggdrasil-network/yggdrasil-go",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 159
-        },
-        {
-            "id": "visgl/react-map-gl",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -6037,6 +5957,14 @@
             "weight": 160
         },
         {
+            "id": "visgl/react-map-gl",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 160
+        },
+        {
             "id": "sigp/lighthouse",
             "deployment": 0,
             "failures": {
@@ -6053,14 +5981,6 @@
             "weight": 161
         },
         {
-            "id": "remotion-dev/remotion",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 161
-        },
-        {
             "id": "projectdiscovery/httpx",
             "deployment": 0,
             "failures": {
@@ -6070,6 +5990,14 @@
         },
         {
             "id": "paramiko/paramiko",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 162
+        },
+        {
+            "id": "remotion-dev/remotion",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -6101,14 +6029,6 @@
             "weight": 162
         },
         {
-            "id": "ungoogled-software/ungoogled-chromium",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 163
-        },
-        {
             "id": "akveo/ngx-admin",
             "deployment": 0,
             "failures": {
@@ -6126,6 +6046,14 @@
         },
         {
             "id": "goadesign/goa",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 164
+        },
+        {
+            "id": "ungoogled-software/ungoogled-chromium",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -6179,14 +6107,6 @@
                 "type": 1
             },
             "weight": 165
-        },
-        {
-            "id": "solidjs/solid",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 166
         },
         {
             "id": "stoplightio/prism",
@@ -6245,14 +6165,6 @@
             "weight": 168
         },
         {
-            "id": "segmentio/kafka-go",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 168
-        },
-        {
             "id": "aler9/rtsp-simple-server",
             "deployment": 0,
             "failures": {
@@ -6301,7 +6213,7 @@
             "weight": 169
         },
         {
-            "id": "loft-sh/devspace",
+            "id": "segmentio/kafka-go",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -6334,6 +6246,14 @@
         },
         {
             "id": "BishopFox/sliver",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 170
+        },
+        {
+            "id": "loft-sh/devspace",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -6517,14 +6437,6 @@
             "weight": 176
         },
         {
-            "id": "cross-rs/cross",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 176
-        },
-        {
             "id": "malcommac/SwiftDate",
             "deployment": 0,
             "failures": {
@@ -6558,6 +6470,14 @@
         },
         {
             "id": "zotero/zotero",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 178
+        },
+        {
+            "id": "cross-rs/cross",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -6606,14 +6526,6 @@
         },
         {
             "id": "styleguidist/react-styleguidist",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 180
-        },
-        {
-            "id": "cakephp/phinx",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -6685,7 +6597,7 @@
             "weight": 182
         },
         {
-            "id": "apple/foundationdb",
+            "id": "Studio3T/robomongo",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -6693,12 +6605,12 @@
             "weight": 182
         },
         {
-            "id": "Studio3T/robomongo",
+            "id": "apple/foundationdb",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 182
+            "weight": 183
         },
         {
             "id": "MessageKit/MessageKit",
@@ -6717,14 +6629,6 @@
             "weight": 184
         },
         {
-            "id": "lokalise/i18n-ally",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 184
-        },
-        {
             "id": "google/earthenterprise",
             "deployment": 0,
             "failures": {
@@ -6734,14 +6638,6 @@
         },
         {
             "id": "mydumper/mydumper",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 185
-        },
-        {
-            "id": "LycheeOrg/Lychee",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -6813,6 +6709,14 @@
             "weight": 187
         },
         {
+            "id": "LycheeOrg/Lychee",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 187
+        },
+        {
             "id": "Carthage/Carthage",
             "deployment": 0,
             "failures": {
@@ -6838,14 +6742,6 @@
         },
         {
             "id": "unit8co/darts",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 189
-        },
-        {
-            "id": "SigNoz/signoz",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -6910,6 +6806,14 @@
         },
         {
             "id": "hylang/hy",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 192
+        },
+        {
+            "id": "SigNoz/signoz",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -7053,14 +6957,6 @@
             "weight": 201
         },
         {
-            "id": "zricethezav/gitleaks",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 202
-        },
-        {
             "id": "gruntwork-io/terragrunt",
             "deployment": 0,
             "failures": {
@@ -7115,6 +7011,14 @@
                 "type": 1
             },
             "weight": 203
+        },
+        {
+            "id": "zricethezav/gitleaks",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 204
         },
         {
             "id": "howdyai/botkit",
@@ -7205,14 +7109,6 @@
             "weight": 208
         },
         {
-            "id": "shlinkio/shlink",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 208
-        },
-        {
             "id": "rjsf-team/react-jsonschema-form",
             "deployment": 0,
             "failures": {
@@ -7221,15 +7117,15 @@
             "weight": 209
         },
         {
-            "id": "microsoft/WindowsAppSDK",
+            "id": "pachyderm/pachyderm",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 209
+            "weight": 210
         },
         {
-            "id": "pachyderm/pachyderm",
+            "id": "microsoft/WindowsAppSDK",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -7269,14 +7165,6 @@
             "weight": 211
         },
         {
-            "id": "archtechx/tenancy",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 211
-        },
-        {
             "id": "symfony/demo",
             "deployment": 0,
             "failures": {
@@ -7302,6 +7190,14 @@
         },
         {
             "id": "urfave/cli",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 212
+        },
+        {
+            "id": "archtechx/tenancy",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -7358,14 +7254,6 @@
         },
         {
             "id": "nats-io/nats-server",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 217
-        },
-        {
-            "id": "Codeception/Codeception",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -7458,7 +7346,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 219
+            "weight": 220
         },
         {
             "id": "Unitech/pm2",
@@ -7554,7 +7442,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 225
+            "weight": 226
         },
         {
             "id": "open-mmlab/mmdetection",
@@ -7661,14 +7549,6 @@
             "weight": 232
         },
         {
-            "id": "mosn/mosn",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 232
-        },
-        {
             "id": "bitpay/wallet",
             "deployment": 0,
             "failures": {
@@ -7694,6 +7574,14 @@
         },
         {
             "id": "distribution/distribution",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 233
+        },
+        {
+            "id": "mosn/mosn",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -7885,14 +7773,6 @@
             "weight": 247
         },
         {
-            "id": "crate/crate",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 247
-        },
-        {
             "id": "tuist/tuist",
             "deployment": 0,
             "failures": {
@@ -7917,23 +7797,15 @@
             "weight": 248
         },
         {
+            "id": "crate/crate",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 248
+        },
+        {
             "id": "jashkenas/backbone",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 249
-        },
-        {
-            "id": "go-acme/lego",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 249
-        },
-        {
-            "id": "dmlc/dgl",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -7989,6 +7861,14 @@
             "weight": 250
         },
         {
+            "id": "dmlc/dgl",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 250
+        },
+        {
             "id": "stellar/stellar-core",
             "deployment": 0,
             "failures": {
@@ -8019,6 +7899,14 @@
                 "type": 1
             },
             "weight": 251
+        },
+        {
+            "id": "go-acme/lego",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 252
         },
         {
             "id": "mkdocs/mkdocs",
@@ -8074,7 +7962,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 254
+            "weight": 255
         },
         {
             "id": "react-bootstrap/react-bootstrap",
@@ -8189,14 +8077,6 @@
             "weight": 260
         },
         {
-            "id": "ory/kratos",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 261
-        },
-        {
             "id": "vercel/hyper",
             "deployment": 0,
             "failures": {
@@ -8214,14 +8094,6 @@
         },
         {
             "id": "facebook/fresco",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 261
-        },
-        {
-            "id": "monicahq/monica",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -8293,22 +8165,6 @@
             "weight": 265
         },
         {
-            "id": "zadam/trilium",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 266
-        },
-        {
-            "id": "home-assistant/core",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 266
-        },
-        {
             "id": "remkop/picocli",
             "deployment": 0,
             "failures": {
@@ -8325,7 +8181,7 @@
             "weight": 267
         },
         {
-            "id": "runatlantis/atlantis",
+            "id": "zadam/trilium",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -8334,6 +8190,14 @@
         },
         {
             "id": "ehang-io/nps",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 268
+        },
+        {
+            "id": "runatlantis/atlantis",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -8365,22 +8229,6 @@
             "weight": 269
         },
         {
-            "id": "scrapy/scrapy",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 270
-        },
-        {
-            "id": "boto/boto3",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 270
-        },
-        {
             "id": "cloudflare/wrangler",
             "deployment": 0,
             "failures": {
@@ -8405,12 +8253,28 @@
             "weight": 270
         },
         {
-            "id": "garden-io/garden",
+            "id": "scrapy/scrapy",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
             "weight": 271
+        },
+        {
+            "id": "boto/boto3",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 272
+        },
+        {
+            "id": "garden-io/garden",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 272
         },
         {
             "id": "angular-ui/ui-router",
@@ -8437,14 +8301,6 @@
             "weight": 274
         },
         {
-            "id": "matrix-org/dendrite",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 275
-        },
-        {
             "id": "logaretm/vee-validate",
             "deployment": 0,
             "failures": {
@@ -8462,6 +8318,14 @@
         },
         {
             "id": "42wim/matterbridge",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 276
+        },
+        {
+            "id": "matrix-org/dendrite",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -8517,14 +8381,6 @@
             "weight": 278
         },
         {
-            "id": "stacks-network/stacks-blockchain",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 278
-        },
-        {
             "id": "ElementsProject/lightning",
             "deployment": 0,
             "failures": {
@@ -8542,6 +8398,14 @@
         },
         {
             "id": "PrismJS/prism",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 280
+        },
+        {
+            "id": "stacks-network/stacks-blockchain",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -8597,14 +8461,6 @@
             "weight": 282
         },
         {
-            "id": "payloadcms/payload",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 282
-        },
-        {
             "id": "moment/moment",
             "deployment": 0,
             "failures": {
@@ -8653,15 +8509,7 @@
             "weight": 284
         },
         {
-            "id": "shadow/shadow",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 284
-        },
-        {
-            "id": "hazelcast/hazelcast",
+            "id": "payloadcms/payload",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -8693,7 +8541,23 @@
             "weight": 285
         },
         {
+            "id": "shadow/shadow",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 285
+        },
+        {
             "id": "mborgerson/xemu",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 285
+        },
+        {
+            "id": "hazelcast/hazelcast",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -8789,15 +8653,15 @@
             "weight": 292
         },
         {
-            "id": "bentoml/BentoML",
+            "id": "angular/protractor",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 295
+            "weight": 296
         },
         {
-            "id": "angular/protractor",
+            "id": "bentoml/BentoML",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -8811,6 +8675,14 @@
                 "type": 1
             },
             "weight": 296
+        },
+        {
+            "id": "crossplane/crossplane",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 297
         },
         {
             "id": "google/model-viewer",
@@ -8830,14 +8702,6 @@
         },
         {
             "id": "pouchdb/pouchdb",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 298
-        },
-        {
-            "id": "crossplane/crossplane",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -9021,14 +8885,6 @@
             "weight": 307
         },
         {
-            "id": "youzan/vant-weapp",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 309
-        },
-        {
             "id": "GeekyAnts/NativeBase",
             "deployment": 0,
             "failures": {
@@ -9045,15 +8901,15 @@
             "weight": 310
         },
         {
-            "id": "rustwasm/wasm-bindgen",
+            "id": "boto/boto",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 310
+            "weight": 311
         },
         {
-            "id": "boto/boto",
+            "id": "rustwasm/wasm-bindgen",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -9101,6 +8957,14 @@
             "weight": 312
         },
         {
+            "id": "youzan/vant-weapp",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 313
+        },
+        {
             "id": "meilisearch/meilisearch",
             "deployment": 0,
             "failures": {
@@ -9115,14 +8979,6 @@
                 "type": 1
             },
             "weight": 313
-        },
-        {
-            "id": "BuilderIO/qwik",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 314
         },
         {
             "id": "grafana/k6",
@@ -9194,7 +9050,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 321
+            "weight": 322
         },
         {
             "id": "k3d-io/k3d",
@@ -9205,15 +9061,15 @@
             "weight": 322
         },
         {
-            "id": "shoelace-style/shoelace",
+            "id": "BuilderIO/qwik",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 323
+            "weight": 324
         },
         {
-            "id": "PrefectHQ/prefect",
+            "id": "pmndrs/react-spring",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -9221,7 +9077,7 @@
             "weight": 325
         },
         {
-            "id": "pmndrs/react-spring",
+            "id": "shoelace-style/shoelace",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -9293,15 +9149,15 @@
             "weight": 328
         },
         {
-            "id": "keystonejs/keystone-classic",
+            "id": "PrefectHQ/prefect",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 329
+            "weight": 328
         },
         {
-            "id": "apache/incubator-seatunnel",
+            "id": "keystonejs/keystone-classic",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -9315,6 +9171,14 @@
                 "type": 1
             },
             "weight": 329
+        },
+        {
+            "id": "apache/incubator-seatunnel",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 330
         },
         {
             "id": "stylus/stylus",
@@ -9333,14 +9197,6 @@
             "weight": 331
         },
         {
-            "id": "pyrocms/pyrocms",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 331
-        },
-        {
             "id": "arrayfire/arrayfire",
             "deployment": 0,
             "failures": {
@@ -9349,7 +9205,7 @@
             "weight": 332
         },
         {
-            "id": "nektos/act",
+            "id": "dromara/hutool",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -9357,12 +9213,12 @@
             "weight": 333
         },
         {
-            "id": "dromara/hutool",
+            "id": "nektos/act",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 333
+            "weight": 334
         },
         {
             "id": "stan-dev/stan",
@@ -9437,14 +9293,6 @@
             "weight": 341
         },
         {
-            "id": "akfamily/akshare",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 341
-        },
-        {
             "id": "HDInnovations/UNIT3D-Community-Edition",
             "deployment": 0,
             "failures": {
@@ -9453,20 +9301,20 @@
             "weight": 341
         },
         {
+            "id": "akfamily/akshare",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 342
+        },
+        {
             "id": "k3s-io/k3s",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
             "weight": 343
-        },
-        {
-            "id": "ory/hydra",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 344
         },
         {
             "id": "nocodb/nocodb",
@@ -9483,6 +9331,14 @@
                 "type": 1
             },
             "weight": 344
+        },
+        {
+            "id": "ory/hydra",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 345
         },
         {
             "id": "select2/select2",
@@ -9525,15 +9381,15 @@
             "weight": 350
         },
         {
-            "id": "mapstruct/mapstruct",
+            "id": "zellij-org/zellij",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 350
+            "weight": 351
         },
         {
-            "id": "zellij-org/zellij",
+            "id": "mapstruct/mapstruct",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -9549,20 +9405,12 @@
             "weight": 352
         },
         {
-            "id": "Tencent/Hippy",
+            "id": "testcontainers/testcontainers-java",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
             "weight": 352
-        },
-        {
-            "id": "rust-lang/rustup",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 353
         },
         {
             "id": "mimblewimble/grin",
@@ -9573,7 +9421,15 @@
             "weight": 353
         },
         {
-            "id": "testcontainers/testcontainers-java",
+            "id": "rust-lang/rustup",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 353
+        },
+        {
+            "id": "Tencent/Hippy",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -9586,7 +9442,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 354
+            "weight": 355
         },
         {
             "id": "SpartnerNL/Laravel-Excel",
@@ -9698,7 +9554,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 367
+            "weight": 368
         },
         {
             "id": "getredash/redash",
@@ -9741,14 +9597,6 @@
             "weight": 373
         },
         {
-            "id": "wp-graphql/wp-graphql",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 373
-        },
-        {
             "id": "benawad/dogehouse",
             "deployment": 0,
             "failures": {
@@ -9757,7 +9605,7 @@
             "weight": 374
         },
         {
-            "id": "realm/SwiftLint",
+            "id": "wp-graphql/wp-graphql",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -9782,6 +9630,14 @@
         },
         {
             "id": "LemmyNet/lemmy",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 375
+        },
+        {
+            "id": "realm/SwiftLint",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -9829,14 +9685,6 @@
             "weight": 381
         },
         {
-            "id": "apache/arrow-rs",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 382
-        },
-        {
             "id": "osTicket/osTicket",
             "deployment": 0,
             "failures": {
@@ -9861,14 +9709,6 @@
             "weight": 389
         },
         {
-            "id": "mermaid-js/mermaid",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 390
-        },
-        {
             "id": "NginxProxyManager/nginx-proxy-manager",
             "deployment": 0,
             "failures": {
@@ -9883,6 +9723,14 @@
                 "type": 1
             },
             "weight": 390
+        },
+        {
+            "id": "mermaid-js/mermaid",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 391
         },
         {
             "id": "arco-design/arco-design",
@@ -9906,18 +9754,10 @@
             "failures": {
                 "type": 1
             },
-            "weight": 393
+            "weight": 394
         },
         {
             "id": "zeek/zeek",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 396
-        },
-        {
-            "id": "GoogleContainerTools/jib",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -9942,6 +9782,14 @@
         },
         {
             "id": "flot/flot",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 397
+        },
+        {
+            "id": "GoogleContainerTools/jib",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -10029,14 +9877,6 @@
             "weight": 406
         },
         {
-            "id": "Tinkoff/taiga-ui",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 406
-        },
-        {
             "id": "VictoriaMetrics/VictoriaMetrics",
             "deployment": 0,
             "failures": {
@@ -10046,6 +9886,14 @@
         },
         {
             "id": "secdev/scapy",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 407
+        },
+        {
+            "id": "Tinkoff/taiga-ui",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -10077,22 +9925,6 @@
             "weight": 409
         },
         {
-            "id": "api-platform/core",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 410
-        },
-        {
-            "id": "mswjs/msw",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 412
-        },
-        {
             "id": "libgdx/libgdx",
             "deployment": 0,
             "failures": {
@@ -10102,6 +9934,14 @@
         },
         {
             "id": "streamlink/streamlink",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 413
+        },
+        {
+            "id": "mswjs/msw",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -10125,14 +9965,6 @@
             "weight": 414
         },
         {
-            "id": "aio-libs/aiohttp",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 414
-        },
-        {
             "id": "django-cms/django-cms",
             "deployment": 0,
             "failures": {
@@ -10142,6 +9974,14 @@
         },
         {
             "id": "bpmn-io/bpmn-js",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 415
+        },
+        {
+            "id": "aio-libs/aiohttp",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -10165,22 +10005,6 @@
             "weight": 418
         },
         {
-            "id": "kubernetes-sigs/external-dns",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 420
-        },
-        {
-            "id": "fyne-io/fyne",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 421
-        },
-        {
             "id": "tqdm/tqdm",
             "deployment": 0,
             "failures": {
@@ -10190,6 +10014,22 @@
         },
         {
             "id": "be5invis/Iosevka",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 423
+        },
+        {
+            "id": "fyne-io/fyne",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 423
+        },
+        {
+            "id": "kubernetes-sigs/external-dns",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -10213,15 +10053,15 @@
             "weight": 424
         },
         {
-            "id": "greenplum-db/gpdb",
+            "id": "nextauthjs/next-auth",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 429
+            "weight": 430
         },
         {
-            "id": "nextauthjs/next-auth",
+            "id": "greenplum-db/gpdb",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -10269,14 +10109,6 @@
             "weight": 433
         },
         {
-            "id": "alist-org/alist",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 434
-        },
-        {
             "id": "karmada-io/karmada",
             "deployment": 0,
             "failures": {
@@ -10291,6 +10123,14 @@
                 "type": 1
             },
             "weight": 435
+        },
+        {
+            "id": "alist-org/alist",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 436
         },
         {
             "id": "optuna/optuna",
@@ -10333,14 +10173,6 @@
             "weight": 445
         },
         {
-            "id": "spotDL/spotify-downloader",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 446
-        },
-        {
             "id": "phan/phan",
             "deployment": 0,
             "failures": {
@@ -10350,6 +10182,14 @@
         },
         {
             "id": "locustio/locust",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 447
+        },
+        {
+            "id": "spotDL/spotify-downloader",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -10389,12 +10229,20 @@
             "weight": 449
         },
         {
+            "id": "FederatedAI/FATE",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 453
+        },
+        {
             "id": "johnsoncodehk/volar",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 451
+            "weight": 453
         },
         {
             "id": "redwoodjs/redwood",
@@ -10402,15 +10250,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 452
-        },
-        {
-            "id": "FederatedAI/FATE",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 453
+            "weight": 454
         },
         {
             "id": "mikro-orm/mikro-orm",
@@ -10445,20 +10285,20 @@
             "weight": 455
         },
         {
-            "id": "treeverse/lakeFS",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 455
-        },
-        {
             "id": "Warzone2100/warzone2100",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
             "weight": 457
+        },
+        {
+            "id": "treeverse/lakeFS",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 459
         },
         {
             "id": "mitmproxy/mitmproxy",
@@ -10482,18 +10322,10 @@
             "failures": {
                 "type": 1
             },
-            "weight": 463
-        },
-        {
-            "id": "flameshot-org/flameshot",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
             "weight": 464
         },
         {
-            "id": "hyprwm/Hyprland",
+            "id": "flameshot-org/flameshot",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -10507,6 +10339,14 @@
                 "type": 1
             },
             "weight": 464
+        },
+        {
+            "id": "hyprwm/Hyprland",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 466
         },
         {
             "id": "sqlitebrowser/sqlitebrowser",
@@ -10570,7 +10410,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 477
+            "weight": 478
         },
         {
             "id": "operator-framework/operator-sdk",
@@ -10685,15 +10525,15 @@
             "weight": 492
         },
         {
-            "id": "open-policy-agent/opa",
+            "id": "microsoft/monaco-editor",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 493
+            "weight": 494
         },
         {
-            "id": "microsoft/monaco-editor",
+            "id": "open-policy-agent/opa",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -10706,7 +10546,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 494
+            "weight": 495
         },
         {
             "id": "RedisInsight/RedisDesktopManager",
@@ -10733,22 +10573,6 @@
             "weight": 498
         },
         {
-            "id": "mindsdb/mindsdb",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 498
-        },
-        {
-            "id": "deepset-ai/haystack",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 499
-        },
-        {
             "id": "vapor/vapor",
             "deployment": 0,
             "failures": {
@@ -10757,12 +10581,28 @@
             "weight": 500
         },
         {
+            "id": "deepset-ai/haystack",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 501
+        },
+        {
             "id": "turbot/steampipe",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 502
+            "weight": 503
+        },
+        {
+            "id": "mindsdb/mindsdb",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 503
         },
         {
             "id": "bitwarden/clients",
@@ -10770,7 +10610,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 503
+            "weight": 504
         },
         {
             "id": "remix-run/remix",
@@ -10786,15 +10626,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 508
-        },
-        {
-            "id": "kevinpapst/kimai2",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 511
+            "weight": 509
         },
         {
             "id": "googleforgames/agones",
@@ -10877,14 +10709,6 @@
             "weight": 523
         },
         {
-            "id": "halo-dev/halo",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 523
-        },
-        {
             "id": "FreshRSS/FreshRSS",
             "deployment": 0,
             "failures": {
@@ -10901,14 +10725,6 @@
             "weight": 529
         },
         {
-            "id": "pomerium/pomerium",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 531
-        },
-        {
             "id": "thingsboard/thingsboard",
             "deployment": 0,
             "failures": {
@@ -10917,7 +10733,23 @@
             "weight": 531
         },
         {
+            "id": "pomerium/pomerium",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 532
+        },
+        {
             "id": "keeweb/keeweb",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 533
+        },
+        {
+            "id": "halo-dev/halo",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -10933,15 +10765,15 @@
             "weight": 534
         },
         {
-            "id": "canonical/multipass",
+            "id": "retorquere/zotero-better-bibtex",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 534
+            "weight": 535
         },
         {
-            "id": "retorquere/zotero-better-bibtex",
+            "id": "canonical/multipass",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -10965,14 +10797,6 @@
             "weight": 536
         },
         {
-            "id": "aws/aws-cli",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 537
-        },
-        {
             "id": "aquasecurity/trivy",
             "deployment": 0,
             "failures": {
@@ -10989,23 +10813,23 @@
             "weight": 538
         },
         {
+            "id": "aws/aws-cli",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 540
+        },
+        {
             "id": "clap-rs/clap",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 539
+            "weight": 540
         },
         {
             "id": "vendure-ecommerce/vendure",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 542
-        },
-        {
-            "id": "firebase/firebase-tools",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -11021,7 +10845,7 @@
             "weight": 547
         },
         {
-            "id": "Uniswap/interface",
+            "id": "firebase/firebase-tools",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -11106,7 +10930,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 558
+            "weight": 559
         },
         {
             "id": "caddyserver/caddy",
@@ -11133,14 +10957,6 @@
             "weight": 562
         },
         {
-            "id": "projectdiscovery/nuclei",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 563
-        },
-        {
             "id": "dortania/OpenCore-Legacy-Patcher",
             "deployment": 0,
             "failures": {
@@ -11157,22 +10973,6 @@
             "weight": 563
         },
         {
-            "id": "TeamAmaze/AmazeFileManager",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 563
-        },
-        {
-            "id": "Shopify/polaris",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 564
-        },
-        {
             "id": "nushell/nushell",
             "deployment": 0,
             "failures": {
@@ -11181,15 +10981,31 @@
             "weight": 564
         },
         {
-            "id": "opensearch-project/OpenSearch",
+            "id": "TeamAmaze/AmazeFileManager",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 566
+            "weight": 564
         },
         {
-            "id": "JanDeDobbeleer/oh-my-posh",
+            "id": "projectdiscovery/nuclei",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 565
+        },
+        {
+            "id": "Shopify/polaris",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 565
+        },
+        {
+            "id": "opensearch-project/OpenSearch",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -11197,20 +11013,12 @@
             "weight": 567
         },
         {
-            "id": "huggingface/datasets",
+            "id": "JanDeDobbeleer/oh-my-posh",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 569
-        },
-        {
-            "id": "Eugeny/tabby",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 569
+            "weight": 568
         },
         {
             "id": "NVIDIA/NeMo",
@@ -11219,6 +11027,22 @@
                 "type": 1
             },
             "weight": 570
+        },
+        {
+            "id": "huggingface/datasets",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 571
+        },
+        {
+            "id": "Eugeny/tabby",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 571
         },
         {
             "id": "ImageMagick/ImageMagick",
@@ -11237,14 +11061,6 @@
             "weight": 573
         },
         {
-            "id": "pytorch/vision",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 577
-        },
-        {
             "id": "Automattic/simplenote-electron",
             "deployment": 0,
             "failures": {
@@ -11261,15 +11077,23 @@
             "weight": 580
         },
         {
-            "id": "strimzi/strimzi-kafka-operator",
+            "id": "pytorch/vision",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 581
+            "weight": 580
         },
         {
             "id": "iNavFlight/inav",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 582
+        },
+        {
+            "id": "strimzi/strimzi-kafka-operator",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -11370,7 +11194,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 595
+            "weight": 596
         },
         {
             "id": "huggingface/transformers",
@@ -11434,7 +11258,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 609
+            "weight": 610
         },
         {
             "id": "mozilla-mobile/focus-ios",
@@ -11474,7 +11298,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 619
+            "weight": 620
         },
         {
             "id": "taichi-dev/taichi",
@@ -11570,18 +11394,10 @@
             "failures": {
                 "type": 1
             },
-            "weight": 637
+            "weight": 638
         },
         {
             "id": "scikit-image/scikit-image",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 639
-        },
-        {
-            "id": "monkeytypegame/monkeytype",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -11595,6 +11411,14 @@
                 "type": 1
             },
             "weight": 640
+        },
+        {
+            "id": "monkeytypegame/monkeytype",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 641
         },
         {
             "id": "FreeTubeApp/FreeTube",
@@ -11619,14 +11443,6 @@
                 "type": 1
             },
             "weight": 652
-        },
-        {
-            "id": "opnsense/core",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 654
         },
         {
             "id": "software-mansion/react-native-reanimated",
@@ -11722,7 +11538,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 706
+            "weight": 711
         },
         {
             "id": "cryptomator/cryptomator",
@@ -11746,15 +11562,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 718
-        },
-        {
-            "id": "puppeteer/puppeteer",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 722
+            "weight": 719
         },
         {
             "id": "baidu/amis",
@@ -11763,6 +11571,14 @@
                 "type": 1
             },
             "weight": 723
+        },
+        {
+            "id": "puppeteer/puppeteer",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 724
         },
         {
             "id": "swagger-api/swagger-ui",
@@ -11781,14 +11597,6 @@
             "weight": 725
         },
         {
-            "id": "statamic/cms",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 725
-        },
-        {
             "id": "Project-OSRM/osrm-backend",
             "deployment": 0,
             "failures": {
@@ -11797,12 +11605,12 @@
             "weight": 726
         },
         {
-            "id": "realm/realm-js",
+            "id": "statamic/cms",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 727
+            "weight": 726
         },
         {
             "id": "x-extends/vxe-table",
@@ -11811,6 +11619,14 @@
                 "type": 1
             },
             "weight": 729
+        },
+        {
+            "id": "realm/realm-js",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 730
         },
         {
             "id": "ReactiveX/RxJava",
@@ -11826,7 +11642,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 730
+            "weight": 731
         },
         {
             "id": "dgraph-io/dgraph",
@@ -11853,14 +11669,6 @@
             "weight": 741
         },
         {
-            "id": "elastic/eui",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 742
-        },
-        {
             "id": "nodejs/node",
             "deployment": 0,
             "failures": {
@@ -11869,12 +11677,20 @@
             "weight": 743
         },
         {
+            "id": "elastic/eui",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 744
+        },
+        {
             "id": "dagster-io/dagster",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 745
+            "weight": 747
         },
         {
             "id": "bolt/bolt",
@@ -11909,14 +11725,6 @@
             "weight": 758
         },
         {
-            "id": "starship/starship",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 761
-        },
-        {
             "id": "hajimehoshi/ebiten",
             "deployment": 0,
             "failures": {
@@ -11925,12 +11733,20 @@
             "weight": 762
         },
         {
+            "id": "starship/starship",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 763
+        },
+        {
             "id": "apache/beam",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 764
+            "weight": 765
         },
         {
             "id": "defold/defold",
@@ -11954,7 +11770,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 778
+            "weight": 779
         },
         {
             "id": "wenzhixin/bootstrap-table",
@@ -12013,15 +11829,15 @@
             "weight": 803
         },
         {
-            "id": "aseprite/aseprite",
+            "id": "reactioncommerce/reaction",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 806
+            "weight": 807
         },
         {
-            "id": "reactioncommerce/reaction",
+            "id": "aseprite/aseprite",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -12061,7 +11877,7 @@
             "weight": 813
         },
         {
-            "id": "goharbor/harbor",
+            "id": "NixOS/nix",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -12069,12 +11885,12 @@
             "weight": 814
         },
         {
-            "id": "NixOS/nix",
+            "id": "goharbor/harbor",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 814
+            "weight": 815
         },
         {
             "id": "Foundry376/Mailspring",
@@ -12194,18 +12010,10 @@
             "failures": {
                 "type": 1
             },
-            "weight": 855
+            "weight": 856
         },
         {
             "id": "amplication/amplication",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 863
-        },
-        {
-            "id": "outline/outline",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -12214,6 +12022,14 @@
         },
         {
             "id": "ant-design/ant-design-pro",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 868
+        },
+        {
+            "id": "outline/outline",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -12245,14 +12061,6 @@
             "weight": 875
         },
         {
-            "id": "frappe/frappe",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 879
-        },
-        {
             "id": "dankamongmen/notcurses",
             "deployment": 0,
             "failures": {
@@ -12269,6 +12077,14 @@
             "weight": 883
         },
         {
+            "id": "frappe/frappe",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 885
+        },
+        {
             "id": "endless-sky/endless-sky",
             "deployment": 0,
             "failures": {
@@ -12282,7 +12098,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 890
+            "weight": 891
         },
         {
             "id": "fwupd/fwupd",
@@ -12306,7 +12122,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 895
+            "weight": 896
         },
         {
             "id": "realm/realm-java",
@@ -12315,14 +12131,6 @@
                 "type": 1
             },
             "weight": 896
-        },
-        {
-            "id": "kiali/kiali",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 900
         },
         {
             "id": "hasura/graphql-engine",
@@ -12342,6 +12150,14 @@
         },
         {
             "id": "facebook/react",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 901
+        },
+        {
+            "id": "kiali/kiali",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -12370,7 +12186,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 906
+            "weight": 907
         },
         {
             "id": "Automattic/mongoose",
@@ -12410,7 +12226,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 928
+            "weight": 929
         },
         {
             "id": "berty/berty",
@@ -12434,7 +12250,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 951
+            "weight": 952
         },
         {
             "id": "symless/synergy-core",
@@ -12442,7 +12258,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 957
+            "weight": 958
         },
         {
             "id": "numba/numba",
@@ -12485,14 +12301,6 @@
             "weight": 987
         },
         {
-            "id": "codeigniter4/CodeIgniter4",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 992
-        },
-        {
             "id": "pterodactyl/panel",
             "deployment": 0,
             "failures": {
@@ -12514,18 +12322,18 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1023
+            "weight": 1024
         },
         {
-            "id": "kata-containers/kata-containers",
+            "id": "dapr/dapr",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 1025
+            "weight": 1026
         },
         {
-            "id": "dapr/dapr",
+            "id": "kata-containers/kata-containers",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -12578,7 +12386,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1058
+            "weight": 1059
         },
         {
             "id": "Semantic-Org/Semantic-UI",
@@ -12618,23 +12426,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1076
-        },
-        {
-            "id": "ccxt/ccxt",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 1082
-        },
-        {
-            "id": "shaka-project/shaka-player",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 1082
+            "weight": 1079
         },
         {
             "id": "commaai/openpilot",
@@ -12643,6 +12435,22 @@
                 "type": 1
             },
             "weight": 1083
+        },
+        {
+            "id": "ccxt/ccxt",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1085
+        },
+        {
+            "id": "shaka-project/shaka-player",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1087
         },
         {
             "id": "apache/mxnet",
@@ -12666,7 +12474,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1095
+            "weight": 1096
         },
         {
             "id": "laravel/framework",
@@ -12698,7 +12506,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1117
+            "weight": 1119
         },
         {
             "id": "cli/cli",
@@ -12706,7 +12514,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1122
+            "weight": 1124
         },
         {
             "id": "ampproject/amp-wp",
@@ -12717,28 +12525,20 @@
             "weight": 1124
         },
         {
-            "id": "ethereum/solidity",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 1125
-        },
-        {
             "id": "dbt-labs/dbt-core",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 1126
+            "weight": 1127
         },
         {
-            "id": "python-poetry/poetry",
+            "id": "ethereum/solidity",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 1130
+            "weight": 1127
         },
         {
             "id": "robotframework/robotframework",
@@ -12749,15 +12549,23 @@
             "weight": 1130
         },
         {
-            "id": "localstack/localstack",
+            "id": "python-poetry/poetry",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 1135
+            "weight": 1131
         },
         {
             "id": "gohugoio/hugo",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1137
+        },
+        {
+            "id": "localstack/localstack",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -12794,7 +12602,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1150
+            "weight": 1153
         },
         {
             "id": "habitat-sh/habitat",
@@ -12866,7 +12674,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1191
+            "weight": 1192
         },
         {
             "id": "fish-shell/fish-shell",
@@ -12877,7 +12685,7 @@
             "weight": 1192
         },
         {
-            "id": "ipfs/kubo",
+            "id": "thelounge/thelounge",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -12885,12 +12693,12 @@
             "weight": 1194
         },
         {
-            "id": "thelounge/thelounge",
+            "id": "ipfs/kubo",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 1194
+            "weight": 1195
         },
         {
             "id": "mlflow/mlflow",
@@ -12938,7 +12746,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1214
+            "weight": 1215
         },
         {
             "id": "surveyjs/survey-library",
@@ -12954,7 +12762,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1240
+            "weight": 1239
         },
         {
             "id": "rust-lang/cargo",
@@ -12962,7 +12770,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1242
+            "weight": 1243
         },
         {
             "id": "DevExpress/testcafe",
@@ -12970,15 +12778,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1249
-        },
-        {
-            "id": "grpc/grpc-go",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 1256
+            "weight": 1250
         },
         {
             "id": "react-native-webview/react-native-webview",
@@ -12986,7 +12786,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1262
+            "weight": 1263
         },
         {
             "id": "Elgg/Elgg",
@@ -13013,12 +12813,20 @@
             "weight": 1269
         },
         {
+            "id": "grpc/grpc-go",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1271
+        },
+        {
             "id": "denoland/deno",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 1272
+            "weight": 1273
         },
         {
             "id": "weaveworks/eksctl",
@@ -13034,23 +12842,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1282
-        },
-        {
-            "id": "Budibase/budibase",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 1292
-        },
-        {
-            "id": "PostHog/posthog",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 1293
+            "weight": 1284
         },
         {
             "id": "sequelize/sequelize",
@@ -13061,12 +12853,12 @@
             "weight": 1294
         },
         {
-            "id": "MaterializeInc/materialize",
+            "id": "PostHog/posthog",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 1302
+            "weight": 1296
         },
         {
             "id": "swc-project/swc",
@@ -13074,7 +12866,15 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1306
+            "weight": 1305
+        },
+        {
+            "id": "MaterializeInc/materialize",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1305
         },
         {
             "id": "chainer/chainer",
@@ -13083,6 +12883,14 @@
                 "type": 1
             },
             "weight": 1307
+        },
+        {
+            "id": "Budibase/budibase",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1310
         },
         {
             "id": "composer/composer",
@@ -13098,7 +12906,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1319
+            "weight": 1321
         },
         {
             "id": "backstage/backstage",
@@ -13106,7 +12914,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1320
+            "weight": 1323
         },
         {
             "id": "qTox/qTox",
@@ -13122,7 +12930,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1327
+            "weight": 1329
         },
         {
             "id": "osquery/osquery",
@@ -13154,7 +12962,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1337
+            "weight": 1338
         },
         {
             "id": "lightningnetwork/lnd",
@@ -13162,7 +12970,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1341
+            "weight": 1342
         },
         {
             "id": "webpack/webpack",
@@ -13178,7 +12986,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1363
+            "weight": 1368
         },
         {
             "id": "kovidgoyal/kitty",
@@ -13186,7 +12994,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1379
+            "weight": 1380
         },
         {
             "id": "rust-lang/rust-clippy",
@@ -13194,7 +13002,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1381
+            "weight": 1382
         },
         {
             "id": "elastic/logstash",
@@ -13202,7 +13010,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1388
+            "weight": 1390
         },
         {
             "id": "uber/baseweb",
@@ -13226,7 +13034,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1401
+            "weight": 1402
         },
         {
             "id": "explosion/spaCy",
@@ -13258,7 +13066,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1439
+            "weight": 1441
         },
         {
             "id": "wesnoth/wesnoth",
@@ -13266,7 +13074,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1461
+            "weight": 1462
         },
         {
             "id": "phalcon/cphalcon",
@@ -13274,7 +13082,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1463
+            "weight": 1465
         },
         {
             "id": "concourse/concourse",
@@ -13322,7 +13130,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1510
+            "weight": 1513
         },
         {
             "id": "jhipster/generator-jhipster",
@@ -13338,7 +13146,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1529
+            "weight": 1530
         },
         {
             "id": "eclipse-theia/theia",
@@ -13354,15 +13162,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1535
-        },
-        {
-            "id": "keycloak/keycloak",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 1537
+            "weight": 1536
         },
         {
             "id": "doctrine/dbal",
@@ -13373,12 +13173,20 @@
             "weight": 1539
         },
         {
+            "id": "keycloak/keycloak",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1540
+        },
+        {
             "id": "EasyCorp/EasyAdminBundle",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 1546
+            "weight": 1547
         },
         {
             "id": "YetiForceCompany/YetiForceCRM",
@@ -13394,15 +13202,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1562
-        },
-        {
-            "id": "facebook/jest",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 1580
+            "weight": 1569
         },
         {
             "id": "matplotlib/matplotlib",
@@ -13411,6 +13211,14 @@
                 "type": 1
             },
             "weight": 1581
+        },
+        {
+            "id": "facebook/jest",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1582
         },
         {
             "id": "firefly-iii/firefly-iii",
@@ -13442,7 +13250,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1606
+            "weight": 1607
         },
         {
             "id": "strapi/strapi",
@@ -13450,7 +13258,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1610
+            "weight": 1611
         },
         {
             "id": "corona-warn-app/cwa-app-ios",
@@ -13466,7 +13274,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1621
+            "weight": 1622
         },
         {
             "id": "RasaHQ/rasa",
@@ -13482,7 +13290,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1648
+            "weight": 1651
         },
         {
             "id": "apache/skywalking",
@@ -13522,7 +13330,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1740
+            "weight": 1741
         },
         {
             "id": "wagtail/wagtail",
@@ -13546,7 +13354,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1760
+            "weight": 1761
         },
         {
             "id": "TryGhost/Ghost",
@@ -13562,7 +13370,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1798
+            "weight": 1799
         },
         {
             "id": "bagisto/bagisto",
@@ -13570,7 +13378,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1838
+            "weight": 1840
         },
         {
             "id": "Tribler/tribler",
@@ -13586,7 +13394,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1855
+            "weight": 1859
         },
         {
             "id": "orientechnologies/orientdb",
@@ -13610,7 +13418,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1920
+            "weight": 1922
         },
         {
             "id": "Sylius/Sylius",
@@ -13645,20 +13453,20 @@
             "weight": 1964
         },
         {
-            "id": "airbytehq/airbyte",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 1966
-        },
-        {
             "id": "microsoft/vscode-cpptools",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 1970
+            "weight": 1972
+        },
+        {
+            "id": "airbytehq/airbyte",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 1972
         },
         {
             "id": "carbon-design-system/carbon",
@@ -13666,7 +13474,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 1971
+            "weight": 1981
         },
         {
             "id": "salesagility/SuiteCRM",
@@ -13690,7 +13498,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 2029
+            "weight": 2031
         },
         {
             "id": "twbs/bootstrap",
@@ -13714,7 +13522,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 2064
+            "weight": 2074
         },
         {
             "id": "rook/rook",
@@ -13730,7 +13538,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 2099
+            "weight": 2101
         },
         {
             "id": "argoproj/argo-workflows",
@@ -13738,7 +13546,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 2101
+            "weight": 2104
         },
         {
             "id": "handsontable/handsontable",
@@ -13754,7 +13562,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 2140
+            "weight": 2143
         },
         {
             "id": "OpenRCT2/OpenRCT2",
@@ -13762,15 +13570,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 2144
-        },
-        {
-            "id": "StarRocks/starrocks",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 2171
+            "weight": 2145
         },
         {
             "id": "netbox-community/netbox",
@@ -13778,7 +13578,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 2173
+            "weight": 2174
         },
         {
             "id": "TeamNewPipe/NewPipe",
@@ -13787,6 +13587,14 @@
                 "type": 1
             },
             "weight": 2181
+        },
+        {
+            "id": "StarRocks/starrocks",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 2186
         },
         {
             "id": "npm/cli",
@@ -13818,7 +13626,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 2236
+            "weight": 2237
         },
         {
             "id": "keepassxreboot/keepassxc",
@@ -13834,7 +13642,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 2267
+            "weight": 2268
         },
         {
             "id": "refined-github/refined-github",
@@ -13850,7 +13658,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 2286
+            "weight": 2287
         },
         {
             "id": "clementine-player/Clementine",
@@ -13866,7 +13674,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 2352
+            "weight": 2353
         },
         {
             "id": "bokeh/bokeh",
@@ -13882,15 +13690,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 2441
-        },
-        {
-            "id": "kubernetes/minikube",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 2553
+            "weight": 2442
         },
         {
             "id": "PX4/PX4-Autopilot",
@@ -13899,6 +13699,14 @@
                 "type": 1
             },
             "weight": 2553
+        },
+        {
+            "id": "kubernetes/minikube",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 2554
         },
         {
             "id": "bitcoin/bitcoin",
@@ -13914,7 +13722,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 2632
+            "weight": 2635
         },
         {
             "id": "Graylog2/graylog2-server",
@@ -13946,7 +13754,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 2714
+            "weight": 2717
         },
         {
             "id": "angular/angular-cli",
@@ -13954,7 +13762,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 2819
+            "weight": 2821
         },
         {
             "id": "ckeditor/ckeditor5",
@@ -13962,7 +13770,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 2828
+            "weight": 2830
         },
         {
             "id": "NodeBB/NodeBB",
@@ -13978,18 +13786,10 @@
             "failures": {
                 "type": 1
             },
-            "weight": 2927
+            "weight": 2928
         },
         {
             "id": "Chia-Network/chia-blockchain",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 2938
-        },
-        {
-            "id": "microsoft/terminal",
             "deployment": 0,
             "failures": {
                 "type": 1
@@ -14005,20 +13805,20 @@
             "weight": 2941
         },
         {
+            "id": "microsoft/terminal",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 2942
+        },
+        {
             "id": "rapidsai/cudf",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 2965
-        },
-        {
-            "id": "directus/directus",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 2971
+            "weight": 2968
         },
         {
             "id": "Lightning-AI/lightning",
@@ -14029,12 +13829,20 @@
             "weight": 2973
         },
         {
+            "id": "directus/directus",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 2974
+        },
+        {
             "id": "spring-projects/spring-security",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 3000
+            "weight": 3001
         },
         {
             "id": "doctrine/orm",
@@ -14058,7 +13866,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 3090
+            "weight": 3091
         },
         {
             "id": "babel/babel",
@@ -14066,7 +13874,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 3232
+            "weight": 3235
         },
         {
             "id": "nrwl/nx",
@@ -14074,15 +13882,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 3261
-        },
-        {
-            "id": "frappe/erpnext",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 3304
+            "weight": 3267
         },
         {
             "id": "OpenAPITools/openapi-generator",
@@ -14098,7 +13898,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 3307
+            "weight": 3309
         },
         {
             "id": "metersphere/metersphere",
@@ -14106,7 +13906,15 @@
             "failures": {
                 "type": 1
             },
-            "weight": 3310
+            "weight": 3311
+        },
+        {
+            "id": "frappe/erpnext",
+            "deployment": 0,
+            "failures": {
+                "type": 1
+            },
+            "weight": 3312
         },
         {
             "id": "hashicorp/terraform-provider-azurerm",
@@ -14138,7 +13946,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 3420
+            "weight": 3421
         },
         {
             "id": "eslint/eslint",
@@ -14154,7 +13962,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 3603
+            "weight": 3605
         },
         {
             "id": "elastic/beats",
@@ -14162,7 +13970,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 3777
+            "weight": 3779
         },
         {
             "id": "containers/podman",
@@ -14170,7 +13978,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 3807
+            "weight": 3817
         },
         {
             "id": "wordpress-mobile/WordPress-iOS",
@@ -14186,7 +13994,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 3907
+            "weight": 3909
         },
         {
             "id": "apache/pulsar",
@@ -14202,15 +14010,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 4057
-        },
-        {
-            "id": "modxcms/revolution",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 4062
+            "weight": 4061
         },
         {
             "id": "spyder-ide/spyder",
@@ -14221,20 +14021,12 @@
             "weight": 4079
         },
         {
-            "id": "roundcube/roundcubemail",
-            "deployment": 0,
-            "failures": {
-                "type": 1
-            },
-            "weight": 4124
-        },
-        {
             "id": "milvus-io/milvus",
             "deployment": 0,
             "failures": {
                 "type": 1
             },
-            "weight": 4159
+            "weight": 4161
         },
         {
             "id": "minetest/minetest",
@@ -14242,7 +14034,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 4159
+            "weight": 4161
         },
         {
             "id": "ansible/awx",
@@ -14258,7 +14050,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 4208
+            "weight": 4211
         },
         {
             "id": "openshift/origin",
@@ -14274,7 +14066,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 4355
+            "weight": 4358
         },
         {
             "id": "Ultimaker/Cura",
@@ -14282,7 +14074,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 4585
+            "weight": 4586
         },
         {
             "id": "spring-projects/spring-framework",
@@ -14298,7 +14090,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 4699
+            "weight": 4701
         },
         {
             "id": "matomo-org/matomo",
@@ -14306,7 +14098,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 4801
+            "weight": 4803
         },
         {
             "id": "electron/electron",
@@ -14314,7 +14106,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 4922
+            "weight": 4919
         },
         {
             "id": "hashicorp/terraform-provider-aws",
@@ -14322,7 +14114,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 4960
+            "weight": 4965
         },
         {
             "id": "cilium/cilium",
@@ -14330,7 +14122,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 5117
+            "weight": 5120
         },
         {
             "id": "bazelbuild/bazel",
@@ -14338,7 +14130,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 5177
+            "weight": 5181
         },
         {
             "id": "ClickHouse/ClickHouse",
@@ -14346,7 +14138,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 5249
+            "weight": 5253
         },
         {
             "id": "mautic/mautic",
@@ -14370,7 +14162,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 5506
+            "weight": 5508
         },
         {
             "id": "highcharts/highcharts",
@@ -14386,7 +14178,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 5843
+            "weight": 5842
         },
         {
             "id": "dbeaver/dbeaver",
@@ -14394,7 +14186,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 6124
+            "weight": 6131
         },
         {
             "id": "appsmithorg/appsmith",
@@ -14402,7 +14194,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 6416
+            "weight": 6425
         },
         {
             "id": "quarkusio/quarkus",
@@ -14410,7 +14202,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 6622
+            "weight": 6630
         },
         {
             "id": "eclipse/che",
@@ -14418,7 +14210,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 6682
+            "weight": 6684
         },
         {
             "id": "angular/components",
@@ -14426,7 +14218,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 6735
+            "weight": 6750
         },
         {
             "id": "grafana/grafana",
@@ -14434,7 +14226,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 6993
+            "weight": 7008
         },
         {
             "id": "aws/aws-cdk",
@@ -14442,7 +14234,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 7556
+            "weight": 7574
         },
         {
             "id": "angular/angular",
@@ -14450,7 +14242,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 7707
+            "weight": 7708
         },
         {
             "id": "go-gitea/gitea",
@@ -14458,7 +14250,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 7781
+            "weight": 7782
         },
         {
             "id": "rust-lang/rust",
@@ -14466,7 +14258,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 8132
+            "weight": 8133
         },
         {
             "id": "pandas-dev/pandas",
@@ -14474,7 +14266,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 8235
+            "weight": 8236
         },
         {
             "id": "pingcap/tidb",
@@ -14482,7 +14274,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 9457
+            "weight": 9464
         },
         {
             "id": "tensorflow/tensorflow",
@@ -14490,7 +14282,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 9672
+            "weight": 9674
         },
         {
             "id": "cockroachdb/cockroach",
@@ -14498,7 +14290,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 9779
+            "weight": 9780
         },
         {
             "id": "owncloud/core",
@@ -14514,7 +14306,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 10366
+            "weight": 10372
         },
         {
             "id": "hashicorp/terraform",
@@ -14522,7 +14314,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 10470
+            "weight": 10472
         },
         {
             "id": "magento/magento2",
@@ -14538,7 +14330,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 11416
+            "weight": 11418
         },
         {
             "id": "microsoft/TypeScript",
@@ -14546,7 +14338,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 11625
+            "weight": 11626
         },
         {
             "id": "ceph/ceph",
@@ -14554,7 +14346,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 12447
+            "weight": 12449
         },
         {
             "id": "zephyrproject-rtos/zephyr",
@@ -14562,7 +14354,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 13273
+            "weight": 13277
         },
         {
             "id": "nextcloud/server",
@@ -14570,7 +14362,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 13557
+            "weight": 13563
         },
         {
             "id": "symfony/symfony",
@@ -14578,7 +14370,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 13702
+            "weight": 13705
         },
         {
             "id": "elastic/kibana",
@@ -14586,7 +14378,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 17524
+            "weight": 17549
         },
         {
             "id": "python/cpython",
@@ -14594,7 +14386,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 19963
+            "weight": 19969
         },
         {
             "id": "microsoft/vscode",
@@ -14602,7 +14394,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 25252
+            "weight": 25273
         },
         {
             "id": "godotengine/godot",
@@ -14610,7 +14402,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 30563
+            "weight": 30591
         },
         {
             "id": "kubernetes/kubernetes",
@@ -14618,7 +14410,7 @@
             "failures": {
                 "type": 1
             },
-            "weight": 37221
+            "weight": 37225
         },
         {
             "id": "ansible/ansible",
@@ -14626,9 +14418,39 @@
             "failures": {
                 "type": 1
             },
-            "weight": 40029
+            "weight": 40036
         }
     ],
-    "scheduler": {},
-    "workers": []
+    "scheduler": {
+        "ip": "35.86.246.218",
+        "user": "ubuntu",
+        "key": "~/.ssh/DORA-scheduler_keyPair.pem"
+    },
+    "workers": [
+        {
+            "ip": "34.222.146.31",
+            "user": "ubuntu",
+            "key": "~/.ssh/DORA-worker-a_keyPair.pem"
+        },
+        {
+            "ip": "35.89.74.88",
+            "user": "ubuntu",
+            "key": "~/.ssh/DORA-worker-b_keyPair.pem"
+        },
+        {
+            "ip": "54.71.165.23",
+            "user": "ubuntu",
+            "key": "~/.ssh/DORA-worker-c_keyPair.pem"
+        },
+        {
+            "ip": "54.185.57.161",
+            "user": "ubuntu",
+            "key": "~/.ssh/DORA-worker-d_keyPair.pem"
+        },
+        {
+            "ip": "54.191.171.49",
+            "user": "ubuntu",
+            "key": "~/.ssh/DORA-worker-e_keyPair.pem"
+        }
+    ]
 }

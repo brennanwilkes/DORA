@@ -1,9 +1,8 @@
 const fs = require("fs")
 
-const filterChangeFailureRate = true;
-const score = repo => {
+const score = (repo, filterChangeFailureRate) => {
 	let s = 0;
-	Object.keys(repo).filter(k => k !== "changeFailureRate" || (!filterChangeFailureRate)).forEach((k, i) => {
+	Object.keys(repo).filter(k => k !== "changeFailureRate" || filterChangeFailureRate).forEach((k, i) => {
 		if(repo[k] === "Elite"){
 			s += 8;
 		}
@@ -226,7 +225,7 @@ const output = {
 		if(m <= 1) derivedResults.accelerate.meanTimeToRecover = "High";
 		if(m <= 1/2) derivedResults.accelerate.meanTimeToRecover = "Elite";
 
-		derivedResults.accelerate.score = score(derivedResults.accelerate);
+		derivedResults.accelerate.score = score(derivedResults.accelerate, true);
 		derivedResults.performer.score = score(derivedResults.performer);
 
 		return derivedResults;

@@ -287,6 +287,8 @@ const main = async () => {
 					totalCriticalFailures: Object.keys(deployments).filter(k => deployments[k].criticalFailures > 0).length,
 					averageFailureDelta: failures.reduce((acc, nxt) => acc + nxt.delta, 0) / (failures.length || 1),
 					averageCriticalFailureDelta: failures.filter(f => f.critical).reduce((acc, nxt) => acc + nxt.delta, 0) / (failures.filter(f => f.critical).length || 1),
+					checkedIssues: repo.stats?.issues ?? -1,
+					checkedDeployments: repo.stats?.deployments ?? -1,
 				});
 			}
 		}).catch(err => {

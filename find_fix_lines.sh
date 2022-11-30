@@ -175,11 +175,15 @@ SZZ_LINE(){
 				log "Blame was empty"
 				continue
 			}
-			RAW=$( git diff "$blame~1" "$blame" 2>>"$ROOT/log" )
-			[[ "$?" -ne 128 ]] && {
-				diffSha=$( echo "$RAW" | grep -Ev -e '^diff --git' -e '^---' -e '^\+\+\+' -e '^index [0-9a-z]+\.\.[0-9a-z]+ [0-9a-z]+$' | shasum | cut -d' ' -f1 )
-			} || {
+			RAW=$( git diff "$blame~1" "$blame" 2>>"$ROOT/log" | tr -d '\0' )
+			[[ -z "$RAW" ]] && {
 				diff=$( date +"%T.%N" | shasum | cut -d' ' -f1 )
+			} || {
+				[[ "$?" -ne 128 ]] && {
+					diffSha=$( echo "$RAW" | grep -Ev -e '^diff --git' -e '^---' -e '^\+\+\+' -e '^index [0-9a-z]+\.\.[0-9a-z]+ [0-9a-z]+$' | shasum | cut -d' ' -f1 )
+				} || {
+					diff=$( date +"%T.%N" | shasum | cut -d' ' -f1 )
+				}
 			}
 			log "Found candidate commit $blame"
 			echo "$ORIGINAL_INPUT,$blame,$diffSha,$file"

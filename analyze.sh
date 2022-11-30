@@ -36,16 +36,16 @@ cd "$WORKING_DIR"
 		DATA=$( gh api "/repos/$REPO/git/refs/tags"  2>>"$ROOT/log" )
 		[[ "$?" -eq 0 ]] && break
 	done
-	export deployments=$( echo "$DATA" | grep -o 'git/refs/tags/[^"]*' | grep -o 'tags/[^/]*$' | grep -o '/[^/]*$' | tr -d '/' | grep -E '^v?[0-9]{1,2}\.[0-9]+' | grep -vE '^v?0.0.0' | node "$ROOT/custom_tag_sort.js" "$END" " $START" )
+	export deployments=$( echo "$DATA" | grep -o 'git/refs/tags/[^"]*' | grep -o 'tags/[^/]*$' | grep -o '/[^/]*$' | tr -d '/' | grep -E '^v?[0-9]{1,2}\.([1-9][0-9]*|0)' | grep -vE '^v?0.0.0' | node "$ROOT/custom_tag_sort.js" "$END" " $START" )
 }
 [[ "$DEPLOYMENT" -eq 1 ]] && {
 	log "Using git tags strategy. Requesting releases from local repo"
-	export deployments=$( git for-each-ref --sort=creatordate --format '%(refname)' refs/tags | sed 's/^refs\/tags\///g' | grep -E '^v?[0-9]{1,2}\.[0-9]+' | grep -v '^v?0.0.0' | node "$ROOT/custom_tag_sort.js" "$END" " $START")
+	export deployments=$( git for-each-ref --sort=creatordate --format '%(refname)' refs/tags | sed 's/^refs\/tags\///g' | grep -E '^v?[0-9]{1,2}\.([1-9][0-9]*|0)' | grep -v '^v?0.0.0' | node "$ROOT/custom_tag_sort.js" "$END" " $START")
 }
 
-HAS_X_X_X_VERSION=$( echo "$deployments" | grep -E '^v?[0-9]+\.[0-9]+\.[0-9]+' | wc -l )
+HAS_X_X_X_VERSION=$( echo "$deployments" | grep -E '^v?([1-9][0-9]*|0)\.([1-9][0-9]*|0)\.([1-9][0-9]*|0)' | wc -l )
 [[ "$HAS_X_X_X_VERSION" -gt $(( $( echo "$deployments" | wc -l ) / 2 )) ]] && {
-	deployments=$( echo "$deployments" | grep -E '^v?[0-9]+\.[0-9]+\.[0-9]+' )
+	deployments=$( echo "$deployments" | grep -E '^v?([1-9][0-9]*|0)\.([1-9][0-9]*|0)\.([1-9][0-9]*|0)' )
 }
 
 n=$( echo "$deployments" | wc -l )
@@ -130,8 +130,8 @@ do
 		continue
 	}
 
-	[[ "$( echo $prev_tag | grep -oE '^v?[0-9]+' | tr -d 'v' )" -ne "$( echo $tag | grep -oE '^v?[0-9]+' | tr -d 'v' )" ]] && {
-		[[ -z "$( echo $tag | grep -oE '^v?[0-9]+\.0' )" ]] && {
+	[[ "$( echo $prev_tag | grep -oE '^v?([1-9][0-9]*|0)' | tr -d 'v' )" -ne "$( echo $tag | grep -oE '^v?([1-9][0-9]*|0)' | tr -d 'v' )" ]] && {
+		[[ -z "$( echo $tag | grep -oE '^v?([1-9][0-9]*|0)\.0' )" ]] && {
 			log "SKIPPING $prev_tag -> $tag due to major/minor version mismatch"
 			echo "$tag" >> "$BANNED"
 			continue
@@ -142,7 +142,7 @@ do
 	log "Using $prev_time -> $time"
 	[[ $( date -d "$prev_time" +%s ) -gt $( date -d "$time" +%s ) ]] && {
 		log "prev_tag -> tag has inverted time order!"
-		[[ $( echo $tag | grep -oE '^v?[0-9]+' | tr -d 'v' ) -eq "0" ]] && {
+		[[ $( echo $tag | grep -oE '^v?([1-9][0-9]*|0)' | tr -d 'v' ) -eq "0" ]] && {
 			echo "$tag" >> "$BANNED"
 			log "0.x.x with inverted tags. SKIPPING"
 			continue
@@ -154,16 +154,16 @@ do
 
 	log Found $( echo "$commits" | wc -l ) commits
 
-	[[ $( echo "$commits" | wc -l ) -gt 1000 ]] && [[ -z "$( echo $tag | grep -Eo '^v?[0-9]+.[0-9]+.0' )" ]] && {
+	[[ $( echo "$commits" | wc -l ) -gt 1000 ]] && [[ -z "$( echo $tag | grep -Eo '^v?([1-9][0-9]*|0).([1-9][0-9]*|0).0' )" ]] && {
 
-		prev_major=$( echo $prev_tag | grep -oE '^v?[0-9]+' | tr -d 'v' )
-		major=$( echo $tag | grep -oE '^v?[0-9]+' | tr -d 'v' )
+		prev_major=$( echo $prev_tag | grep -oE '^v?([1-9][0-9]*|0)' | tr -d 'v' )
+		major=$( echo $tag | grep -oE '^v?([1-9][0-9]*|0)' | tr -d 'v' )
 
-		prev_minor=$( echo $prev_tag | grep -oE '^v?[0-9]+\.[0-9]+' | grep -Eo '[0-9]+$' )
-		minor=$( echo $tag | grep -oE '^v?[0-9]+\.[0-9]+' | grep -Eo '[0-9]+$' )
+		prev_minor=$( echo $prev_tag | grep -oE '^v?([1-9][0-9]*|0)\.([1-9][0-9]*|0)' | grep -Eo '([1-9][0-9]*|0)$' )
+		minor=$( echo $tag | grep -oE '^v?([1-9][0-9]*|0)\.([1-9][0-9]*|0)' | grep -Eo '([1-9][0-9]*|0)$' )
 
-		prev_patch=$( echo $prev_tag | grep -oE '^v?[0-9]+\.[0-9]+\.[0-9]+' | grep -Eo '[0-9]+$' )
-		patch=$( echo $tag | grep -oE '^v?[0-9]+\.[0-9]+\.[0-9]+' | grep -Eo '[0-9]+$' )
+		prev_patch=$( echo $prev_tag | grep -oE '^v?([1-9][0-9]*|0)\.([1-9][0-9]*|0)\.([1-9][0-9]*|0)' | grep -Eo '([1-9][0-9]*|0)$' )
+		patch=$( echo $tag | grep -oE '^v?([1-9][0-9]*|0)\.([1-9][0-9]*|0)\.([1-9][0-9]*|0)' | grep -Eo '([1-9][0-9]*|0)$' )
 
 		[[ "$minor" -ne "$(( $prev_minor + 1 ))" ]] && {
 			log "SKIPPING $prev_tag -> $tag due to exes commits (likely invalid version or rebase)"

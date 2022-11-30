@@ -39,7 +39,11 @@ const output = {
 			id: r[0],
 			deployment: 0,
 			failures: {type: 1},
-			weight: parseInt(r[2])
+			weight: parseInt(r[2]),
+			stats: {
+				issues: parseInt(r[2]),
+				deployments: parseInt(r[1])
+			}
 		};
 	}),
 	scheduler: {},
