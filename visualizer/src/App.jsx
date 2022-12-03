@@ -59,7 +59,7 @@ function App() {
 	const [accelerate, setAccelerate] = useState(true);
 	const [dataset, setDataset] = useState(staticDataset);
 	const [gradient, setGradient] = useState(false);
-	const debug = 10;
+	const debug = 0;
 
 	useEffect(() => {
 		if(average){
@@ -144,7 +144,6 @@ function App() {
 					});
 				});
 			});
-
 			let avgResults = Object.keys(avg).map(performer => ({
 				...(avg[performer]),
 				repo: performer === "avg" ? "Average" : performer,

@@ -6,7 +6,11 @@ import {COLOURS, COLOURS_SEMI_TRANS, divideTimes, makeOptions, removeLeadingZero
 function MeanTimeToRecover(props) {
 	const [dates, labels] = divideTimes(new Date(props.data.start), new Date(props.data.end), props.scale);
 
-	let firstNonNull = labels.length - 1; for(;firstNonNull >= 0 && props.data.results.some(r => r[`${props.scale}`].meanTimeToRecover[firstNonNull] !== null); firstNonNull-- ){}; firstNonNull+=1
+	let firstNonNull = labels.length - 1; for(;firstNonNull >= 0 && (
+		props.data.results.some(r => r[`${props.scale}`].meanTimeToRecover[firstNonNull] !== null &&
+		props.data.results.some(r => r[`${props.scale}`].meanTimeToRecover[firstNonNull] !== undefined &&
+		r.repo !== "Average Trendline" && r.repo !== "Average"
+	))); firstNonNull-- ){}; firstNonNull+=1
 
 	const data = {
 		labels: labels.slice(firstNonNull),
