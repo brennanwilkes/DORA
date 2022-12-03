@@ -35,6 +35,10 @@ const banned = [
 
 const lock = {}
 
+let duplicates = 0;
+let issueFiltered = 0;
+let deploymentFiltered = 0;
+
 let results = [];
 for (let i = 2; i < process.argv.length - 1; i++){
 	const json = JSON.parse(fs.readFileSync(process.argv[i]));
@@ -49,14 +53,17 @@ for (let i = 2; i < process.argv.length - 1; i++){
 	results = [...(results), ...(res.filter(r => {
 		if(lock[r.repo]){
 			console.log(`Duplicate: ${process.argv[i]}`)
+			duplicates += 1;
 			return false;
 		}
-		if(Object.keys(r.deployments).length < (r.stats.deployments / 2)){
-			console.log(`Not enough deployments: ${r.repo}`)
+		if(Object.keys(r.deployments).length < (r.checkedDeployments / 2)){
+			deploymentFiltered += 1;
+			// console.log(`Not enough deployments: ${r.repo}`)
 			return false;
 		}
-		if(r.failures.length < (r.stats.issues / 6)){
-			console.log(`Not enough failures: ${r.repo}`)
+		if(r.failures.filter(f => (f.induced_by ?? []).length > 0).length < (r.checkedIssues / 6)){
+			issueFiltered += 1;
+			// console.log(`Not enough failures: ${r.repo}`)
 			return false;
 		}
 		lock[r.repo] = true;
@@ -71,6 +78,10 @@ for (let i = 2; i < process.argv.length - 1; i++){
 		return r;
 	}))];
 }
+
+console.log(`Duplicates: ${duplicates}`)
+console.log(`Not enough deployments: ${deploymentFiltered}`)
+console.log(`Not enough issues: ${issueFiltered}`)
 
 fs.writeFileSync(process.argv[process.argv.length - 1], JSON.stringify({...output, results}));
 

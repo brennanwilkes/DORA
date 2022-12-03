@@ -127,9 +127,11 @@ const output = {
 				[dates, labels] = divideTimes(new Date(data.start), new Date(data.end), scale);
 			}
 
-			const changeFailureRate = dates.map(d => Object.keys(result.deployments).map(k => result.deployments[k]).filter(dep => (dep.date * 1000 < d && dep.date * 1000 > d - scale) || scale === -1 )).map(g => 100 * g.filter(d => d.failures > 0 || d.hasFailure).length / (g.length || 1)).map(removeLeadingZeros);
+			const THRESHOLD = new Date("Jan 1 2012").getTime();
 
-			const deploymentFrequency = dates.map(d => Object.keys(result.deployments).map(k => result.deployments[k]).filter(dep => (dep.date * 1000 < d && dep.date * 1000 > d - scale) || scale === -1 ).length).map(d => {
+			const changeFailureRate = dates.map(d => Object.keys(result.deployments).map(k => result.deployments[k]).filter(dep => (dep.date * 1000 < d && dep.date * 1000 > d - scale) || scale === -1 ).filter(dep => dep.date * 1000 > THRESHOLD)).map(g => 100 * g.filter(d => d.failures > 0 || d.hasFailure).length / (g.length || 1)).map(removeLeadingZeros);
+
+			const deploymentFrequency = dates.map(d => Object.keys(result.deployments).map(k => result.deployments[k]).filter(dep => (dep.date * 1000 < d && dep.date * 1000 > d - scale) || scale === -1 ).filter(dep => dep.date * 1000 > THRESHOLD).length).map(d => {
 				if(scale === -1 && Object.keys(result.deployments).length > 2){
 					return d / (end - start) * YEAR / 1000
 				}
@@ -141,7 +143,7 @@ const output = {
 
 			const leadTimeForChanges = dates.map(d => {
 					const versions = Object.keys(result.deployments);
-					const deployments = versions.map(k => result.deployments[k]).filter(dep => (dep.date * 1000 < d && dep.date * 1000 > d - scale) || scale === -1 )
+					const deployments = versions.map(k => result.deployments[k]).filter(dep => (dep.date * 1000 < d && dep.date * 1000 > d - scale) || scale === -1 ).filter(dep => dep.date * 1000 > THRESHOLD)
 					let sum = 0;
 					let n = 0;
 					deployments.forEach((deployment, i) => {
@@ -155,7 +157,7 @@ const output = {
 				}).map(removeLeadingZeros);
 
 			const meanTimeToRecover = dates.map(d => {
-				const failures = result.failures.filter(fail => (fail[time] * 1000 < d && fail[time] * 1000 > d - scale) || scale === -1 )
+				const failures = result.failures.filter(fail => (fail[time] * 1000 < d && fail[time] * 1000 > d - scale) || scale === -1 ).filter(fail => fail[time] * 1000 > THRESHOLD)
 				let sum = 0;
 				let n = 0;
 				failures.forEach((fail, i) => {

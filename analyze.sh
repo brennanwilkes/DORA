@@ -36,11 +36,11 @@ cd "$WORKING_DIR"
 		DATA=$( gh api "/repos/$REPO/git/refs/tags"  2>>"$ROOT/log" )
 		[[ "$?" -eq 0 ]] && break
 	done
-	export deployments=$( echo "$DATA" | grep -o 'git/refs/tags/[^"]*' | grep -o 'tags/[^/]*$' | grep -o '/[^/]*$' | tr -d '/' | grep -E '^v?[0-9]{1,2}\.([1-9][0-9]*|0)' | grep -vE '^v?0.0.0' | node "$ROOT/custom_tag_sort.js" "$END" " $START" )
+	export deployments=$( echo "$DATA" | grep -o 'git/refs/tags/[^"]*' | grep -o 'tags/[^/]*$' | grep -o '/[^/]*$' | tr -d '/' | grep -E '^v?[0-9]{1,2}\.([1-9][0-9]*|0)' | grep -vE '^v?0.0.0' | grep -E '\.[a-zA-Z0-9_-]$' | node "$ROOT/custom_tag_sort.js" "$END" " $START" )
 }
 [[ "$DEPLOYMENT" -eq 1 ]] && {
 	log "Using git tags strategy. Requesting releases from local repo"
-	export deployments=$( git for-each-ref --sort=creatordate --format '%(refname)' refs/tags | sed 's/^refs\/tags\///g' | grep -E '^v?[0-9]{1,2}\.([1-9][0-9]*|0)' | grep -v '^v?0.0.0' | node "$ROOT/custom_tag_sort.js" "$END" " $START")
+	export deployments=$( git for-each-ref --sort=creatordate --format '%(refname)' refs/tags | sed 's/^refs\/tags\///g' | grep -E '^v?[0-9]{1,2}\.([1-9][0-9]*|0)' | grep -v '^v?0.0.0' | grep -E '\.[a-zA-Z0-9_-]$' | node "$ROOT/custom_tag_sort.js" "$END" " $START")
 }
 
 HAS_X_X_X_VERSION=$( echo "$deployments" | grep -E '^v?([1-9][0-9]*|0)\.([1-9][0-9]*|0)\.([1-9][0-9]*|0)' | wc -l )

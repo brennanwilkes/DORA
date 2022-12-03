@@ -83,7 +83,7 @@ cd "$WORKING_DIR"
 
 log "Searching for bug-inducing commit candidates for fix $COMMIT (#$ISSUE)"
 
-files=$( git diff --numstat "$COMMIT~1" "$COMMIT" | tr '\t' ' ' | cut -d' ' -f3 | grep -vE -e '\.spec' -e '\.test' -e '^tests?/' -e '/tests?/' -e 'bundle' | grep -E '\.(js|jsx|ts|tsx|java|c|cc|cpp|py|mjs|sh|bash|cs|html|css|php|swift|h|asm|lsp|dart|rb|go|gradle|groovy|kt|lua|rs)$' )
+files=$( git diff --numstat "$COMMIT~1" "$COMMIT" | tr -d '\0' | tr '\t' ' ' | cut -d' ' -f3 | grep -vE -e '\.spec' -e '\.test' -e '^tests?/' -e '/tests?/' -e 'bundle' | grep -E '\.(js|jsx|ts|tsx|java|c|cc|cpp|py|mjs|sh|bash|cs|html|css|scss|php|swift|h|asm|lsp|dart|rb|go|gradle|groovy|kt|lua|rs)$' )
 n=$( echo "$files" | wc -l )
 log "Found $n files in fix commit"
 
@@ -155,7 +155,7 @@ SZZ_LINE(){
 
 			[[ "$date" -gt "$MIN_DATE" ]] && {
 
-				diffCount=$( git diff -U0 "$blame~1" "$blame" -- "$file" 2>/dev/null | wc -l )
+				diffCount=$( git diff -U0 "$blame~1" "$blame" -- "$file" 2>/dev/null | tr -d '\0' | wc -l )
 				log "Commit $blame ($diffCount lines) was created after the issue report, iterating deeper ($date > $MIN_DATE)"
 
 				[[ "$diffCount" -lt 2500 ]] && [[ "$diffCount" -gt 0 ]] && {
@@ -200,7 +200,7 @@ SZZ_FILE() {
 	COMMENT_TOKEN="//"
 	[[ -z "$( echo $EXT | grep -o '^\.(py|bash|sh|rb)$' )" ]] || COMMENT_TOKEN="#"
 
-	DIFF=$( git diff -w -U0 "$COMMIT~1" "$COMMIT" -- "$file" 2>/dev/null | tail -n +5 )
+	DIFF=$( git diff -w -U0 "$COMMIT~1" "$COMMIT" -- "$file" 2>/dev/null | tr -d '\0' | tail -n +5 )
 	lines=$( echo "$DIFF" | grep -oE -e '@@.*@@' -e '^[-+].*' | grep -Eo '^@@.*@@' | grep -oE '[-0-9+,]+ [-0-9+,]+' | tr ' ' ':' )
 
 	numLines=$( echo "$lines" | wc -l )
