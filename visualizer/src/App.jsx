@@ -16,6 +16,7 @@ import { Bar } from 'react-chartjs-2';
 // import brnkl from "./data/brnkl-minified.json"
 // import combined from "./data/combined-minified.json"
 import paper from "./data/paper5-minified.json"
+// import paper from "./data/paper4b-minified.json"
 // import python from "./data/python-minified.json"
 
 import DeploymentFrequency from "./charts/deploymentFrequency";

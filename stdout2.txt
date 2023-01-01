@@ -1,0 +1,938 @@
+Starting study DORA Paper from Aug 16 1990 to Nov 16 2022
+Analyzing golangci/golangci-lint with deployment=tags, failures=issues
+Completed golangci/golangci-lint in 1965s (1/72)
+----|golangci/golangci-lint|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 3 months)
+Change Failure Rate: Low Performer (58%)
+Analyzing composer/composer with deployment=tags, failures=issues
+Completed composer/composer in 2980s (2/72)
+----|composer/composer|----
+Deployment Frequency: Medium Performer (Average: 3 weeks)
+Lead Time for Changes: Low Performer (Average: 2 months)
+Mean Time to Recover: Critically Low Performer (Average: 7 months)
+Change Failure Rate: Low Performer (55%)
+Analyzing pyinstaller/pyinstaller with deployment=tags, failures=issues
+Completed pyinstaller/pyinstaller in 1677s (3/72)
+----|pyinstaller/pyinstaller|----
+Deployment Frequency: Low Performer (Average: 3 months)
+Lead Time for Changes: Critically Low Performer (Average: 6 months)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: Low Performer (47%)
+Analyzing refinedev/refine with deployment=tags, failures=issues
+Completed refinedev/refine in 1957s (4/72)
+----|refinedev/refine|----
+Deployment Frequency: Elite Performer (Average: 2 hours)
+Lead Time for Changes: Medium Performer (Average: 1 week)
+Mean Time to Recover: Low Performer (Average: 1 week)
+Change Failure Rate: Elite Performer (1%)
+Analyzing mochajs/mocha with deployment=tags, failures=issues
+Completed mochajs/mocha in 2277s (5/72)
+----|mochajs/mocha|----
+Deployment Frequency: Medium Performer (Average: 3 weeks)
+Lead Time for Changes: Low Performer (Average: 5 months)
+Mean Time to Recover: Critically Low Performer (Average: 7 months)
+Change Failure Rate: Low Performer (57%)
+Analyzing prometheus-operator/prometheus-operator with deployment=tags, failures=issues
+Completed prometheus-operator/prometheus-operator in 5380s (6/72)
+----|prometheus-operator/prometheus-operator|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 3 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: Medium Performer (44%)
+Analyzing stellar/stellar-core with deployment=tags, failures=issues
+Completed stellar/stellar-core in 2699s (7/72)
+----|stellar/stellar-core|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Medium Performer (Average: 3 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: Low Performer (54%)
+Analyzing caddyserver/caddy with deployment=tags, failures=issues
+Completed caddyserver/caddy in 2727s (8/72)
+----|caddyserver/caddy|----
+Deployment Frequency: Medium Performer (Average: 3 weeks)
+Lead Time for Changes: Medium Performer (Average: 3 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: Critically Low Performer (73%)
+Analyzing microsoft/onefuzz with deployment=tags, failures=issues
+Completed microsoft/onefuzz in 1783s (9/72)
+----|microsoft/onefuzz|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: High Performer (Average: 6 days)
+Mean Time to Recover: Low Performer (Average: 3 weeks)
+Change Failure Rate: Critically Low Performer (70%)
+Analyzing betaflight/betaflight with deployment=tags, failures=issues
+Completed betaflight/betaflight in 5119s (10/72)
+----|betaflight/betaflight|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Low Performer (Average: 2 months)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: High Performer (23%)
+Analyzing pytorch/vision with deployment=tags, failures=issues
+Completed pytorch/vision in 2326s (11/72)
+----|pytorch/vision|----
+Deployment Frequency: Medium Performer (Average: 3 weeks)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 3 months)
+Change Failure Rate: High Performer (29%)
+Analyzing spring-projects/spring-security with deployment=tags, failures=issues
+Completed spring-projects/spring-security in 4118s (12/72)
+----|spring-projects/spring-security|----
+Deployment Frequency: Medium Performer (Average: 3 weeks)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 6 months)
+Change Failure Rate: Medium Performer (34%)
+Analyzing coder/code-server with deployment=tags, failures=issues
+Completed coder/code-server in 3424s (13/72)
+----|coder/code-server|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: Low Performer (47%)
+Analyzing matrix-org/synapse with deployment=tags, failures=issues
+Completed matrix-org/synapse in 15382s (14/72)
+----|matrix-org/synapse|----
+Deployment Frequency: High Performer (Average: 5 days)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 6 months)
+Change Failure Rate: Medium Performer (41%)
+Analyzing transmission/transmission with deployment=tags, failures=issues
+Completed transmission/transmission in 3242s (15/72)
+----|transmission/transmission|----
+Deployment Frequency: Low Performer (Average: 1 month)
+Lead Time for Changes: Low Performer (Average: 2 months)
+Mean Time to Recover: Critically Low Performer (Average: 1 year)
+Change Failure Rate: Medium Performer (39%)
+Analyzing yiisoft/yii2 with deployment=tags, failures=issues
+Completed yiisoft/yii2 in 6855s (16/72)
+----|yiisoft/yii2|----
+Deployment Frequency: Medium Performer (Average: 3 weeks)
+Lead Time for Changes: Low Performer (Average: 2 months)
+Mean Time to Recover: Critically Low Performer (Average: 4 months)
+Change Failure Rate: Critically Low Performer (70%)
+Analyzing handsontable/handsontable with deployment=tags, failures=issues
+Completed handsontable/handsontable in 23230s (17/72)
+----|handsontable/handsontable|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Medium Performer (Average: 3 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 8 months)
+Change Failure Rate: Critically Low Performer (86%)
+Analyzing meilisearch/meilisearch with deployment=tags, failures=issues
+Completed meilisearch/meilisearch in 3042s (18/72)
+----|meilisearch/meilisearch|----
+Deployment Frequency: High Performer (Average: 3 days)
+Lead Time for Changes: Critically Low Performer (Average: 11 months)
+Mean Time to Recover: Critically Low Performer (Average: 6 months)
+Change Failure Rate: Elite Performer (12%)
+Analyzing MinecraftForge/MinecraftForge with deployment=tags, failures=issues
+Completed MinecraftForge/MinecraftForge in 2925s (19/72)
+----|MinecraftForge/MinecraftForge|----
+Deployment Frequency: Low Performer (Average: 1 month)
+Lead Time for Changes: Critically Low Performer (Average: 1 year)
+Mean Time to Recover: Critically Low Performer (Average: 3 months)
+Change Failure Rate: Elite Performer (14%)
+Analyzing microsoft/playwright with deployment=tags, failures=issues
+Completed microsoft/playwright in 3488s (20/72)
+----|microsoft/playwright|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: Low Performer (51%)
+Analyzing containerd/containerd with deployment=tags, failures=issues
+Completed containerd/containerd in 5753s (21/72)
+----|containerd/containerd|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Critically Low Performer (Average: 6 months)
+Mean Time to Recover: Critically Low Performer (Average: 4 months)
+Change Failure Rate: Low Performer (49%)
+Analyzing swagger-api/swagger-ui with deployment=tags, failures=issues
+Completed swagger-api/swagger-ui in 5301s (22/72)
+----|swagger-api/swagger-ui|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 3 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 3 months)
+Change Failure Rate: Medium Performer (38%)
+Analyzing ng-bootstrap/ng-bootstrap with deployment=tags, failures=issues
+
+Starting study DORA Paper from Aug 16 1990 to Nov 16 2022
+Analyzing tqdm/tqdm with deployment=tags, failures=issues
+Completed tqdm/tqdm in 1963s (1/72)
+----|tqdm/tqdm|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 6 months)
+Change Failure Rate: Critically Low Performer (73%)
+Analyzing osquery/osquery with deployment=tags, failures=issues
+Completed osquery/osquery in 2615s (2/72)
+----|osquery/osquery|----
+Deployment Frequency: Medium Performer (Average: 3 weeks)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: Critically Low Performer (81%)
+Analyzing falcosecurity/falco with deployment=tags, failures=issues
+Completed falcosecurity/falco in 1768s (3/72)
+----|falcosecurity/falco|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: High Performer (19%)
+Analyzing jquery/jquery with deployment=tags, failures=issues
+Completed jquery/jquery in 1995s (4/72)
+----|jquery/jquery|----
+Deployment Frequency: Low Performer (Average: 1 month)
+Lead Time for Changes: Low Performer (Average: 4 months)
+Mean Time to Recover: Critically Low Performer (Average: 10 months)
+Change Failure Rate: Medium Performer (34%)
+Analyzing nats-io/nats-server with deployment=tags, failures=issues
+Completed nats-io/nats-server in 3140s (5/72)
+----|nats-io/nats-server|----
+Deployment Frequency: Low Performer (Average: 1 month)
+Lead Time for Changes: Low Performer (Average: 2 months)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: Critically Low Performer (87%)
+Analyzing tendermint/tendermint with deployment=tags, failures=issues
+Completed tendermint/tendermint in 10173s (6/72)
+----|tendermint/tendermint|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Critically Low Performer (Average: 1 year)
+Mean Time to Recover: Critically Low Performer (Average: 7 months)
+Change Failure Rate: High Performer (18%)
+Analyzing questdb/questdb with deployment=tags, failures=issues
+Completed questdb/questdb in 3080s (7/72)
+----|questdb/questdb|----
+Deployment Frequency: Low Performer (Average: 1 month)
+Lead Time for Changes: Low Performer (Average: 5 months)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: Critically Low Performer (72%)
+Analyzing huggingface/transformers with deployment=tags, failures=issues
+Completed huggingface/transformers in 2738s (8/72)
+----|huggingface/transformers|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: Low Performer (45%)
+Analyzing wp-graphql/wp-graphql with deployment=tags, failures=issues
+Completed wp-graphql/wp-graphql in 4851s (9/72)
+----|wp-graphql/wp-graphql|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 1 week)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: Critically Low Performer (72%)
+Analyzing halo-dev/halo with deployment=tags, failures=issues
+Completed halo-dev/halo in 1850s (10/72)
+----|halo-dev/halo|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Medium Performer (Average: 3 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: Low Performer (59%)
+Analyzing commaai/openpilot with deployment=tags, failures=issues
+Completed commaai/openpilot in 2041s (11/72)
+----|commaai/openpilot|----
+Deployment Frequency: Medium Performer (Average: 4 weeks)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: High Performer (19%)
+Analyzing tailscale/tailscale with deployment=tags, failures=issues
+Completed tailscale/tailscale in 1754s (12/72)
+----|tailscale/tailscale|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: High Performer (Average: 3 days)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: Elite Performer (1%)
+Analyzing freqtrade/freqtrade with deployment=tags, failures=issues
+Completed freqtrade/freqtrade in 3100s (13/72)
+----|freqtrade/freqtrade|----
+Deployment Frequency: Medium Performer (Average: 4 weeks)
+Lead Time for Changes: Medium Performer (Average: 4 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: Critically Low Performer (73%)
+Analyzing gnuradio/gnuradio with deployment=tags, failures=issues
+Completed gnuradio/gnuradio in 2973s (14/72)
+----|gnuradio/gnuradio|----
+Deployment Frequency: Medium Performer (Average: 3 weeks)
+Lead Time for Changes: Low Performer (Average: 4 months)
+Mean Time to Recover: Critically Low Performer (Average: 9 months)
+Change Failure Rate: High Performer (20%)
+Analyzing the1812/Bilibili-Evolved with deployment=tags, failures=issues
+Completed the1812/Bilibili-Evolved in 48686s (15/72)
+----|the1812/Bilibili-Evolved|----
+Deployment Frequency: High Performer (Average: 4 days)
+Lead Time for Changes: High Performer (Average: 4 days)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: Critically Low Performer (66%)
+Analyzing Dolibarr/dolibarr with deployment=tags, failures=issues
+
+Starting study DORA Paper from Aug 16 1990 to Nov 16 2022
+Analyzing aquasecurity/tfsec with deployment=tags, failures=issues
+Completed aquasecurity/tfsec in 1830s (1/72)
+----|aquasecurity/tfsec|----
+Deployment Frequency: High Performer (Average: 2 days)
+Lead Time for Changes: High Performer (Average: 3 days)
+Mean Time to Recover: Low Performer (Average: 1 week)
+Change Failure Rate: Medium Performer (38%)
+Analyzing storybookjs/storybook with deployment=tags, failures=issues
+Completed storybookjs/storybook in 14835s (2/72)
+----|storybookjs/storybook|----
+Deployment Frequency: High Performer (Average: 1 day)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: Low Performer (57%)
+Analyzing alibaba/nacos with deployment=tags, failures=issues
+Completed alibaba/nacos in 15479s (3/72)
+----|alibaba/nacos|----
+Deployment Frequency: Low Performer (Average: 1 month)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: Critically Low Performer (84%)
+Analyzing scrapy/scrapy with deployment=tags, failures=issues
+Completed scrapy/scrapy in 2710s (4/72)
+----|scrapy/scrapy|----
+Deployment Frequency: Low Performer (Average: 1 month)
+Lead Time for Changes: Low Performer (Average: 3 months)
+Mean Time to Recover: Critically Low Performer (Average: 8 months)
+Change Failure Rate: Low Performer (52%)
+Analyzing crossplane/crossplane with deployment=tags, failures=issues
+Completed crossplane/crossplane in 3340s (5/72)
+----|crossplane/crossplane|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: Medium Performer (44%)
+Analyzing thanos-io/thanos with deployment=tags, failures=issues
+Completed thanos-io/thanos in 10333s (6/72)
+----|thanos-io/thanos|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Medium Performer (Average: 3 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: Medium Performer (41%)
+Analyzing teambit/bit with deployment=tags, failures=issues
+Completed teambit/bit in 2291s (7/72)
+----|teambit/bit|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Low Performer (Average: 2 weeks)
+Change Failure Rate: Medium Performer (32%)
+Analyzing tusen-ai/naive-ui with deployment=tags, failures=issues
+Completed tusen-ai/naive-ui in 1837s (8/72)
+----|tusen-ai/naive-ui|----
+Deployment Frequency: High Performer (Average: 5 days)
+Lead Time for Changes: Medium Performer (Average: 1 week)
+Mean Time to Recover: Low Performer (Average: 2 weeks)
+Change Failure Rate: Low Performer (51%)
+Analyzing Kong/insomnia with deployment=tags, failures=issues
+Completed Kong/insomnia in 2290s (9/72)
+----|Kong/insomnia|----
+Deployment Frequency: High Performer (Average: 1 day)
+Lead Time for Changes: Medium Performer (Average: 3 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 3 months)
+Change Failure Rate: Elite Performer (7%)
+Analyzing Semantic-Org/Semantic-UI-React with deployment=tags, failures=issues
+Completed Semantic-Org/Semantic-UI-React in 3593s (10/72)
+----|Semantic-Org/Semantic-UI-React|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 1 week)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: Critically Low Performer (64%)
+Analyzing wasmerio/wasmer with deployment=tags, failures=issues
+Completed wasmerio/wasmer in 10832s (11/72)
+----|wasmerio/wasmer|----
+Deployment Frequency: Medium Performer (Average: 3 weeks)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: Critically Low Performer (84%)
+Analyzing uber/baseweb with deployment=tags, failures=issues
+Completed uber/baseweb in 2294s (12/72)
+----|uber/baseweb|----
+Deployment Frequency: High Performer (Average: 3 days)
+Lead Time for Changes: High Performer (Average: 2 days)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: Low Performer (48%)
+Analyzing vmware-tanzu/velero with deployment=tags, failures=issues
+Completed vmware-tanzu/velero in 3554s (13/72)
+----|vmware-tanzu/velero|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 3 months)
+Change Failure Rate: Medium Performer (43%)
+Analyzing reactioncommerce/reaction with deployment=tags, failures=issues
+Completed reactioncommerce/reaction in 3765s (14/72)
+----|reactioncommerce/reaction|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 3 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 10 months)
+Change Failure Rate: Elite Performer (0%)
+Analyzing kubernetes/dashboard with deployment=tags, failures=issues
+Completed kubernetes/dashboard in 4164s (15/72)
+----|kubernetes/dashboard|----
+Deployment Frequency: Low Performer (Average: 1 month)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: Critically Low Performer (87%)
+Analyzing LMMS/lmms with deployment=tags, failures=issues
+Completed LMMS/lmms in 5405s (16/72)
+----|LMMS/lmms|----
+Deployment Frequency: Low Performer (Average: 3 months)
+Lead Time for Changes: Low Performer (Average: 5 months)
+Mean Time to Recover: Critically Low Performer (Average: 1 year)
+Change Failure Rate: Critically Low Performer (66%)
+Analyzing adobe/react-spectrum with deployment=tags, failures=issues
+Found duplicate SHA (b67fca4bad9bb9a3339bdd1c4a633ade520979e2/a49c85f0d03a811eacf8bed9bddf8511b41dbb00/@react-spectrum/theme-light@3.3.0) exists already
+Found duplicate SHA (1a3b0285ac3bfdcd9aff742c0365c78c6f13b2c9/548270e51ae771fdfd8a101d1e664707f0d93cb7/@react-stately/layout@3.4.1) exists already
+Completed adobe/react-spectrum in 3243s (17/72)
+----|adobe/react-spectrum|----
+Deployment Frequency: Elite Performer (Average: 12 hours)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: Elite Performer (1%)
+Analyzing wangeditor-team/wangEditor with deployment=tags, failures=issues
+Completed wangeditor-team/wangEditor in 1565s (18/72)
+----|wangeditor-team/wangEditor|----
+Deployment Frequency: High Performer (Average: 1 day)
+Lead Time for Changes: Medium Performer (Average: 1 week)
+Mean Time to Recover: Low Performer (Average: 1 week)
+Change Failure Rate: Elite Performer (0%)
+Analyzing prometheus/prometheus with deployment=tags, failures=issues
+
+Starting study DORA Paper from Aug 16 1990 to Nov 16 2022
+Analyzing prestodb/presto with deployment=tags, failures=issues
+Completed prestodb/presto in 3209s (1/74)
+----|prestodb/presto|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 3 months)
+Change Failure Rate: Critically Low Performer (62%)
+Analyzing avajs/ava with deployment=tags, failures=issues
+Completed avajs/ava in 1961s (2/74)
+----|avajs/ava|----
+Deployment Frequency: Medium Performer (Average: 3 weeks)
+Lead Time for Changes: Medium Performer (Average: 3 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 4 months)
+Change Failure Rate: Low Performer (58%)
+Analyzing horovod/horovod with deployment=tags, failures=issues
+Completed horovod/horovod in 1805s (3/74)
+----|horovod/horovod|----
+Deployment Frequency: Medium Performer (Average: 3 weeks)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: Critically Low Performer (60%)
+Analyzing puppeteer/puppeteer with deployment=tags, failures=issues
+Completed puppeteer/puppeteer in 2398s (4/74)
+----|puppeteer/puppeteer|----
+Deployment Frequency: Elite Performer (Average: 4 hours)
+Lead Time for Changes: Elite Performer (Average: 10 hours)
+Mean Time to Recover: Medium Performer (Average: 3 days)
+Change Failure Rate: Elite Performer (0%)
+Analyzing material-components/material-components-android with deployment=tags, failures=issues
+Completed material-components/material-components-android in 2232s (5/74)
+----|material-components/material-components-android|----
+Deployment Frequency: Medium Performer (Average: 3 weeks)
+Lead Time for Changes: Medium Performer (Average: 3 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 3 months)
+Change Failure Rate: Critically Low Performer (64%)
+Analyzing JanDeDobbeleer/oh-my-posh with deployment=tags, failures=issues
+Completed JanDeDobbeleer/oh-my-posh in 1855s (6/74)
+----|JanDeDobbeleer/oh-my-posh|----
+Deployment Frequency: High Performer (Average: 1 day)
+Lead Time for Changes: Elite Performer (Average: 22 hours)
+Mean Time to Recover: Medium Performer (Average: 1 day)
+Change Failure Rate: High Performer (20%)
+Analyzing flynn/flynn with deployment=tags, failures=issues
+Completed flynn/flynn in 2362s (7/74)
+----|flynn/flynn|----
+Deployment Frequency: High Performer (Average: 3 days)
+Lead Time for Changes: High Performer (Average: 5 days)
+Mean Time to Recover: Low Performer (Average: 1 week)
+Change Failure Rate: Elite Performer (0%)
+Analyzing chaos-mesh/chaos-mesh with deployment=tags, failures=issues
+Completed chaos-mesh/chaos-mesh in 1869s (8/74)
+----|chaos-mesh/chaos-mesh|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Low Performer (Average: 2 months)
+Mean Time to Recover: Critically Low Performer (Average: 4 months)
+Change Failure Rate: Elite Performer (8%)
+Analyzing webiny/webiny-js with deployment=tags, failures=issues
+Completed webiny/webiny-js in 3172s (9/74)
+----|webiny/webiny-js|----
+Deployment Frequency: Elite Performer (Average: 13 hours)
+Lead Time for Changes: Medium Performer (Average: 3 weeks)
+Mean Time to Recover: Low Performer (Average: 4 weeks)
+Change Failure Rate: Elite Performer (3%)
+Analyzing vitest-dev/vitest with deployment=tags, failures=issues
+Completed vitest-dev/vitest in 1615s (10/74)
+----|vitest-dev/vitest|----
+Deployment Frequency: High Performer (Average: 1 day)
+Lead Time for Changes: High Performer (Average: 1 day)
+Mean Time to Recover: Low Performer (Average: 2 weeks)
+Change Failure Rate: Low Performer (59%)
+Analyzing youzan/vant-weapp with deployment=tags, failures=issues
+Completed youzan/vant-weapp in 1976s (11/74)
+----|youzan/vant-weapp|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 1 week)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: Low Performer (59%)
+Analyzing Leaflet/Leaflet with deployment=tags, failures=issues
+Completed Leaflet/Leaflet in 2773s (12/74)
+----|Leaflet/Leaflet|----
+Deployment Frequency: Low Performer (Average: 2 months)
+Lead Time for Changes: Critically Low Performer (Average: 10 months)
+Mean Time to Recover: Critically Low Performer (Average: 10 months)
+Change Failure Rate: Low Performer (52%)
+Analyzing akveo/nebular with deployment=tags, failures=issues
+Completed akveo/nebular in 1857s (13/74)
+----|akveo/nebular|----
+Deployment Frequency: Medium Performer (Average: 3 weeks)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 4 months)
+Change Failure Rate: Medium Performer (36%)
+Analyzing monicahq/monica with deployment=tags, failures=issues
+Completed monicahq/monica in 4694s (14/74)
+----|monicahq/monica|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Medium Performer (Average: 3 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 3 months)
+Change Failure Rate: Critically Low Performer (65%)
+Analyzing angular-ui/bootstrap with deployment=tags, failures=issues
+Completed angular-ui/bootstrap in 2194s (15/74)
+----|angular-ui/bootstrap|----
+Deployment Frequency: Medium Performer (Average: 4 weeks)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 5 months)
+Change Failure Rate: Low Performer (53%)
+Analyzing tuist/tuist with deployment=tags, failures=issues
+Completed tuist/tuist in 2938s (16/74)
+----|tuist/tuist|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 1 week)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: Critically Low Performer (74%)
+Analyzing bytecodealliance/wasmtime with deployment=tags, failures=issues
+Completed bytecodealliance/wasmtime in 4955s (17/74)
+----|bytecodealliance/wasmtime|----
+Deployment Frequency: Medium Performer (Average: 4 weeks)
+Lead Time for Changes: Critically Low Performer (Average: 8 months)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: Critically Low Performer (65%)
+Analyzing twpayne/chezmoi with deployment=tags, failures=issues
+Completed twpayne/chezmoi in 2393s (18/74)
+----|twpayne/chezmoi|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 1 week)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: Critically Low Performer (74%)
+Analyzing etcd-io/etcd with deployment=tags, failures=issues
+Completed etcd-io/etcd in 3392s (19/74)
+----|etcd-io/etcd|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: High Performer (16%)
+Analyzing hashicorp/vault with deployment=tags, failures=issues
+Completed hashicorp/vault in 3165s (20/74)
+----|hashicorp/vault|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 4 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 4 months)
+Change Failure Rate: Elite Performer (8%)
+Analyzing google/filament with deployment=tags, failures=issues
+Completed google/filament in 2680s (21/74)
+----|google/filament|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: Critically Low Performer (68%)
+Analyzing mswjs/msw with deployment=tags, failures=issues
+Completed mswjs/msw in 1873s (22/74)
+----|mswjs/msw|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 1 week)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: Medium Performer (40%)
+Analyzing celery/celery with deployment=tags, failures=issues
+Completed celery/celery in 9580s (23/74)
+----|celery/celery|----
+Deployment Frequency: Medium Performer (Average: 3 weeks)
+Lead Time for Changes: Low Performer (Average: 3 months)
+Mean Time to Recover: Critically Low Performer (Average: 7 months)
+Change Failure Rate: Low Performer (56%)
+Analyzing angular/flex-layout with deployment=tags, failures=issues
+Completed angular/flex-layout in 2154s (24/74)
+----|angular/flex-layout|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 3 months)
+Change Failure Rate: Elite Performer (13%)
+Analyzing facebook/create-react-app with deployment=tags, failures=issues
+Completed facebook/create-react-app in 3176s (25/74)
+----|facebook/create-react-app|----
+Deployment Frequency: High Performer (Average: 5 days)
+Lead Time for Changes: Low Performer (Average: 3 months)
+Mean Time to Recover: Critically Low Performer (Average: 5 months)
+Change Failure Rate: Elite Performer (4%)
+Analyzing electron-userland/electron-builder with deployment=tags, failures=issues
+Completed electron-userland/electron-builder in 1791s (26/74)
+----|electron-userland/electron-builder|----
+Deployment Frequency: High Performer (Average: 1 day)
+Lead Time for Changes: Low Performer (Average: 5 months)
+Mean Time to Recover: Critically Low Performer (Average: 4 months)
+Change Failure Rate: Elite Performer (0%)
+Analyzing netlify/netlify-cms with deployment=tags, failures=issues
+Found duplicate SHA (363819823e66cf6ae6e91a87e041404ee1abbde1/d6152df7da7477d1899e352b27604a196c75ecb4/netlify-cms@2.10.1) exists already
+Found duplicate SHA (135fd553d2d59a3a8d29767ea9f8089d08afa4cf/ae9c0406fa38066b4a92435f4a261dc3d607f8d9/netlify-cms@2.10.1) exists already
+Found duplicate SHA (01b950e7498d0ca3607da1444219f930fa6873e9/b707418e2edc0e88617935e7eed1b86f63777009/netlify-cms@2.10.1) exists already
+Completed netlify/netlify-cms in 2644s (27/74)
+----|netlify/netlify-cms|----
+Deployment Frequency: Elite Performer (Average: 23 hours)
+Lead Time for Changes: Low Performer (Average: 2 months)
+Mean Time to Recover: Critically Low Performer (Average: 4 months)
+Change Failure Rate: Elite Performer (1%)
+Analyzing xbmc/xbmc with deployment=tags, failures=issues
+Completed xbmc/xbmc in 4383s (28/74)
+----|xbmc/xbmc|----
+Deployment Frequency: Medium Performer (Average: 3 weeks)
+Lead Time for Changes: Medium Performer (Average: 4 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 4 months)
+Change Failure Rate: High Performer (28%)
+Analyzing software-mansion/react-native-reanimated with deployment=tags, failures=issues
+Completed software-mansion/react-native-reanimated in 2280s (29/74)
+----|software-mansion/react-native-reanimated|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: Low Performer (48%)
+Analyzing mlflow/mlflow with deployment=tags, failures=issues
+Completed mlflow/mlflow in 5066s (30/74)
+----|mlflow/mlflow|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: Critically Low Performer (61%)
+Analyzing canonical/multipass with deployment=tags, failures=issues
+Completed canonical/multipass in 3180s (31/74)
+----|canonical/multipass|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Low Performer (Average: 2 months)
+Mean Time to Recover: Critically Low Performer (Average: 4 months)
+Change Failure Rate: High Performer (29%)
+Analyzing rust-lang/rustfmt with deployment=tags, failures=issues
+Completed rust-lang/rustfmt in 5009s (32/74)
+----|rust-lang/rustfmt|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 3 months)
+Change Failure Rate: Low Performer (56%)
+Analyzing vmware/clarity with deployment=tags, failures=issues
+
+Starting study DORA Paper from Aug 16 1990 to Nov 16 2022
+Analyzing ether/etherpad-lite with deployment=tags, failures=issues
+Completed ether/etherpad-lite in 2538s (1/73)
+----|ether/etherpad-lite|----
+Deployment Frequency: Low Performer (Average: 2 months)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 1 year)
+Change Failure Rate: Critically Low Performer (67%)
+Analyzing python-pillow/Pillow with deployment=tags, failures=issues
+Completed python-pillow/Pillow in 2550s (2/73)
+----|python-pillow/Pillow|----
+Deployment Frequency: Low Performer (Average: 1 month)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 1 year)
+Change Failure Rate: Low Performer (60%)
+Analyzing vuejs/vue with deployment=tags, failures=issues
+Completed vuejs/vue in 2090s (3/73)
+----|vuejs/vue|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 5 months)
+Change Failure Rate: High Performer (30%)
+Analyzing grpc/grpc-java with deployment=tags, failures=issues
+Completed grpc/grpc-java in 2640s (4/73)
+----|grpc/grpc-java|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 4 months)
+Change Failure Rate: Low Performer (46%)
+Analyzing apollographql/apollo-client with deployment=tags, failures=issues
+Completed apollographql/apollo-client in 2665s (5/73)
+----|apollographql/apollo-client|----
+Deployment Frequency: High Performer (Average: 2 days)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 3 months)
+Change Failure Rate: High Performer (15%)
+Analyzing yarnpkg/yarn with deployment=tags, failures=issues
+Completed yarnpkg/yarn in 2604s (6/73)
+----|yarnpkg/yarn|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 1 week)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: Medium Performer (31%)
+Analyzing pypa/pipenv with deployment=tags, failures=issues
+Completed pypa/pipenv in 7385s (7/73)
+----|pypa/pipenv|----
+Deployment Frequency: High Performer (Average: 6 days)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 1 month)
+Change Failure Rate: High Performer (22%)
+Analyzing vuejs/vue-cli with deployment=tags, failures=issues
+Completed vuejs/vue-cli in 2101s (8/73)
+----|vuejs/vue-cli|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: Medium Performer (35%)
+Analyzing obsproject/obs-studio with deployment=tags, failures=issues
+Completed obsproject/obs-studio in 2093s (9/73)
+----|obsproject/obs-studio|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 5 months)
+Change Failure Rate: Medium Performer (40%)
+Analyzing secdev/scapy with deployment=tags, failures=issues
+Completed secdev/scapy in 2500s (10/73)
+----|secdev/scapy|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Low Performer (Average: 4 months)
+Mean Time to Recover: Critically Low Performer (Average: 5 months)
+Change Failure Rate: Elite Performer (6%)
+Analyzing aws/aws-cli with deployment=tags, failures=issues
+Completed aws/aws-cli in 5156s (11/73)
+----|aws/aws-cli|----
+Deployment Frequency: High Performer (Average: 1 day)
+Lead Time for Changes: Medium Performer (Average: 1 week)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: Elite Performer (9%)
+Analyzing python/cpython with deployment=tags, failures=issues
+Found duplicate SHA (104aab956f6de4131cab800f742cc108f9f92edf/620e143bacec06a774752d4d8650df884eb666ed/v3.3.3rc1) exists already
+Found duplicate SHA (8270a2c209836c49fb2909c3af6117c46439b86e/93f14c6ccb3e68f41c30cf4957466f4b19888c12/v3.3.3rc1) exists already
+Found duplicate SHA (58bf8d2a688cf0fe180ed929568d0294a32ef5de/7be0d2cc552bf0c74199ddb70698cc6f7ffbb79d/v3.3.3rc1) exists already
+Found duplicate SHA (505be2146fcee88b71899136a808173f588f9628/7be0d2cc552bf0c74199ddb70698cc6f7ffbb79d/v3.3.3rc1) exists already
+Found duplicate SHA (945a251e4ab8b4ebbb77604a64fa9b53b725ec6c/f9f58758ac29267b1f9afaa8c4799864db41c846/v3.3.3rc1) exists already
+Found duplicate SHA (db4309e19ad829635a84b6d3a002ce760c6f5dca/76fe5bfd5d6c6af663a0921004165ab2916b180f/v3.3.3rc1) exists already
+Found duplicate SHA (c5884d893033a5e16fb50bdde5cf42b07dc708f0/4918bb1fd76d4fe01d3ff354b8c769ed24d9e8a4/v3.3.3rc1) exists already
+Found duplicate SHA (c17a8dfaca76016202c49b2150c946f5ba70db29/3b5c9420649bfeb71630c089602113d53bca3efd/v3.3.3rc1) exists already
+Found duplicate SHA (bc75046bb3a8bd1e07547e99c8958c54ec16b9fb/8708e67569f0d41de505700caea72fe457982d0f/v3.3.3rc1) exists already
+Found duplicate SHA (86d53caddad11808ca332ab93ec35508b602a0dd/8c49b7e47b1ccfe6ee7e332e0f551b841bdea275/v3.3.3rc1) exists already
+Found duplicate SHA (8833c3bcd17f7a16688bfaa8d4776318e85e64d4/85a47be8d52f4949ca0f46f4aa5d2c7ed466a812/v3.3.3rc1) exists already
+Found duplicate SHA (fbf648ebba32bbc5aa571a4b09e2062a65fd2492/ec16ff9a35e6e27031214884cdb83982bf81837d/v3.3.4rc1) exists already
+Found duplicate SHA (f60b7df9f8dd1df21921aa124a30bfd4fe9714b2/564b680dfcd37d8c9889a16e46a972994d26e8d6/v3.3.4rc1) exists already
+Found duplicate SHA (7ec3e56bb8923ed17614c2f37ca9c2020bdabac5/11670765317c4e69922da16d7476976489610de6/v3.3.4rc1) exists already
+Found duplicate SHA (7b5d6adb2853c92bacba92fe18652d8659148051/6fc1fc1b09e51ba17a80efbbfd0583f00ad49388/v3.3.4rc1) exists already
+Found duplicate SHA (bd26d86d7458897b681b3a5d614cfd6e42eb70cb/e951f3e722a5a68a09aaa1ea488d5e945f5a22ec/v3.3.4rc1) exists already
+Found duplicate SHA (93912b9e542f90c2700a0560e127b6de5c36dcf0/f910d29121a17485c45fb6ca79a5538784a4f558/v3.3.4rc1) exists already
+Found duplicate SHA (32bf5e1273621c926e21274afec12f4fea97fb03/6e3128f3c0a468690132f8700a5c105671992c7c/v3.3.4rc1) exists already
+Found duplicate SHA (04e9de40f380b2695f955d68f2721d57cecbf858/bb06b5a8ae2e8378e1489d4c47c11e0ec805043d/v3.3.4rc1) exists already
+Found duplicate SHA (ee7f3fc58639854317dd5fa1b95c4b199e35c035/fca506df54be14c6cf0a28b9af3c7d6882f87ff2/v3.3.4rc1) exists already
+Found duplicate SHA (35aca89617c14e0a15f728e4991eac8c01ccf170/5ed84221ecafa58a4df31d12d257d4df762110c8/v3.3.4rc1) exists already
+Found duplicate SHA (1b94030b370db589286c731c708ab7742a918055/53fda16df75dfba217f051279c6e895a7f8cacf9/v3.3.5rc1) exists already
+Found duplicate SHA (f6218a21911a358e582805ef2c190b4c56caba7e/2ec9e8f951fd9bd6742d220bdeb914b1a4cc892b/v3.3.5rc1) exists already
+Found duplicate SHA (d9bed99fcb744c3bb5a0d027462a667dceac9795/360577dc117a892d3e8fe39bb32af062228f897f/v3.3.5rc2) exists already
+Found duplicate SHA (c4dc43eaf4f192fb1698b7d1e80e02c60272a0f4/32356a675067aafb53a0d76d4677b26f517e8c99/v3.5.0b1) exists already
+Found duplicate SHA (4cbb9e647ba17d267e701a60903e7a37b7192245/7f07fda2eb7dce65bcf08b58de47edfcca60caa7/v3.5.0b1) exists already
+Found duplicate SHA (571164f96f5e131a2b1ec0feabea1de2d5f44af8/a6b7f1ad938f42856c1e1603b4b9723819539a91/v3.5.0b1) exists already
+Found duplicate SHA (a6f6a68368012bf043d560362ff614c930473736/95aa35ddc6b6ff8f42c0545fc5e7555bd8145651/v3.5.0b1) exists already
+Found duplicate SHA (43cba219d520d6c7449ac2900ca9528efa745c09/8b327a119cf52ef59419a0089e6dd5ebbe7ac4b7/v3.5.0b1) exists already
+Found duplicate SHA (7bf0d5a759fb60170f305e0a4f3a5ad9c0882e67/d28bf6d950a6a0486ea1f1ec062614d95488b7a4/v3.5.0b1) exists already
+Found duplicate SHA (c4ae86e47730a4466a8d6ebae4c5531bf1dfca3b/e82e9e0daf65105e12c9bf87ccca09e25d5d8679/v3.5.0b1) exists already
+Found duplicate SHA (9ecf9e294407feaa1b01157123989dc33dcc7bef/1f8002b98bd7dd4aee23343e79f71d6eff7251e0/v3.5.0b1) exists already
+Found duplicate SHA (4faf5c5655277cec99b2b11f7fe34e73d3ae28b9/a02df33cf0ad0fcbf76fa54884b6e465b22982bc/v3.5.0b1) exists already
+Found duplicate SHA (0978b5cdb36ef73061e438c342b508dd38c73ce8/5bf16f6cf353a772e0c5dfd94f626650db3d59e2/v3.5.0b1) exists already
+Found duplicate SHA (bf341fb5f6016ca5c79cee01211631ab5a01c5cf/7bbc93fb56701401f386b837be9b3569cd5064b4/v3.5.0b1) exists already
+Found duplicate SHA (08d230a5408e9fac3adbb357f5fb4a43958991d4/2d343137988dec271eeb2f9e1b9832e1e4039a87/v3.5.0b1) exists already
+Found duplicate SHA (df9ba3623a1fcb745199b723ffd68e63f7a31153/a776a0b1b94f740bd5e95a7e43c92287bcb057d0/v3.5.0b1) exists already
+Found duplicate SHA (ef94869f4fba32cbae214e4763a61e69d0cdad12/114636d06aed10ec76f5188bde0d74b62aaaf028/v3.5.0b1) exists already
+Found duplicate SHA (c0e0022f079348f74ad6ecfc40ff8264c0cede74/97200a5134abd8d0a14688fc02d984b43e8156af/v3.5.0b1) exists already
+Found duplicate SHA (cbfe07e06cb460986b37604bc32dad407cb33f62/c22e1c734448317267f8ef17e13dff32206cfa5c/v3.5.0b1) exists already
+Found duplicate SHA (2545411e2848c50bd4f7345fc76e9d24cd063d32/f53ee9b4d3d5331ca4b66d867cb473b1602e498c/v3.5.0b1) exists already
+Found duplicate SHA (637144603621d1aa1a702d925de29c480b9f82e9/c873b320f2167e6238917e32bc6e9fe46399e8c5/v3.5.0b1) exists already
+Found duplicate SHA (f6d1f1fa8a503f218a2103ba1e6768c6cfdb7c50/1a89fa65ff2e86954e2cc26992c27eee7b64885b/v3.5.0b1) exists already
+Found duplicate SHA (5d6b7b1cb7943255b8682ea3663ce2c0da500e96/acdb7b47be04522a06c41b4e4f119d42c460a328/v3.5.0b1) exists already
+Found duplicate SHA (ae760c0a2ccd5557bfd915c947dfbcd3ed64fd60/a690b5ae223eadd1f3b0909ec0c3a8b7ebb5aaad/v3.5.0b1) exists already
+Found duplicate SHA (0a29e898cd9f8ca49008baba8e739422fd9276a8/a79581d2264bc4e540fd87f058671ea70184b6e8/v3.5.0b1) exists already
+Found duplicate SHA (7e29eea9266ab465ac0b7248bcca965bfa3fa737/10d66ff4f9da0474e0cf90fc201841c489b6b9b0/v3.5.0b1) exists already
+Found duplicate SHA (315e104d11c36b9f4de0a125d639e834e06ed3e6/5d669aafa5778807dc4537711582867d778521c9/v3.5.0b1) exists already
+Found duplicate SHA (5bf3120e244575189cb7090a0fb6026036f1f979/fc91369e471323e93eab77d5a56874f68dc4ad84/v3.5.0b1) exists already
+Found duplicate SHA (2a8baed833f70f074252e72b9062b76b35cc422f/eb274a348e3f7fe95979fb2625dd49568b18294c/v3.5.0b1) exists already
+Found duplicate SHA (ed9ed7fdc6648e9d6428031ecafc9c03aff31539/a61ff64e3d29314dd7a4fcfa84dfb7879085940b/v3.5.0b1) exists already
+Found duplicate SHA (ca7fecb0389466ef1b995e69c92ea076d4c52498/e9fe602e65f648e7b60a44d82164f054824656ec/v3.5.0b1) exists already
+Found duplicate SHA (d986563a06409ec36f8f580453fbeda96e695d3f/e588f91f7c1d7760ab34dc9954901ea260146694/v3.5.0b1) exists already
+Found duplicate SHA (6558190e52748428b2db1420bf029b0745e2743a/53eb82cc4980f60e4d15ec943ec4eb8ba39d259c/v3.5.0b1) exists already
+Found duplicate SHA (0e8168c9e51ffc7a436ca4e5b15aaec261094837/f1f45498f714b0abd85db20394118a448832ab00/v3.5.0b1) exists already
+Found duplicate SHA (610a51f364f6cb5ffb5167d9bf4dcecc1815107c/f16034d6f6a21ba5390fd0574d9b8d98a0d25d7c/v3.5.0b1) exists already
+Found duplicate SHA (031d0640cde8c25229cfd536c61ea1c7450b10a9/350d07ebcadf237c10797fdaf722f02669877b50/v3.5.0b1) exists already
+Found duplicate SHA (296c66e21cf21c2b4eada43432d734e9bccc07b4/49e41d171e657b63352117cbe1ce34f73f25cb81/v3.5.0b1) exists already
+Found duplicate SHA (a0b8a508c9ae00c1b9f93b9b0a480fa3d2c5ee97/1c41e34d8a7c5907c690da5a6c15b4a87b0dce25/v3.5.0b1) exists already
+Found duplicate SHA (5dbb40ff17ef63f083ee20114d640c2fbfba235b/e2215e2c78826bee0b37a6c3d410c47e9f2042e1/v3.5.0b1) exists already
+Found duplicate SHA (75fb816c78be5668d5274df9c9a0c26d841339ad/93e807b367e80ddbe79b651090ef0a7e579eeab0/v3.5.0b1) exists already
+Found duplicate SHA (a7d00c207fbeb8ee51b56ed388ed38e37df0c04e/81d92d92eb2d5f92cbe7af4e6aed8fa5d1c12050/v3.5.0b1) exists already
+Found duplicate SHA (2733618fd933bebc5a1c33437135b2cc3aacb018/817b9abc8cd3f6c33ca4f60813c421ef9dffebd2/v3.5.0b1) exists already
+Found duplicate SHA (038c16b9a07b0905cef4760e5a5e92e322f56396/b1231192eb19b265de5c19733c6370be83353cd7/v3.5.0b1) exists already
+Found duplicate SHA (82796193f9d8a4f5f85f438bd8b9a5a0efbbaabe/49de3d53545d86f5868ff47ff97dcaf82a31c129/v3.5.0b1) exists already
+Found duplicate SHA (3afdb2870ff83ebb32a8c19260be7ced0567ac66/09b2e33ce2c908edb94ace8ba7d07bc392a813d8/v3.5.0b1) exists already
+Found duplicate SHA (2249d9f7d6527765d1f47c24cec4e58ee29e06ef/e9ba15b517aa30d6790bbed0d5a8d43dec3b120a/v3.5.0b1) exists already
+Found duplicate SHA (0a560a11af0ccc816d1172180f44e5afb34ba600/18bcb02624539651b0c4ef2e9f635b9fdd90838a/v3.5.0b1) exists already
+Found duplicate SHA (c58cca5951ebab752020750e52334300342e54db/e25d258a4c9ea5da4d16de82a2c4f225f5cb751c/v3.5.0b1) exists already
+Found duplicate SHA (d08c363c26f8437dddf3e4babd8065ab3a361518/d95c22d35e237d8f48807f762c95890942e5c7eb/v3.5.0b1) exists already
+Found duplicate SHA (3a81f9ba46005e6876310283a67379d50304ebca/22521eeffba78de35a7c7cc74759bdb0c4bf2894/v3.5.0b1) exists already
+Found duplicate SHA (a3780259e4ca668109a86054696002bc1b2700ce/48febe72c9aefaca115f6293a9ce2bc256d1bef9/v3.5.0b1) exists already
+Found duplicate SHA (19a3f17cb31a294e46ba82a34c887e3f16807505/0c02c8bc21ea101e0bd5cc878c50d9dc48ab0906/v3.5.0b1) exists already
+Found duplicate SHA (e8944cb217747ccf32073aa284dc28ffd1f8dd55/2c5b8bbec1c01a4dc719831d539807fb565480fa/v3.5.0b1) exists already
+Found duplicate SHA (b9db9e152f3325b075e59ef4fdecfd0b9ec4746c/6db909ed5d8dc5ecabb0896fb13ee32655cae57e/v3.5.0b1) exists already
+Found duplicate SHA (c2dd680115b38783dbdf5c84cae932558b35c45b/7c8a2fcb80d4d798a698dab35d167496b3496260/v3.5.0b1) exists already
+Found duplicate SHA (ea6d5592f2964a17b14c1714bb06fe01918323b5/ce8bb8c3500a7c4ff67fffbadc275b6e42506abc/v3.5.0b1) exists already
+Found duplicate SHA (5d87ec256bae0fa279d5640f04ffd3a1e14a91d8/35a016e233ae2c12c05f5222ff0cb1874a65ce8d/v3.5.0b1) exists already
+Found duplicate SHA (d7e19bb566889343f39c34c98bca4d6db61b53d7/0e5da8e2ebc26af986ba3a1f31a60e7f24701459/v3.5.0b1) exists already
+Found duplicate SHA (71854618973f112b54a620cc565cf0bda8e1508a/b8e89e165dc3c31a7c8b57f55fde5fb0107eee4a/v3.5.0b1) exists already
+Found duplicate SHA (1af2bf75a2f816eaaf8353eaab8b6dcfee0064c0/1d6323bfc8336cbddd3f22167f743f1fd988b430/v3.5.0b1) exists already
+Found duplicate SHA (59eb9a4da504315345b5b0d8fb8eebddc22ccb92/95fae97d2794e60dae6e3672cd6b77cb1a43a781/v3.5.0b1) exists already
+Found duplicate SHA (740169cd24fc108913e4480e98e608f0517a7b8a/425d5ceab7d9b183cf938035fac14326193eb123/v3.5.0b1) exists already
+Found duplicate SHA (07abcf58d98f2f2ae36a4cb20331b9e72b36ad4d/2870022b2545035acc9dd125fcd2200cad60e41d/v3.5.0b1) exists already
+Found duplicate SHA (65bcdd7195666e20eb56a7d49b5dd0ee2278e506/93d59eba97385e03424507756bcc58cda19b323d/v3.5.0b1) exists already
+Found duplicate SHA (0171d7faa073ad9716c5548b4362e2092218d657/3ce5bb6d5270532cbe57534ec4ba284dce890489/v3.5.0b1) exists already
+Found duplicate SHA (37c4f78390ae3f2c839b44939446f783b948d9d3/86cf387f6d685a1b09cdfd8e2ad51abdeef669f0/v3.5.0b1) exists already
+Found duplicate SHA (9e77f72fb2b247d7024e37a106ed2791bb7298d7/5a9c24116cf48e0bc3acf8be7a8825f8d2add3b5/v3.5.0b1) exists already
+Found duplicate SHA (b0fc24bff482dcdf923e014bd81639c07f7bdbc6/2870022b2545035acc9dd125fcd2200cad60e41d/v3.5.0b1) exists already
+Found duplicate SHA (01b08836021809de5423410f606495a2551f2aef/2af6050cd7f8e004779dbb7d428fb9cce9e06f61/v3.5.0b1) exists already
+Found duplicate SHA (cd797f91913b95b66a742a1c6b81cb595bfb3c4a/3228d6422165baab5b7aa6f461b4f63066261b4b/v3.5.0b1) exists already
+Found duplicate SHA (ad643b59ce5404fe5d7191fbbf99e2491d74779a/8a7e121ed9a89bd420e939fb3a0c1f3c46077bad/v3.5.0b1) exists already
+Found duplicate SHA (b79e01248dceb398590b30532fca1a75727ce763/dca21226f2bc7cf7ef538ddd8a17d04feceabf73/v3.5.0b1) exists already
+Found duplicate SHA (7e63b36f7f6975b3d7590fc1c12caf04c39b2e7e/f88f0587fb8e26deddca5295b7b67ccad962b264/v3.5.0b1) exists already
+Found duplicate SHA (4b5367c46d8566f018b2b22a76b00063d13d3522/55cf505fb93fa113a78208017d46e8a74389333a/v3.5.0b1) exists already
+Found duplicate SHA (e130503c7bc87023d20a353e2ab5081983a40917/571e6b21e54d0de1a95bce07ea04a87da8dc3854/v3.5.0b1) exists already
+Found duplicate SHA (ab914780ba6165620e3db81d11cb631de58b655a/7ea112691f9fe9b57df91d3a9e88c5f086c5646b/v3.5.0b1) exists already
+Found duplicate SHA (828946e561389105b27cd7e00b4ab0f5e8caa03a/6519f0ac4b014d995e3f8f2b3b1db8e2ad77ed18/v3.5.0b1) exists already
+Found duplicate SHA (e8042e5e98a8a368f7d067683269c7cd0f663dfd/22b4670c41eef2703fd95c9a30221452c3a49d92/v3.5.0b1) exists already
+Found duplicate SHA (d0150ad59ee5bb1be2f5f75c6fef17c23cd00c8b/e3480787ccbf4701cdbc24dfc4c35626180226fd/v3.5.0b1) exists already
+Found duplicate SHA (ac87ed7e9f0239b78459197cee3ddb1d2e77bc58/3728e0c8f8121ab06e340db166a6028643bd541a/v3.5.0b1) exists already
+Found duplicate SHA (8c59816b70a30d8ec2ff4e60a8b4a747f8ff75db/0b7a61bc19ce6916d2923b271ef3b0a4d4aa9fa9/v3.5.0b1) exists already
+Found duplicate SHA (4590c3d944230aff3d1e6810d3113e790922359c/3c151f30897209b51f6071d80d43abb709c42b29/v3.5.0b1) exists already
+Found duplicate SHA (0a9933ebf3704540a5f31225b26acb990e1de4bf/e05535b4c4abf275d0633126f68abc39b8fff7e8/v3.5.0b1) exists already
+Found duplicate SHA (122f4b1bda8262ace6aa021935e8c605a17c3748/c7fb7e9ea78d9b2fba3e282211864b25a78106c6/v3.5.0b1) exists already
+Found duplicate SHA (b9c04db64fd0315a30c4360d7ad33b975d5fbfc1/dacbad7ae3b99b7a08d0c8f206aab1a42227c67a/v3.5.0b1) exists already
+Found duplicate SHA (1dd8e71eb3207a841844ee35520b0e5b458916db/d4cb9d12844e59caafba37f6b5c2d978c8ccdad0/v3.5.0b1) exists already
+Found duplicate SHA (ca40e4315cd91361d29d189b0ee1fd8905dda442/a517c8b14a9860fd5ec37f08ad9d13e1614a9a72/v3.5.0b1) exists already
+Found duplicate SHA (6d877ef0260b4b9bc2d722a6817818c06047e42a/2de5b034e15cf28f47945c3408347bdf5db2f02f/v3.5.0b1) exists already
+Found duplicate SHA (c6249a6268ed4f191c01b28fa5c04417454d6625/5a7d3de97ff45aa16b1a05dc74c74d7253bda6dc/v3.5.0b1) exists already
+Found duplicate SHA (755640bf50074a97e15659abe5478e7300d080cc/171c59ed0fa05c130c5ecfcda5f73bdccbf597a2/v3.5.0b1) exists already
+Found duplicate SHA (a7db0576acd6c90b6e0cb10f35cd3e898330cf01/5a1cdbaa98663bef4a060643e483e0b3863f59d5/v3.5.0b1) exists already
+Found duplicate SHA (bbd95a9361cfa8a97d94f6d598e84dfc5e17a1f6/50c8a9c997dc6fc5a6d3b9736744ac9a99248da0/v3.5.0b1) exists already
+Found duplicate SHA (b0335ee2fec4bcc1ad66400f195efdf1e4696845/667515da7fd4c1afb6522a025e7cbcf009c5e916/v3.5.0b1) exists already
+Found duplicate SHA (2034caa0c41b69fd5d8a30c2567b30260c380a5c/e8e2042bef6eeac94a80bb108fce4ecec9e1af07/v3.5.0b1) exists already
+Found duplicate SHA (8c99a6d6049b87b328073189719d9cc4bfc68b82/18ea0a7383072c6df96a9bb33f9f9ea96b26ca32/v3.5.0b1) exists already
+Found duplicate SHA (64298ae62ef9c8044e175bd4e5062819e1a0f225/18418069dd8af8eb6dea85d44c5943f5efcf2e4b/v3.5.0b1) exists already
+Found duplicate SHA (0c6a5d1debd3bb1ff17161f546748cee916e0e72/c44afa54904260053da21a14ddfbd8e2e022790d/v3.5.0b1) exists already
+Found duplicate SHA (9df36c9456cee5581cae484755147e50f5268f73/4ae2cbc154277cd96361fe4b6a5c305cf69e22f0/v3.5.0b1) exists already
+Found duplicate SHA (7403e91630456ae2a495ac7621c2152d9a270400/0d2fe04211ae97ace56175d1d21bd881e172b01d/v3.5.0b1) exists already
+Found duplicate SHA (f9681776c97757540200b6a0261c89c57c94f580/cce3a7691c20b5bf3bfbefa3a77db30a49a22385/v3.5.0b1) exists already
+Found duplicate SHA (d87dd434c02024a3ea34a21486125929159927e7/45a044fbcc62a5b8956f9d7b14b47c3c6dbd3698/v3.5.0b1) exists already
+Found duplicate SHA (4403d7def0ec8e6b395223fb2ab8b570ecc7a6e4/d238219d075065bc23a3b1a5227dce6a14eea141/v3.5.0b1) exists already
+Found duplicate SHA (9bdd61338d5a03cb2d8a677c646df20f64fef30e/c5e350e95b885ca32a75c6519b1d096cee6ac5aa/v3.5.0b1) exists already
+Found duplicate SHA (d98c6773fa380848b75d55e652b4d5f40ac4d785/401f53ca52ab9edecc34fe873a8309b7d83773ec/v3.5.0b1) exists already
+Found duplicate SHA (bd91ee9cd78ac41ae37ffb06c4d711848cdf4bb0/817b6e662f0406dc156792e33a8c147ab9773393/v3.5.0b1) exists already
+Found duplicate SHA (71f73ca7a9098c678d6bf3073b02228783100665/7aff248bb53ab31fcd67a138fac54c69b47cc7d5/v3.5.0b1) exists already
+Found duplicate SHA (3bd66abb947fa658f57cc9201a59d0b96585d908/16a4c4fd02e5ec52b99fd232453bf95366d8acff/v3.5.0b1) exists already
+Found duplicate SHA (3d2198c85bb9bd6cb7d5b1a1e84f1e54a4bb5cb4/f007878f58ad5134432f97170455f1c40263eb0b/v3.5.0b1) exists already
+Found duplicate SHA (34e006031aac2c2263cef382c55a2e38b2d1b054/0905b4ef6b1e6c8e9a6ff1b0a4a5ddac7652084c/v3.5.0b1) exists already
+Found duplicate SHA (2097f53ec39f5214e2f2739aa508e11d15df283e/cd8147081219071ac2ab266f20335ae0f7a7aba4/v3.5.0b1) exists already
+Found duplicate SHA (4e1f355c0e90b7f7ebf05643a7ff5b75c5fb45ef/cd8147081219071ac2ab266f20335ae0f7a7aba4/v3.5.0b1) exists already
+Found duplicate SHA (d73aca769f1f6eebb46faa9161cbebe806db3659/4926e7de3ff147e355d6a320ce84b34064c0dc02/v3.5.0b1) exists already
+Found duplicate SHA (ac22c6b923d12e2b9069324c82a95d2353d0cd28/a3a786903e916e49c11166c3f7e47b36771cc0ef/v3.5.0b1) exists already
+Found duplicate SHA (462c357d70cf499f82349c6839c624e4f3026a49/35ddf943b5e73cd88470ab41a12e803ccb7ac194/v3.5.0b1) exists already
+Found duplicate SHA (b6076fb13c6bf97f4fae76da478a26e0f4f24879/243a34f55c5010dffc438d230744160cca3946f8/v3.5.0b1) exists already
+Found duplicate SHA (3af7a38c616869b1d195add43b43e8af118e6a31/dd53d1488dba4b9f94acd6f6dbb027aed28cbc3f/v3.5.0b1) exists already
+Found duplicate SHA (333518e01df0ce011962ca8629e766a59316e1cb/fb655895017f40dad04e9c408651b58438a7c845/v3.5.0b1) exists already
+Found duplicate SHA (77e8311deb1db0e823a9ac0d16ce3c0d557453fa/80726b9ba37f89709382018157b6158725ae7c4f/v3.5.0b1) exists already
+Found duplicate SHA (6de708fd46207f6af67d4c0e8902f0d56ea4495c/6470dd3b8407b7607d397be7f9b644d9a3ae060f/v3.5.0b1) exists already
+Found duplicate SHA (2ef7c478444f453a04ae63ecc3d3de07915ad2b0/479832287246711bcf318b1095ef28453cba4f06/v3.5.0b1) exists already
+Found duplicate SHA (2b0d2007a1a51a15a67dc7297cf5e21c8767b563/a74a366e6a10d1ad6c748c198f5eab707bcd684b/v3.5.0b1) exists already
+Found duplicate SHA (0bd16bc4cdbb896e6f201f14e43fd44580024362/62f598eb0b83df58637165864996cbd3ece2a148/v3.5.0b1) exists already
+Found duplicate SHA (cdbe29902e39cc575204ae1ac13505f3a699b8ba/bde983a5ceafc70aeecd3023b6fc22f7a646ce5d/v3.5.0b1) exists already
+Found duplicate SHA (16b2e4f5480bb46a025f9d3a917a923e7f7f59f1/cd7f2191a82666987f84b9a909191c300871dc20/v3.5.0b1) exists already
+Found duplicate SHA (03395687532243d3aae9b7a56a344080dcb959a4/0b6b39ca494c8f04750cc670cd4bfbea662a35f4/v3.5.0b2) exists already
+Found duplicate SHA (f28fa66351fe93b3fcdc98c7f35f05573ea93df2/c52a3935d7cd4aad9266eb143c91b6baaa90d107/v3.5.0b2) exists already
+Found duplicate SHA (fa494fd88384acc52cf9292d0c89e2961c8f747f/3a14b2178a8ec16a188e8f4522a16179dde0816e/v3.5.0b2) exists already
+Found duplicate SHA (50451eb91232b0e90c677419db19ed7b33a698a9/24528d4a69806c514dccce3e982316f291e28c7e/v3.5.0b2) exists already
+Found duplicate SHA (1ad08a5555c9bbaa834104e76de9dd1227f6e1e3/5388833b3e1300b44d2e413a0228f283df8c09e0/v3.5.0b2) exists already
+Found duplicate SHA (72c24002b39e454d68b8581f0c928ae48bf88f5a/ce7ffb414496c12de2787c41432acbcfa42c7439/v3.5.0b2) exists already
+Found duplicate SHA (68fe9aa58c139e3a6f8c9188760bb237added7d6/c426ee84967a2cee67825da30d86ec2485974eb5/v3.5.0b2) exists already
+Found duplicate SHA (46c759d76d02cb873bae55fac37dfe71750e3bef/285c9953b200193475ecbcbbaa5735191f8f5e50/v3.5.0b2) exists already
+Found duplicate SHA (ca208a03f9c8db0ee66db70f13be06d970c27d9b/3ff94e65ba6fddd64855d20ca9c4f813047fd96b/v3.5.0b2) exists already
+Found duplicate SHA (82d8f06fcd1926906de0ee5ff1154476b7a37ae8/d1f4da06bb50c2a5a4380b2582a0f8fa0df249f9/v3.5.0b2) exists already
+Found duplicate SHA (410d77f230078900371d67eaec9ce190a67828ee/b3398a5dd0c7fa0b6a36e54f00105ebe8baf735d/v3.5.0b2) exists already
+Found duplicate SHA (387729e183365a366c48fce7a9abfcaf4ec6ff4e/05422ac787528e8f4d1259e4dc3eaf47f3ed325e/v3.5.0b2) exists already
+Found duplicate SHA (a12d92bec1858a76f2c5519bce07c8a00a891207/781a56e3907333a0e770abf4f261742f47ff4a0f/v3.5.3rc1) exists already
+Found duplicate SHA (10bc0f6edf4c24bffe13a0f7aae060ea477aad1e/ed1fa604d4c0b9e84592db66888ae724711d5c0d/v3.5.3rc1) exists already
+Found duplicate SHA (5295532adb9d33970dd0f3370ab45c4e3bc3757c/785b2e3ef2731dbc6c56c3345dd336b6c15d0fb8/v3.5.3rc1) exists already
+Found duplicate SHA (432ea4ff375f920fa4a469d34e5dad56fb33f915/9946fc99089e647323ee5fca45c5d57bb06c0078/v3.5.3rc1) exists already
+Found duplicate SHA (5e4aafa258fa85d1aebf469ddf8f5d43b7671c38/3cec8c7335c68c80307686c68c84e5b160f859f3/v3.5.3rc1) exists already
+Found duplicate SHA (40a77c33819606b40ca04f680a06fcf31e2151a6/88263114d1c69441cd10c3b4424327f870b47673/v3.5.3rc1) exists already
+Found duplicate SHA (59b6abd38c04472a256b1b04e8709defb29e44ef/258e2667fd63323f148e633ad8926efddb93dbb8/v3.5.3rc1) exists already
+Found duplicate SHA (c6c2217f2770c3791310a930a05eb4e60bb33282/e4b837dfc1e1383ad58cf597b7d0ac4fddf58730/v3.5.3rc1) exists already
+Found duplicate SHA (436fe5a447abb69e5e5a4f453325c422af02dcaa/5cb00deafa65cfe9766a69ce5ed055f01f877972/v3.5.3rc1) exists already
+Found duplicate SHA (a0b2568627e061f9dd8a31df665e97fdcf4b531d/fb3695fc039f3bec91429f473297fbbb4a3c319f/v3.5.3rc1) exists already
+Found duplicate SHA (b7b5d35545d2d078e868cbda485bc4651edec4ff/d1a292b056fadd3f2bf64c0dc916769844b381a4/v3.5.3rc1) exists already
+Found duplicate SHA (8cf14964c69723202c201c0cde082766c0692f2d/169b85fcf41dda2b75492110839500ab1da26bad/v3.5.3rc1) exists already
+Found duplicate SHA (ad04a85aff8920661180a3be656c2f89e38730e1/ef243032ef145d5859f18a6b061794527d86e356/v3.5.3rc1) exists already
+Found duplicate SHA (ede9a0ffa23392a35c5ae5f1688b83c180dbbf08/339616d0eed4dc4abc43eb75f07056f20b152911/v3.5.3rc1) exists already
+Found duplicate SHA (8e362213df578d33252cc2da31947477d137493a/f59da7c737a9314b762e9080cf3b29f016811ad3/v3.5.3rc1) exists already
+Found duplicate SHA (91058707cfd95f65f844f74a7f8e7c208e53bc22/6c923b590cda7587ecb88b496410a6158d8bd785/v3.5.3rc1) exists already
+Found duplicate SHA (ea684921c2b829f112f7f55d811ca840a461eb3b/517960bca8b55da5c6dfc9eeda0151b254445622/v3.5.3rc1) exists already
+Found duplicate SHA (4b9e75ba7f5d2f0baf0603eed9b4029af8e82ff3/416660b0fd62bf19710111532f60c79f21e10ebf/v3.5.3rc1) exists already
+Found duplicate SHA (06d49bb89584921d17f3309530fc9544ef5b88c3/002dff1492a9ee485118e9b52e9cf47c0bec632e/v3.5.3rc1) exists already
+Completed python/cpython in 24994s (12/73)
+----|python/cpython|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Low Performer (Average: 2 months)
+Mean Time to Recover: Critically Low Performer (Average: 8 months)
+Change Failure Rate: High Performer (23%)
+Analyzing pixijs/pixijs with deployment=tags, failures=issues
+Completed pixijs/pixijs in 2942s (13/73)
+----|pixijs/pixijs|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 4 months)
+Change Failure Rate: Medium Performer (41%)
+Analyzing grafana/k6 with deployment=tags, failures=issues
+Completed grafana/k6 in 7084s (14/73)
+----|grafana/k6|----
+Deployment Frequency: Low Performer (Average: 1 month)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 5 months)
+Change Failure Rate: Critically Low Performer (81%)
+Analyzing Budibase/budibase with deployment=tags, failures=issues
+Completed Budibase/budibase in 7191s (15/73)
+----|Budibase/budibase|----
+Deployment Frequency: Elite Performer (Average: 17 hours)
+Lead Time for Changes: Medium Performer (Average: 1 week)
+Mean Time to Recover: Low Performer (Average: 2 weeks)
+Change Failure Rate: High Performer (25%)
+Analyzing kubernetes/kops with deployment=tags, failures=issues
+Completed kubernetes/kops in 6015s (16/73)
+----|kubernetes/kops|----
+Deployment Frequency: Medium Performer (Average: 1 week)
+Lead Time for Changes: Medium Performer (Average: 4 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 3 months)
+Change Failure Rate: Low Performer (49%)
+Analyzing framer/motion with deployment=tags, failures=issues
+Completed framer/motion in 3888s (17/73)
+----|framer/motion|----
+Deployment Frequency: High Performer (Average: 2 days)
+Lead Time for Changes: Medium Performer (Average: 1 week)
+Mean Time to Recover: Critically Low Performer (Average: 3 months)
+Change Failure Rate: High Performer (22%)
+Analyzing ethereum/go-ethereum with deployment=tags, failures=issues
+Completed ethereum/go-ethereum in 3115s (18/73)
+----|ethereum/go-ethereum|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Medium Performer (Average: 2 weeks)
+Mean Time to Recover: Critically Low Performer (Average: 7 months)
+Change Failure Rate: High Performer (24%)
+Analyzing dgraph-io/dgraph with deployment=tags, failures=issues
+Completed dgraph-io/dgraph in 15500s (19/73)
+----|dgraph-io/dgraph|----
+Deployment Frequency: Medium Performer (Average: 2 weeks)
+Lead Time for Changes: Low Performer (Average: 1 month)
+Mean Time to Recover: Critically Low Performer (Average: 2 months)
+Change Failure Rate: Medium Performer (40%)
+Analyzing MaaAssistantArknights/MaaAssistantArknights with deployment=tags, failures=issues
+

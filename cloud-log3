@@ -1,0 +1,43 @@
+brennan@haleiwa:~/dora (main *%=)$ node initialize_compute_instances.js paper3.json
+Initializing 5 workers
+Downloading and running install script
+Completed install 5
+Completed install 0
+Completed install 2
+Completed install 3
+Completed install 4
+Completed install 1
+Cloning brennanwilkes/dora repo
+Copying config file to scheduler
+Copying worker keys to scheduler
+Copying scheduler key to workers
+Copying custom config files to workers
+Bucket 0 total weight: 33759
+Bucket 1 total weight: 33661
+Bucket 2 total weight: 33658
+Bucket 3 total weight: 33759
+Bucket 4 total weight: 33759
+Distributing 60 repos to worker 0 (avajs/ava, golangci/golangci-lint, pyinstaller/pyinstaller, scrapy/scrapy, crossplane/crossplane, tusen-ai/naive-ui, huggingface/transformers, secdev/scapy, aws/aws-cli, spring-projects/spring-security, vmware-tanzu/velero, the1812/Bilibili-Evolved, bytecodealliance/wasmtime, kubernetes/kops, etcd-io/etcd, wesnoth/wesnoth, PHP-CS-Fixer/PHP-CS-Fixer, containerd/containerd, celery/celery, PrefectHQ/prefect, darkreader/darkreader, sequelize/sequelize, software-mansion/react-native-reanimated, clap-rs/clap, canonical/multipass, NixOS/nix, pnpm/pnpm, apache/skywalking, sass/libsass, streamlit/streamlit, huggingface/datasets, timescale/timescaledb, keepassxreboot/keepassxc, matplotlib/matplotlib, hasura/graphql-engine, amplication/amplication, citusdata/citus, twbs/bootstrap, wagtail/wagtail, grpc/grpc, tikv/tikv, ionic-team/ionic-framework, milvus-io/milvus, gravitational/teleport, gitpod-io/gitpod, mattermost/focalboard, lensapp/lens, kata-containers/kata-containers, opencv/opencv, wordpress-mobile/WordPress-iOS, hashicorp/packer, mui/material-ui, microsoft/terminal, nextcloud/server, ClickHouse/ClickHouse, angular/angular-cli, go-gitea/gitea, angular/components, microsoft/TypeScript, elastic/kibana)
+Distributing 59 repos to worker 1 (storybookjs/storybook, puppeteer/puppeteer, grpc/grpc-java, teambit/bit, vuejs/vue-cli, caddyserver/caddy, halo-dev/halo, python/cpython, pixijs/pixijs, matrix-org/synapse, LMMS/lmms, yiisoft/yii2, nlohmann/json, ethereum/go-ethereum, microsoft/playwright, operator-framework/operator-sdk, phalcon/cphalcon, hyperf/hyperf, mermaid-js/mermaid, mozilla-mobile/firefox-ios, NativeScript/NativeScript, swaywm/sway, localstack/localstack, rust-lang/rustfmt, python-poetry/poetry, taichi-dev/taichi, filamentphp/filament, openshift/origin, yt-dlp/yt-dlp, jina-ai/jina, grpc/grpc-go, concourse/concourse, atom/atom, wazuh/wazuh, facebook/jest, cert-manager/cert-manager, serverless/serverless, GoogleContainerTools/skaffold, vitejs/vite, pimcore/pimcore, envoyproxy/envoy, influxdata/influxdb, zulip/zulip, eclipse-theia/theia, prisma/prisma, scikit-learn/scikit-learn, Graylog2/graylog2-server, cilium/cilium, vuetifyjs/vuetify, OpenAPITools/openapi-generator, ant-design/ant-design, swc-project/swc, rapidsai/cudf, StarRocks/starrocks, containers/podman, angular/angular, aws/aws-cdk, pandas-dev/pandas, ansible/ansible)
+Distributing 59 repos to worker 2 (composer/composer, vuejs/vue, mochajs/mocha, nats-io/nats-server, pypa/pipenv, obsproject/obs-studio, youzan/vant-weapp, akveo/nebular, monicahq/monica, reactioncommerce/reaction, tuist/tuist, framer/motion, handsontable/handsontable, MinecraftForge/MinecraftForge, meilisearch/meilisearch, botpress/botpress, angular/flex-layout, ng-bootstrap/ng-bootstrap, VSCodeVim/Vim, laravel/framework, docker/compose, explosion/spaCy, hashicorp/consul, Alluxio/alluxio, facebook/react, Shopify/polaris, starship/starship, rollup/rollup, EasyCorp/EasyAdminBundle, certbot/certbot, webpack/webpack, apache/beam, OpenRefine/OpenRefine, mautic/mautic, apache/superset, wenzhixin/bootstrap-table, bitcoin/bitcoin, spyder-ide/spyder, marmelab/react-admin, dapr/dapr, numpy/numpy, PostHog/posthog, bazelbuild/bazel, redpanda-data/redpanda, pulumi/pulumi, elastic/beats, argoproj/argo-cd, highcharts/highcharts, woocommerce/woocommerce, influxdata/telegraf, TryGhost/Ghost, nrwl/nx, vector-im/element-web, bokeh/bokeh, saltstack/salt, hashicorp/terraform, appsmithorg/appsmith, quarkusio/quarkus, kubernetes/kubernetes)
+Distributing 61 repos to worker 3 (ether/etherpad-lite, aquasecurity/tfsec, python-pillow/Pillow, material-components/material-components-android, yarnpkg/yarn, chaos-mesh/chaos-mesh, wp-graphql/wp-graphql, betaflight/betaflight, Leaflet/Leaflet, uber/baseweb, questdb/questdb, gnuradio/gnuradio, transmission/transmission, twpayne/chezmoi, hashicorp/vault, MaaAssistantArknights/MaaAssistantArknights, google/filament, goharbor/harbor, react-hook-form/react-hook-form, ansible/awx, appium/appium, webdriverio/webdriverio, getsentry/sentry-javascript, TykTechnologies/tyk, elastic/logstash, bootstrap-vue/bootstrap-vue, redwoodjs/redwood, projectdiscovery/nuclei, helm/helm, tailscale/tailscale, dbeaver/dbeaver, apache/echarts, netbox-community/netbox, vitessio/vitess, vuejs/core, vimeo/psalm, GoogleChrome/lighthouse, ipython/ipython, RIOT-OS/RIOT, symfony/symfony, backstage/backstage, keycloak/keycloak, matomo-org/matomo, eclipse/che, tensorflow/tensorflow, prettier/prettier, jhipster/generator-jhipster, rook/rook, opencv/opencv, electron/electron, iterative/dvc, argoproj/argo-workflows, babel/babel, kubernetes/minikube, magento/magento2, musescore/MuseScore, hashicorp/terraform-provider-aws, owncloud/core, grafana/grafana, pingcap/tidb, zephyrproject-rtos/zephyr)
+Distributing 61 repos to worker 4 (tqdm/tqdm, osquery/osquery, alibaba/nacos, jquery/jquery, JanDeDobbeleer/oh-my-posh, stellar/stellar-core, microsoft/onefuzz, Semantic-Org/Semantic-UI-React, wasmerio/wasmer, coder/code-server, freqtrade/freqtrade, Budibase/budibase, kubernetes/dashboard, Dolibarr/dolibarr, dgraph-io/dgraph, prometheus/prometheus, glpi-project/glpi, swagger-api/swagger-ui, zeek/zeek, pytest-dev/pytest, electron-userland/electron-builder, goreleaser/goreleaser, xbmc/xbmc, mlflow/mlflow, kubeedge/kubeedge, micronaut-projects/micronaut-core, pypa/pip, NG-ZORRO/ng-zorro-antd, saleor/saleor, Sylius/Sylius, PCSX2/pcsx2, pydantic/pydantic, portainer/portainer, PX4/PX4-Autopilot, frappe/erpnext, elastic/eui, RasaHQ/rasa, cli/cli, nodejs/node, facebook/docusaurus, sveltejs/svelte, minetest/minetest, strapi/strapi, moby/moby, hashicorp/nomad, typescript-eslint/typescript-eslint, refined-github/refined-github, eslint/eslint, ToolJet/ToolJet, Lightning-AI/lightning, denoland/deno, mishoo/UglifyJS, apache/pulsar, directus/directus, netdata/netdata, sourcegraph/sourcegraph, microsoft/azuredatastudio, PrestaShop/PrestaShop, cockroachdb/cockroach, microsoft/vscode, rust-lang/rust)
+Copying data auth file to scheduler
+Compute instances initialized
+----------------------------
+To authenticate workers:
+ssh -i ~/.ssh/DORA-scheduler_keyPair.pem ubuntu@35.86.246.218 "~/dora/authenticate_compute_instances.sh dora"
+----------------------------
+To access scheduler:
+ssh -i ~/.ssh/DORA-scheduler_keyPair.pem ubuntu@35.86.246.218
+----------------------------
+To access workers:
+ssh -i ~/.ssh/DORA-worker-a_keyPair.pem ubuntu@34.222.146.31
+ssh -i ~/.ssh/DORA-worker-b_keyPair.pem ubuntu@35.89.74.88
+ssh -i ~/.ssh/DORA-worker-c_keyPair.pem ubuntu@54.71.165.23
+ssh -i ~/.ssh/DORA-worker-d_keyPair.pem ubuntu@54.185.57.161
+ssh -i ~/.ssh/DORA-worker-e_keyPair.pem ubuntu@54.191.171.49
+----------------------------
+To start workers:
+ssh -i ~/.ssh/DORA-scheduler_keyPair.pem ubuntu@35.86.246.218 "~/dora/start_compute_instances.sh 'dora' 'ubuntu' '35.86.246.218' '~/.ssh/DORA-scheduler_keyPair.pem'"
+----------------------------
